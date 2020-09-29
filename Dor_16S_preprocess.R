@@ -19,7 +19,13 @@ ENV <- read.csv("QIIME/Dor_metadata.csv",
 #add metadata from names
 ENV<- ENV %>% mutate(Month = factor(gsub("(.*)([0-9])(...)(\\.)","\\3",OUT),
                                        levels =c("Jan", "Feb", "Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec")),
-                    Year = gsub("(Res.)([0-9]).*","201\\2",OUT)) 
+                    Year = gsub("(Res.)([0-9]).*","201\\2",OUT),
+                    Season = case_when(Month %in% c("Dec", "Jan", "Feb") ~ "Winter",
+                                       Month %in% c("Mar", "Apr", "May") ~ "Spring",
+                                       Month %in% c("Jun", "Jul", "Aug") ~ "Summer",
+                                       Month %in% c("Sep", "Oct", "Nov") ~ "Autumn"))
+
+
 #add row.names
 row.names(ENV)<- ENV$OUT
 
