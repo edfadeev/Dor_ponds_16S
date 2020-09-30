@@ -5,6 +5,10 @@ library(dplyr); packageVersion("dplyr")
 library(tidyr); packageVersion("tidyr")
 library(ggplot2); packageVersion("ggplot2")
 
+gm_mean = function(x, na.rm=TRUE){
+  exp(sum(log(x[x > 0]), na.rm=na.rm) / length(x))
+}
+
 tol21rainbow<- c("#771155", 
                  "#AA4488", 
                  "#CC99BB", 
@@ -108,11 +112,11 @@ ggsave("./figures/barplots_cyanos.pdf",
 
 #####################################
 #PCA plot
-PS107_merged.dds <- phyloseq_to_deseq2(Dor_ps.prev, ~1)
-varianceStabilizingTransformation(PS107_merged.dds, blind = TRUE, fitType = "parametric")
-PS107_merged.dds <- estimateSizeFactors(PS107_merged.dds)
-PS107_merged.dds <- estimateDispersions(PS107_merged.dds)
-otu.vst <- getVarianceStabilizedData(PS107_merged.dds)
+Dor_ps.dds <- phyloseq_to_deseq2(Dor_ps.prev, ~1)
+geoMeans = apply(counts(Dor_ps.dds), 1, gm_mean)
+Dor_ps.dds = estimateSizeFactors(Dor_ps.dds, geoMeans = geoMeans)
+Dor_ps.dds <- estimateDispersions(Dor_ps.dds)
+otu.vst <- getVarianceStabilizedData(Dor_ps.dds)
 
 #make sure that the dimensions of the OTU table and the DEseq object are matching
 dim(otu.vst)
@@ -123,26 +127,26 @@ otu_table(Dor_ps.prev.vst)<- otu_table(otu.vst, taxa_are_rows = TRUE)
 
 
 
-PS107.ord <- ordinate(Dor_ps.prev.vst, method = "RDA", distance = "eucledian")
-PS107.ord.df <- plot_ordination(Dor_ps.prev.vst, PS107.ord, axes = c(1,2,3),justDF = TRUE)
+Dor_ps.prev.ord <- ordinate(Dor_ps.prev.vst, method = "RDA", distance = "eucledian")
+Dor_ps.prev.ord.df <- plot_ordination(Dor_ps.prev.vst, Dor_ps.prev.ord, axes = c(1,2,3),justDF = TRUE)
 
 #extract explained variance
-PS107.ord.evals <- 100 * (PS107.ord$CA$eig/ sum(PS107.ord$CA$eig))
-PS107.ord.df$ID <- rownames(PS107.ord.df)
+Dor_ps.prev.ord.evals <- 100 * (Dor_ps.prev.ord$CA$eig/ sum(Dor_ps.prev.ord$CA$eig))
+Dor_ps.prev.ord.df$ID <- rownames(Dor_ps.prev.ord.df)
 
-PS107.ord.p <- ggplot(data = PS107.ord.df, aes(x =PC1, y=PC2, shape = Year, colour = Season))+
+Dor_ps.prev.ord.p <- ggplot(data = Dor_ps.prev.ord.df, aes(x =PC1, y=PC2, shape = Year, colour = Season))+
   geom_point(colour = "black", size = 5)+
   geom_point(size = 4)+
-  scale_colour_manual(values = sample(tol21rainbow)) + 
-  stat_ellipse(data = PS107.ord.df, aes(x =PC1, y=PC2, group = Season, colour = Season), size = 1, type= "t")+
+  scale_colour_manual(values = tol21rainbow) + 
+  stat_ellipse(data = Dor_ps.prev.ord.df, aes(x =PC1, y=PC2, group = Season, colour = Season), size = 1, type= "t")+
   geom_text(aes(label = Month), colour = "black", nudge_y= -0.5,  size=4)+
-  labs(x = sprintf("PC1 [%s%%]", round(PS107.ord.evals[1], 2)), 
-       y = sprintf("PC2 [%s%%]", round(PS107.ord.evals[2], 2)), shape = "Season")+
+  labs(x = sprintf("PC1 [%s%%]", round(Dor_ps.prev.ord.evals[1], 2)), 
+       y = sprintf("PC2 [%s%%]", round(Dor_ps.prev.ord.evals[2], 2)), shape = "Season")+
   theme_classic(base_size = 12)+
   theme(legend.position = "bottom")
 
-ggsave("./figures/RDA_Res.pdf", 
-       plot = PS107.ord.p,
+ggsave("./figures/RDA_Res.png", 
+       plot = Dor_ps.prev.ord.p,
        units = "cm",
        width = 30, height = 30, 
        #scale = 1,
