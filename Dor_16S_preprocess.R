@@ -11,7 +11,7 @@ library(iNEXT); packageVersion("iNEXT")
 #Parse for Phyloseq
 #####################################
 OTU<- read.csv("QIIME/Dor_OTUs_SM.csv", 
-               h=T, sep=";", row.names = "OUT")
+               h=T, sep=",", row.names = "OUT")
 TAX<- as.matrix(read.csv("QIIME/Dor_16S_tax_full.csv",
                          h=T, sep = ",", row.names = "OUT"))
 ENV <- read.csv("QIIME/Dor_metadata.csv", 
@@ -75,7 +75,6 @@ meta <- as(sample_data(Dor_ps), "data.frame")
 meta$site <- rownames(meta)
 rare$Year <- meta$Year[match(rare$site, meta$site)] 
 rare$Month <- meta$Month[match(rare$site, meta$site)] 
-rare$Type <- meta$Type[match(rare$site, meta$site)]
 rare$label <- paste(rare$Year,rare$Month, sep = "-")
 
 rare.point <- rare[which(rare$method == "observed"),]
