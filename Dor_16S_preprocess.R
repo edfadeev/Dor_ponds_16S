@@ -23,7 +23,8 @@ ENV<- ENV %>% mutate(Month = factor(gsub("(.*)([0-9])(...)(\\.)","\\3",OUT),
                     Season = case_when(Month %in% c("Dec", "Jan", "Feb") ~ "Winter",
                                        Month %in% c("Mar", "Apr", "May") ~ "Spring",
                                        Month %in% c("Jun", "Jul", "Aug") ~ "Summer",
-                                       Month %in% c("Sep", "Oct", "Nov") ~ "Autumn"))
+                                       Month %in% c("Sep", "Oct", "Nov") ~ "Autumn")) %>% 
+                mutate(Season = factor(Season, levels = c("Winter","Spring","Summer","Autumn")))
 
 
 #add row.names

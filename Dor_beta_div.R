@@ -31,7 +31,7 @@ tol21rainbow<- c("#771155",
 #####################################
 
 #transform data
-BAC_pruned.ra <- transform_sample_counts(Dor_ps, function(x) x / sum(x))
+BAC_pruned.ra <- transform_sample_counts(Dor_ps.prev, function(x) x / sum(x))
 BAC_pruned.ra.long <- psmelt(BAC_pruned.ra)
 BAC_pruned.ra.long$Abundance <- BAC_pruned.ra.long$Abundance*100
 
