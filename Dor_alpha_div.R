@@ -5,6 +5,7 @@ library("plyr"); packageVersion("plyr")
 library("dplyr"); packageVersion("dplyr")
 library("cowplot"); packageVersion("cowplot")
 library("reshape2"); packageVersion("reshape2")
+library("rstatix"); packageVersion("rstatix")
 
 #load colour palettes
 source('./Scripts/color_palettes.R')
@@ -80,13 +81,18 @@ ggsave("./figures/alpha_seasons.pdf",
        #scale = 1,
        dpi = 300)
 
+#####################################
+#Test statistical differences between Years and Seasons
+####################################
+shapiro.test(sample_data(Dor_alpha)$Chao1)
+#Chao1 richness did not show normal distribution (p < 0.01), thus will be analyzed using Kruskal Wallis test
+kruskal.test(Chao1 ~ Season, data = data.frame(sample_data(Dor_alpha)))
 
-#Chao1 summary
-Dor_alpha.Chao1.agg <- do.call(data.frame, aggregate(Chao1~ Year+Season, as(sample_data(Dor_alpha), "data.frame"), function(x) c(mean = mean(x), se = se(x), median = median(x))))
+Chao1_Wilcox_Season <- as(sample_data(Dor_alpha),"data.frame")   %>%
+  rstatix::wilcox_test(Chao1 ~ Season, p.adjust.method = "BH") %>%
+  add_significance()
 
-#Shanonn summary
-Dor_alpha.Shanonn.agg <- do.call(data.frame, aggregate(Shanonn~ Year+Season, as(sample_data(Dor_alpha), "data.frame"), function(x) c(mean = mean(x), se = se(x),median = median(x))))
-
-#InvSimpson summary
-Dor_alpha.InvSimpson.agg <- do.call(data.frame, aggregate(InvSimpson~ Year+Season, as(sample_data(Dor_alpha), "data.frame"), function(x) c(mean = mean(x), se = se(x),median = median(x))))
-
+kruskal.test(Chao1 ~ Year, data = data.frame(sample_data(Dor_alpha)))
+Chao1_Wilcox_Year <- as(sample_data(Dor_alpha),"data.frame")   %>%
+  rstatix::wilcox_test(Chao1 ~ Year, p.adjust.method = "BH") %>%
+  add_significance()

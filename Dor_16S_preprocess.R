@@ -10,8 +10,8 @@ library(iNEXT); packageVersion("iNEXT")
 #####################################
 #Parse for Phyloseq
 #####################################
-OTU<- read.csv("QIIME/Dor_OTU_table.csv", 
-               h=T, sep=",", row.names = "OUT")
+OTU<- read.csv("QIIME/Dor_OTUs_SM.csv", 
+               h=T, sep=";", row.names = "OUT")
 TAX<- as.matrix(read.csv("QIIME/Dor_16S_tax_full.csv",
                          h=T, sep = ",", row.names = "OUT"))
 ENV <- read.csv("QIIME/Dor_metadata.csv", 

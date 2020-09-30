@@ -99,7 +99,7 @@ barplots_cyanos<- ggplot(BAC_pruned_Cyanos, aes(x = Month, y = Abund.total, fill
   theme(legend.position="bottom")
 
 ggsave("./figures/barplots_cyanos.pdf", 
-       plot = barplots_total,
+       plot = barplots_cyanos,
        units = "cm",
        width = 30, height = 30, 
        #scale = 1,
@@ -133,7 +133,7 @@ PS107.ord.df$ID <- rownames(PS107.ord.df)
 PS107.ord.p <- ggplot(data = PS107.ord.df, aes(x =PC1, y=PC2, shape = Year, colour = Season))+
   geom_point(colour = "black", size = 5)+
   geom_point(size = 4)+
-  scale_fill_manual(values = tol21rainbow) + 
+  scale_colour_manual(values = sample(tol21rainbow)) + 
   stat_ellipse(data = PS107.ord.df, aes(x =PC1, y=PC2, group = Season, colour = Season), size = 1, type= "t")+
   geom_text(aes(label = Month), colour = "black", nudge_y= -0.5,  size=4)+
   labs(x = sprintf("PC1 [%s%%]", round(PS107.ord.evals[1], 2)), 
@@ -141,6 +141,12 @@ PS107.ord.p <- ggplot(data = PS107.ord.df, aes(x =PC1, y=PC2, shape = Year, colo
   theme_classic(base_size = 12)+
   theme(legend.position = "bottom")
 
+ggsave("./figures/RDA_Res.pdf", 
+       plot = PS107.ord.p,
+       units = "cm",
+       width = 30, height = 30, 
+       #scale = 1,
+       dpi = 300)
 
 #significance test
 df <- as(sample_data(Dor_ps.prev.vst), "data.frame") %>% drop_na(Zeaxanthin)
