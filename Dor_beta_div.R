@@ -156,6 +156,6 @@ ggsave("./figures/RDA_Res.png",
 df <- as(sample_data(Dor_ps.prev.vst), "data.frame") %>% drop_na(Zeaxanthin)
 Dor_ps.prev.vst_sub <- prune_samples(row.names(df), Dor_ps.prev.vst)
 d <- phyloseq::distance(Dor_ps.prev.vst_sub, "euclidean")
-adonis_all <- adonis(d ~ Year + Season + Month + Zeaxanthin, df)
+adonis_all <- adonis(d ~ Year + Season + Month , df)
 adonis_all
 
