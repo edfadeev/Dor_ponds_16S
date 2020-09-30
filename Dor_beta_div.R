@@ -99,7 +99,7 @@ barplots_cyanos<- ggplot(BAC_pruned_Cyanos, aes(x = Month, y = Abund.total, fill
   theme(legend.position="bottom")
 
 ggsave("./figures/barplots_cyanos.pdf", 
-       plot = barplots_total,
+       plot = barplots_cyanos,
        units = "cm",
        width = 30, height = 30, 
        #scale = 1,
