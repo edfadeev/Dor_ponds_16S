@@ -1,33 +1,67 @@
-require(DESeq2)
+#load libraries
+library(phyloseq); packageVersion("phyloseq")
+library(vegan); packageVersion("vegan")
+library(tidyr); packageVersion("tidyr")
+library(DESeq2); packageVersion("DESeq2")
+library(ggplot2); packageVersion("ggplot2")
 
 
 gm_mean = function(x, na.rm=TRUE){
   exp(sum(log(x[x > 0]), na.rm=na.rm) / length(x))
 }
 
+tol21rainbow<- c("#771155", 
+                 "#AA4488", 
+                 "#CC99BB", 
+                 "#114477", 
+                 "#4477AA", 
+                 "#77AADD", 
+                 "#117777", 
+                 "#44AAAA", 
+                 "#77CCCC", 
+                 "#117744", 
+                 "#44AA77", 
+                 "#88CCAA", 
+                 "#777711", 
+                 "#AAAA44", 
+                 "#DDDD77", 
+                 "#774411", 
+                 "#AA7744", 
+                 "#DDAA77", 
+                 "#771122", 
+                 "#AA4455", 
+                 "#DD7788")
 
-#DCM EPI
+#####################################
+#Split by seasons
+#####################################
 Dor_winter_spring <- subset_samples(Dor_ps.prev, Season %in% c("Winter","Spring"))
 Dor_winter_spring <- prune_taxa(taxa_sums(Dor_winter_spring)>0,Dor_winter_spring)
 
-#EPI MESO
+
 Dor_spring_summer <- subset_samples(Dor_ps.prev, Season %in% c("Spring","Summer"))
 Dor_spring_summer <- prune_taxa(taxa_sums(Dor_spring_summer)>0,Dor_spring_summer)
 
-#EPI MESO
+
 Dor_summer_autumn <- subset_samples(Dor_ps.prev, Season %in% c("Summer","Autumn"))
 Dor_summer_autumn <- prune_taxa(taxa_sums(Dor_summer_autumn)>0,Dor_summer_autumn)
 
-#EPI MESO
+
 Dor_autumn_winter <- subset_samples(Dor_ps.prev, Season %in% c("Winter","Autumn"))
 Dor_autumn_winter <- prune_taxa(taxa_sums(Dor_autumn_winter)>0,Dor_autumn_winter)
 
+
+Dor_winter_summer <- subset_samples(Dor_ps.prev, Season %in% c("Winter","Summer"))
+Dor_winter_summer <- prune_taxa(taxa_sums(Dor_winter_summer)>0,Dor_winter_summer)
+
+#####################################
 #run DEseq2
-type <- c("Dor_winter_spring","Dor_spring_summer","Dor_summer_autumn","Dor_autumn_winter")
+#####################################
+type <- c("Dor_winter_spring","Dor_spring_summer","Dor_summer_autumn","Dor_autumn_winter", "Dor_winter_summer")
 deseq_res_all <- data.frame()
 enriched_agg_all <- data.frame()
 
-for (i in 1:4){
+for (i in 1:5){
     #run DEseq
     BAC_sed.ddsMat <- phyloseq_to_deseq2(get(type[i]), ~Season)
     geoMeans = apply(counts(BAC_sed.ddsMat), 1, gm_mean)
@@ -74,16 +108,16 @@ enriched_agg_top$Class <- factor(enriched_agg_top$Class, ordered = TRUE,
 enriched_agg_top$Species <- factor(enriched_agg_top$Species, ordered = TRUE,
                                   levels= unique(enriched_agg_top$Species[order(enriched_agg_top$Class)]))
 enriched_agg_top$merging <- factor(enriched_agg_top$merging,
-                                   levels= c("Dor_winter_spring","Dor_spring_summer","Dor_summer_autumn", "Dor_autumn_winter"))
-
-
+                                   levels= c("Dor_winter_spring","Dor_spring_summer","Dor_summer_autumn", "Dor_autumn_winter",  "Dor_winter_summer"))
 
 #plot
-PS99_daOTU.p <- ggplot(data=enriched_agg_top, aes(y=log2FoldChange.mean , x=Species, fill = Class, label = log2FoldChange.count))+ 
+PS99_daOTU.p <- ggplot(data=enriched_agg_top,
+                       aes(y=log2FoldChange.mean , x=Species, fill = Class, label = log2FoldChange.count))+ 
   #geom_point(data=enriched_agg_top, aes(y=log2FoldChange.mean , x=Order, fill = Class, label = log2FoldChange.count), size = 0, shape = 21)+
   geom_text(data=enriched_agg_top,aes(y=log2FoldChange.mean , x=Species), nudge_y= -1.5, nudge_x= 0)+
   geom_errorbar(data=enriched_agg_top,aes(ymin = log2FoldChange.mean-log2FoldChange.se, ymax = log2FoldChange.mean +log2FoldChange.se), width = 0.2) +   
   ylab("log2foldchange")+
+  #scale_y_reverse()+
   geom_point(data=enriched_agg_top[enriched_agg_top$log2FoldChange.mean<0,], aes(y=log2FoldChange.mean , x=Species, fill = Class, label = log2FoldChange.count), size = 5, shape = 24)+
   geom_point(data=enriched_agg_top[enriched_agg_top$log2FoldChange.mean>0,], aes(y=log2FoldChange.mean , x=Species, fill = Class, label = log2FoldChange.count), size = 5, shape = 25)+
   geom_hline(aes(yintercept=0), linetype="dashed")+
@@ -96,7 +130,7 @@ PS99_daOTU.p <- ggplot(data=enriched_agg_top, aes(y=log2FoldChange.mean , x=Spec
 
 PS99_daOTU.p
 
-ggsave("./figures/enrichment_Species.pdf", 
+ggsave("./figures/enrichment_Speciaes.pdf", 
        plot = PS99_daOTU.p,
        units = "cm",
        width = 30, height = 30, 
