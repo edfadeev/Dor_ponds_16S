@@ -10,8 +10,8 @@ library(iNEXT); packageVersion("iNEXT")
 #####################################
 #Parse for Phyloseq
 #####################################
-OTU<- read.csv("QIIME/Dor_OTU_table.csv", 
-               h=T, sep=",", row.names = "OUT")
+OTU<- read.csv("QIIME/Dor_OTUs_SM.csv", 
+               h=T, sep=";", row.names = "OUT")
 TAX<- as.matrix(read.csv("QIIME/Dor_16S_tax_full.csv",
                          h=T, sep = ",", row.names = "OUT"))
 ENV <- read.csv("QIIME/Dor_metadata.csv", 
@@ -23,7 +23,8 @@ ENV<- ENV %>% mutate(Month = factor(gsub("(.*)([0-9])(...)(\\.)","\\3",OUT),
                     Season = case_when(Month %in% c("Dec", "Jan", "Feb") ~ "Winter",
                                        Month %in% c("Mar", "Apr", "May") ~ "Spring",
                                        Month %in% c("Jun", "Jul", "Aug") ~ "Summer",
-                                       Month %in% c("Sep", "Oct", "Nov") ~ "Autumn"))
+                                       Month %in% c("Sep", "Oct", "Nov") ~ "Autumn")) %>% 
+                mutate(Season = factor(Season, levels = c("Winter","Spring","Summer","Autumn")))
 
 
 #add row.names
