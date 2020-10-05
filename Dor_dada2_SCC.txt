@@ -12,7 +12,7 @@ module load R/3.6.2
 
 # set variables, program and script locations
 FILELOCATION="/projectnb/npsegre/efadeev_playground/For_DS/Dor_dada"
-NSAMPLE="95"
+NSAMPLE="105"
 
 cd $FILELOCATION
 
@@ -63,10 +63,10 @@ done < ./fileID_R2
 #5'-TAC GGT AGC AGA GAC TTG GTC TGG ACT ACH VGG GTW TCT AAT-3'     CS3_806R
 
 # bacterial primer V3-V4
-FBC=^ACACTGACGACATGGTTCTACANNNNCCTACGGGAGGCAGCAG # forward primer not anchored due to the mixed versions
-RBC=^TACGGTAGCAGAGACTTGGTCTGGACTACHVGGGTWTCTAAT # reverse primer
-OFWD=43 # length of forward primer (42) - 1
-OREV=42 # length of reverse primer (42) - 1
+FBC=CCTACGGGAGGCAGCAG # forward primer not anchored due to the mixed versions
+RBC=GGACTACHVGGGTWTCTAAT # reverse primer
+OFWD=16 # length of forward primer (17) - 1
+OREV=19 # length of reverse primer (20) - 1
 ERROR=0.16
 
 mkdir Clipped
@@ -75,7 +75,7 @@ mkdir Logfiles
 #run primers clipping
 qsub -wd ${FILELOCATION} -t 1-${NSAMPLE} -o ${FILELOCATION}/Logfiles \
 -e ${FILELOCATION}/Logfiles -v FBC=${FBC},RBC=${RBC},OFWD=${OFWD},OREV=${OREV},ERROR=${ERROR} \
-./primer_clip.sh 
+./primer_clip1.sh 
 
 # cleaning up directories
 mkdir ./Clipped/Clipped_logs
@@ -85,5 +85,5 @@ mv ./Clipped/*.info ./Clipped/Clipped_logs/
 mv Clipped/*rf* ./Clipped/Clipped_logs/rf/
 
 #Run dada2 workflow
-qsub -wd ${FILELOCATION} -o ${FILELOCATION}/Logfiles -e ${FILELOCATION}/Logfiles Dor_dada2_workflow.R
+qsub -wd ${FILELOCATION} -o ${FILELOCATION}/Logfiles -e ${FILELOCATION}/Logfiles Dor_dada2.qsub
 

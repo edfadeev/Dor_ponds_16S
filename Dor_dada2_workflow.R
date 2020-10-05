@@ -55,14 +55,20 @@ names(filtRs) <- sample.names
 
 #separate the different runs
 #Hiseq
-fnFs_hi<- sort(file.path("Clipped",paste(c(1:63), "_clip_R1.fastq", sep = "")))
-fnRs_hi<- sort(file.path("Clipped",paste(c(1:63), "_clip_R2.fastq", sep = ""))) 
-filtFs_hi<- sort(file.path("Filtered",paste(c(1:63), "_F_filt.fastq.gz", sep = "")))
-filtRs_hi<- sort(file.path("Filtered",paste(c(1:63), "_R_filt.fastq.gz", sep = ""))) 
+fnFs_hi<- sort(file.path("Clipped",paste(c(1:69), "_clip_R1.fastq", sep = "")))
+fnRs_hi<- sort(file.path("Clipped",paste(c(1:69), "_clip_R2.fastq", sep = ""))) 
+filtFs_hi<- sort(file.path("Filtered",paste(c(1:69), "_F_filt.fastq.gz", sep = "")))
+filtRs_hi<- sort(file.path("Filtered",paste(c(1:69), "_R_filt.fastq.gz", sep = ""))) 
 #Filter and trim
 out_hi <- filterAndTrim(fnFs_hi, filtFs_hi, fnRs_hi, filtRs_hi, truncLen=c(235,235),
                         maxN=0, maxEE=c(2,4), truncQ=2, rm.phix=TRUE,
                         compress=TRUE, multithread=TRUE, verbose = TRUE)
+
+#remove samples that were filtered out completele
+filtFs_hi<-sort(file.path("Filtered",row.names(as.data.frame(out_hi))[as.data.frame(out_hi)$reads.out >0]))
+filtFs_hi<-gsub("_clip_R1.fastq","_F_filt.fastq.gz", filtFs_hi)
+filtRs_hi<- gsub("_F","_R",filtFs_hi)
+
 # Learn errors 
 errF_hi <- learnErrors(filtFs_hi, multithread = TRUE, randomize = TRUE, MAX_CONSIST = 30, verbose = TRUE)
 errR_hi <- learnErrors(filtRs_hi, multithread = TRUE, randomize = TRUE, MAX_CONSIST = 30, verbose = TRUE)
@@ -76,14 +82,20 @@ seqtab_hi <- makeSequenceTable(mergers_hi)
 saveRDS(seqtab_hi, file.path("Seq.Tables","seqtab_hi.rds"))
 
 #MiSeq 1 - 493:307
-fnFs_mi1 <- sort(file.path("Clipped",paste(c(64:95), "_clip_R1.fastq", sep = "")))
-fnRs_mi1 <- sort(file.path("Clipped",paste(c(64:95), "_clip_R2.fastq", sep = "")))
-filtFs_mi1 <- sort(file.path("Filtered",paste(c(64:95), "_F_filt.fastq.gz", sep = "")))
-filtRs_mi1 <- sort(file.path("Filtered",paste(c(64:95), "_R_filt.fastq.gz", sep = "")))
+fnFs_mi1 <- sort(file.path("Clipped",paste(c(70:105), "_clip_R1.fastq", sep = "")))
+fnRs_mi1 <- sort(file.path("Clipped",paste(c(70:105), "_clip_R2.fastq", sep = "")))
+filtFs_mi1 <- sort(file.path("Filtered",paste(c(70:105), "_F_filt.fastq.gz", sep = "")))
+filtRs_mi1 <- sort(file.path("Filtered",paste(c(70:105), "_R_filt.fastq.gz", sep = "")))
 #Filter and trim
 out_mi1 <- filterAndTrim(fnFs_mi1, filtFs_mi1, fnRs_mi1, filtRs_mi1, truncLen=c(235,235),
                          maxN=0, maxEE=c(2,4), truncQ=2, rm.phix=TRUE,
                          compress=TRUE, multithread=TRUE, verbose = TRUE)
+
+
+#remove samples that were filtered out completele
+filtFs_mi1<-sort(file.path("Filtered",row.names(as.data.frame(out_mi1))[as.data.frame(out_mi1)$reads.out >0]))
+filtFs_mi1<-gsub("_clip_R1.fastq","_F_filt.fastq.gz", filtFs_mi1)
+filtRs_mi1<- gsub("_F","_R",filtFs_mi1)
 # Learn errors
 errF_mi1 <- learnErrors(filtFs_mi1, nbases = 2e+08, multithread = TRUE, randomize = TRUE, MAX_CONSIST = 30, verbose = TRUE)
 errR_mi1 <- learnErrors(filtRs_mi1, nbases = 2e+08, multithread = TRUE, randomize = TRUE, MAX_CONSIST = 30, verbose = TRUE)
