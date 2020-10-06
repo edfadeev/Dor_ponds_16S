@@ -14,35 +14,11 @@ fnRs <- sort(list.files("Clipped", pattern="_R2.fastq", full.names = TRUE))
 # Extract sample names, assuming filenames have format: SAMPLENAME_XXX.fastq
 sample.names <- sapply(strsplit(basename(fnFs), "_clip_R1.fastq"), `[`, 1)
 
+
+# Make directories and filenames for the filtered fastqs
 filt_path <- file.path("Report")
 if(!file_test("-d", filt_path)) dir.create(filt_path)
 
-# quality check
-QualityProfileFs <- list()
-for(i in 1:length(fnFs)) {
-  QualityProfileFs[[i]] <- list()
-  QualityProfileFs[[i]][[1]] <- plotQualityProfile(fnFs[i])
-}
-pdf(file.path("Report","RawProfileForward.pdf"))
-for(i in 1:length(fnFs)) {
-  do.call("grid.arrange", QualityProfileFs[[i]])  
-}
-dev.off()
-rm(QualityProfileFs)
-
-QualityProfileRs <- list()
-for(i in 1:length(fnRs)) {
-  QualityProfileRs[[i]] <- list()
-  QualityProfileRs[[i]][[1]] <- plotQualityProfile(fnRs[i])
-}
-pdf(file.path("Report","RawProfileReverse.pdf"))
-for(i in 1:length(fnRs)) {
-  do.call("grid.arrange", QualityProfileRs[[i]])  
-}
-dev.off()
-rm(QualityProfileRs)
-
-# Make directory and filenames for the filtered fastqs
 filt_path <- file.path("Filtered")
 if(!file_test("-d", filt_path)) dir.create(filt_path)
 filt_path <- file.path("Seq.Tables")
@@ -59,6 +35,42 @@ fnFs_hi<- sort(file.path("Clipped",paste(c(1:69), "_clip_R1.fastq", sep = "")))
 fnRs_hi<- sort(file.path("Clipped",paste(c(1:69), "_clip_R2.fastq", sep = ""))) 
 filtFs_hi<- sort(file.path("Filtered",paste(c(1:69), "_F_filt.fastq.gz", sep = "")))
 filtRs_hi<- sort(file.path("Filtered",paste(c(1:69), "_R_filt.fastq.gz", sep = ""))) 
+
+# quality check run1
+QualityProfileFs <- list()
+for(i in 1:length(fnFs_hi)) {
+  QualityProfileFs[[i]] <- list()
+  QualityProfileFs[[i]][[1]] <- plotQualityProfile(fnFs_hi[i])
+}
+pdf(file.path("Report","RawProfileForward_run1.pdf"))
+for(i in 1:length(fnFs_hi)) {
+  do.call("grid.arrange", QualityProfileFs[[i]])  
+}
+dev.off()
+rm(QualityProfileFs)
+
+QualityProfileRs <- list()
+for(i in 1:length(fnRs_hi)) {
+  QualityProfileRs[[i]] <- list()
+  QualityProfileRs[[i]][[1]] <- plotQualityProfile(fnRs_hi[i])
+}
+pdf(file.path("Report","RawProfileReverse_run1.pdf"))
+for(i in 1:length(fnRs_hi)) {
+  do.call("grid.arrange", QualityProfileRs[[i]])  
+}
+dev.off()
+rm(QualityProfileRs)
+
+#generate aggregated quality overview
+ggsave(file.path("Report","RawProfileForward_run1_agg.pdf"),
+       plot = plotQualityProfile(fnFs_hi, aggregate = TRUE),
+       width = 20, height = 20, units = "cm")
+
+ggsave(file.path("Report","RawProfileReverse_run1_agg.pdf"),
+       plot = plotQualityProfile(fnRs_hi, aggregate = TRUE),
+       width = 20, height = 20, units = "cm")
+
+
 #Filter and trim
 out_hi <- filterAndTrim(fnFs_hi, filtFs_hi, fnRs_hi, filtRs_hi, truncLen=c(235,235),
                         maxN=0, maxEE=c(2,4), truncQ=2, rm.phix=TRUE,
@@ -69,12 +81,22 @@ filtFs_hi<-sort(file.path("Filtered",row.names(as.data.frame(out_hi))[as.data.fr
 filtFs_hi<-gsub("_clip_R1.fastq","_F_filt.fastq.gz", filtFs_hi)
 filtRs_hi<- gsub("_F","_R",filtFs_hi)
 
+#generate aggregated quality overview
+ggsave(file.path("Report","FiltProfileForward_run1_agg.pdf"),
+       plot = plotQualityProfile(filtFs_hi, aggregate = TRUE),
+       width = 20, height = 20, units = "cm")
+
+ggsave(file.path("Report","FiltProfileReverse_run1_agg.pdf"),
+       plot = plotQualityProfile(filtRs_hi, aggregate = TRUE),
+       width = 20, height = 20, units = "cm")
+
 # Learn errors 
 errF_hi <- learnErrors(filtFs_hi, multithread = TRUE, randomize = TRUE, MAX_CONSIST = 30, verbose = TRUE)
 errR_hi <- learnErrors(filtRs_hi, multithread = TRUE, randomize = TRUE, MAX_CONSIST = 30, verbose = TRUE)
 # Sample Inference 
 dadaFs_hi <- dada(filtFs_hi, err=errF_hi, multithread=TRUE, verbose = TRUE)
 dadaRs_hi <- dada(filtRs_hi, err=errR_hi, multithread=TRUE, verbose = TRUE)
+
 #Merge paired reads
 mergers_hi <- mergePairs(dadaFs_hi, filtFs_hi, dadaRs_hi, filtRs_hi, verbose=TRUE, minOverlap = 10)
 #generate sequence table and save it
@@ -86,16 +108,61 @@ fnFs_mi1 <- sort(file.path("Clipped",paste(c(70:105), "_clip_R1.fastq", sep = ""
 fnRs_mi1 <- sort(file.path("Clipped",paste(c(70:105), "_clip_R2.fastq", sep = "")))
 filtFs_mi1 <- sort(file.path("Filtered",paste(c(70:105), "_F_filt.fastq.gz", sep = "")))
 filtRs_mi1 <- sort(file.path("Filtered",paste(c(70:105), "_R_filt.fastq.gz", sep = "")))
+
+# quality check run2
+QualityProfileFs <- list()
+for(i in 1:length(fnFs_mi1)) {
+  QualityProfileFs[[i]] <- list()
+  QualityProfileFs[[i]][[1]] <- plotQualityProfile(fnFs_mi1[i])
+}
+pdf(file.path("Report","RawProfileForward_run2.pdf"))
+for(i in 1:length(fnFs_mi1)) {
+  do.call("grid.arrange", QualityProfileFs[[i]])  
+}
+dev.off()
+rm(QualityProfileFs)
+
+QualityProfileRs <- list()
+for(i in 1:length(fnRs_mi1)) {
+  QualityProfileRs[[i]] <- list()
+  QualityProfileRs[[i]][[1]] <- plotQualityProfile(fnRs_mi1[i])
+}
+pdf(file.path("Report","RawProfileReverse_run2.pdf"))
+for(i in 1:length(fnRs_mi1)) {
+  do.call("grid.arrange", QualityProfileRs[[i]])  
+}
+dev.off()
+rm(QualityProfileRs)
+
+#generate aggregated quality overview
+ggsave(file.path("Report","RawProfileForward_run2_agg.pdf"),
+       plot = plotQualityProfile(fnFs_mi1, aggregate = TRUE),
+       width = 20, height = 20, units = "cm")
+
+ggsave(file.path("Report","RawProfileReverse_run2_agg.pdf"),
+       plot = plotQualityProfile(fnRs_mi1, aggregate = TRUE),
+       width = 20, height = 20, units = "cm")
+
 #Filter and trim
 out_mi1 <- filterAndTrim(fnFs_mi1, filtFs_mi1, fnRs_mi1, filtRs_mi1, truncLen=c(235,235),
                          maxN=0, maxEE=c(2,4), truncQ=2, rm.phix=TRUE,
                          compress=TRUE, multithread=TRUE, verbose = TRUE)
 
 
-#remove samples that were filtered out completele
+#remove samples that were filtered out completely
 filtFs_mi1<-sort(file.path("Filtered",row.names(as.data.frame(out_mi1))[as.data.frame(out_mi1)$reads.out >0]))
 filtFs_mi1<-gsub("_clip_R1.fastq","_F_filt.fastq.gz", filtFs_mi1)
 filtRs_mi1<- gsub("_F","_R",filtFs_mi1)
+
+#generate aggregated quality overview
+ggsave(file.path("Report","FiltProfileForward_run2_agg.pdf"),
+       plot = plotQualityProfile(filtFs_mi1, aggregate = TRUE),
+       width = 20, height = 20, units = "cm")
+
+ggsave(file.path("Report","FiltProfileReverse_run2_agg.pdf"),
+       plot = plotQualityProfile(filtRs_mi1, aggregate = TRUE),
+       width = 20, height = 20, units = "cm")
+
 # Learn errors
 errF_mi1 <- learnErrors(filtFs_mi1, nbases = 2e+08, multithread = TRUE, randomize = TRUE, MAX_CONSIST = 30, verbose = TRUE)
 errR_mi1 <- learnErrors(filtRs_mi1, nbases = 2e+08, multithread = TRUE, randomize = TRUE, MAX_CONSIST = 30, verbose = TRUE)
@@ -108,40 +175,12 @@ mergers_mi1 <- mergePairs(dadaFs_mi1, filtFs_mi1, dadaRs_mi1, filtRs_mi1, verbos
 seqtab_mi1 <- makeSequenceTable(mergers_mi1)
 saveRDS(seqtab_mi1, file.path("Seq.Tables","seqtab_mi1.rds"))
 
-
-##summary of filtering
-save.image("V3V4_dada2_sep_runs.Rdata")
-# quality check
-QualityProfileFs <- list()
-for(i in 1:length(filtFs)) {
-  QualityProfileFs[[i]] <- list()
-  QualityProfileFs[[i]][[1]] <- plotQualityProfile(filtFs[i])
-}
-pdf(file.path("Report","FiltProfileForward.pdf"))
-for(i in 1:length(filtFs)) {
-  do.call("grid.arrange", QualityProfileFs[[i]])  
-}
-dev.off()
-rm(QualityProfileFs)
-
-QualityProfileRs <- list()
-for(i in 1:length(filtRs)) {
-  QualityProfileRs[[i]] <- list()
-  QualityProfileRs[[i]][[1]] <- plotQualityProfile(filtRs[i])
-}
-pdf(file.path("Report","FiltProfileReverse.pdf"))
-for(i in 1:length(filtRs)) {
-  do.call("grid.arrange", QualityProfileRs[[i]])  
-}
-dev.off()
-rm(QualityProfileRs)
-
 # Plot error profiles
 pdf(file.path("Report","ErrorProfiles.pdf"))
-plotErrors(errF_hi, nominalQ = TRUE)+ggtitle("HiSeq")
-plotErrors(errF_mi1, nominalQ = TRUE)+ggtitle("MiSeq")
-plotErrors(errR_hi, nominalQ = TRUE)+ggtitle("HiSeq")
-plotErrors(errR_mi1, nominalQ = TRUE)+ggtitle("MiSeq")
+plotErrors(errF_hi, nominalQ = TRUE)+ggtitle("Run1-Forward")
+plotErrors(errR_hi, nominalQ = TRUE)+ggtitle("Run1-Reverse")
+plotErrors(errF_mi1, nominalQ = TRUE)+ggtitle("Run2-Forward")
+plotErrors(errR_mi1, nominalQ = TRUE)+ggtitle("Run2-Reverse")
 dev.off()
 
 #write out filtered read counts
@@ -150,7 +189,7 @@ write.csv(rbind(out_hi,out_mi1),
 
 
 
-#merge the hiseq and miseq into a single sequence table
+#merge the two runs into a single sequence table
 seqtab<- mergeSequenceTables(table1= makeSequenceTable(mergers_hi), 
                              table2 = makeSequenceTable(mergers_mi1))
 
@@ -158,8 +197,6 @@ seqtab<- mergeSequenceTables(table1= makeSequenceTable(mergers_hi),
 seqtab1 <- collapseNoMismatch(seqtab, verbose = TRUE)
 
 dim(seqtab1)
-
-save.image("V3V4_dada2_merged_seqtab.Rdata")
 
 # Inspect distribution of sequence lengths
 table(nchar(getSequences(seqtab1)))
@@ -181,10 +218,10 @@ taxa <- assignTaxonomy(seqtab.nochim2, "./tax/silva_nr99_v138_train_set.fa.gz", 
 taxa <- addSpecies(taxa, "./tax/silva_species_assignment_v138.fa.gz", tryRC = TRUE, verbose = TRUE)
 
 # get summary tables 
-sample.order <- names(c(dadaFs_mi1,dadaFs_hi))
+sample.order <- c(basename(filtFs_mi1),basename(filtFs_hi))
 
 getN <- function(x) sum(getUniques(x))
-track <- cbind(rbind(out_mi1,out_hi), 
+track <- cbind(rbind(as.data.frame(out_mi1)[as.data.frame(out_mi1)$reads.out >0,],as.data.frame(out_hi)[as.data.frame(out_hi)$reads.out >0,]), 
                sapply(c(dadaFs_mi1,dadaFs_hi), getN),
                sapply(c(mergers_mi1,mergers_hi), getN),
                rowSums(seqtab.nochim[sample.order,]),
