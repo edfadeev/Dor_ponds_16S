@@ -49,6 +49,12 @@ TAX_tab <- tax_table(TAX_tab)
 meta <- sample_data(ENV)
 Dor_ps <- phyloseq(ASVs_tab, TAX_tab, meta)
 
+#add reference sequence and replace variants with ASVs
+dna <- Biostrings::DNAStringSet(taxa_names(Dor_ps))
+names(dna) <- taxa_names(Dor_ps)
+Dor_ps <- merge_phyloseq(Dor_ps, dna)
+taxa_names(Dor_ps) <- paste0("ASV", seq(ntaxa(Dor_ps)))
+
 #remove chloroplast and mitochondria reads
 Dor_ps<- subset_taxa(Dor_ps, !Order == "Chloroplast" & !Family =="Mitochondria")
 
