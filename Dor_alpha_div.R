@@ -53,7 +53,7 @@ Dor_comm.char<- data.frame(  Sample = sample_names(Dor_ps.prev),
                              InvSimpson = round(Dor_ps.prev_alpha.div$InvSimpson,digits=2),
                              Evenness = round(Dor_ps.prev_alpha.div$Shannon/log(Dor_ps.prev_alpha.div$Observed),digits=2))
 
-write.csv(Dor_comm.char, "./alpha_table_prev.csv")
+write.csv(Dor_comm.char, "./dada2_alpha_table_prev.csv")
 
 #plot alpha diversity
 Dor_alpha <- estimate_richness(Dor_ps.prev, measures = c("Observed", "Chao1","Shannon", "InvSimpson"))
@@ -78,7 +78,7 @@ alpha.p<- ggplot(Dor_alpha.m, aes(x = Month, y = value, group = variable)) +
   theme_classic() +
   theme(legend.position = "bottom")
 
-ggsave("./figures/alpha_p.pdf", 
+ggsave("./figures/dada2_alpha_p.pdf", 
        plot = alpha.p,
        units = "cm",
        width = 30, height = 30, 
@@ -94,7 +94,7 @@ alpha_seasons.p<- ggplot(Dor_alpha.m, aes (x = Season, y = value, group = Season
   theme_classic(base_size = 12)+
   theme(legend.position = "bottom")
 
-ggsave("./figures/alpha_seasons.pdf", 
+ggsave("./figures/dada2_alpha_seasons.pdf", 
        plot = alpha_seasons.p,
        units = "cm",
        width = 30, height = 30, 

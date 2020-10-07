@@ -42,16 +42,12 @@ BAC_pruned.ra.long$Abundance <- BAC_pruned.ra.long$Abundance*100
 #fix unclassified lineages 
 BAC_pruned.ra.long$Class <- as.character(BAC_pruned.ra.long$Class)
 BAC_pruned.ra.long$Class[is.na(BAC_pruned.ra.long$Class)] <- paste(BAC_pruned.ra.long$Phylum[is.na(BAC_pruned.ra.long$Class)],"uc", sep = "_")
-BAC_pruned.ra.long$Class[BAC_pruned.ra.long$Class==""] <- paste(BAC_pruned.ra.long$Phylum[is.na(BAC_pruned.ra.long$Class)],"uc", sep = "_")
 
 BAC_pruned.ra.long$Order <- as.character(BAC_pruned.ra.long$Order)
 BAC_pruned.ra.long$Order[is.na(BAC_pruned.ra.long$Order)] <- paste(BAC_pruned.ra.long$Class[is.na(BAC_pruned.ra.long$Order)],"uc", sep = "_")
-BAC_pruned.ra.long$Order[BAC_pruned.ra.long$Order==""] <- paste(BAC_pruned.ra.long$Class[is.na(BAC_pruned.ra.long$Order)],"uc", sep = "_")
-
 
 BAC_pruned.ra.long$Species <- as.character(BAC_pruned.ra.long$Species)
 BAC_pruned.ra.long$Species[is.na(BAC_pruned.ra.long$Species)] <- paste(BAC_pruned.ra.long$Class[is.na(BAC_pruned.ra.long$Species)],"uc", sep = "_")
-BAC_pruned.ra.long$Species[BAC_pruned.ra.long$Species==""] <- paste(BAC_pruned.ra.long$Class[is.na(BAC_pruned.ra.long$Species)],"uc", sep = "_")
 
 #calculate abundance for each Class
 BAC_pruned.ra.long.agg <- BAC_pruned.ra.long %>% 
@@ -61,7 +57,7 @@ BAC_pruned.ra.long.agg <- BAC_pruned.ra.long %>%
 
 #remove below 1% ra
 taxa_classes <- unique(BAC_pruned.ra.long.agg$Class)
-BAC_pruned.ra.long.agg$Class[BAC_pruned.ra.long.agg$Abund.total<1] <- "Other taxa"
+BAC_pruned.ra.long.agg$Class[BAC_pruned.ra.long.agg$Abund.total<2] <- "Other taxa"
 BAC_pruned.ra.long.agg$Class <- factor(BAC_pruned.ra.long.agg$Class,
                                        levels=c(taxa_classes,"Other taxa"))
 
@@ -78,7 +74,7 @@ barplots_total <- ggplot(BAC_pruned.ra.long.agg, aes(x = Month, y = Abund.total,
   theme(legend.position="bottom")
 
 
-ggsave("./figures/barplots_total.pdf", 
+ggsave("./figures/dada2_Res_barplots_total.pdf", 
        plot = barplots_total,
        units = "cm",
        width = 30, height = 30, 
@@ -88,12 +84,12 @@ ggsave("./figures/barplots_total.pdf",
 
 #calculate abundance for each Class
 BAC_pruned_Cyanos <- BAC_pruned.ra.long %>% 
-  select(Month,Year,OTU,Class, Species,Abundance)%>%
-  filter(Class == "Cyanobacteria") %>% 
-  group_by(Year,Month,Species) %>%
+  select(Month,Year,OTU,Class, Family, Genus, Species, Abundance)%>%
+  filter(Class == "Cyanobacteriia") %>% 
+  group_by(Year,Month,Family, Genus, Species) %>%
   dplyr::summarise(Abund.total= sum(Abundance)) 
 
-barplots_cyanos<- ggplot(BAC_pruned_Cyanos, aes(x = Month, y = Abund.total, fill = Species))+
+barplots_cyanos<- ggplot(BAC_pruned_Cyanos, aes(x = Month, y = Abund.total, fill = Family))+
   geom_col()+
   ylim(0,100)+
   facet_grid(.~Year, space= "fixed")+
@@ -102,7 +98,7 @@ barplots_cyanos<- ggplot(BAC_pruned_Cyanos, aes(x = Month, y = Abund.total, fill
   theme_bw()+
   theme(legend.position="bottom")
 
-ggsave("./figures/barplots_cyanos.pdf", 
+ggsave("./figures/dada2_Res_barplots_cyanos.pdf", 
        plot = barplots_cyanos,
        units = "cm",
        width = 30, height = 30, 
@@ -134,18 +130,18 @@ Dor_ps.prev.ord.df <- plot_ordination(Dor_ps.prev.vst, Dor_ps.prev.ord, axes = c
 Dor_ps.prev.ord.evals <- 100 * (Dor_ps.prev.ord$CA$eig/ sum(Dor_ps.prev.ord$CA$eig))
 Dor_ps.prev.ord.df$ID <- rownames(Dor_ps.prev.ord.df)
 
-Dor_ps.prev.ord.p <- ggplot(data = Dor_ps.prev.ord.df, aes(x =PC1, y=PC2, shape = Year, colour = Season))+
+Dor_ps.prev.ord.p <- ggplot(data = Dor_ps.prev.ord.df, aes(x =PC1, y=PC2, colour = Season))+
   geom_point(colour = "black", size = 5)+
   geom_point(size = 4)+
   scale_colour_manual(values = tol21rainbow) + 
   stat_ellipse(data = Dor_ps.prev.ord.df, aes(x =PC1, y=PC2, group = Season, colour = Season), size = 1, type= "t")+
-  geom_text(aes(label = Month), colour = "black", nudge_y= -0.5,  size=4)+
+  geom_text(aes(label = paste(Year,"-",Month)), colour = "black", nudge_y= -0.5,  size=4)+
   labs(x = sprintf("PC1 [%s%%]", round(Dor_ps.prev.ord.evals[1], 2)), 
        y = sprintf("PC2 [%s%%]", round(Dor_ps.prev.ord.evals[2], 2)), shape = "Season")+
   theme_classic(base_size = 12)+
   theme(legend.position = "bottom")
 
-ggsave("./figures/RDA_Res.png", 
+ggsave("./figures/dada2_RDA_Res.pdf", 
        plot = Dor_ps.prev.ord.p,
        units = "cm",
        width = 30, height = 30, 
@@ -153,9 +149,8 @@ ggsave("./figures/RDA_Res.png",
        dpi = 300)
 
 #significance test
-df <- as(sample_data(Dor_ps.prev.vst), "data.frame") %>% drop_na(Zeaxanthin)
-Dor_ps.prev.vst_sub <- prune_samples(row.names(df), Dor_ps.prev.vst)
-d <- phyloseq::distance(Dor_ps.prev.vst_sub, "euclidean")
+df <- as(sample_data(Dor_ps.prev.vst), "data.frame")
+d <- phyloseq::distance(Dor_ps.prev.vst, "euclidean")
 adonis_all <- adonis(d ~ Year + Season + Month , df)
 adonis_all
 
