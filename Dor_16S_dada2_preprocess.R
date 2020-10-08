@@ -24,8 +24,19 @@ ENV<- ENV %>%
   mutate(Season = case_when(month %in% c("12", "1", "2") ~ "Winter",
                             month %in% c("3", "4", "5") ~ "Spring",
                             month %in% c("6", "7", "8") ~ "Summer",
-                            month %in% c("9", "10", "11") ~ "Autumn")) %>% 
-  mutate(Season = factor(Season, levels = c("Winter","Spring","Summer","Autumn")))
+                            month %in% c("9", "10", "11") ~ "Autumn"),
+         Month = case_when(month == 1 ~ "Jan",month == 2 ~ "Feb",month == 3 ~ "Mar",
+                           month == 4 ~ "Apr",month == 5 ~ "May",month == 6 ~ "Jun",
+                           month == 7 ~ "Jul",month == 8 ~ "Aug",month == 9 ~ "Sep",
+                           month == 10 ~ "Oct",month == 11 ~ "Nov",month == 12 ~ "Dec")) %>% 
+  mutate(Season = factor(Season, levels = c("Winter","Spring","Summer","Autumn")),
+         Year = factor(year, levels = c("2013","2014","2015")),
+         Month = ifelse(cod == "Res.5Jul.", "Jul", Month),#<<<---verify that with Ashraf and Sofi!!!
+         Month = factor(Month, levels = c("Jan","Feb","Mar","Apr",
+                                          "May","Jun","Jul","Aug",
+                                          "Sep","Oct","Nov","Dec")),
+         Day = day) %>% 
+          select(-month,year,day)
 
 rownames(ENV)<- paste0("X",ENV$Sample_number_dada2)
 
@@ -37,6 +48,22 @@ ASVs_tab <- otu_table(ASVs_tab, taxa_are_rows = TRUE)
 TAX_tab <- tax_table(TAX_tab)
 meta <- sample_data(ENV)
 Dor_ps <- phyloseq(ASVs_tab, TAX_tab, meta)
+
+#add reference sequence and replace variants with ASVs
+dna <- Biostrings::DNAStringSet(taxa_names(Dor_ps))
+names(dna) <- taxa_names(Dor_ps)
+Dor_ps <- merge_phyloseq(Dor_ps, dna)
+taxa_names(Dor_ps) <- paste0("ASV", seq(ntaxa(Dor_ps)))
+
+#remove chloroplast and mitochondria reads
+Dor_ps<- subset_taxa(Dor_ps, !Order == "Chloroplast" & !Family =="Mitochondria")
+
+#subset only Reservoir
+Dor_ps<- subset_samples(Dor_ps, location == "Res." & 
+                          !comment %in% c("control.SP01","control.SP02","control.SP03", "duplicate batch 2","Ashraf did the PCR")&
+                          !Sample_number_dada2 %in% c("95"))
+
+Dor_ps<- prune_taxa(taxa_sums(Dor_ps)>0,Dor_ps)
 
 #####################################
 #Plot total number of reads and OTUs per sample
@@ -50,7 +77,7 @@ p <- ggplot(readsumsdf, aes(x = sorted, y = nreads)) + geom_bar(stat = "identity
 OTU_libs_overview <-  p + ggtitle(title) + scale_y_log10() + facet_wrap(~type, 1, scales = "free")+ 
   xlab("Samples")+ ylab("Number of reads")+ theme_bw()
 
-ggsave("./figures/dada2_libs_overview.pdf", 
+ggsave("./figures/dada2_Res_libs_overview.pdf", 
        plot = OTU_libs_overview,
        units = "cm",
        width = 30, height = 30, 
@@ -66,8 +93,8 @@ rare <-fortify(iNEXT.out, type=1)
 meta <- as(sample_data(Dor_ps), "data.frame")
 meta$site <- rownames(meta)
 rare$Run <- meta$Run[match(rare$site, meta$site)]
-rare$Year <- meta$year[match(rare$site, meta$site)] 
-rare$Month <- meta$month[match(rare$site, meta$site)] 
+rare$Year <- meta$Year[match(rare$site, meta$site)] 
+rare$Month <- meta$Month[match(rare$site, meta$site)] 
 rare$label <- paste(rare$Year,rare$Month, sep = "-")
 
 rare.point <- rare[which(rare$method == "observed"),]
@@ -88,7 +115,7 @@ rare.p <- ggplot(rare, aes(x=x, y=y, colour = site))+
   #ylim(0,5000)+
   theme_classic(base_size = 12)+theme(legend.position="bottom")
 
-ggsave("./figures/dada2_rarefactions.pdf", 
+ggsave("./figures/dada2_Res_rarefactions.pdf", 
        plot = rare.p,
        units = "cm",
        width = 30, height = 30, 
@@ -113,12 +140,12 @@ prevdf.tax.summary <- plyr::ddply(prevdf.tax, "Phylum", function(df1){cbind(mean
 # #plot
 prev_plot_phyl <- ggplot(prevdf.tax, aes(TotalAbundance, Prevalence / nsamples(Dor_ps),color=Phylum)) +
   # # Include a guess for parameter
-  geom_hline(yintercept = 0.1, alpha = 0.5, linetype = 2) + geom_point(size = 2, alpha = 0.7) +
+  geom_hline(yintercept = 0.05, alpha = 0.5, linetype = 2) + geom_point(size = 2, alpha = 0.7) +
   scale_x_log10() +  xlab("Total Abundance") + ylab("Prevalence [Frac. Samples]") +
   facet_wrap(~Phylum) +  theme_bw() + theme(legend.position="none")
 
 prev_plot_phyl
-ggsave("./figures/dada2_prev_plot_phyl.pdf", 
+ggsave("./figures/dada2_Res_prev_plot_phyl.pdf", 
        plot = prev_plot_phyl,
        units = "cm",
        width = 30, height = 30, 
@@ -126,7 +153,7 @@ ggsave("./figures/dada2_prev_plot_phyl.pdf",
        dpi = 300)
 
 #  Define prevalence threshold as 5% of total samples
-prevalenceThreshold <- round(0.1 * nsamples(Dor_ps))
+prevalenceThreshold <- round(0.05 * nsamples(Dor_ps))
 prevalenceThreshold
 
 # Execute prevalence filter, using `prune_taxa()` function
