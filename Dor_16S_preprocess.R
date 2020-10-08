@@ -120,7 +120,7 @@ prevdf.tax.summary <- plyr::ddply(prevdf.tax, "Phylum", function(df1){cbind(mean
 # #plot
 prev_plot_phyl <- ggplot(prevdf.tax, aes(TotalAbundance, Prevalence / nsamples(Dor_ps),color=Phylum)) +
   # # Include a guess for parameter
-  geom_hline(yintercept = 0.2, alpha = 0.5, linetype = 2) + geom_point(size = 2, alpha = 0.7) +
+  geom_hline(yintercept = 0.1, alpha = 0.5, linetype = 2) + geom_point(size = 2, alpha = 0.7) +
   scale_x_log10() +  xlab("Total Abundance") + ylab("Prevalence [Frac. Samples]") +
   facet_wrap(~Phylum) +  theme_bw() + theme(legend.position="none")
 
@@ -133,7 +133,7 @@ ggsave("./figures/prev_plot_phyl.pdf",
        dpi = 300)
 
 #  Define prevalence threshold as 5% of total samples
-prevalenceThreshold <- round(0.2 * nsamples(Dor_ps))
+prevalenceThreshold <- round(0.1 * nsamples(Dor_ps))
 prevalenceThreshold
 
 # Execute prevalence filter, using `prune_taxa()` function

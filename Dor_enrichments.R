@@ -110,6 +110,12 @@ enriched_agg_top$Species <- factor(enriched_agg_top$Species, ordered = TRUE,
 enriched_agg_top$merging <- factor(enriched_agg_top$merging,
                                    levels= c("Dor_winter_spring","Dor_spring_summer","Dor_summer_autumn", "Dor_autumn_winter",  "Dor_winter_summer"))
 
+
+
+
+enriched_agg_top<- enriched_agg_top[enriched_agg_top$merging %in% c("Dor_winter_summer"),]
+
+
 #plot
 PS99_daOTU.p <- ggplot(data=enriched_agg_top,
                        aes(y=log2FoldChange.mean , x=Species, fill = Class, label = log2FoldChange.count))+ 
@@ -130,7 +136,7 @@ PS99_daOTU.p <- ggplot(data=enriched_agg_top,
 
 PS99_daOTU.p
 
-ggsave("./figures/enrichment_Speciaes.pdf", 
+ggsave("./figures/enrichment_winter_summer.png", 
        plot = PS99_daOTU.p,
        units = "cm",
        width = 30, height = 30, 

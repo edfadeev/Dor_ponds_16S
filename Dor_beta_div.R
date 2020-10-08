@@ -78,7 +78,7 @@ barplots_total <- ggplot(BAC_pruned.ra.long.agg, aes(x = Month, y = Abund.total,
   theme(legend.position="bottom")
 
 
-ggsave("./figures/barplots_total.pdf", 
+ggsave("./figures/barplots_total.png", 
        plot = barplots_total,
        units = "cm",
        width = 30, height = 30, 
@@ -102,7 +102,7 @@ barplots_cyanos<- ggplot(BAC_pruned_Cyanos, aes(x = Month, y = Abund.total, fill
   theme_bw()+
   theme(legend.position="bottom")
 
-ggsave("./figures/barplots_cyanos.pdf", 
+ggsave("./figures/barplots_cyanos.png", 
        plot = barplots_cyanos,
        units = "cm",
        width = 30, height = 30, 
@@ -153,9 +153,8 @@ ggsave("./figures/RDA_Res.png",
        dpi = 300)
 
 #significance test
-df <- as(sample_data(Dor_ps.prev.vst), "data.frame") %>% drop_na(Zeaxanthin)
-Dor_ps.prev.vst_sub <- prune_samples(row.names(df), Dor_ps.prev.vst)
-d <- phyloseq::distance(Dor_ps.prev.vst_sub, "euclidean")
+df <- as(sample_data(Dor_ps.prev.vst), "data.frame") 
+d <- phyloseq::distance(Dor_ps.prev.vst, "euclidean")
 adonis_all <- adonis(d ~ Year + Season + Month , df)
 adonis_all
 

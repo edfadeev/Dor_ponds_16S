@@ -78,7 +78,7 @@ alpha.p<- ggplot(Dor_alpha.m, aes(x = Month, y = value, group = variable)) +
   theme_classic() +
   theme(legend.position = "bottom")
 
-ggsave("./figures/alpha_p.pdf", 
+ggsave("./figures/alpha_p.png", 
        plot = alpha.p,
        units = "cm",
        width = 30, height = 30, 
@@ -94,7 +94,7 @@ alpha_seasons.p<- ggplot(Dor_alpha.m, aes (x = Season, y = value, group = Season
   theme_classic(base_size = 12)+
   theme(legend.position = "bottom")
 
-ggsave("./figures/alpha_seasons.pdf", 
+ggsave("./figures/alpha_seasons.png", 
        plot = alpha_seasons.p,
        units = "cm",
        width = 30, height = 30, 
