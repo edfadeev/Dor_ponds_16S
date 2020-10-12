@@ -61,16 +61,6 @@ for(i in 1:length(fnRs_hi)) {
 dev.off()
 rm(QualityProfileRs)
 
-#generate aggregated quality overview
-ggsave(file.path("Report","RawProfileForward_run1_agg.pdf"),
-       plot = plotQualityProfile(fnFs_hi, aggregate = TRUE),
-       width = 20, height = 20, units = "cm")
-
-ggsave(file.path("Report","RawProfileReverse_run1_agg.pdf"),
-       plot = plotQualityProfile(fnRs_hi, aggregate = TRUE),
-       width = 20, height = 20, units = "cm")
-
-
 #Filter and trim
 out_hi <- filterAndTrim(fnFs_hi, filtFs_hi, fnRs_hi, filtRs_hi, truncLen=c(235,235),
                         maxN=0, maxEE=c(2,4), truncQ=2, rm.phix=TRUE,
@@ -133,15 +123,6 @@ for(i in 1:length(fnRs_mi1)) {
 }
 dev.off()
 rm(QualityProfileRs)
-
-#generate aggregated quality overview
-ggsave(file.path("Report","RawProfileForward_run2_agg.pdf"),
-       plot = plotQualityProfile(fnFs_mi1, aggregate = TRUE),
-       width = 20, height = 20, units = "cm")
-
-ggsave(file.path("Report","RawProfileReverse_run2_agg.pdf"),
-       plot = plotQualityProfile(fnRs_mi1, aggregate = TRUE),
-       width = 20, height = 20, units = "cm")
 
 #Filter and trim
 out_mi1 <- filterAndTrim(fnFs_mi1, filtFs_mi1, fnRs_mi1, filtRs_mi1, truncLen=c(235,235),
