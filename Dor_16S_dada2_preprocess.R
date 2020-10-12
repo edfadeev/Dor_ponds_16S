@@ -55,15 +55,20 @@ names(dna) <- taxa_names(Dor_ps)
 Dor_ps <- merge_phyloseq(Dor_ps, dna)
 taxa_names(Dor_ps) <- paste0("ASV", seq(ntaxa(Dor_ps)))
 
-#remove chloroplast and mitochondria reads
-Dor_ps<- subset_taxa(Dor_ps, !Order == "Chloroplast" & !Family =="Mitochondria")
-
 #subset only Reservoir
 Dor_ps<- subset_samples(Dor_ps, location == "Res." & 
                           !comment %in% c("control.SP01","control.SP02","control.SP03", "duplicate batch 2","Ashraf did the PCR")&
                           !Sample_number_dada2 %in% c("95"))
 
 Dor_ps<- prune_taxa(taxa_sums(Dor_ps)>0,Dor_ps)
+
+
+#remove chloroplast and mitochondria reads
+Dor_ps.chl<- subset_taxa(Dor_ps, Order == "Chloroplast")
+Dor_ps.mit<- subset_taxa(Dor_ps, Family == "Mitochondria")
+
+Dor_ps<- subset_taxa(Dor_ps, !Order == "Chloroplast" & !Family =="Mitochondria")
+
 
 #####################################
 #Plot total number of reads and OTUs per sample
@@ -157,5 +162,9 @@ prevalenceThreshold <- round(0.05 * nsamples(Dor_ps))
 prevalenceThreshold
 
 # Execute prevalence filter, using `prune_taxa()` function
-Dor_ps.prev <-  prune_taxa((prevdf > prevalenceThreshold), Dor_ps)
+#Dor_ps.prev <-  prune_taxa((prevdf > prevalenceThreshold), Dor_ps)
 
+#filter ASVs that have at least 50 sequences
+Dor_ps.prev<-  prune_taxa(taxa_sums(Dor_ps)>50, Dor_ps)
+#remove samples with less than 2000 sequences
+Dor_ps.prev<-  prune_samples(sample_sums(Dor_ps.prev)>2000, Dor_ps.prev)

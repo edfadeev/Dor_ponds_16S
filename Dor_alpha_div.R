@@ -38,26 +38,27 @@ se <- function(x, na.rm=FALSE) {
 #Alpha diversity statistical tests
 ####################################
 # Calculate richness
-Dor_ps.prev_alpha.div <- estimate_richness(Dor_ps.prev, split = TRUE, measures = NULL)
+Dor_ps.alpha.div <- estimate_richness(Dor_ps, split = TRUE, measures = NULL)
 
 #generate data set with all bacterial community characteristics
-Dor_comm.char<- data.frame(  Sample = sample_names(Dor_ps.prev),
-                             Year = sample_data(Dor_ps.prev)$Year,
-                             Month = sample_data(Dor_ps.prev)$Month,
-                             Season = sample_data(Dor_ps.prev)$Season,
-                             Sequences= sample_sums(Dor_ps.prev),
-                             Observed = Dor_ps.prev_alpha.div$Observed,
-                             Chao1 = Dor_ps.prev_alpha.div$Chao1,
-                             Completness = round(100*Dor_ps.prev_alpha.div$Observed/Dor_ps.prev_alpha.div$Chao1, digits=2),
-                             Shannon = round(Dor_ps.prev_alpha.div$Shannon,digits=2),
-                             InvSimpson = round(Dor_ps.prev_alpha.div$InvSimpson,digits=2),
-                             Evenness = round(Dor_ps.prev_alpha.div$Shannon/log(Dor_ps.prev_alpha.div$Observed),digits=2))
+Dor_comm.char<- data.frame(  Sample = sample_names(Dor_ps),
+                             Year = sample_data(Dor_ps)$Year,
+                             Month = sample_data(Dor_ps)$Month,
+                             Season = sample_data(Dor_ps)$Season,
+                             Chl.sequences = sample_sums(Dor_ps.chl),
+                             Sequences= sample_sums(Dor_ps),
+                             Observed = Dor_ps.alpha.div$Observed,
+                             Chao1 = Dor_ps.alpha.div$Chao1,
+                             Completness = round(100*Dor_ps.alpha.div$Observed/Dor_ps.alpha.div$Chao1, digits=2),
+                             Shannon = round(Dor_ps.alpha.div$Shannon,digits=2),
+                             InvSimpson = round(Dor_ps.alpha.div$InvSimpson,digits=2),
+                             Evenness = round(Dor_ps.alpha.div$Shannon/log(Dor_ps.alpha.div$Observed),digits=2))
 
 write.csv(Dor_comm.char, "./dada2_alpha_table_prev.csv")
 
 #plot alpha diversity
-Dor_alpha <- estimate_richness(Dor_ps.prev, measures = c("Observed", "Chao1","Shannon", "InvSimpson"))
-Dor_alpha <- merge_phyloseq(Dor_ps.prev, sample_data(Dor_alpha))
+Dor_alpha <- estimate_richness(Dor_ps, measures = c("Observed", "Chao1","Shannon", "InvSimpson"))
+Dor_alpha <- merge_phyloseq(Dor_ps, sample_data(Dor_alpha))
 
 Dor_alpha.m <- as(sample_data(Dor_alpha), "data.frame")%>%
   select(Year, Month, Season, Observed, Chao1, Shannon, InvSimpson)%>%

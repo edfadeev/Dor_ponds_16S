@@ -141,7 +141,7 @@ Dor_ps.prev.ord.p <- ggplot(data = Dor_ps.prev.ord.df, aes(x =PC1, y=PC2, colour
   theme_classic(base_size = 12)+
   theme(legend.position = "bottom")
 
-ggsave("./figures/dada2_RDA_Res.pdf", 
+ggsave("./figures/dada2_RDA_Res.png", 
        plot = Dor_ps.prev.ord.p,
        units = "cm",
        width = 30, height = 30, 
