@@ -54,7 +54,7 @@ Dor_comm.char<- data.frame(  Sample = sample_names(Dor_ps),
                              InvSimpson = round(Dor_ps.alpha.div$InvSimpson,digits=2),
                              Evenness = round(Dor_ps.alpha.div$Shannon/log(Dor_ps.alpha.div$Observed),digits=2))
 
-write.csv(Dor_comm.char, "./dada2_alpha_table_prev.csv")
+write.csv(Dor_comm.char, "./dada2_alpha_table.csv")
 
 #plot alpha diversity
 Dor_alpha <- estimate_richness(Dor_ps, measures = c("Observed", "Chao1","Shannon", "InvSimpson"))
