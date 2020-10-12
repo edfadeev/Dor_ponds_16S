@@ -1,25 +1,10 @@
-#PCA plot
-Dor_ps.dds <- phyloseq_to_deseq2(Dor_ps, ~1)
-geoMeans = apply(counts(Dor_ps.dds), 1, gm_mean)
-Dor_ps.dds = estimateSizeFactors(Dor_ps.dds, geoMeans = geoMeans)
-Dor_ps.dds <- estimateDispersions(Dor_ps.dds)
-otu.vst <- getVarianceStabilizedData(Dor_ps.dds)
+Dor_ps.prev.vst<- subset_samples(Dor_ps.prev.vst, Year %in% c("2013","2014"))
 
-#make sure that the dimensions of the OTU table and the DEseq object are matching
-dim(otu.vst)
-dim(otu_table(Dor_ps))
-
-Dor_ps.vst<-Dor_ps
-otu_table(Dor_ps.vst)<- otu_table(otu.vst, taxa_are_rows = TRUE)
-
-
-
-
-sample_data(Dor_ps.vst)[sample_data(Dor_ps.vst) == "#N/A"]<- NA
+sample_data(Dor_ps.prev.vst)[sample_data(Dor_ps.prev.vst) == "#N/A"]<- NA
 
 
 #subset by fraction and remove NAs in metadata
-BAC_FL.no.na <- Dor_ps.vst %>% 
+BAC_FL.no.na <- Dor_ps.prev.vst %>% 
   subset_samples(
     !is.na(MC_ug_L) & 
       !is.na(Fucoxanthin_mg_L) &
@@ -56,7 +41,7 @@ BAC_FL.rda.sites <- BAC_FL.rda.sites %>%
   left_join(sample_data(BAC_FL.no.na))
 
 #Draw biplots
-BAC_FL.rda.arrows<- BAC_FL.rda.scores$biplot*5
+BAC_FL.rda.arrows<- BAC_FL.rda.scores$biplot*1
 colnames(BAC_FL.rda.arrows)<-c("x","y")
 BAC_FL.rda.arrows <- as.data.frame(BAC_FL.rda.arrows)
 BAC_FL.rda.evals <- 100 * (BAC_FL.rda.all$CCA$eig / sum(BAC_FL.rda.all$CCA$eig))
@@ -71,14 +56,20 @@ BAC_FL.rda.plot <- ggplot() +
        y = sprintf("RDA2 [%s%%]", round(BAC_FL.rda.evals[2], 2))) +
   #scale_fill_manual(values = reg_colours) +
   #scale_x_reverse()+ 
-  theme(legend.position = "none")+
   geom_segment(data=BAC_FL.rda.arrows, aes(x = 0, y = 0, xend = x, yend = y),
                arrow = arrow(length = unit(0.2, "cm")),color="black",alpha=0.5)+
   geom_text(data=as.data.frame(BAC_FL.rda.arrows*1.2),
-            aes(x, y, label = rownames(BAC_FL.rda.arrows)),color="black",alpha=0.5)
+            aes(x, y, label = rownames(BAC_FL.rda.arrows)),color="black",alpha=0.5)+
+  theme_bw()+
+  theme(legend.position = "none")
 
 
-
+ggsave("./figures/dada2_CCA_Res.pdf", 
+       plot = BAC_FL.rda.plot,
+       units = "cm",
+       width = 30, height = 30, 
+       #scale = 1,
+       dpi = 300)
 
 
 BAC_FL.rda.species <- data.frame(BAC_FL.rda.scores$species)
@@ -88,10 +79,10 @@ BAC_FL.rda.species$Genus <-as.character(tax_table(BAC_FL.no.na)[,c("Genus")])
 BAC_FL.rda.species$Class <-as.character(tax_table(BAC_FL.no.na)[,c("Class")])
 BAC_FL.rda.species$Phylum <-as.character(tax_table(BAC_FL.no.na)[,c("Phylum")])
 
-BAC_FL.rda.species<- BAC_FL.rda.species[BAC_FL.rda.species$Phylum== "Cyanobacteria",]
+BAC_FL.rda.species<- BAC_FL.rda.species[BAC_FL.rda.species$Class== "Cyanobacteriia",]
 
 BAC_FL.rda.plot <- ggplot() +
-  geom_point(data = BAC_FL.rda.species, aes(x = RDA1, y = RDA2, fill = Phylum), 
+  geom_point(data = BAC_FL.rda.species, aes(x = RDA1, y = RDA2, fill = Class), 
              shape =21, size = 4) +
   geom_text(data = BAC_FL.rda.species,aes(x = RDA1, y = RDA2,label =Genus), 
             nudge_y= -0.03,size=3)+
@@ -99,9 +90,16 @@ BAC_FL.rda.plot <- ggplot() +
        y = sprintf("RDA2 [%s%%]", round(BAC_FL.rda.evals[2], 2))) +
   #scale_fill_manual(values = reg_colours) +
   #scale_x_reverse()+ 
-  theme(legend.position = "bottom")+
   geom_segment(data=BAC_FL.rda.arrows, aes(x = 0, y = 0, xend = x, yend = y),
                arrow = arrow(length = unit(0.2, "cm")),color="black",alpha=0.5)+
   geom_text(data=as.data.frame(BAC_FL.rda.arrows*1.2),
-            aes(x, y, label = rownames(BAC_FL.rda.arrows)),color="black",alpha=0.5)
+            aes(x, y, label = rownames(BAC_FL.rda.arrows)),color="black",alpha=0.5)+
+theme_bw()+
+  theme(legend.position = "bottom")
 
+ggsave("./figures/dada2_CCA_Res_cyano.png", 
+       plot = BAC_FL.rda.plot,
+       units = "cm",
+       width = 30, height = 30, 
+       #scale = 1,
+       dpi = 300)
