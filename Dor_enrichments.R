@@ -35,6 +35,9 @@ tol21rainbow<- c("#771155",
 #####################################
 #Split by seasons
 #####################################
+Dor_ps.prev<- subset_samples(Dor_ps.prev, Year %in% c("2013","2014"))
+
+
 Dor_winter_spring <- subset_samples(Dor_ps.prev, Season %in% c("Winter","Spring"))
 Dor_winter_spring <- prune_taxa(taxa_sums(Dor_winter_spring)>0,Dor_winter_spring)
 
@@ -136,7 +139,7 @@ PS99_daOTU.p <- ggplot(data=enriched_agg_top,
 
 PS99_daOTU.p
 
-ggsave("./figures/enrichment_winter_summer.png", 
+ggsave("./figures/Dor_enrichment_2013-2014.pdf", 
        plot = PS99_daOTU.p,
        units = "cm",
        width = 30, height = 30, 
