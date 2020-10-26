@@ -47,28 +47,35 @@ all.equal(rownames(ASVs_tab), rownames(TAX_tab))
 ASVs_tab <- otu_table(ASVs_tab, taxa_are_rows = TRUE)
 TAX_tab <- tax_table(TAX_tab)
 meta <- sample_data(ENV)
-Dor_ps <- phyloseq(ASVs_tab, TAX_tab, meta)
+Dor_ps0 <- phyloseq(ASVs_tab, TAX_tab, meta)
 
 #add reference sequence and replace variants with ASVs
-dna <- Biostrings::DNAStringSet(taxa_names(Dor_ps))
-names(dna) <- taxa_names(Dor_ps)
-Dor_ps <- merge_phyloseq(Dor_ps, dna)
-taxa_names(Dor_ps) <- paste0("ASV", seq(ntaxa(Dor_ps)))
+dna <- Biostrings::DNAStringSet(taxa_names(Dor_ps0))
+names(dna) <- taxa_names(Dor_ps0)
+Dor_ps0 <- merge_phyloseq(Dor_ps0, dna)
+taxa_names(Dor_ps0) <- paste0("ASV", seq(ntaxa(Dor_ps0)))
 
-#subset only Reservoir
-Dor_ps<- subset_samples(Dor_ps, location == "Res." & 
+#remove chloroplast and mitochondria reads
+Dor_ps0.chl<- subset_taxa(Dor_ps0, Order == "Chloroplast")
+Dor_ps0.mit<- subset_taxa(Dor_ps0, Family == "Mitochondria")
+
+Dor_ps0<- subset_taxa(Dor_ps0, !Order == "Chloroplast" & !Family =="Mitochondria")
+
+# subset only 2013-2014
+Dor_ps0_run1<- subset_samples(Dor_ps0, Run == "1")
+
+#Remove controls and etc
+Dor_ps<- subset_samples(Dor_ps0_run1, location %in% c("Res.","V2.","D1.") & 
                           !comment %in% c("control.SP01","control.SP02","control.SP03", "duplicate batch 2","Ashraf did the PCR")&
                           !Sample_number_dada2 %in% c("95"))
 
 Dor_ps<- prune_taxa(taxa_sums(Dor_ps)>0,Dor_ps)
 
 
-#remove chloroplast and mitochondria reads
-Dor_ps.chl<- subset_taxa(Dor_ps, Order == "Chloroplast")
-Dor_ps.mit<- subset_taxa(Dor_ps, Family == "Mitochondria")
+#remove samples with less than 2000 sequences
+Dor_ps.prev<-  prune_samples(sample_sums(Dor_ps)>5000, Dor_ps)
 
-Dor_ps<- subset_taxa(Dor_ps, !Order == "Chloroplast" & !Family =="Mitochondria")
-
+saveRDS(Dor_ps.prev, "./data/Dor_ps_prev.rds")
 
 #####################################
 #Plot total number of reads and OTUs per sample
@@ -82,7 +89,7 @@ p <- ggplot(readsumsdf, aes(x = sorted, y = nreads)) + geom_bar(stat = "identity
 OTU_libs_overview <-  p + ggtitle(title) + scale_y_log10() + facet_wrap(~type, 1, scales = "free")+ 
   xlab("Samples")+ ylab("Number of reads")+ theme_bw()
 
-ggsave("./figures/dada2_Res_libs_overview.pdf", 
+ggsave("./figures/libs_overview_run1.pdf", 
        plot = OTU_libs_overview,
        units = "cm",
        width = 30, height = 30, 
@@ -97,7 +104,7 @@ rare <-fortify(iNEXT.out, type=1)
 
 meta <- as(sample_data(Dor_ps), "data.frame")
 meta$site <- rownames(meta)
-rare$Run <- meta$Run[match(rare$site, meta$site)]
+rare$Loc <- meta$location[match(rare$site, meta$site)]
 rare$Year <- meta$Year[match(rare$site, meta$site)] 
 rare$Month <- meta$Month[match(rare$site, meta$site)] 
 rare$label <- paste(rare$Year,rare$Month, sep = "-")
@@ -115,56 +122,14 @@ rare.p <- ggplot(rare, aes(x=x, y=y, colour = site))+
   geom_text(aes(label=label), size =2, data= rare.point, colour = "black",  nudge_x = 10000)+
   scale_colour_discrete(guide = FALSE)+
   labs(x = "Sample size", y = "Species richness")+
-  facet_grid(~Run)+
+  facet_grid(~Loc)+
   #xlim(0,1e5)+
   #ylim(0,5000)+
   theme_classic(base_size = 12)+theme(legend.position="bottom")
 
-ggsave("./figures/dada2_Res_rarefactions.pdf", 
+ggsave("./figures/Run1_rarefactions.pdf", 
        plot = rare.p,
        units = "cm",
        width = 30, height = 30, 
        #scale = 1,
        dpi = 300)
-
-#####################################
-# Compute prevalence of each feature
-#####################################
-prevdf <-  apply(X = otu_table(Dor_ps),
-                 MARGIN = ifelse(taxa_are_rows(Dor_ps), yes = 1, no = 2),
-                 FUN = function(x){sum(x > 0)})
-
-# # Add taxonomy and total read counts to this data.frame
-prevdf.tax  <-  data.frame(Prevalence = prevdf,
-                           TotalAbundance = taxa_sums(Dor_ps),
-                           tax_table(Dor_ps))
-#summarize
-prevdf.tax.summary <- plyr::ddply(prevdf.tax, "Phylum", function(df1){cbind(mean(df1$Prevalence),sum(df1$Prevalence))})
-
-# 
-# #plot
-prev_plot_phyl <- ggplot(prevdf.tax, aes(TotalAbundance, Prevalence / nsamples(Dor_ps),color=Phylum)) +
-  # # Include a guess for parameter
-  geom_hline(yintercept = 0.05, alpha = 0.5, linetype = 2) + geom_point(size = 2, alpha = 0.7) +
-  scale_x_log10() +  xlab("Total Abundance") + ylab("Prevalence [Frac. Samples]") +
-  facet_wrap(~Phylum) +  theme_bw() + theme(legend.position="none")
-
-prev_plot_phyl
-ggsave("./figures/dada2_Res_prev_plot_phyl.pdf", 
-       plot = prev_plot_phyl,
-       units = "cm",
-       width = 30, height = 30, 
-       #scale = 1,
-       dpi = 300)
-
-#  Define prevalence threshold as 5% of total samples
-prevalenceThreshold <- round(0.05 * nsamples(Dor_ps))
-prevalenceThreshold
-
-# Execute prevalence filter, using `prune_taxa()` function
-#Dor_ps.prev <-  prune_taxa((prevdf > prevalenceThreshold), Dor_ps)
-
-#filter ASVs that have at least 50 sequences
-Dor_ps.prev<-  prune_taxa(taxa_sums(Dor_ps)>50, Dor_ps)
-#remove samples with less than 2000 sequences
-Dor_ps.prev<-  prune_samples(sample_sums(Dor_ps.prev)>2000, Dor_ps.prev)
