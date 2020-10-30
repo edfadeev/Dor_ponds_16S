@@ -10,34 +10,10 @@ gm_mean = function(x, na.rm=TRUE){
   exp(sum(log(x[x > 0]), na.rm=na.rm) / length(x))
 }
 
-tol21rainbow<- c("#771155", 
-                 "#AA4488", 
-                 "#CC99BB", 
-                 "#114477", 
-                 "#4477AA", 
-                 "#77AADD", 
-                 "#117777", 
-                 "#44AAAA", 
-                 "#77CCCC", 
-                 "#117744", 
-                 "#44AA77", 
-                 "#88CCAA", 
-                 "#777711", 
-                 "#AAAA44", 
-                 "#DDDD77", 
-                 "#774411", 
-                 "#AA7744", 
-                 "#DDAA77", 
-                 "#771122", 
-                 "#AA4455", 
-                 "#DD7788")
 
 #####################################
 #Split by seasons
 #####################################
-Dor_ps.prev<- subset_samples(Dor_ps.prev, Year %in% c("2013","2014"))
-
-
 Dor_winter_spring <- subset_samples(Dor_ps.prev, Season %in% c("Winter","Spring"))
 Dor_winter_spring <- prune_taxa(taxa_sums(Dor_winter_spring)>0,Dor_winter_spring)
 
@@ -87,15 +63,17 @@ for (i in 1:5){
 #####################################
 #Explore the results
 #####################################
-#separate the results by enrichment towards surface and to depth
-enriched_shallow <- deseq_res_all[deseq_res_all[, "log2FoldChange"] < 0,c("baseMean", "log2FoldChange", "lfcSE", "padj", "Phylum", "Class", "Order", "Family", "Species","ASV","merging") ]
-enriched_deep  <- deseq_res_all[deseq_res_all[, "log2FoldChange"] > 0,c("baseMean", "log2FoldChange", "lfcSE", "padj", "Phylum", "Class", "Order", "Family", "Species","ASV","merging")]
+deseq_res_all<- deseq_res_all %>% filter(merging =="Dor_winter_summer")
 
-#Aggregate on Order level 
-enriched_shallow.agg <-as.data.frame(as.list(aggregate(log2FoldChange~merging+Phylum+Class+Order+Family+Species,
+#separate the results by enrichment towards surface and to depth
+enriched_shallow <- deseq_res_all[deseq_res_all[, "log2FoldChange"] < 0,c("baseMean", "log2FoldChange", "lfcSE", "padj", "Phylum", "Class", "Order", "Family", "Genus","ASV","merging") ]
+enriched_deep  <- deseq_res_all[deseq_res_all[, "log2FoldChange"] > 0,c("baseMean", "log2FoldChange", "lfcSE", "padj", "Phylum", "Class", "Order", "Family", "Genus","ASV","merging")]
+
+#Aggregate on Genus level 
+enriched_shallow.agg <-as.data.frame(as.list(aggregate(log2FoldChange~merging+Phylum+Class+Order+Family+Genus,
                                                        enriched_shallow, 
                                                        FUN = function(x) c(mean = mean(x), se = sd(x)/sqrt(length(x)), count=length(x)))))
-enriched_deep.agg <-as.data.frame(as.list(aggregate(log2FoldChange~merging+Phylum+Class+Order+Family+Species,
+enriched_deep.agg <-as.data.frame(as.list(aggregate(log2FoldChange~merging+Phylum+Class+Order+Family+Genus,
                                                     enriched_deep, 
                                                     FUN = function(x) c(mean = mean(x), se = sd(x)/sqrt(length(x)), count=length(x)))))
 
@@ -108,8 +86,8 @@ enriched_agg_top <- enriched_agg[enriched_agg$log2FoldChange.count>2,]
 #order the x axis by classes
 enriched_agg_top$Class <- factor(enriched_agg_top$Class, ordered = TRUE,
                                  levels= sort(unique(as.character(enriched_agg_top$Class)),decreasing=FALSE))
-enriched_agg_top$Species <- factor(enriched_agg_top$Species, ordered = TRUE,
-                                  levels= unique(enriched_agg_top$Species[order(enriched_agg_top$Class)]))
+enriched_agg_top$Genus <- factor(enriched_agg_top$Genus, ordered = TRUE,
+                                  levels= unique(enriched_agg_top$Genus[order(enriched_agg_top$Class)]))
 enriched_agg_top$merging <- factor(enriched_agg_top$merging,
                                    levels= c("Dor_winter_spring","Dor_spring_summer","Dor_summer_autumn", "Dor_autumn_winter",  "Dor_winter_summer"))
 
@@ -121,21 +99,20 @@ enriched_agg_top<- enriched_agg_top[enriched_agg_top$merging %in% c("Dor_winter_
 
 #plot
 PS99_daOTU.p <- ggplot(data=enriched_agg_top,
-                       aes(y=log2FoldChange.mean , x=Species, fill = Class, label = log2FoldChange.count))+ 
-  #geom_point(data=enriched_agg_top, aes(y=log2FoldChange.mean , x=Order, fill = Class, label = log2FoldChange.count), size = 0, shape = 21)+
-  geom_text(data=enriched_agg_top,aes(y=log2FoldChange.mean , x=Species), nudge_y= -1.5, nudge_x= 0)+
+                       aes(y=log2FoldChange.mean , x=Genus, fill = Class, label = log2FoldChange.count))+ 
+  geom_text(data=enriched_agg_top,aes(y=log2FoldChange.mean , x=Genus), nudge_y= 0, nudge_x= -0.3)+
   geom_errorbar(data=enriched_agg_top,aes(ymin = log2FoldChange.mean-log2FoldChange.se, ymax = log2FoldChange.mean +log2FoldChange.se), width = 0.2) +   
   ylab("log2foldchange")+
   #scale_y_reverse()+
-  geom_point(data=enriched_agg_top[enriched_agg_top$log2FoldChange.mean<0,], aes(y=log2FoldChange.mean , x=Species, fill = Class, label = log2FoldChange.count), size = 5, shape = 24)+
-  geom_point(data=enriched_agg_top[enriched_agg_top$log2FoldChange.mean>0,], aes(y=log2FoldChange.mean , x=Species, fill = Class, label = log2FoldChange.count), size = 5, shape = 25)+
+  geom_point(data=enriched_agg_top, aes(y=log2FoldChange.mean , x=Genus, fill = Class, label = log2FoldChange.count), size = 5, shape = 21)+
+  #geom_point(data=enriched_agg_top[enriched_agg_top$log2FoldChange.mean>0,], aes(y=log2FoldChange.mean , x=Genus, fill = Class, label = log2FoldChange.count), size = 5, shape = 25)+
   geom_hline(aes(yintercept=0), linetype="dashed")+
-  theme_classic(base_size = 10)+
-  theme(legend.position = "bottom", axis.text.x = element_text(angle =90))+
-  scale_fill_manual(values = tol21rainbow)+
+  scale_fill_manual(values = class_col)+
   guides(shape = 22)+
+  facet_grid(.~merging)+
   coord_flip()+
-  facet_grid(.~merging)
+  theme_bw()+
+  theme(legend.position = "bottom", axis.text.x = element_text(angle =90))
 
 PS99_daOTU.p
 
@@ -147,3 +124,11 @@ ggsave("./figures/Dor_enrichment_2013-2014.pdf",
        dpi = 300)
 
 
+
+#Aggregate on Genus level 
+enriched_winter.Fam <-as.data.frame(as.list(aggregate(log2FoldChange~merging+Phylum+Class+Order+Family,
+                                                       enriched_shallow, 
+                                                       FUN = function(x) c(mean = mean(x), se = sd(x)/sqrt(length(x)), count=length(x)))))
+enriched_summer.Fam <-as.data.frame(as.list(aggregate(log2FoldChange~merging+Phylum+Class+Order+Family,
+                                                    enriched_deep, 
+                                                    FUN = function(x) c(mean = mean(x), se = sd(x)/sqrt(length(x)), count=length(x)))))

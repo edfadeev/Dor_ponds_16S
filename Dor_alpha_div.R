@@ -7,28 +7,8 @@ library("cowplot"); packageVersion("cowplot")
 library("reshape2"); packageVersion("reshape2")
 library("rstatix"); packageVersion("rstatix")
 
-#load colour palettes
-tol21rainbow<- c("#771155", 
-                 "#AA4488", 
-                 "#CC99BB", 
-                 "#114477", 
-                 "#4477AA", 
-                 "#77AADD", 
-                 "#117777", 
-                 "#44AAAA", 
-                 "#77CCCC", 
-                 "#117744", 
-                 "#44AA77", 
-                 "#88CCAA", 
-                 "#777711", 
-                 "#AAAA44", 
-                 "#DDDD77", 
-                 "#774411", 
-                 "#AA7744", 
-                 "#DDAA77", 
-                 "#771122", 
-                 "#AA4455", 
-                 "#DD7788")
+#load colors
+source("scripts/color_palletes.R")
 
 se <- function(x, na.rm=FALSE) {
   if (na.rm) x <- na.omit(x)
@@ -38,15 +18,15 @@ se <- function(x, na.rm=FALSE) {
 #Alpha diversity statistical tests
 ####################################
 # Calculate richness
-Dor_ps.alpha.div <- estimate_richness(Dor_ps, split = TRUE, measures = NULL)
+Dor_ps.alpha.div <- estimate_richness(Dor_ps.prev, split = TRUE, measures = NULL)
 
 #generate data set with all bacterial community characteristics
-Dor_comm.char<- data.frame(  Sample = sample_names(Dor_ps),
-                             Year = sample_data(Dor_ps)$Year,
-                             Month = sample_data(Dor_ps)$Month,
-                             Season = sample_data(Dor_ps)$Season,
-                             Chl.sequences = sample_sums(Dor_ps.chl),
-                             Sequences= sample_sums(Dor_ps),
+Dor_comm.char<- data.frame(  Sample = sample_names(Dor_ps.prev),
+                             Year = sample_data(Dor_ps.prev)$Year,
+                             Month = sample_data(Dor_ps.prev)$Month,
+                             Season = sample_data(Dor_ps.prev)$Season,
+                             #Chl.sequences = sample_sums(Dor_ps.chl),
+                             Sequences= sample_sums(Dor_ps.prev),
                              Observed = Dor_ps.alpha.div$Observed,
                              Chao1 = Dor_ps.alpha.div$Chao1,
                              Completness = round(100*Dor_ps.alpha.div$Observed/Dor_ps.alpha.div$Chao1, digits=2),
@@ -54,24 +34,23 @@ Dor_comm.char<- data.frame(  Sample = sample_names(Dor_ps),
                              InvSimpson = round(Dor_ps.alpha.div$InvSimpson,digits=2),
                              Evenness = round(Dor_ps.alpha.div$Shannon/log(Dor_ps.alpha.div$Observed),digits=2))
 
-write.csv(Dor_comm.char, "./dada2_alpha_table.csv")
+write.csv(Dor_comm.char, "./tables/Dor_alpha_table.csv")
 
 #plot alpha diversity
-Dor_alpha <- estimate_richness(Dor_ps, measures = c("Observed", "Chao1","Shannon", "InvSimpson"))
-Dor_alpha <- merge_phyloseq(Dor_ps, sample_data(Dor_alpha))
+Dor_alpha <- estimate_richness(Dor_ps.prev, measures = c("Observed", "Chao1","Shannon", "InvSimpson"))
+Dor_alpha <- merge_phyloseq(Dor_ps.prev, sample_data(Dor_alpha))
 
 Dor_alpha.m <- as(sample_data(Dor_alpha), "data.frame")%>%
-  select(Year, Month, Season, Observed, Chao1, Shannon, InvSimpson)%>%
-  melt(id.vars = c("Year","Month", "Season"))
-
+  select(location, Year, Month, Season, Observed, Chao1, Shannon, InvSimpson)%>%
+  melt(id.vars = c("location", "Year","Month", "Season"))
 
 alpha.p<- ggplot(Dor_alpha.m, aes(x = Month, y = value, group = variable)) +
   labs(x = "Year", y = "Alpha diversity")+
-  geom_point(size =3)+
+  geom_point(aes(shape = location), size =3)+
   geom_smooth(method = loess, se = TRUE)+
   #scale_fill_manual(values =c("yellow","darkgreen"))+
   #geom_boxplot(outlier.color = NULL, notch = FALSE)+
-  facet_wrap(variable~Year, scales = "free", ncol = 3)+
+  facet_wrap(variable~Year, scales = "free", ncol = 2)+
   geom_hline(aes(yintercept=-Inf)) + 
   geom_vline(aes(xintercept=-Inf)) +
   geom_vline(aes(xintercept=Inf))+
@@ -79,14 +58,12 @@ alpha.p<- ggplot(Dor_alpha.m, aes(x = Month, y = value, group = variable)) +
   theme_classic() +
   theme(legend.position = "bottom")
 
-ggsave("./figures/dada2_alpha_p.pdf", 
+ggsave("./figures/alpha_p.pdf", 
        plot = alpha.p,
        units = "cm",
        width = 30, height = 30, 
        #scale = 1,
        dpi = 300)
-
-
 
 alpha_seasons.p<- ggplot(Dor_alpha.m, aes (x = Season, y = value, group = Season, colour = Year))+
   geom_boxplot(outlier.color = NULL, notch = FALSE)+
@@ -95,7 +72,7 @@ alpha_seasons.p<- ggplot(Dor_alpha.m, aes (x = Season, y = value, group = Season
   theme_classic(base_size = 12)+
   theme(legend.position = "bottom")
 
-ggsave("./figures/dada2_alpha_seasons.pdf", 
+ggsave("./figures/alpha_seasons.pdf", 
        plot = alpha_seasons.p,
        units = "cm",
        width = 30, height = 30, 

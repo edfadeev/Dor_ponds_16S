@@ -22,4 +22,5 @@ otu_table(Dor_ps.prev.vst)<- otu_table(otu.vst, taxa_are_rows = TRUE)
 Dor_ps.prev.vst
 }
 
-
+#scale parameters
+scale_par <- function(x) scale(x, center = FALSE, scale = TRUE)[,1]
