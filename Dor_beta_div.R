@@ -15,10 +15,43 @@ Dor_ps.prev <-readRDS("data/Dor_ps_prev.rds")
 #####################################
 #Community dissimilarities
 #####################################
-#transforma counts using gemetric mean
+# subset only 2013-2014
+#Dor_ps.prev_run1<- subset_samples(Dor_ps.prev, Run == "1")
+
+#transform counts using geometric mean
+#Dor_ps.gm_mean <- phyloseq_gm_mean_trans(Dor_ps.prev_run1)
 Dor_ps.gm_mean <- phyloseq_gm_mean_trans(Dor_ps.prev)
 
-#significance test
+#NMDS plot
+Dor_ps.gm_mean.ord <- ordinate(Dor_ps.gm_mean, method = "NMDS", distance = "euclidean")
+Dor.ord.df <- plot_ordination(Dor_ps.gm_mean, Dor_ps.gm_mean.ord, axes = c(1,2,3),justDF = TRUE)
+
+Dor.ord.p <- ggplot()+
+  geom_point(data = Dor.ord.df, aes(x = NMDS1, y = NMDS2, shape = Year), 
+             fill = "black", size = 5) +
+  geom_point(data = Dor.ord.df, aes(x = NMDS1, y = NMDS2, colour = Season, shape = Year), 
+             size = 4) +
+  geom_text(data = Dor.ord.df,aes(x = NMDS1, y = NMDS2,label = location), 
+            nudge_y= -8,size=3)+
+  scale_colour_manual(values = c("Winter"="darkblue",
+                                 "Spring"="lightblue",
+                                 "Summer"="orange",
+                                 "Autumn"="darkred")) + 
+  annotate(geom="text", x=-110, y=110, label= paste0("Stress = ", round(Dor_ps.gm_mean.ord$stress,2)),
+           color="red", size = 5)+
+  theme_bw()+
+  theme(legend.position = "bottom")
+
+
+ggsave("./figures/NMDS_2013_2014.png", 
+       plot = Dor.ord.p,
+       units = "cm",
+       width = 30, height = 30, 
+       #scale = 1,
+       dpi = 300)
+
+
+#test grouping of samples
 df <- as(sample_data(Dor_ps.gm_mean), "data.frame")
 d <- phyloseq::distance(Dor_ps.gm_mean, "euclidean")
 adonis_all <- adonis2(d ~ Year + Season + location + Season*Year , df)
@@ -89,7 +122,7 @@ Dor_ps.ra.long.agg$location <- factor(Dor_ps.ra.long.agg$location,
 barplots_total <- ggplot(Dor_ps.ra.long.agg, aes(x = Month, y = Abund.total, fill = Class)) + 
   facet_grid(location~Year, space= "fixed") +
   geom_col()+
-  scale_fill_manual(values = tol21rainbow) + 
+  scale_fill_manual(values = tol24rainbow) + 
   guides(fill = guide_legend(reverse = FALSE, keywidth = 1, keyheight = 1)) +
   ylab("Sequence proportions (%) \n")+
   theme_bw()+
