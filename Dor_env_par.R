@@ -17,10 +17,9 @@ Dor_ps.prev <-readRDS("data/Dor_ps_prev.rds")
 #####################################
 #Subset samples that have metadata
 ####################################
-#remove NAs in metadata
-sample_data(Dor_ps.prev)[sample_data(Dor_ps.prev) == "#N/A"]<- NA
+
 #identify ASVs that are present only in the substet of samples
-Dor_ps.prev.sub <- Dor_ps.prev %>% 
+Dor_ps.prev.sub <- Dor_ps.prev_run1 %>% 
   subset_samples(
     !is.na(MC_ug_L) & 
       !is.na(Fucoxanthin_mg_L) &
@@ -128,7 +127,7 @@ Dor_ps.rda.sites <- Dor_ps.rda.sites %>%
 Dor_ps.rda.arrows<- Dor_ps.rda.scores$biplot*5
 colnames(Dor_ps.rda.arrows)<-c("x","y")
 Dor_ps.rda.arrows <- as.data.frame(Dor_ps.rda.arrows)
-Dor_ps.rda.evals <- 100 * (Dor_ps.prev.rda.sel.os$CCA$eig / sum(Dor_ps.prev.rda.sel.os$CCA$eig))
+Dor_ps.rda.evals <- 100 * (Dor_ps.prev.rda.sel.os$CCA$eig / sum(Dor_ps.prev.rda.all$CCA$eig))
 
 #Plot 
 Dor_ps.rda.plot <- ggplot() +
@@ -275,20 +274,22 @@ ggsave("./figures/RDA_cyanos.png",
 #####################################
 #Seasonal dynamic
 #####################################
-Res_metadata_long<- as(sample_data(Dor_ps.prev.no.na),"data.frame") %>% 
-  select(location, Season, Year, Month, Temp_degC,Food_Kg_pond, Fish_biomass_g_pond, O2_mg_L, pH,
-         Ammonia_ug_L, NO3_NO2_N_L, TP_ug_L, MC_ug_L) %>% 
+Parameters_long<- as(sample_data(Dor_ps.prev),"data.frame") %>% 
+  select(location, Season, Year, Month, Temp_degC,
+         #Food_Kg_pond, Fish_biomass_g_pond, O2_mg_L, pH, Ammonia_ug_L,
+          NO3_NO2_N_L, TP_ug_L, MC_ug_L) %>% 
   #filter(location =="Res.") %>% 
   melt(id=c("location","Season", "Year", "Month")) %>% 
   mutate(value =as.numeric(value),
-         Family = "none",
+         Family = "Parameters",
          Month = factor(Month, levels = c("Jan","Feb","Mar","Apr",
                                           "May","Jun","Jul","Aug",
                                           "Sep","Oct","Nov","Dec")),
-         Year = factor(Year, levels = c("2013","2014")))
+         Year = factor(Year, levels = c("2013","2014","2015")),
+         location = factor(location,levels=c("Res.","V2.","D1.")))
 
 
-Res_pigmets<- data.frame(sample_data(Dor_ps.prev.no.na)) %>% 
+pigments_long<- as(sample_data(Dor_ps.prev),"data.frame") %>% 
   select(location, Season, Year, Month,#Chl_a_mg_L, Chl_b_mg_L,
          Diatoxanthin_mg_L,Dinoxanthin_mg_L,Fucoxanthin_mg_L,
          b_caroten_mg_L,Lutein_mg_L,Zeaxanthin_mg_L) %>% 
@@ -300,19 +301,176 @@ Res_pigmets<- data.frame(sample_data(Dor_ps.prev.no.na)) %>%
          Month = factor(Month, levels = c("Jan","Feb","Mar","Apr",
                                           "May","Jun","Jul","Aug",
                                           "Sep","Oct","Nov","Dec")),
-         Year = factor(Year, levels = c("2013","2014")))
+         Year = factor(Year, levels = c("2013","2014","2015")),
+         location = factor(location,levels=c("Res.","V2.","D1.")))
 
-Res_chl <- data.frame(sample_data(Dor_ps.prev.no.na)) %>% 
+chl_long <- as(sample_data(Dor_ps.prev),"data.frame") %>% 
   select(location, Season, Year, Month,Chl_a_mg_L, Chl_b_mg_L) %>% 
   #filter(location =="Res.") %>% 
   melt(id=c("location","Season", "Year", "Month")) %>% 
   mutate(value =as.numeric(value),
          Family = factor(variable),
-         variable ="Chl",
+         variable ="Chlorophyll",
          Month = factor(Month, levels = c("Jan","Feb","Mar","Apr",
                                           "May","Jun","Jul","Aug",
                                           "Sep","Oct","Nov","Dec")),
-         Year = factor(Year, levels = c("2013","2014")))
+         Year = factor(Year, levels = c("2013","2014","2015")),
+         location = factor(location,levels=c("Res.","V2.","D1.")))
+
+#merge together
+Parameters_merged_df<- bind_rows(Parameters_long, pigments_long, chl_long) %>% 
+                                 mutate(variable = factor(variable, levels = c("Temp_degC","NO3_NO2_N_L","TP_ug_L","MC_ug_L","Ammonia_ug_L",
+                                                                                "Pigments","Chlorophyll"),
+                                                          labels = c("Temp_degC","NO3_NO2_N_L","TP_ug_L","MC_ug_L","Ammonia_ug_L",
+                                                                      "Pigments","Chlorophyll")),
+                                        Family = factor(Family, levels = c(levels(Res_pigmets$Family),levels(Res_chl$Family),"Parameters"),
+                                                        labels = c(levels(Res_pigmets$Family),levels(Res_chl$Family),"Parameters")))
+
+
+#Plot barplots of communities
+#calculate proportions
+Dor_ps.ra <- transform_sample_counts(Dor_ps.prev, function(x) x / sum(x))
+
+#melt phyloseq object
+Dor_ps.ra.long <- psmelt(Dor_ps.ra)
+Dor_ps.ra.long$Abundance <- Dor_ps.ra.long$Abundance*100
+
+#fix unclassified lineages 
+Dor_ps.ra.long$Class <- as.character(Dor_ps.ra.long$Class)
+Dor_ps.ra.long$Class[is.na(Dor_ps.ra.long$Class)] <- paste(Dor_ps.ra.long$Phylum[is.na(Dor_ps.ra.long$Class)],"uc", sep = "_")
+
+Dor_ps.ra.long$Order <- as.character(Dor_ps.ra.long$Order)
+Dor_ps.ra.long$Order[is.na(Dor_ps.ra.long$Order)] <- paste(Dor_ps.ra.long$Class[is.na(Dor_ps.ra.long$Order)],"uc", sep = "_")
+
+Dor_ps.ra.long$Species <- as.character(Dor_ps.ra.long$Species)
+Dor_ps.ra.long$Species[is.na(Dor_ps.ra.long$Species)] <- paste(Dor_ps.ra.long$Class[is.na(Dor_ps.ra.long$Species)],"uc", sep = "_")
+
+#calculate abundance for each Class
+Dor_ps.ra.long.agg <- Dor_ps.ra.long %>% 
+  select(location,Month,Year,OTU,Class,Abundance)%>%
+  group_by(location, Year,Month,Class) %>%
+  dplyr::summarise(Abund.total= sum(Abundance)) 
+
+#remove below 2% ra
+taxa_classes <- unique(Dor_ps.ra.long.agg$Class)
+Dor_ps.ra.long.agg$Class[Dor_ps.ra.long.agg$Abund.total<2] <- "Other taxa"
+Dor_ps.ra.long.agg$Class <- factor(Dor_ps.ra.long.agg$Class,
+                                   levels=c(taxa_classes,"Other taxa"))
+Dor_ps.ra.long.agg$Class<- droplevels(Dor_ps.ra.long.agg$Class)
+
+Dor_ps.class.agg <- Dor_ps.ra.long.agg %>% 
+  select(location, Year, Month,Class, Abund.total) %>% 
+  melt(id=c("location", "Year", "Month","Class"), measure.vars = "Abund.total") %>% 
+  mutate(Month = factor(Month, levels = c("Jan","Feb","Mar","Apr",
+                                          "May","Jun","Jul","Aug",
+                                          "Sep","Oct","Nov","Dec")),
+         Year = factor(Year, levels = c("2013","2014","2015")),
+         Family = factor(Class),
+         variable= "Bacteria",
+         location = factor(location,levels=c("Res.","V2.","D1.")))
+
+
+#####################################
+#Generate merged plot for the reservoir
+#####################################
+#subset reservoir
+Res_par_merged <- Parameters_merged_df %>% filter(location =="Res.")
+Res_bar_class<- Dor_ps.class.agg %>% filter(location =="Res.")
+
+#plot
+Res_par.p<- ggplot()+
+  geom_line(data = filter(Res_par_merged, variable %in% c("Pigments")), aes(x= Month, y = value, colour = Family, group = Family),size = 1)+
+  geom_point(data = filter(Res_par_merged, variable %in% c("Pigments")), aes(x= Month, y = value, colour = Family, group = Family),size = 2)+
+  geom_line(data = filter(Res_par_merged, variable %in% c("Chlorophyll")), aes(x= Month, y = value, colour = Family, group = Family),size = 1)+
+  geom_point(data = filter(Res_par_merged, variable %in% c("Chlorophyll")), aes(x= Month, y = value, colour = Family, group = Family),size = 2)+
+  geom_line(data = filter(Res_par_merged, Family =="Parameters"), aes(x= Month, y = value, group = variable),size = 1)+
+  geom_point(data = filter(Res_par_merged, Family =="Parameters"), aes(x= Month, y = value, group = variable), size = 2)+
+  scale_fill_manual(values = cbPalette)+
+  scale_colour_manual(values = cbPalette)+
+  guides(colour=guide_legend(title="Pigments"))+
+  facet_grid(variable~Year, scales = "free_y")+
+  theme_bw()+
+  theme(legend.position="bottom", axis.text.x = element_blank(),axis.title.x = element_blank())
+
+Res_bar.p <- ggplot(Res_bar_class, aes(x = Month, y = value, fill = Class)) + 
+  facet_grid(variable~Year, space= "fixed") +
+  geom_col()+
+  scale_fill_manual(values = class_col) + 
+  guides(fill = guide_legend(reverse = FALSE, keywidth = 1, keyheight = 1)) +
+  ylab("Sequence proportions (%) \n")+
+  theme_bw()+
+  theme(legend.position="bottom",strip.text.x = element_blank())
+
+
+ggarrange(Res_par.p, Res_bar.p, heights = c(2,1.2),
+          ncol = 1, nrow = 2, align = "v", legend = "bottom",
+          legend.grob = do.call(rbind, c(list(get_legend(Res_bar.p),get_legend(Res_par.p)), size="first")))
+            
+
+
+ggsave("./figures/Res_overview.png", 
+       plot = last_plot(),
+       units = "cm",
+       width = 30, height = 30, 
+       #scale = 1,
+       dpi = 300)
+
+
+#####################################
+#Generate merged plot for D1 and V2
+#####################################
+#subset reservoir
+Pond_par_merged <- Parameters_merged_df %>% filter(location  %in% c("D1.","V2."))
+Pond_bar_class<- Dor_ps.class.agg %>% filter(location %in% c("D1.","V2."))
+
+#plot
+Pond_par.p<- ggplot()+
+  geom_line(data = filter(Pond_par_merged, variable %in% c("Pigments")), aes(x= Month, y = value, colour = Family, group = Family),size = 1)+
+  geom_point(data = filter(Pond_par_merged, variable %in% c("Pigments")), aes(x= Month, y = value, colour = Family, group = Family),size = 2)+
+  geom_line(data = filter(Pond_par_merged, variable %in% c("Chlorophyll")), aes(x= Month, y = value, colour = Family, group = Family),size = 1)+
+  geom_point(data = filter(Pond_par_merged, variable %in% c("Chlorophyll")), aes(x= Month, y = value, colour = Family, group = Family),size = 2)+
+  geom_line(data = filter(Pond_par_merged, Family =="Parameters"), aes(x= Month, y = value, group = variable),size = 1)+
+  geom_point(data = filter(Pond_par_merged, Family =="Parameters"), aes(x= Month, y = value, group = variable), size = 2)+
+  scale_fill_manual(values = cbPalette)+
+  scale_colour_manual(values = cbPalette)+
+  guides(colour=guide_legend(title="Pigments"))+
+  facet_grid(variable~location+Year, scales = "free_y")+
+  theme_bw()+
+  theme(legend.position="bottom", axis.text.x = element_blank(),axis.title.x = element_blank())
+
+Pond_bar.p <- ggplot(Pond_bar_class, aes(x = Month, y = value, fill = Class)) + 
+  facet_grid(variable~location+Year, space= "fixed") +
+  geom_col()+
+  scale_fill_manual(values = tol24rainbow) + 
+  guides(fill = guide_legend(reverse = FALSE, keywidth = 1, keyheight = 1)) +
+  ylab("Sequence proportions (%) \n")+
+  theme_bw()+
+  theme(legend.position="bottom",strip.text.x = element_blank())
+
+
+ggarrange(Pond_par.p, Pond_bar.p, heights = c(2,1.2),
+          ncol = 1, nrow = 2, align = "v", legend = "bottom",
+          legend.grob = do.call(rbind, c(list(get_legend(Pond_bar.p),get_legend(Pond_par.p)), size="first")))
+
+
+ggsave("./figures/Ponds_overview.png", 
+       plot = last_plot(),
+       units = "cm",
+       width = 30, height = 30, 
+       #scale = 1,
+       dpi = 300)s
+
+
+
+
+
+
+
+
+
+
+
+
 
 #calculate abundance of cyanos
 Cyanos_melt <- Dor_ps.ra.long %>% 
