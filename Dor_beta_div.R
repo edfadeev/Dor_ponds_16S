@@ -16,11 +16,11 @@ Dor_ps.prev <-readRDS("data/Dor_ps_prev.rds")
 #Community dissimilarities
 #####################################
 # subset only 2013-2014
-#Dor_ps.prev_run1<- subset_samples(Dor_ps.prev, Run == "1")
+Dor_ps.prev_run1<- subset_samples(Dor_ps.prev, Run == "1")
 
 #transform counts using geometric mean
-#Dor_ps.gm_mean <- phyloseq_gm_mean_trans(Dor_ps.prev_run1)
-Dor_ps.gm_mean <- phyloseq_gm_mean_trans(Dor_ps.prev)
+Dor_ps.gm_mean <- phyloseq_gm_mean_trans(Dor_ps.prev_run1)
+#Dor_ps.gm_mean <- phyloseq_gm_mean_trans(Dor_ps.prev)
 
 #NMDS plot
 Dor_ps.gm_mean.ord <- ordinate(Dor_ps.gm_mean, method = "NMDS", distance = "euclidean")
