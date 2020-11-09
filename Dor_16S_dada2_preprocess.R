@@ -19,6 +19,9 @@ TAX_tab<- as.matrix(read.csv("./dada2/dada2_taxonomy_table.txt", h=T,sep = "\t")
 ENV <- read.csv("./dada2/sample_list.csv", sep = "," , h = T, row.names = 1, fill = T, na.strings=c("","NA"))
 #remove samples that did not pass dada2 workflow
 ENV<- ENV[names(ASVs_tab),] 
+#remove NAs in metadata
+ENV[ENV == "#N/A"]<- NA
+
 #add seasons
 ENV<- ENV %>% 
   mutate(Season = case_when(month %in% c("12", "1", "2") ~ "Winter",
@@ -61,11 +64,10 @@ Dor_ps0.mit<- subset_taxa(Dor_ps0, Family == "Mitochondria")
 
 Dor_ps0<- subset_taxa(Dor_ps0, !Order == "Chloroplast" & !Family =="Mitochondria")
 
-# subset only 2013-2014
-Dor_ps0_run1<- subset_samples(Dor_ps0, Run == "1")
+
 
 #Remove controls and etc
-Dor_ps<- subset_samples(Dor_ps0_run1, location %in% c("Res.","V2.","D1.") & 
+Dor_ps<- subset_samples(Dor_ps0, location %in% c("Res.","V2.","D1.") & 
                           !comment %in% c("control.SP01","control.SP02","control.SP03", "duplicate batch 2","Ashraf did the PCR")&
                           !Sample_number_dada2 %in% c("95"))
 
@@ -73,7 +75,7 @@ Dor_ps<- prune_taxa(taxa_sums(Dor_ps)>0,Dor_ps)
 
 
 #remove samples with less than 2000 sequences
-Dor_ps.prev<-  prune_samples(sample_sums(Dor_ps)>5000, Dor_ps)
+Dor_ps.prev<-  prune_samples(sample_sums(Dor_ps)>2000, Dor_ps)
 
 saveRDS(Dor_ps.prev, "./data/Dor_ps_prev.rds")
 
