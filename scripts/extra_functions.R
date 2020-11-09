@@ -1,5 +1,5 @@
 require(DESeq2)
-
+library(phyloseq); packageVersion("phyloseq")
 
 #define function for geometric mean
 gm_mean = function(x, na.rm=TRUE){
