@@ -70,7 +70,7 @@ env.par<- c("Temp_degC", "Chl_a_mg_L", "Chl_b_mg_L",
 
 
 Res_metadata_long<- as(sample_data(Dor_ps.prev.no.na),"data.frame") %>% 
-  select(location, Season, Year, Month, Temp_degC,Chl_a_mg_L,
+  select(location, Season, Year, Month, Temp_degC,Food_Kg_pond, Fish_biomass_g_pond, O2_mg_L, pH,
          Ammonia_ug_L, NO3_NO2_N_L, TP_ug_L,MC_ug_L) %>% 
   #filter(location =="Res.") %>% 
   melt(id=c("location","Season", "Year", "Month")) %>% 
@@ -96,6 +96,17 @@ Res_pigmets<- data.frame(sample_data(Dor_ps.prev.no.na)) %>%
                                           "Sep","Oct","Nov","Dec")),
          Year = factor(Year, levels = c("2013","2014")))
 
+Res_chl <- data.frame(sample_data(Dor_ps.prev.no.na)) %>% 
+  select(location, Season, Year, Month,Chl_a_mg_L, Chl_b_mg_L) %>% 
+  #filter(location =="Res.") %>% 
+  melt(id=c("location","Season", "Year", "Month")) %>% 
+  mutate(value =as.numeric(value),
+         Family = factor(variable),
+         variable ="Chl",
+         Month = factor(Month, levels = c("Jan","Feb","Mar","Apr",
+                                          "May","Jun","Jul","Aug",
+                                          "Sep","Oct","Nov","Dec")),
+         Year = factor(Year, levels = c("2013","2014")))
 
 #calculate abundance for each Class
 Dor_ps.ra <- transform_sample_counts(Dor_ps.prev.no.na, function(x) x / sum(x))
@@ -121,18 +132,22 @@ Cyanos_melt <- Dor_ps.ra.long %>%
 
 
 
-test <- bind_rows(Res_metadata_long,Res_pigmets, Cyanos_melt) %>% 
+test <- bind_rows(Res_metadata_long,Res_pigmets, Cyanos_melt, Res_chl) %>% 
   mutate(variable = factor(variable, levels = c("Temp_degC","NO3_NO2_N_L","TP_ug_L","MC_ug_L","Ammonia_ug_L",
-                                                "Cyanobacteria","Pigments"),labels = c("Temp_degC","NO3_NO2_N_L","TP_ug_L","MC_ug_L","Ammonia_ug_L",
-                                                                                       "Cyanobacteria","Pigments")),
-         Family = factor(Family, levels = c(levels(Cyanos_melt$Family),levels(Res_pigmets$Family),"none"),
-                         labels = c(levels(Cyanos_melt$Family),levels(Res_pigmets$Family),"none")))
+                                                "Cyanobacteria","Pigments","Chl","Food_Kg_pond", "Fish_biomass_g_pond", "O2_mg_L", "pH"),
+                           labels = c("Temp_degC","NO3_NO2_N_L","TP_ug_L","MC_ug_L","Ammonia_ug_L",
+                                      "Cyanobacteria","Pigments","Chl","Food_Kg_pond", "Fish_biomass_g_pond", "O2_mg_L", "pH")),
+         Family = factor(Family, levels = c(levels(Cyanos_melt$Family),levels(Res_pigmets$Family),levels(Res_chl$Family),"none"),
+                         labels = c(levels(Cyanos_melt$Family),levels(Res_pigmets$Family),levels(Res_chl$Family),"none"))) %>% 
+  filter(location %in% c("Res.","V2."))
 
 
 ggplot()+
   geom_col(data = filter(test, variable %in% c("Cyanobacteria")), aes(x= Month, y = value, fill = Family, group = variable))+
   geom_line(data = filter(test, variable %in% c("Pigments")), aes(x= Month, y = value, colour = Family, group = Family),size = 1)+
   geom_point(data = filter(test, variable %in% c("Pigments")), aes(x= Month, y = value, colour = Family, group = Family),size = 2)+
+  geom_line(data = filter(test, variable %in% c("Chl")), aes(x= Month, y = value, colour = Family, group = Family),size = 1)+
+  geom_point(data = filter(test, variable %in% c("Chl")), aes(x= Month, y = value, colour = Family, group = Family),size = 2)+
   geom_line(data = filter(test, Family =="none"), aes(x= Month, y = value, group = variable),size = 1)+
   geom_point(data = filter(test, Family =="none"), aes(x= Month, y = value, group = variable), size = 2)+
   #geom_col(data = filter(test, variable =="Pigments"), aes(x= Month, y = value,  fill = Family, group = variable))+
