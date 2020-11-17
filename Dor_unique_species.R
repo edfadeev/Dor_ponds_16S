@@ -48,7 +48,10 @@ D1_unique_ASV <- ASV_overlaps %>% filter(D1 == 1, V2 == 0, Res == 0)
 V2_unique_ASV <- ASV_overlaps %>% filter(D1 == 0, V2 == 1, Res == 0)
 Res_unique_ASV <- ASV_overlaps %>% filter(D1 == 0, V2 == 0, Res == 1)
 
-#####################################
+#extract ASVs that are present in both fishpond
+fishponds_ASV<- ASV_overlaps %>% filter(D1 == 1, V2 == 1, Res == 0)
+
+####################################
 #Explore taxonomy of the unique ASVs
 ####################################
 #calculate proportions
@@ -105,6 +108,16 @@ unique_bar.p <- ggplot(unique_ASV_abund, aes(x = Month, y = Abund.total, fill = 
 #export table
 unique_species_by_pool <- rbind(D1_unique_ASV_abund, V2_unique_ASV_abund, Res_unique_ASV_abund) %>% spread(location, Abund.total)
 write.csv(unique_species_by_pool, "tables/unique_species_by_pool.csv")
+
+
+#explore fishponds unique ASVs
+Fishpond_unique_ASV_abund<- Dor_ps.ra.long %>% filter(OTU %in% fishponds_ASV$ASV)%>% 
+  select(location, Month,Year,OTU,Class,Order, Family, Genus, Species, Abundance)%>%
+  group_by(location, Year,Month,Class,Order, Family, Genus, Species) %>%
+  dplyr::summarise(Abund.total= sum(Abundance)) %>% 
+  filter(Abund.total>0)%>% spread(location, Abund.total)
+
+write.csv(Fishpond_unique_ASV_abund, "tables/Fishpond_species_by_pool.csv")
 
 #####################################
 #get session info and remove all objects and libraries
