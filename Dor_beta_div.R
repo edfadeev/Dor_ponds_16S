@@ -391,3 +391,10 @@ enriched_winter.Fam <-as.data.frame(as.list(aggregate(log2FoldChange~merging+Phy
 enriched_summer.Fam <-as.data.frame(as.list(aggregate(log2FoldChange~merging+Phylum+Class+Order+Family,
                                                       enriched_deep, 
                                                       FUN = function(x) c(mean = mean(x), se = sd(x)/sqrt(length(x)), count=length(x)))))
+
+#####################################
+#get session info and remove all objects and libraries
+#####################################
+sessionInfo()
+
+rm(list = ls(all = TRUE))

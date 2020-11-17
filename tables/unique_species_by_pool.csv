@@ -1,0 +1,1291 @@
+"","Year","Month","Class","Order","Family","Genus","Species","D1.","Res.","V2."
+"1","2013","Jan","Alphaproteobacteria","Micavibrionales","Micavibrionales_uncl","Micavibrionales_uncl","Micavibrionales_uncl",0.0161779575328615,NA,NA
+"2","2013","Jan","Alphaproteobacteria","Rhizobiales","Beijerinckiaceae","alphaI cluster","alphaI cluster_uncl",0.250758341759353,NA,NA
+"3","2013","Jan","Alphaproteobacteria","Rhizobiales","Rhizobiaceae","Allorhizobium-Neorhizobium-Pararhizobium-Rhizobium","Allorhizobium-Neorhizobium-Pararhizobium-Rhizobium_uncl",0.137512639029323,NA,NA
+"4","2013","Jan","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Tabrizicola","Tabrizicola_uncl",0.16582406471183,NA,NA
+"5","2013","Jan","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Blastomonas","Blastomonas_uncl",0.145601617795753,NA,NA
+"6","2013","Jan","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Porphyrobacter","sanguineus",0.133468149646107,NA,NA
+"7","2013","Jan","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Qipengyuania","Qipengyuania_uncl",0.16582406471183,NA,NA
+"8","2013","Jan","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Sphingomonas","Sphingomonas_uncl",0.335692618806876,NA,NA
+"9","2013","Jan","Bacteroidia","Cytophagales","Cyclobacteriaceae","Algoriphagus","Algoriphagus_uncl",0.0687563195146613,NA,0.174572085497743
+"10","2013","Jan","Bacteroidia","Sphingobacteriales","env.OPS 17","env.OPS 17_uncl","env.OPS 17_uncl",0.0404448938321537,0.21775459563478,NA
+"11","2013","Jan","Bacteroidia","Sphingobacteriales","NS11-12 marine group","NS11-12 marine group_uncl","NS11-12 marine group_uncl",0.0202224469160768,NA,NA
+"12","2013","Jan","Bacteroidia","Sphingobacteriales","Sphingobacteriaceae","Pedobacter","Pedobacter_uncl",0.157735085945399,0.820377778903124,0.0510942689261688
+"13","2013","Jan","Bacteroidia","Sphingobacteriales","Sphingobacteriaceae","Sphingobacteriaceae_uncl","Sphingobacteriaceae_uncl",0.0364004044489383,NA,NA
+"14","2013","Jan","Bdellovibrionia","Bacteriovoracales","Bacteriovoracaceae","Peredibacter","Peredibacter_uncl",0.137512639029323,NA,NA
+"15","2013","Jan","Gammaproteobacteria","Alteromonadales","Alteromonadaceae","Rheinheimera","Rheinheimera_uncl",0.222446916076845,NA,0.0894149706207954
+"16","2013","Jan","Gammaproteobacteria","Burkholderiales","Burkholderiaceae","Limnobacter","thiooxidans",1.29423660262892,NA,NA
+"17","2013","Jan","Gammaproteobacteria","Burkholderiales","Burkholderiaceae","Polynucleobacter","Polynucleobacter_uncl",0.00808897876643074,NA,NA
+"18","2013","Jan","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Comamonadaceae_uncl","Comamonadaceae_uncl",0.198179979777553,0.156985871271586,0.119219960827727
+"19","2013","Jan","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Methylibium","Methylibium_uncl",0.424671385237614,NA,NA
+"20","2013","Jan","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Rhizobacter","Rhizobacter_uncl",0.315470171890799,NA,NA
+"21","2013","Jan","Gammaproteobacteria","Burkholderiales","Methylophilaceae","Methylotenera","Methylotenera_uncl",0.145601617795753,NA,NA
+"22","2013","Jan","Gammaproteobacteria","Burkholderiales","Oxalobacteraceae","Massilia","Massilia_uncl",0.0364004044489383,NA,0.0085157114876948
+"23","2013","Jan","Gammaproteobacteria","Burkholderiales","Oxalobacteraceae","Noviherbaspirillum","Noviherbaspirillum_uncl",0.00808897876643074,NA,0.0085157114876948
+"24","2013","Jan","Gammaproteobacteria","Pseudomonadales","Pseudomonadaceae","Pseudomonas","Pseudomonas_uncl",0.473205257836198,NA,0.0553521246700162
+"25","2013","Jan","Gammaproteobacteria","Xanthomonadales","Xanthomonadaceae","Lysobacter","Lysobacter_uncl",0.242669362992922,NA,NA
+"26","2013","Jan","Gracilibacteria","Gracilibacteria_uncl","Gracilibacteria_uncl","Gracilibacteria_uncl","Gracilibacteria_uncl",0.0202224469160768,NA,NA
+"27","2013","Jan","Oligoflexia","0319-6G20","0319-6G20_uncl","0319-6G20_uncl","0319-6G20_uncl",0.0202224469160768,NA,NA
+"28","2013","Jan","Parcubacteria","Candidatus Nomurabacteria","Candidatus Nomurabacteria_uncl","Candidatus Nomurabacteria_uncl","Candidatus Nomurabacteria_uncl",0.0161779575328615,NA,0.063867836157711
+"29","2013","Feb","Acidimicrobiia","Microtrichales","Iamiaceae","Iamia","Iamia_uncl",0.0253148534902854,NA,NA
+"30","2013","Feb","Acidimicrobiia","Microtrichales","Ilumatobacteraceae","CL500-29 marine group","CL500-29 marine group_uncl",0.360736662236567,NA,NA
+"31","2013","Feb","Alphaproteobacteria","Paracaedibacterales","Paracaedibacteraceae","Candidatus Paracaedibacter","Candidatus Paracaedibacter_uncl",0.0316435668628568,NA,NA
+"32","2013","Feb","Alphaproteobacteria","Rhizobiales","Beijerinckiaceae","alphaI cluster","alphaI cluster_uncl",0.249984178216569,NA,NA
+"33","2013","Feb","Alphaproteobacteria","Rhizobiales","Devosiaceae","Devosia","Devosia_uncl",0.079108917157142,NA,NA
+"34","2013","Feb","Alphaproteobacteria","Rhizobiales","Rhizobiaceae","Allorhizobium-Neorhizobium-Pararhizobium-Rhizobium","Allorhizobium-Neorhizobium-Pararhizobium-Rhizobium_uncl",0.098095057274856,NA,0.154231072420057
+"35","2013","Feb","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Altererythrobacter","sediminis",0.0379722802354281,NA,NA
+"36","2013","Feb","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Erythrobacter","Erythrobacter_uncl",0.132902980823998,NA,NA
+"37","2013","Feb","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Porphyrobacter","sanguineus",0.0759445604708563,NA,NA
+"38","2013","Feb","Anaerolineae","SBR1031","A4b","A4b_uncl","A4b_uncl",0.0158217834314284,NA,NA
+"39","2013","Feb","Bacteroidia","Cytophagales","Cyclobacteriaceae","Algoriphagus","Algoriphagus_uncl",0.398708942471995,NA,0.0959660006169243
+"40","2013","Feb","Bacteroidia","Cytophagales","Spirosomaceae","Lacihabitans","soyangensis",0.0348079235491425,NA,NA
+"41","2013","Feb","Bacteroidia","Flavobacteriales","Crocinitomicaceae","Crocinitomicaceae_uncl","Crocinitomicaceae_uncl",0.0348079235491425,NA,NA
+"42","2013","Feb","Bacteroidia","Flavobacteriales","Crocinitomicaceae","Fluviicola","Fluviicola_uncl",0.996772356179989,NA,NA
+"43","2013","Feb","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Flavobacterium","Flavobacterium_uncl",0.189861401177141,NA,0.0479830003084621
+"44","2013","Feb","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Mariniflexile","Mariniflexile_uncl",0.174039617745712,NA,NA
+"45","2013","Feb","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Myroides","Myroides_uncl",0.0727802037845706,NA,NA
+"46","2013","Feb","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Polaribacter","Polaribacter_uncl",0.0506297069805709,NA,NA
+"47","2013","Feb","Bacteroidia","Sphingobacteriales","env.OPS 17","env.OPS 17_uncl","env.OPS 17_uncl",0.0411366369217138,NA,NA
+"48","2013","Feb","Bacteroidia","Sphingobacteriales","NS11-12 marine group","NS11-12 marine group_uncl","NS11-12 marine group_uncl",0.386051515726853,0.198098256735341,NA
+"49","2013","Feb","Bacteroidia","Sphingobacteriales","Sphingobacteriaceae","Pedobacter","rivuli",0.0506297069805709,NA,NA
+"50","2013","Feb","Bacteroidia","Sphingobacteriales","Sphingobacteriales_uncl","Sphingobacteriales_uncl","Sphingobacteriales_uncl",0.0221504968039997,NA,NA
+"51","2013","Feb","Cyanobacteriia","Cyanobacteriales","Xenococcaceae","Chroococcidiopsis PCC-6712","Chroococcidiopsis PCC-6712_uncl",0.0443009936079995,NA,NA
+"52","2013","Feb","Cyanobacteriia","Cyanobacteriales","Xenococcaceae","Pleurocapsa PCC-7319","Pleurocapsa PCC-7319_uncl",0.0727802037845706,NA,NA
+"53","2013","Feb","Gammaproteobacteria","Aeromonadales","Aeromonadaceae","Aeromonas","Aeromonas_uncl",0.167710904373141,NA,NA
+"54","2013","Feb","Gammaproteobacteria","Alteromonadales","Alteromonadaceae","Rheinheimera","Rheinheimera_uncl",0.427188152648567,NA,0.147376358090277
+"55","2013","Feb","Gammaproteobacteria","Alteromonadales","Shewanellaceae","Shewanella","putrefaciens",0.0601227770394279,NA,NA
+"56","2013","Feb","Gammaproteobacteria","Burkholderiales","Burkholderiaceae","Limnobacter","thiooxidans",0.259477248275426,NA,NA
+"57","2013","Feb","Gammaproteobacteria","Burkholderiales","Chitinibacteraceae","Deefgea","chitinilytica",0.0474653502942852,NA,NA
+"58","2013","Feb","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Acidovorax","Acidovorax_uncl",0.0221504968039997,NA,NA
+"59","2013","Feb","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Comamonadaceae_uncl","Comamonadaceae_uncl",0.107588127333713,0.0880436696601514,0.0548377146382424
+"60","2013","Feb","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Limnohabitans","Limnohabitans_uncl",0.13923169419657,0.198098256735341,NA
+"61","2013","Feb","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Pelomonas","Pelomonas_uncl",0.0348079235491425,NA,NA
+"62","2013","Feb","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Rhodoferax","Rhodoferax_uncl",0.392380229099424,1.03891530198979,NA
+"63","2013","Feb","Gammaproteobacteria","Burkholderiales","Methylophilaceae","Methylophilaceae_uncl","Methylophilaceae_uncl",0.00949307005885703,NA,NA
+"64","2013","Feb","Gammaproteobacteria","Burkholderiales","Oxalobacteraceae","Massilia","Massilia_uncl",0.196190114549712,NA,NA
+"65","2013","Feb","Gammaproteobacteria","Burkholderiales","Oxalobacteraceae","Noviherbaspirillum","Noviherbaspirillum_uncl",0.00316435668628568,NA,NA
+"66","2013","Feb","Gammaproteobacteria","Cellvibrionales","Cellvibrionaceae","Cellvibrio","Cellvibrio_uncl",0.079108917157142,NA,0.21249614422319
+"67","2013","Feb","Gammaproteobacteria","Cellvibrionales","Cellvibrionaceae","Cellvibrionaceae_uncl","Cellvibrionaceae_uncl",0.0917663439022847,NA,NA
+"68","2013","Feb","Gammaproteobacteria","Enterobacterales","Enterobacteriaceae","Escherichia-Shigella","Escherichia-Shigella_uncl",2.07898234288969,NA,NA
+"69","2013","Feb","Gammaproteobacteria","Pseudomonadales","Moraxellaceae","Psychrobacter","Psychrobacter_uncl",0.088601987215999,NA,NA
+"70","2013","Feb","Gammaproteobacteria","Pseudomonadales","Pseudomonadaceae","Pseudomonas","Pseudomonas_uncl",0.0537940636668565,NA,NA
+"71","2013","Feb","Gammaproteobacteria","Salinisphaerales","Solimonadaceae","Panacagrimonas","Panacagrimonas_uncl",0.0569584203531422,NA,NA
+"72","2013","Feb","Gammaproteobacteria","Xanthomonadales","Xanthomonadaceae","Lysobacter","Lysobacter_uncl",0.25631289158914,NA,NA
+"73","2013","Feb","Gracilibacteria","Gracilibacteria_uncl","Gracilibacteria_uncl","Gracilibacteria_uncl","Gracilibacteria_uncl",0.0189861401177141,NA,NA
+"74","2013","Feb","Kapabacteria","Kapabacteriales","Kapabacteriales_uncl","Kapabacteriales_uncl","Kapabacteriales_uncl",0.0316435668628568,NA,NA
+"75","2013","Feb","Parcubacteria","Candidatus Nomurabacteria","Candidatus Nomurabacteria_uncl","Candidatus Nomurabacteria_uncl","Candidatus Nomurabacteria_uncl",0.0537940636668565,NA,0.0514103574733523
+"76","2013","Feb","Verrucomicrobiae","Verrucomicrobiae_uncl","Verrucomicrobiae_uncl","Verrucomicrobiae_uncl","Verrucomicrobiae_uncl",0.322764382001139,0.220109174150379,NA
+"77","2013","Feb","Verrucomicrobiae","Verrucomicrobiales","Rubritaleaceae","Luteolibacter","Luteolibacter_uncl",0.496803999746851,NA,0.167940501079617
+"78","2013","May","Acidimicrobiia","Microtrichales","Ilumatobacteraceae","CL500-29 marine group","CL500-29 marine group_uncl",0.62904717853839,NA,NA
+"79","2013","May","Acidimicrobiia","Microtrichales","Ilumatobacteraceae","Ilumatobacteraceae_uncl","Ilumatobacteraceae_uncl",0.0863398088189948,NA,NA
+"80","2013","May","Actinobacteria","Micrococcales","Microbacteriaceae","Aurantimicrobium","Aurantimicrobium_uncl",0.0986740672217083,NA,NA
+"81","2013","May","Anaerolineae","Anaerolineales","Anaerolineaceae","Anaerolineaceae_uncl","Anaerolineaceae_uncl",0.0370027752081406,NA,NA
+"82","2013","May","Bacteria_uncl","Bacteria_uncl","Bacteria_uncl","Bacteria_uncl","Bacteria_uncl",0.080172679617638,NA,NA
+"83","2013","May","Bacteroidia","Bacteroidales","Prolixibacteraceae","Prolixibacteraceae_uncl","Prolixibacteraceae_uncl",0.0308356460067838,NA,NA
+"84","2013","May","Bacteroidia","Flavobacteriales","Crocinitomicaceae","Fluviicola","Fluviicola_uncl",0.59204440333025,0.0285286356180016,NA
+"85","2013","May","Bacteroidia","Flavobacteriales","Flavobacteriales_uncl","Flavobacteriales_uncl","Flavobacteriales_uncl",0.154178230033919,NA,NA
+"86","2013","May","Bacteroidia","Flavobacteriales","NS9 marine group","NS9 marine group_uncl","NS9 marine group_uncl",0.579710144927536,NA,1.52133877812475
+"87","2013","May","Bacteroidia","Sphingobacteriales","env.OPS 17","env.OPS 17_uncl","env.OPS 17_uncl",0.123342584027135,NA,NA
+"88","2013","May","Bacteroidia","Sphingobacteriales","NS11-12 marine group","NS11-12 marine group_uncl","NS11-12 marine group_uncl",0.141843971631206,NA,NA
+"89","2013","May","Bdellovibrionia","Bacteriovoracales","Bacteriovoracaceae","Peredibacter","Peredibacter_uncl",0.326857847671909,0.0285286356180016,0.124109216110177
+"90","2013","May","Bdellovibrionia","Bdellovibrionales","Bdellovibrionaceae","OM27 clade","OM27 clade_uncl",0.271353684859698,NA,NA
+"91","2013","May","Clostridia","Clostridia_uncl","Clostridia_uncl","Clostridia_uncl","Clostridia_uncl",0.499537465309898,NA,NA
+"92","2013","May","Clostridia","Clostridiales","Clostridiaceae","Clostridium sensu stricto 1","Clostridium sensu stricto 1_uncl",0.259019426456984,NA,0.14012330851149
+"93","2013","May","Clostridia","Lachnospirales","Defluviitaleaceae","Defluviitaleaceae UCG-011","Defluviitaleaceae UCG-011_uncl",0.0555041628122109,NA,NA
+"94","2013","May","Desulfuromonadia","Bradymonadales","Bradymonadales_uncl","Bradymonadales_uncl","Bradymonadales_uncl",0.0986740672217083,NA,NA
+"95","2013","May","Fusobacteriia","Fusobacteriales","Leptotrichiaceae","Leptotrichiaceae_uncl","Leptotrichiaceae_uncl",0.123342584027135,NA,NA
+"96","2013","May","Gammaproteobacteria","Aeromonadales","Aeromonadales_uncl","Aeromonadales_uncl","Aeromonadales_uncl",0.770891150169596,NA,NA
+"97","2013","May","Gammaproteobacteria","Alteromonadales","Alteromonadaceae","Rheinheimera","Rheinheimera_uncl",0.17267961763799,NA,0.200176155016414
+"98","2013","May","Gammaproteobacteria","Burkholderiales","Aquaspirillaceae","Aquaspirillum","putridiconchylium",0.339192106074622,NA,NA
+"99","2013","May","Gammaproteobacteria","Burkholderiales","Burkholderiales_uncl","Burkholderiales_uncl","Burkholderiales_uncl",0.0308356460067838,0.213964767135012,NA
+"100","2013","May","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Comamonadaceae_uncl","Comamonadaceae_uncl",0.376194881282763,NA,0.336295940427576
+"101","2013","May","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Hydrogenophaga","Hydrogenophaga_uncl",0.123342584027135,NA,0.0120105693009849
+"102","2013","May","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Paucibacter","Paucibacter_uncl",0.0616712920135677,NA,NA
+"103","2013","May","Gammaproteobacteria","Burkholderiales","Rhodocyclaceae","Dechlorobacter","Dechlorobacter_uncl",0.178846746839346,NA,NA
+"104","2013","May","Gammaproteobacteria","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl",0.0185013876040703,NA,NA
+"105","2013","May","Gammaproteobacteria","Pseudomonadales","Pseudomonadaceae","Pseudomonas","Pseudomonas_uncl",0.0986740672217083,0.634762142500535,NA
+"106","2013","May","Gammaproteobacteria","Vibrionales","Vibrionaceae","Vibrio","cholerae",1.01757631822387,NA,NA
+"107","2013","May","Gammaproteobacteria","Vibrionales","Vibrionaceae","Vibrio","Vibrio_uncl",0.530373111316682,NA,NA
+"108","2013","May","Kapabacteria","Kapabacteriales","Kapabacteriales_uncl","Kapabacteriales_uncl","Kapabacteriales_uncl",0.148011100832562,0.0713215890450039,NA
+"109","2013","May","Leptospirae","Leptospirales","Leptospiraceae","Leptospira","Leptospira_uncl",0.0863398088189948,NA,NA
+"110","2013","May","Spirochaetia","Spirochaetales","Spirochaetaceae","GWE2-31-10","GWE2-31-10_uncl",0.0925069380203515,NA,NA
+"111","2013","May","Verrucomicrobiae","Opitutales","Opitutaceae","Lacunisphaera","Lacunisphaera_uncl",0.0246685168054271,NA,NA
+"112","2013","May","Verrucomicrobiae","Verrucomicrobiae_uncl","Verrucomicrobiae_uncl","Verrucomicrobiae_uncl","Verrucomicrobiae_uncl",0.2281837804502,NA,NA
+"113","2013","May","Verrucomicrobiae","Verrucomicrobiales","Verrucomicrobiaceae","Verrucomicrobiaceae_uncl","Verrucomicrobiaceae_uncl",0.943570767807586,NA,NA
+"114","2013","Jun","Acidimicrobiia","Microtrichales","Microtrichales_uncl","Microtrichales_uncl","Microtrichales_uncl",0.465346534653465,NA,NA
+"115","2013","Jun","Alphaproteobacteria","Holosporales","Holosporaceae","Holosporaceae_uncl","Holosporaceae_uncl",0.108910891089109,0.185079726651481,NA
+"116","2013","Jun","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Gemmobacter","Gemmobacter_uncl",0.237623762376238,NA,NA
+"117","2013","Jun","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Pseudorhodobacter","Pseudorhodobacter_uncl",0.356435643564356,NA,NA
+"118","2013","Jun","Alphaproteobacteria","Rhodospirillales","Rhodospirillaceae","Haematospirillum","Haematospirillum_uncl",0.495049504950495,NA,NA
+"119","2013","Jun","Bacteroidia","Chitinophagales","Saprospiraceae","Lewinella","Lewinella_uncl",0.514851485148515,NA,NA
+"120","2013","Jun","Bacteroidia","Cytophagales","Cyclobacteriaceae","Algoriphagus","Algoriphagus_uncl",0.326732673267327,0.0996583143507973,0.656455142231947
+"121","2013","Jun","Bacteroidia","Flavobacteriales","Crocinitomicaceae","Fluviicola","Fluviicola_uncl",0.0693069306930693,0.0355922551252847,0.0765864332603939
+"122","2013","Jun","Bacteroidia","Flavobacteriales","Cryomorphaceae","Cryomorphaceae_uncl","Cryomorphaceae_uncl",0.0396039603960396,NA,NA
+"123","2013","Jun","Bacteroidia","Flavobacteriales","NS9 marine group","NS9 marine group_uncl","NS9 marine group_uncl",0.128712871287129,NA,0.536105032822757
+"124","2013","Jun","Bdellovibrionia","Bdellovibrionales","Bdellovibrionaceae","OM27 clade","OM27 clade_uncl",0.0792079207920792,NA,NA
+"125","2013","Jun","Cyanobacteriia","Leptolyngbyales","Leptolyngbyaceae","Leptolyngbyaceae_uncl","Leptolyngbyaceae_uncl",0.0594059405940594,NA,NA
+"126","2013","Jun","Gammaproteobacteria","Gammaproteobacteria Incertae Sedis","Unknown Family","Acidibacter","Acidibacter_uncl",0.465346534653465,NA,0.361050328227571
+"127","2013","Jun","Gammaproteobacteria","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl",0.217821782178218,NA,0.0382932166301969
+"128","2013","Jun","Gammaproteobacteria","Vibrionales","Vibrionaceae","Vibrio","cholerae",0.900990099009901,NA,NA
+"129","2013","Jun","Gammaproteobacteria","Vibrionales","Vibrionaceae","Vibrio","Vibrio_uncl",1.30693069306931,NA,NA
+"130","2013","Jun","Oligoflexia","Oligoflexales","Oligoflexales_uncl","Oligoflexales_uncl","Oligoflexales_uncl",0.118811881188119,NA,0.0984682713347921
+"131","2013","Jun","Parcubacteria","Candidatus Kaiserbacteria","Candidatus Kaiserbacteria_uncl","Candidatus Kaiserbacteria_uncl","Candidatus Kaiserbacteria_uncl",0.118811881188119,NA,NA
+"132","2013","Jun","Verrucomicrobiae","Verrucomicrobiales","Verrucomicrobiaceae","Verrucomicrobiaceae_uncl","Verrucomicrobiaceae_uncl",0.0693069306930693,NA,0.24617067833698
+"133","2013","Jul","Acidimicrobiia","Microtrichales","Ilumatobacteraceae","CL500-29 marine group","CL500-29 marine group_uncl",0.709355828220859,NA,0.271652848826954
+"134","2013","Jul","Acidobacteriae","Paludibaculum","Paludibaculum_uncl","Paludibaculum_uncl","Paludibaculum_uncl",0.129409509202454,NA,NA
+"135","2013","Jul","Actinobacteria","Corynebacteriales","Mycobacteriaceae","Mycobacterium","Mycobacterium_uncl",0.067101226993865,NA,NA
+"136","2013","Jul","Actinobacteria","Frankiales","Sporichthyaceae","hgcI clade","hgcI clade_uncl",0.0910659509202454,NA,NA
+"137","2013","Jul","Actinobacteria","PeM15","PeM15_uncl","PeM15_uncl","PeM15_uncl",0.0910659509202454,0.0874334313647564,NA
+"138","2013","Jul","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Gemmobacter","Gemmobacter_uncl",0.373849693251534,0.254351800333837,NA
+"139","2013","Jul","Bacteroidia","Bacteroidales","Bacteroidetes BD2-2","Bacteroidetes BD2-2_uncl","Bacteroidetes BD2-2_uncl",0.0191717791411043,NA,NA
+"140","2013","Jul","Bacteroidia","Chitinophagales","Chitinophagaceae","Lacibacter","Lacibacter_uncl",0.0910659509202454,NA,NA
+"141","2013","Jul","Bacteroidia","Flavobacteriales","Crocinitomicaceae","Fluviicola","Fluviicola_uncl",0.321127300613497,0.425244416183133,NA
+"142","2013","Jul","Bacteroidia","Flavobacteriales","NS9 marine group","NS9 marine group_uncl","NS9 marine group_uncl",0.0910659509202454,NA,NA
+"143","2013","Jul","Bdellovibrionia","Bdellovibrionales","Bdellovibrionaceae","OM27 clade","OM27 clade_uncl",0.067101226993865,NA,0.165814076556712
+"144","2013","Jul","Chloroflexia","Chloroflexales","Roseiflexaceae","Roseiflexaceae_uncl","Roseiflexaceae_uncl",0.306748466257669,NA,0.165814076556712
+"145","2013","Jul","Cyanobacteriia","Cyanobacteriales","Microcystaceae","Microcystaceae_uncl","Microcystaceae_uncl",0.0862730061349693,NA,NA
+"146","2013","Jul","Cyanobacteriia","Cyanobacteriales","Microcystaceae","Microcystis PCC-7914","Microcystis PCC-7914_uncl",0.872315950920245,NA,NA
+"147","2013","Jul","Cyanobacteriia","Cyanobacteriia_uncl","Cyanobacteriia_uncl","Cyanobacteriia_uncl","Cyanobacteriia_uncl",0.862730061349693,NA,NA
+"148","2013","Jul","Desulfobacteria","Desulfobacterales","Desulfosarcinaceae","Sva0081 sediment group","Sva0081 sediment group_uncl",0.067101226993865,NA,NA
+"149","2013","Jul","Desulfuromonadia","Geobacterales","Geobacteraceae","Geobacteraceae_uncl","Geobacteraceae_uncl",0.0383435582822086,NA,NA
+"150","2013","Jul","Gammaproteobacteria","Burkholderiales","Burkholderiaceae","Lautropia","Lautropia_uncl",0.0910659509202454,NA,NA
+"151","2013","Jul","Gammaproteobacteria","Burkholderiales","Burkholderiaceae","Limnobacter","Limnobacter_uncl",0.11023773006135,NA,NA
+"152","2013","Jul","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Comamonadaceae_uncl","Comamonadaceae_uncl",0.340299079754601,0.0079484937604324,NA
+"153","2013","Jul","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Zhizhongheella","Zhizhongheella_uncl",0.0527223926380368,NA,NA
+"154","2013","Jul","Gammaproteobacteria","Burkholderiales","Oxalobacteraceae","Oxalobacteraceae_uncl","Oxalobacteraceae_uncl",0.0431365030674847,0.0437167156823782,NA
+"155","2013","Jul","Gammaproteobacteria","Cellvibrionales","Halieaceae","OM60(NOR5) clade","OM60(NOR5) clade_uncl",0.0862730061349693,NA,NA
+"156","2013","Jul","Gammaproteobacteria","Cellvibrionales","Spongiibacteraceae","BD1-7 clade","BD1-7 clade_uncl",0.129409509202454,NA,NA
+"157","2013","Jul","Gammaproteobacteria","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl",0.0383435582822086,NA,0.0388075498324219
+"158","2013","Jul","Gammaproteobacteria","KI89A clade","KI89A clade_uncl","KI89A clade_uncl","KI89A clade_uncl",0.325920245398773,NA,NA
+"159","2013","Jul","Gammaproteobacteria","Methylococcales","Methylomonadaceae","Methylomicrobium","Methylomicrobium_uncl",0.129409509202454,NA,NA
+"160","2013","Jul","Gammaproteobacteria","Methylococcales","Methylomonadaceae","Methylosarcina","Methylosarcina_uncl",0.0527223926380368,NA,NA
+"161","2013","Jul","Gemmatimonadetes","Gemmatimonadales","Gemmatimonadaceae","Gemmatimonadaceae_uncl","Gemmatimonadaceae_uncl",0.0718941717791411,NA,NA
+"162","2013","Jul","Margulisbacteria_uncl","Margulisbacteria_uncl","Margulisbacteria_uncl","Margulisbacteria_uncl","Margulisbacteria_uncl",0.263611963190184,NA,NA
+"163","2013","Jul","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl",0.297162576687117,0.0715364438438916,0.324572234962074
+"164","2013","Jul","Vampirivibrionia","Vampirovibrionales","Vampirovibrionales_uncl","Vampirovibrionales_uncl","Vampirovibrionales_uncl",0.0431365030674847,NA,0.0529193861351208
+"165","2013","Oct","Actinobacteria","Micrococcales","Microbacteriaceae","ML602J-51","ML602J-51_uncl",0.152465841787369,NA,NA
+"166","2013","Oct","Alphaproteobacteria","Acetobacterales","Acetobacteraceae","Roseomonas","Roseomonas_uncl",0.20524247932915,NA,NA
+"167","2013","Oct","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Marivita","Marivita_uncl",1.82372603061045,NA,NA
+"168","2013","Oct","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Rhodobacter","Rhodobacter_uncl",1.50120213452178,NA,NA
+"169","2013","Oct","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Rhodobacteraceae_uncl","Rhodobacteraceae_uncl",0.80924177564065,NA,NA
+"170","2013","Oct","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Rhodobaculum","Rhodobaculum_uncl",3.4304814402158,NA,NA
+"171","2013","Oct","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Roseicyclus","Roseicyclus_uncl",2.8733947106081,NA,NA
+"172","2013","Oct","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Tabrizicola","Tabrizicola_uncl",0.967571688265994,NA,NA
+"173","2013","Oct","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Polymorphobacter","Polymorphobacter_uncl",0.85029027150648,NA,NA
+"174","2013","Oct","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Porphyrobacter","HT-58-2",4.81440215797807,NA,NA
+"175","2013","Oct","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Porphyrobacter","Porphyrobacter_uncl",1.16108602591919,1.06723585912487,NA
+"176","2013","Oct","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Sandarakinorhabdus","Sandarakinorhabdus_uncl",0.433941242010203,NA,NA
+"177","2013","Oct","Babeliae","Babeliales","Babeliales_uncl","Babeliales_uncl","Babeliales_uncl",0.0410484958658301,NA,NA
+"178","2013","Oct","Bacilli","Bacillales","Planococcaceae","Jeotgalibacillus","Jeotgalibacillus_uncl",0.064504779217733,NA,NA
+"179","2013","Oct","Bacteria_uncl","Bacteria_uncl","Bacteria_uncl","Bacteria_uncl","Bacteria_uncl",0.12314548759749,NA,NA
+"180","2013","Oct","Bacteroidia","Chitinophagales","Saprospiraceae","Phaeodactylibacter","Phaeodactylibacter_uncl",1.97619187239782,NA,NA
+"181","2013","Oct","Bacteroidia","Cytophagales","Cyclobacteriaceae","Algoriphagus","Algoriphagus_uncl",3.33079223597021,NA,NA
+"182","2013","Oct","Bacteroidia","Cytophagales","Cyclobacteriaceae","Cyclobacteriaceae_uncl","Cyclobacteriaceae_uncl",0.146601770949393,NA,NA
+"183","2013","Oct","Bacteroidia","Cytophagales","Cyclobacteriaceae","Shivajiella","Shivajiella_uncl",0.416349029496276,NA,NA
+"184","2013","Oct","Bacteroidia","Cytophagales","MWH-CFBk5","MWH-CFBk5_uncl","MWH-CFBk5_uncl",0.0234562833519029,NA,NA
+"185","2013","Oct","Bacteroidia","Flavobacteriales","Cryomorphaceae","Cryomorphaceae_uncl","Cryomorphaceae_uncl",2.60364745206122,NA,NA
+"186","2013","Oct","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Flavobacterium","Flavobacterium_uncl",1.33700815105846,NA,NA
+"187","2013","Oct","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Nonlabens","Nonlabens_uncl",0.193514337653199,NA,NA
+"188","2013","Oct","Bacteroidia","Sphingobacteriales","NS11-12 marine group","NS11-12 marine group_uncl","NS11-12 marine group_uncl",0.703688500557087,NA,NA
+"189","2013","Oct","Clostridia","Clostridiales","Clostridiaceae","Clostridium sensu stricto 1","Clostridium sensu stricto 1_uncl",0.134873629273442,NA,NA
+"190","2013","Oct","Clostridia","Hungateiclostridiaceae","Hungateiclostridiaceae_uncl","Hungateiclostridiaceae_uncl","Hungateiclostridiaceae_uncl",1.51293027619774,NA,NA
+"191","2013","Oct","Clostridia","Lachnospirales","Defluviitaleaceae","Defluviitaleaceae UCG-011","Defluviitaleaceae UCG-011_uncl",0.064504779217733,NA,NA
+"192","2013","Oct","Gammaproteobacteria","Alteromonadales","Alteromonadaceae","Rheinheimera","Rheinheimera_uncl",0.0410484958658301,NA,NA
+"193","2013","Oct","Gammaproteobacteria","Alteromonadales","Idiomarinaceae","Idiomarina","Idiomarina_uncl",0.170058054301296,NA,NA
+"194","2013","Oct","Gammaproteobacteria","Burkholderiales","Alcaligenaceae","GKS98 freshwater group","GKS98 freshwater group_uncl",0.510174162903888,NA,NA
+"195","2013","Oct","Gammaproteobacteria","Burkholderiales","Aquaspirillaceae","Aquaspirillum","Aquaspirillum_uncl",0.0586407083797572,NA,NA
+"196","2013","Oct","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Comamonadaceae_uncl","Comamonadaceae_uncl",3.34252037764616,NA,NA
+"197","2013","Oct","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Hydrogenophaga","Hydrogenophaga_uncl",1.4015129302762,NA,NA
+"198","2013","Oct","Gammaproteobacteria","Burkholderiales","Methylophilaceae","Methylophilaceae_uncl","Methylophilaceae_uncl",1.22559080513693,NA,NA
+"199","2013","Oct","Gammaproteobacteria","Burkholderiales","Neisseriaceae","Neisseriaceae_uncl","Neisseriaceae_uncl",0.0293203541898786,NA,NA
+"200","2013","Oct","Gammaproteobacteria","CHAB-XI-27","CHAB-XI-27_uncl","CHAB-XI-27_uncl","CHAB-XI-27_uncl",0.0351844250278543,NA,NA
+"201","2013","Oct","Gammaproteobacteria","Oceanospirillales","Oceanospirillales_uncl","Oceanospirillales_uncl","Oceanospirillales_uncl",0.0293203541898786,NA,NA
+"202","2013","Oct","Gammaproteobacteria","Oceanospirillales","Pseudohongiellaceae","Pseudohongiella","Pseudohongiella_uncl",0.064504779217733,NA,NA
+"203","2013","Oct","Gammaproteobacteria","Xanthomonadales","Xanthomonadaceae","Xanthomonadaceae_uncl","Xanthomonadaceae_uncl",0.16419398346332,NA,NA
+"204","2013","Oct","Rhodothermia","Balneolales","Balneolaceae","Balneolaceae_uncl","Balneolaceae_uncl",0.0703688500557087,NA,NA
+"205","2014","Mar","Actinobacteria","PeM15","PeM15_uncl","PeM15_uncl","PeM15_uncl",0.0671433846980226,NA,NA
+"206","2014","Mar","Alphaproteobacteria","Rhizobiales","Beijerinckiaceae","alphaI cluster","alphaI cluster_uncl",0.312216738845805,NA,NA
+"207","2014","Mar","Alphaproteobacteria","Rhizobiales","Rhizobiaceae","Allorhizobium-Neorhizobium-Pararhizobium-Rhizobium","Allorhizobium-Neorhizobium-Pararhizobium-Rhizobium_uncl",0.14771544633565,NA,NA
+"208","2014","Mar","Alphaproteobacteria","Rhizobiales","Xanthobacteraceae","Afipia","Afipia_uncl",0.0604290462282204,NA,NA
+"209","2014","Mar","Alphaproteobacteria","Rickettsiales","SM2D12","SM2D12_uncl","SM2D12_uncl",0.0302145231141102,NA,NA
+"210","2014","Mar","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Blastomonas","Blastomonas_uncl",0.144358277100749,NA,NA
+"211","2014","Mar","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Porphyrobacter","sanguineus",0.141001107865848,NA,NA
+"212","2014","Mar","Bacteroidia","Flavobacteriales","Crocinitomicaceae","Fluviicola","Fluviicola_uncl",0.245073354147783,NA,NA
+"213","2014","Mar","Bacteroidia","Flavobacteriales","Crocinitomicaceae","Wandonia","Wandonia_uncl",0.0570718769933192,NA,NA
+"214","2014","Mar","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Flavobacterium","Flavobacterium_uncl",0.120858092456441,0.018811136192626,0.21608643457383
+"215","2014","Mar","Bacteroidia","Sphingobacteriales","NS11-12 marine group","NS11-12 marine group_uncl","NS11-12 marine group_uncl",0.0436432000537147,NA,NA
+"216","2014","Mar","Bacteroidia","Sphingobacteriales","Sphingobacteriaceae","Pedobacter","Pedobacter_uncl",0.154429784805452,NA,NA
+"217","2014","Mar","Bacteroidia","Sphingobacteriales","Sphingobacteriaceae","Sphingobacteriaceae_uncl","Sphingobacteriaceae_uncl",0.0637862154631215,NA,NA
+"218","2014","Mar","Bdellovibrionia","Bacteriovoracales","Bacteriovoracaceae","Peredibacter","Peredibacter_uncl",0.100715077047034,0.489089541008277,0.160064025610244
+"219","2014","Mar","Gammaproteobacteria","Aeromonadales","Aeromonadaceae","Aeromonas","Aeromonas_uncl",0.0671433846980226,NA,NA
+"220","2014","Mar","Gammaproteobacteria","Alteromonadales","Alteromonadaceae","Rheinheimera","Rheinheimera_uncl",0.2954308926713,NA,NA
+"221","2014","Mar","Gammaproteobacteria","Burkholderiales","Burkholderiaceae","Limnobacter","thiooxidans",1.21193809379931,NA,NA
+"222","2014","Mar","Gammaproteobacteria","Burkholderiales","Burkholderiaceae","Polynucleobacter","Polynucleobacter_uncl",0.0100715077047034,NA,NA
+"223","2014","Mar","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Aquabacterium","Aquabacterium_uncl",0.0369288615839124,NA,NA
+"224","2014","Mar","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Comamonadaceae_uncl","Comamonadaceae_uncl",0.107429415516836,NA,NA
+"225","2014","Mar","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Malikia","Malikia_uncl",0.0470003692886158,NA,NA
+"226","2014","Mar","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Methylibium","Methylibium_uncl",0.436432000537147,NA,NA
+"227","2014","Mar","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Polaromonas","jejuensis",0.235001846443079,NA,NA
+"228","2014","Mar","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Polaromonas","Polaromonas_uncl",0.0671433846980226,NA,NA
+"229","2014","Mar","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Rhizobacter","Rhizobacter_uncl",0.221573169503475,NA,NA
+"230","2014","Mar","Gammaproteobacteria","Burkholderiales","Methylophilaceae","Methylophilaceae_uncl","Methylophilaceae_uncl",0.00335716923490113,NA,NA
+"231","2014","Mar","Gammaproteobacteria","Burkholderiales","Oxalobacteraceae","Duganella","Duganella_uncl",0.0201430154094068,NA,NA
+"232","2014","Mar","Gammaproteobacteria","Burkholderiales","Oxalobacteraceae","Massilia","Massilia_uncl",0.292073723436398,NA,NA
+"233","2014","Mar","Gammaproteobacteria","Burkholderiales","Oxalobacteraceae","Noviherbaspirillum","Noviherbaspirillum_uncl",0.00335716923490113,NA,NA
+"234","2014","Mar","Gammaproteobacteria","Burkholderiales","Oxalobacteraceae","Oxalobacteraceae_uncl","Oxalobacteraceae_uncl",0.0167858461745057,NA,NA
+"235","2014","Mar","Gammaproteobacteria","Burkholderiales","Rhodocyclaceae","Rhodocyclaceae_uncl","Rhodocyclaceae_uncl",0.0302145231141102,NA,NA
+"236","2014","Mar","Gammaproteobacteria","Pseudomonadales","Pseudomonadaceae","Pseudomonas","Pseudomonas_uncl",0.439789169772048,NA,NA
+"237","2014","Mar","Gammaproteobacteria","Xanthomonadales","Xanthomonadaceae","Lysobacter","Lysobacter_uncl",0.271930708026992,NA,NA
+"238","2014","Apr","Acidimicrobiia","Microtrichales","Ilumatobacteraceae","CL500-29 marine group","CL500-29 marine group_uncl",0.352513077098021,NA,NA
+"239","2014","Apr","Actinobacteria","Corynebacteriales","Mycobacteriaceae","Mycobacterium","Mycobacterium_uncl",0.341141687514214,NA,NA
+"240","2014","Apr","Actinobacteria","PeM15","PeM15_uncl","PeM15_uncl","PeM15_uncl",0.227427791676143,NA,NA
+"241","2014","Apr","Alphaproteobacteria","Azospirillales","Azospirillales Incertae Sedis","Stella","Stella_uncl",0.216056402092336,NA,NA
+"242","2014","Apr","Alphaproteobacteria","Rickettsiales","Fokiniaceae","MD3-55","MD3-55_uncl",0.0909711166704571,NA,NA
+"243","2014","Apr","Alphaproteobacteria","Rickettsiales","SM2D12","SM2D12_uncl","SM2D12_uncl",0.250170570843757,NA,NA
+"244","2014","Apr","Bacteroidia","Chitinophagales","Chitinophagaceae","Aurantisolimonas","Aurantisolimonas_uncl",0.216056402092336,NA,NA
+"245","2014","Apr","Bacteroidia","Chitinophagales","Chitinophagales_uncl","Chitinophagales_uncl","Chitinophagales_uncl",0.0454855583352286,NA,NA
+"246","2014","Apr","Bacteroidia","Cytophagales","Microscillaceae","Microscillaceae_uncl","Microscillaceae_uncl",0.07959972708665,NA,NA
+"247","2014","Apr","Bacteroidia","Flavobacteriales","Crocinitomicaceae","Fluviicola","Fluviicola_uncl",0.432112804184671,NA,NA
+"248","2014","Apr","Bacteroidia","Sphingobacteriales","Sphingobacteriales_uncl","Sphingobacteriales_uncl","Sphingobacteriales_uncl",0.0341141687514214,NA,NA
+"249","2014","Apr","Bdellovibrionia","Bacteriovoracales","Bacteriovoracaceae","Peredibacter","Peredibacter_uncl",1.41005230839209,NA,NA
+"250","2014","Apr","Campylobacteria","Campylobacterales","Campylobacterales_uncl","Campylobacterales_uncl","Campylobacterales_uncl",0.07959972708665,NA,NA
+"251","2014","Apr","Fusobacteriia","Fusobacteriales","Leptotrichiaceae","Leptotrichiaceae_uncl","Leptotrichiaceae_uncl",0.420741414600864,NA,NA
+"252","2014","Apr","Gammaproteobacteria","Burkholderiales","Burkholderiaceae","Limnobacter","Limnobacter_uncl",0.284284739595179,NA,NA
+"253","2014","Apr","Gammaproteobacteria","Burkholderiales","Burkholderiales_uncl","Burkholderiales_uncl","Burkholderiales_uncl",0.0227427791676143,NA,NA
+"254","2014","Apr","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Rubrivivax","Rubrivivax_uncl",0.625426427109393,NA,NA
+"255","2014","Apr","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Sphaerotilus","Sphaerotilus_uncl",0.625426427109393,NA,NA
+"256","2014","Apr","Gammaproteobacteria","Burkholderiales","Nitrosomonadaceae","Ellin6067","Ellin6067_uncl",0.0568569479190357,NA,NA
+"257","2014","Apr","Gammaproteobacteria","KI89A clade","KI89A clade_uncl","KI89A clade_uncl","KI89A clade_uncl",0.420741414600864,NA,NA
+"258","2014","Apr","Oligoflexia","0319-6G20","0319-6G20_uncl","0319-6G20_uncl","0319-6G20_uncl",0.227427791676143,NA,NA
+"259","2014","Apr","Parcubacteria","Candidatus Nomurabacteria","Candidatus Nomurabacteria_uncl","Candidatus Nomurabacteria_uncl","Candidatus Nomurabacteria_uncl",0.591312258357971,NA,NA
+"260","2014","Apr","Planctomycetes","Pirellulales","Pirellulaceae","Pirellulaceae_uncl","Pirellulaceae_uncl",0.227427791676143,NA,NA
+"261","2014","Apr","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl",1.14851034796452,0.438497863728356,NA
+"262","2014","Apr","Verrucomicrobiae","Chthoniobacterales","Chthoniobacteraceae","LD29","LD29_uncl",0.602683647941779,NA,NA
+"263","2014","May","Actinobacteria","Micrococcales","Micrococcales_uncl","Micrococcales_uncl","Micrococcales_uncl",0.179589287108612,NA,NA
+"264","2014","May","Alphaproteobacteria","Acetobacterales","Acetobacteraceae","Rhodovastum","Rhodovastum_uncl",0.140548137737175,NA,NA
+"265","2014","May","Alphaproteobacteria","Alphaproteobacteria_uncl","Alphaproteobacteria_uncl","Alphaproteobacteria_uncl","Alphaproteobacteria_uncl",0.163972827360037,NA,NA
+"266","2014","May","Alphaproteobacteria","Rickettsiales","Rickettsiales_uncl","Rickettsiales_uncl","Rickettsiales_uncl",0.0858905286171625,NA,0.270534305252874
+"267","2014","May","Alphaproteobacteria","Rickettsiales","SM2D12","SM2D12_uncl","SM2D12_uncl",0.195205746857187,NA,NA
+"268","2014","May","Bacteroidia","Bacteroidales","Dysgonomonadaceae","Dysgonomonas","Dysgonomonas_uncl",0.2498633559772,NA,NA
+"269","2014","May","Bacteroidia","Bacteroidales","Paludibacteraceae","Paludibacter","Paludibacter_uncl",0.0546576091200125,NA,NA
+"270","2014","May","Bacteroidia","Chitinophagales","Chitinophagaceae","Aurantisolimonas","Aurantisolimonas_uncl",0.046849379245725,NA,NA
+"271","2014","May","Bacteroidia","Flavobacteriales","Crocinitomicaceae","Fluviicola","Fluviicola_uncl",0.53095963145155,NA,0.706395130382505
+"272","2014","May","Bacteroidia","Flavobacteriales","NS9 marine group","NS9 marine group_uncl","NS9 marine group_uncl",0.203013976731475,NA,NA
+"273","2014","May","Bacteroidia","Sphingobacteriales","env.OPS 17","env.OPS 17_uncl","env.OPS 17_uncl",0.132739907862887,NA,NA
+"274","2014","May","Bdellovibrionia","Bacteriovoracales","Bacteriovoracaceae","Peredibacter","Peredibacter_uncl",0.296712735222925,NA,0.142781994439017
+"275","2014","May","Gammaproteobacteria","Enterobacterales","Yersiniaceae","Serratia","Serratia_uncl",0.0858905286171625,NA,NA
+"276","2014","May","Gammaproteobacteria","Legionellales","Legionellaceae","Legionellaceae_uncl","Legionellaceae_uncl",0.078082298742875,NA,NA
+"277","2014","May","Gammaproteobacteria","Oceanospirillales","P13-46","P13-46_uncl","P13-46_uncl",0.171781057234325,NA,NA
+"278","2014","May","Gammaproteobacteria","Pseudomonadales","Pseudomonadaceae","Pseudomonas","Pseudomonas_uncl",0.601233700320137,NA,NA
+"279","2014","May","Gammaproteobacteria","Vibrionales","Vibrionaceae","Vibrio","cholerae",0.921371125165925,NA,NA
+"280","2014","May","Gammaproteobacteria","Vibrionales","Vibrionaceae","Vibrio","Vibrio_uncl",1.4367142968689,NA,NA
+"281","2014","May","Gracilibacteria","JGI 0000069-P22","JGI 0000069-P22_uncl","JGI 0000069-P22_uncl","JGI 0000069-P22_uncl",0.03123291949715,NA,0.578642819568648
+"282","2014","May","OM190","OM190_uncl","OM190_uncl","OM190_uncl","OM190_uncl",0.0624658389943,NA,NA
+"283","2014","May","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl",0.171781057234325,NA,NA
+"284","2014","Jun","Acidimicrobiia","Microtrichales","Ilumatobacteraceae","Ilumatobacteraceae_uncl","Ilumatobacteraceae_uncl",0.181769580326116,NA,NA
+"285","2014","Jun","Actinobacteria","Micrococcales","Microbacteriaceae","Candidatus Aquiluna","Candidatus Aquiluna_uncl",0.133654103180968,NA,NA
+"286","2014","Jun","Alphaproteobacteria","Acetobacterales","Acetobacteraceae","Roseomonas","Roseomonas_uncl",0.0267308206361935,NA,0.618206171758281
+"287","2014","Jun","Alphaproteobacteria","Rhodospirillales","Rhodospirillaceae","Haematospirillum","Haematospirillum_uncl",0.090884790163058,NA,NA
+"288","2014","Jun","Alphaproteobacteria","Rickettsiales","Fokiniaceae","Fokiniaceae_uncl","Fokiniaceae_uncl",0.0267308206361935,NA,0.0927309257637422
+"289","2014","Jun","Anaerolineae","Anaerolineales","Anaerolineaceae","Anaerolineaceae_uncl","Anaerolineaceae_uncl",0.0695001336541032,NA,NA
+"290","2014","Jun","Bacteroidia","Bacteroidales","Bacteroidales_uncl","Bacteroidales_uncl","Bacteroidales_uncl",0.0588078053996258,NA,NA
+"291","2014","Jun","Bacteroidia","Bacteroidales","Bacteroidetes BD2-2","Bacteroidetes BD2-2_uncl","Bacteroidetes BD2-2_uncl",0.0855386260358193,NA,NA
+"292","2014","Jun","Bacteroidia","Bacteroidales","SB-5","SB-5_uncl","SB-5_uncl",0.0267308206361935,NA,NA
+"293","2014","Jun","Bacteroidia","Chitinophagales","Chitinophagaceae","Dinghuibacter","Dinghuibacter_uncl",0.283346698743651,NA,NA
+"294","2014","Jun","Bacteroidia","Chitinophagales","Saprospiraceae","Candidatus Aquirestis","Candidatus Aquirestis_uncl",0.20850040096231,NA,NA
+"295","2014","Jun","Bacteroidia","Chitinophagales","Saprospiraceae","Lewinella","Lewinella_uncl",0.721732157177225,NA,0.324558240173098
+"296","2014","Jun","Bacteroidia","Chitinophagales","Saprospiraceae","Phaeodactylibacter","Phaeodactylibacter_uncl",2.6516974071104,NA,NA
+"297","2014","Jun","Bacteroidia","Chitinophagales","Saprospiraceae","Saprospiraceae_uncl","Saprospiraceae_uncl",0.502539427960438,0.0318395287749741,0.850033486167637
+"298","2014","Jun","Bacteroidia","Cytophagales","Cyclobacteriaceae","Algoriphagus","Algoriphagus_uncl",0.0962309542902967,NA,NA
+"299","2014","Jun","Bacteroidia","Cytophagales","Cytophagales_uncl","Cytophagales_uncl","Cytophagales_uncl",0.0213846565089548,NA,NA
+"300","2014","Jun","Bacteroidia","Flavobacteriales","Crocinitomicaceae","Fluviicola","Fluviicola_uncl",0.101577118417535,0.119398232906153,NA
+"301","2014","Jun","Bacteroidia","Flavobacteriales","NS9 marine group","NS9 marine group_uncl","NS9 marine group_uncl",0.0588078053996258,NA,0.376075421152955
+"302","2014","Jun","Bacteroidia","Sphingobacteriales","Lentimicrobiaceae","Lentimicrobiaceae_uncl","Lentimicrobiaceae_uncl",0.0695001336541032,0.127358115099897,NA
+"303","2014","Jun","Bdellovibrionia","Bacteriovoracales","Bacteriovoracaceae","Peredibacter","Peredibacter_uncl",0.240577385725742,NA,0.170006697233527
+"304","2014","Jun","Campylobacteria","Campylobacterales","Arcobacteraceae","Arcobacteraceae_uncl","Arcobacteraceae_uncl",0.0534616412723871,NA,NA
+"305","2014","Jun","Chloroflexia","Chloroflexales","Roseiflexaceae","Roseiflexaceae_uncl","Roseiflexaceae_uncl",0.62015503875969,NA,NA
+"306","2014","Jun","Clostridia","Lachnospirales","Lachnospiraceae","XBB1006","XBB1006_uncl",0.0160384923817161,NA,NA
+"307","2014","Jun","Clostridia","Peptostreptococcales-Tissierellales","Peptostreptococcaceae","Proteocatella","Proteocatella_uncl",0.0427693130179096,NA,NA
+"308","2014","Jun","Gammaproteobacteria","Burkholderiales","Chitinibacteraceae","Chitinilyticum","Chitinilyticum_uncl",0.0213846565089548,NA,NA
+"309","2014","Jun","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Comamonadaceae_uncl","Comamonadaceae_uncl",0.983694199411922,0.00795988219374353,0.880943794755551
+"310","2014","Jun","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Hydrogenophaga","Hydrogenophaga_uncl",0.101577118417535,NA,NA
+"311","2014","Jun","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Leptothrix","Leptothrix_uncl",0.12296177492649,NA,1.00973674720519
+"312","2014","Jun","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Ottowia","Ottowia_uncl",0.251269713980219,NA,NA
+"313","2014","Jun","Gammaproteobacteria","Gammaproteobacteria Incertae Sedis","Unknown Family","Acidibacter","Acidibacter_uncl",0.261962042234697,NA,0.309103085879141
+"314","2014","Jun","Gammaproteobacteria","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl",0.668270515904838,NA,NA
+"315","2014","Jun","Gammaproteobacteria","KI89A clade","KI89A clade_uncl","KI89A clade_uncl","KI89A clade_uncl",0.117615610799252,NA,NA
+"316","2014","Jun","Gammaproteobacteria","Oceanospirillales","Saccharospirillaceae","Oceanobacter","Oceanobacter_uncl",0.0855386260358193,NA,NA
+"317","2014","Jun","Gammaproteobacteria","Pseudomonadales","Moraxellaceae","Acinetobacter","Acinetobacter_uncl",0.443731622560813,NA,NA
+"318","2014","Jun","Gammaproteobacteria","Pseudomonadales","Moraxellaceae","Enhydrobacter","Enhydrobacter_uncl",0.128307939053729,NA,NA
+"319","2014","Jun","Gammaproteobacteria","Pseudomonadales","Pseudomonadaceae","Pseudomonas","Pseudomonas_uncl",0.347500668270516,NA,NA
+"320","2014","Jun","Gammaproteobacteria","Steroidobacterales","Steroidobacteraceae","Steroidobacteraceae_uncl","Steroidobacteraceae_uncl",0.261962042234697,NA,NA
+"321","2014","Jun","Oligoflexia","Silvanigrellales","Silvanigrellaceae","Silvanigrellaceae_uncl","Silvanigrellaceae_uncl",0.0213846565089548,NA,NA
+"322","2014","Jun","Parcubacteria","Candidatus Kaiserbacteria","Candidatus Kaiserbacteria_uncl","Candidatus Kaiserbacteria_uncl","Candidatus Kaiserbacteria_uncl",0.149692595562684,NA,0.257585904899284
+"323","2014","Jun","Planctomycetes","Pirellulales","Pirellulaceae","Pirellula","Pirellula_uncl",0.117615610799252,NA,NA
+"324","2014","Jun","Saccharimonadia","Saccharimonadales","Saccharimonadaceae","TM7a","TM7a_uncl",0.192461908580593,NA,NA
+"325","2014","Jun","Verrucomicrobiae","Methylacidiphilales","Methylacidiphilaceae","Methylacidiphilaceae_uncl","Methylacidiphilaceae_uncl",0.299385191125368,NA,NA
+"326","2014","Jun","Verrucomicrobiae","Pedosphaerales","Pedosphaeraceae","Pedosphaeraceae_uncl","Pedosphaeraceae_uncl",0.0213846565089548,NA,NA
+"327","2014","Jun","Verrucomicrobiae","Verrucomicrobiales","Verrucomicrobiaceae","Verrucomicrobiaceae_uncl","Verrucomicrobiaceae_uncl",0.486500935578722,NA,NA
+"328","2014","Jul","Acidimicrobiia","Microtrichales","Ilumatobacteraceae","CL500-29 marine group","CL500-29 marine group_uncl",1.14564361670877,NA,NA
+"329","2014","Jul","Actinobacteria","Actinobacteria_uncl","Actinobacteria_uncl","Actinobacteria_uncl","Actinobacteria_uncl",0.111626813935726,NA,NA
+"330","2014","Jul","Actinobacteria","Corynebacteriales","Mycobacteriaceae","Mycobacterium","Mycobacterium_uncl",0.569884260619235,NA,NA
+"331","2014","Jul","Actinobacteria","Micrococcales","Microbacteriaceae","Aurantimicrobium","Aurantimicrobium_uncl",0.446507255742906,NA,NA
+"332","2014","Jul","Actinobacteria","Micrococcales","Microbacteriaceae","Candidatus Aquiluna","Candidatus Aquiluna_uncl",0.705011456436167,NA,NA
+"333","2014","Jul","Alphaproteobacteria","Rickettsiales","Rickettsiales_uncl","Rickettsiales_uncl","Rickettsiales_uncl",0.258504200693261,NA,NA
+"334","2014","Jul","Babeliae","Babeliales","Babeliaceae","Babeliaceae_uncl","Babeliaceae_uncl",0.0235003818812056,NA,NA
+"335","2014","Jul","Bacilli","Erysipelotrichales","Erysipelatoclostridiaceae","UCG-004","UCG-004_uncl",0.0822513365842195,NA,NA
+"336","2014","Jul","Bacteroidia","Bacteroidales","Barnesiellaceae","Barnesiellaceae_uncl","Barnesiellaceae_uncl",0.123377004876329,NA,NA
+"337","2014","Jul","Bacteroidia","Bacteroidales","Paludibacteraceae","Paludibacter","Paludibacter_uncl",0.0881264320545209,NA,NA
+"338","2014","Jul","Bacteroidia","Bacteroidales","Prolixibacteraceae","Roseimarinus","Roseimarinus_uncl",0.0881264320545209,NA,NA
+"339","2014","Jul","Bacteroidia","Bacteroidales","Rikenellaceae","Alistipes","Alistipes_uncl",0.0117501909406028,NA,NA
+"340","2014","Jul","Bacteroidia","Bacteroidales","Williamwhitmaniaceae","Williamwhitmaniaceae_uncl","Williamwhitmaniaceae_uncl",0.0411256682921098,NA,NA
+"341","2014","Jul","Bacteroidia","Chitinophagales","Chitinophagaceae","Dinghuibacter","Dinghuibacter_uncl",0.105751718465425,NA,NA
+"342","2014","Jul","Bacteroidia","Chitinophagales","Saprospiraceae","Lewinella","Lewinella_uncl",0.945890370718524,NA,NA
+"343","2014","Jul","Bacteroidia","Chitinophagales","Saprospiraceae","Saprospiraceae_uncl","Saprospiraceae_uncl",1.06339228012455,NA,NA
+"344","2014","Jul","Bacteroidia","Flavobacteriales","Crocinitomicaceae","Fluviicola","Fluviicola_uncl",0.258504200693261,NA,NA
+"345","2014","Jul","Bacteroidia","Flavobacteriales","NS9 marine group","NS9 marine group_uncl","NS9 marine group_uncl",0.111626813935726,NA,NA
+"346","2014","Jul","Bacteroidia","Sphingobacteriales","AKYH767","AKYH767_uncl","AKYH767_uncl",0.405381587450796,0.1953125,NA
+"347","2014","Jul","Bacteroidia","Sphingobacteriales","KD1-131","KD1-131_uncl","KD1-131_uncl",0.0117501909406028,NA,NA
+"348","2014","Jul","Bdellovibrionia","Bacteriovoracales","Bacteriovoracaceae","Peredibacter","Peredibacter_uncl",0.387756301039892,0.364583333333333,NA
+"349","2014","Jul","Bdellovibrionia","Bdellovibrionales","Bdellovibrionaceae","OM27 clade","OM27 clade_uncl",0.652135597203454,NA,NA
+"350","2014","Jul","Campylobacteria","Campylobacterales","Sulfurimonadaceae","Sulfuricurvum","Sulfuricurvum_uncl",0.0528758592327125,NA,NA
+"351","2014","Jul","Chitinivibrionia","Chitinivibrionales","Chitinivibrionaceae","possible genus 03","possible genus 03_uncl",0.0998766229951237,NA,NA
+"352","2014","Jul","Chloroflexia","Chloroflexales","Roseiflexaceae","Roseiflexaceae_uncl","Roseiflexaceae_uncl",1.06926737559485,NA,NA
+"353","2014","Jul","Clostridia","Hungateiclostridiaceae","Ruminiclostridium","Ruminiclostridium_uncl","Ruminiclostridium_uncl",0.182127959579343,NA,NA
+"354","2014","Jul","Cyanobacteriia","Limnotrichales","Limnotrichaceae","Limnothrix","Limnothrix_uncl",0.0352505728218084,NA,NA
+"355","2014","Jul","Fibrobacteria","Fibrobacterales","Fibrobacteraceae","Fibrobacteraceae_uncl","Fibrobacteraceae_uncl",0.0940015275248223,NA,NA
+"356","2014","Jul","Fusobacteriia","Fusobacteriales","Leptotrichiaceae","Hypnocyclicus","Hypnocyclicus_uncl",0.264379296163563,NA,NA
+"357","2014","Jul","Gammaproteobacteria","Burkholderiales","Burkholderiaceae","Lautropia","Lautropia_uncl",0.229128723341754,NA,NA
+"358","2014","Jul","Gammaproteobacteria","Burkholderiales","Burkholderiales_uncl","Burkholderiales_uncl","Burkholderiales_uncl",0.0763762411139181,NA,NA
+"359","2014","Jul","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Candidatus Symbiobacter","Candidatus Symbiobacter_uncl",0.0117501909406028,NA,NA
+"360","2014","Jul","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Comamonadaceae_uncl","Comamonadaceae_uncl",0.346630632747782,NA,NA
+"361","2014","Jul","Gammaproteobacteria","Burkholderiales","Comamonadaceae","RS62 marine group","RS62 marine group_uncl",0.0117501909406028,NA,NA
+"362","2014","Jul","Gammaproteobacteria","Burkholderiales","MWH-UniP1 aquatic group","MWH-UniP1 aquatic group_uncl","MWH-UniP1 aquatic group_uncl",0.775512602079784,NA,NA
+"363","2014","Jul","Gammaproteobacteria","Burkholderiales","Nitrosomonadaceae","Ellin6067","Ellin6067_uncl",0.299629868985371,NA,NA
+"364","2014","Jul","Gammaproteobacteria","Burkholderiales","Rhodocyclaceae","Rhodocyclaceae_uncl","Rhodocyclaceae_uncl",0.0881264320545209,NA,NA
+"365","2014","Jul","Gammaproteobacteria","Cellvibrionales","Cellvibrionaceae","Cellvibrionaceae_uncl","Cellvibrionaceae_uncl",0.0411256682921098,NA,NA
+"366","2014","Jul","Gammaproteobacteria","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl",0.0587509547030139,NA,NA
+"367","2014","Jul","Gammaproteobacteria","Legionellales","Legionellaceae","Legionella","Legionella_uncl",0.0822513365842195,NA,NA
+"368","2014","Jul","Gammaproteobacteria","Steroidobacterales","Steroidobacteraceae","Steroidobacteraceae_uncl","Steroidobacteraceae_uncl",0.352505728218084,NA,NA
+"369","2014","Jul","Oligoflexia","Oligoflexales","Oligoflexales_uncl","Oligoflexales_uncl","Oligoflexales_uncl",0.111626813935726,0.286458333333333,NA
+"370","2014","Jul","Polyangia","Nannocystales","Nannocystaceae","Nannocystis","Nannocystis_uncl",0.0176252864109042,NA,NA
+"371","2014","Jul","Proteobacteria_uncl","Proteobacteria_uncl","Proteobacteria_uncl","Proteobacteria_uncl","Proteobacteria_uncl",0.0763762411139181,NA,NA
+"372","2014","Jul","Saccharimonadia","Saccharimonadales","Saccharimonadaceae","TM7a","TM7a_uncl",0.264379296163563,NA,NA
+"373","2014","Jul","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl",0.188003055049645,NA,NA
+"374","2014","Jul","Verrucomicrobiae","Opitutales","Opitutaceae","Opitutaceae_uncl","Opitutaceae_uncl",0.0763762411139181,NA,NA
+"375","2014","Jul","Verrucomicrobiae","Verrucomicrobiales","Verrucomicrobiaceae","Verrucomicrobiaceae_uncl","Verrucomicrobiaceae_uncl",0.63451031079255,NA,NA
+"376","2014","Aug","Acidimicrobiia","Microtrichales","Ilumatobacteraceae","CL500-29 marine group","CL500-29 marine group_uncl",0.158149996485556,0.148353278607457,NA
+"377","2014","Aug","Actinobacteria","Micrococcales","Microbacteriaceae","Aurantimicrobium","Aurantimicrobium_uncl",0.0738033316932593,NA,NA
+"378","2014","Aug","Actinobacteria","Micrococcales","Microbacteriaceae","Candidatus Aquiluna","Candidatus Aquiluna_uncl",1.18436775145849,NA,NA
+"379","2014","Aug","Actinobacteria","Micrococcales","Microbacteriaceae","Microbacteriaceae_uncl","Microbacteriaceae_uncl",0.00702888873269136,NA,NA
+"380","2014","Aug","Actinobacteria","Micrococcales","Microbacteriaceae","SV1-3","SV1-3_uncl",0.00702888873269136,NA,NA
+"381","2014","Aug","Alphaproteobacteria","Azospirillales","Azospirillales Incertae Sedis","Stella","Stella_uncl",0.0527166654951852,NA,NA
+"382","2014","Aug","Alphaproteobacteria","Paracaedibacterales","Paracaedibacteraceae","Candidatus Odyssella","Candidatus Odyssella_uncl",0.087861109158642,NA,NA
+"383","2014","Aug","Alphaproteobacteria","Rhizobiales","Rhizobiales Incertae Sedis","Phreatobacter","Phreatobacter_uncl",0.0492022211288395,NA,NA
+"384","2014","Aug","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Gemmobacter","Gemmobacter_uncl",0.0667744429605679,NA,NA
+"385","2014","Aug","Alphaproteobacteria","Rhodospirillales","Terasakiellaceae","Terasakiellaceae_uncl","Terasakiellaceae_uncl",0.151121107752864,NA,NA
+"386","2014","Aug","Alphaproteobacteria","Rickettsiales","Candidatus Jidaibacter","Candidatus Jidaibacter_uncl","Candidatus Jidaibacter_uncl",0.0175722218317284,NA,NA
+"387","2014","Aug","Alphaproteobacteria","Rickettsiales","Fokiniaceae","Fokiniaceae_uncl","Fokiniaceae_uncl",0.087861109158642,NA,NA
+"388","2014","Aug","Alphaproteobacteria","Rickettsiales","Rickettsiaceae","Rickettsiaceae_uncl","Rickettsiaceae_uncl",0.0948899978913334,NA,NA
+"389","2014","Aug","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Altererythrobacter","Altererythrobacter_uncl",0.0667744429605679,NA,NA
+"390","2014","Aug","Anaerolineae","Anaerolineales","Anaerolineaceae","Anaerolineaceae_uncl","Anaerolineaceae_uncl",0.0843466647922963,0.138463060033627,NA
+"391","2014","Aug","Bacilli","Erysipelotrichales","Erysipelatoclostridiaceae","UCG-004","UCG-004_uncl",0.0316299992971111,NA,NA
+"392","2014","Aug","Bacteroidia","Bacteroidales","Bacteroidales_uncl","Bacteroidales_uncl","Bacteroidales_uncl",0.13003444155479,NA,NA
+"393","2014","Aug","Bacteroidia","Bacteroidales","Bacteroidetes BD2-2","Bacteroidetes BD2-2_uncl","Bacteroidetes BD2-2_uncl",0.0175722218317284,NA,NA
+"394","2014","Aug","Bacteroidia","Bacteroidales","Bacteroidetes vadinHA17","Bacteroidetes vadinHA17_uncl","Bacteroidetes vadinHA17_uncl",0.0175722218317284,NA,NA
+"395","2014","Aug","Bacteroidia","Bacteroidales","Marinilabiliaceae","[Cytophaga] xylanolytica group","[Cytophaga] xylanolytica group_uncl",0.15463555211921,NA,NA
+"396","2014","Aug","Bacteroidia","Bacteroidales","Prolixibacteraceae","Mangrovibacterium","Mangrovibacterium_uncl",0.0808322204259507,NA,NA
+"397","2014","Aug","Bacteroidia","Bacteroidales","Prolixibacteraceae","Prolixibacteraceae_uncl","Prolixibacteraceae_uncl",0.0421733323961482,NA,NA
+"398","2014","Aug","Bacteroidia","Bacteroidales","Prolixibacteraceae","Roseimarinus","Roseimarinus_uncl",0.0632599985942223,NA,NA
+"399","2014","Aug","Bacteroidia","Bacteroidales","Rikenellaceae","Mucinivorans","Mucinivorans_uncl",0.0140577774653827,NA,NA
+"400","2014","Aug","Bacteroidia","Chitinophagales","Chitinophagaceae","Aurantisolimonas","Aurantisolimonas_uncl",0.0281155549307654,NA,NA
+"401","2014","Aug","Bacteroidia","Chitinophagales","Chitinophagaceae","Dinghuibacter","Dinghuibacter_uncl",0.0597455542278766,NA,NA
+"402","2014","Aug","Bacteroidia","Chitinophagales","Chitinophagaceae","Lacibacter","Lacibacter_uncl",0.15463555211921,NA,NA
+"403","2014","Aug","Bacteroidia","Chitinophagales","Chitinophagaceae","Sediminibacterium","Sediminibacterium_uncl",0.0632599985942223,NA,NA
+"404","2014","Aug","Bacteroidia","Chitinophagales","Chitinophagales_uncl","Chitinophagales_uncl","Chitinophagales_uncl",0.112462219723062,NA,NA
+"405","2014","Aug","Bacteroidia","Chitinophagales","Saprospiraceae","Haliscomenobacter","Haliscomenobacter_uncl",0.10543333099037,NA,NA
+"406","2014","Aug","Bacteroidia","Cytophagales","MWH-CFBk5","MWH-CFBk5_uncl","MWH-CFBk5_uncl",0.126519997188445,NA,NA
+"407","2014","Aug","Bacteroidia","Flavobacteriales","Crocinitomicaceae","Fluviicola","Fluviicola_uncl",0.0738033316932593,NA,NA
+"408","2014","Aug","Bacteroidia","Flavobacteriales","Cryomorphaceae","Cryomorphaceae_uncl","Cryomorphaceae_uncl",0.119491108455753,NA,NA
+"409","2014","Aug","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Flavobacterium","Flavobacterium_uncl",0.0246011105644198,NA,NA
+"410","2014","Aug","Bacteroidia","SM1A07","SM1A07_uncl","SM1A07_uncl","SM1A07_uncl",0.0843466647922963,NA,NA
+"411","2014","Aug","Bacteroidia","Sphingobacteriales","AKYH767","AKYH767_uncl","AKYH767_uncl",0.123005552822099,NA,NA
+"412","2014","Aug","Bacteroidia","Sphingobacteriales","NS11-12 marine group","NS11-12 marine group_uncl","NS11-12 marine group_uncl",0.10543333099037,0.178023934328949,NA
+"413","2014","Aug","Bdellovibrionia","Bacteriovoracales","Bacteriovoracaceae","Peredibacter","Peredibacter_uncl",0.291698882406692,NA,NA
+"414","2014","Aug","Bdellovibrionia","Bdellovibrionales","Bdellovibrionaceae","Bdellovibrio","Bdellovibrio_uncl",0.882125535952766,NA,NA
+"415","2014","Aug","Clostridia","Lachnospirales","Lachnospiraceae","Lachnospiraceae_uncl","Lachnospiraceae_uncl",0.0527166654951852,NA,NA
+"416","2014","Aug","Desulfobulbia","Desulfobulbales","Desulfocapsaceae","Desulfoprunum","Desulfoprunum_uncl",0.123005552822099,NA,NA
+"417","2014","Aug","Desulfobulbia","Desulfobulbales","Desulfurivibrionaceae","Desulfurivibrio","Desulfurivibrio_uncl",0.0316299992971111,NA,NA
+"418","2014","Aug","Fusobacteriia","Fusobacteriales","Leptotrichiaceae","Hypnocyclicus","Hypnocyclicus_uncl",0.147606663386519,NA,NA
+"419","2014","Aug","Gammaproteobacteria","Burkholderiales","Burkholderiaceae","Lautropia","Lautropia_uncl",0.650172207773951,NA,NA
+"420","2014","Aug","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Comamonadaceae_uncl","Comamonadaceae_uncl",0.0316299992971111,0.00989021857383048,NA
+"421","2014","Aug","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Hydrogenophaga","Hydrogenophaga_uncl",0.0843466647922963,0.454950054396202,NA
+"422","2014","Aug","Gammaproteobacteria","Burkholderiales","Methylophilaceae","Methylophilaceae_uncl","Methylophilaceae_uncl",0.00702888873269136,0.0296706557214914,NA
+"423","2014","Aug","Gammaproteobacteria","Burkholderiales","Neisseriaceae","Neisseriaceae_uncl","Neisseriaceae_uncl",0.0702888873269136,NA,NA
+"424","2014","Aug","Gammaproteobacteria","Burkholderiales","Oxalobacteraceae","Oxalobacteraceae_uncl","Oxalobacteraceae_uncl",0.263583327475926,0.0692315300168134,NA
+"425","2014","Aug","Gammaproteobacteria","Burkholderiales","Rhodocyclaceae","Propionivibrio","Propionivibrio_uncl",0.0597455542278766,NA,NA
+"426","2014","Aug","Gammaproteobacteria","Burkholderiales","Rhodocyclaceae","Rhodocyclaceae_uncl","Rhodocyclaceae_uncl",0.0281155549307654,0.019780437147661,NA
+"427","2014","Aug","Gammaproteobacteria","Burkholderiales","Sutterellaceae","Sutterellaceae_uncl","Sutterellaceae_uncl",0.193294440149012,NA,NA
+"428","2014","Aug","Gammaproteobacteria","Burkholderiales","TRA3-20","TRA3-20_uncl","TRA3-20_uncl",0.0246011105644198,NA,NA
+"429","2014","Aug","Gammaproteobacteria","Cellvibrionales","Spongiibacteraceae","BD1-7 clade","BD1-7 clade_uncl",0.0843466647922963,NA,NA
+"430","2014","Aug","Gammaproteobacteria","Steroidobacterales","Steroidobacteraceae","Steroidobacteraceae_uncl","Steroidobacteraceae_uncl",0.161664440851901,NA,NA
+"431","2014","Aug","Gammaproteobacteria","Xanthomonadales","Xanthomonadaceae","Silanimonas","Silanimonas_uncl",0.33387221480284,NA,NA
+"432","2014","Aug","Kapabacteria","Kapabacteriales","Kapabacteriales_uncl","Kapabacteriales_uncl","Kapabacteriales_uncl",0.0316299992971111,NA,NA
+"433","2014","Aug","Margulisbacteria_uncl","Margulisbacteria_uncl","Margulisbacteria_uncl","Margulisbacteria_uncl","Margulisbacteria_uncl",0.186265551416321,NA,NA
+"434","2014","Aug","Myxococcia","Myxococcales","Myxococcaceae","Myxococcaceae_uncl","Myxococcaceae_uncl",0.0492022211288395,NA,NA
+"435","2014","Aug","Oligoflexia","Silvanigrellales","Silvanigrellaceae","Silvanigrellaceae_uncl","Silvanigrellaceae_uncl",0.112462219723062,NA,NA
+"436","2014","Aug","Phycisphaerae","Phycisphaerales","Phycisphaeraceae","CL500-3","CL500-3_uncl",1.37766219160751,NA,NA
+"437","2014","Aug","Proteobacteria_uncl","Proteobacteria_uncl","Proteobacteria_uncl","Proteobacteria_uncl","Proteobacteria_uncl",0.0948899978913334,NA,NA
+"438","2014","Oct","Actinobacteria","Micrococcales","Microbacteriaceae","Candidatus Aquiluna","Candidatus Aquiluna_uncl",0.0156140213912093,NA,NA
+"439","2014","Oct","Actinobacteria","PeM15","PeM15_uncl","PeM15_uncl","PeM15_uncl",0.124912171129674,NA,NA
+"440","2014","Oct","Alphaproteobacteria","Rickettsiales","Rickettsiales_uncl","Rickettsiales_uncl","Rickettsiales_uncl",0.179561245998907,0.231481481481481,0.273733980340923
+"441","2014","Oct","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Porphyrobacter","tepidarius",0.335701459911,NA,NA
+"442","2014","Oct","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Sphingoaurantiacus","Sphingoaurantiacus_uncl",0.156140213912093,NA,NA
+"443","2014","Oct","Bacilli","Erysipelotrichales","Erysipelatoclostridiaceae","UCG-004","UCG-004_uncl",0.0546490748692326,NA,NA
+"444","2014","Oct","Bacilli","Paenibacillales","Paenibacillaceae","Paenibacillus","Paenibacillus_uncl",0.171754235303302,NA,NA
+"445","2014","Oct","Bacteroidia","Chitinophagales","Chitinophagaceae","Sediminibacterium","Sediminibacterium_uncl",0.21859629947693,NA,NA
+"446","2014","Oct","Bacteroidia","Chitinophagales","Saprospiraceae","Saprospiraceae_uncl","Saprospiraceae_uncl",0.359122491997814,0.161030595813205,NA
+"447","2014","Oct","Bacteroidia","Cytophagales","Microscillaceae","Microscillaceae_uncl","Microscillaceae_uncl",0.0702630962604419,NA,NA
+"448","2014","Oct","Bacteroidia","Flavobacteriales","Cryomorphaceae","Cryomorphaceae_uncl","Cryomorphaceae_uncl",0.257631352954954,NA,NA
+"449","2014","Oct","Bacteroidia","Sphingobacteriales","env.OPS 17","env.OPS 17_uncl","env.OPS 17_uncl",0.10149113904286,NA,NA
+"450","2014","Oct","Cyanobacteriia","Synechococcales","Cyanobiaceae","Cyanobium PCC-6307","Cyanobium PCC-6307_uncl",0.398157545475837,NA,2.16498693542367
+"451","2014","Oct","Cyanobacteriia","Synechococcales","Cyanobiaceae","Synechococcus MBIC10613","Synechococcus MBIC10613_uncl",0.0546490748692326,NA,NA
+"452","2014","Oct","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Comamonadaceae_uncl","Comamonadaceae_uncl",0.0624560855648372,0.0201288244766506,0.0248849073037203
+"453","2014","Oct","Gammaproteobacteria","Burkholderiales","Neisseriaceae","Neisseriaceae_uncl","Neisseriaceae_uncl",0.109298149738465,NA,0.311061341296504
+"454","2014","Oct","Gammaproteobacteria","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl",0.0468420641736279,NA,NA
+"455","2014","Oct","Ignavibacteria","Ignavibacteriales","PHOS-HE36","PHOS-HE36_uncl","PHOS-HE36_uncl",0.0780701069560465,NA,NA
+"456","2014","Oct","Vampirivibrionia","Caenarcaniphilales","Caenarcaniphilales_uncl","Caenarcaniphilales_uncl","Caenarcaniphilales_uncl",0.0468420641736279,NA,NA
+"457","2014","Dec","Acidimicrobiia","Microtrichales","Ilumatobacteraceae","CL500-29 marine group","CL500-29 marine group_uncl",0.352238273586588,NA,NA
+"458","2014","Dec","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Erythrobacter","Erythrobacter_uncl",0.173889780631354,NA,NA
+"459","2014","Dec","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Sphingorhabdus","Sphingorhabdus_uncl",0.147137506688068,NA,NA
+"460","2014","Dec","Bacilli","Mycoplasmatales","Mycoplasmataceae","Candidatus Bacilloplasma","Candidatus Bacilloplasma_uncl",0.124843945068664,0.0145180023228804,NA
+"461","2014","Dec","Desulfobacteria","Desulfatiglandales","Desulfatiglandaceae","Desulfatiglans","Desulfatiglans_uncl",0.0668806848582129,NA,NA
+"462","2014","Dec","Gammaproteobacteria","Alteromonadales","Alteromonadaceae","Rheinheimera","Rheinheimera_uncl",0.160513643659711,0.217770034843206,NA
+"463","2014","Dec","Gammaproteobacteria","Burkholderiales","Burkholderiaceae","Polynucleobacter","Polynucleobacter_uncl",0.00891742464776173,NA,NA
+"464","2014","Dec","Gammaproteobacteria","Burkholderiales","Comamonadaceae","RS62 marine group","RS62 marine group_uncl",0.0356696985910469,NA,NA
+"465","2014","Dec","Gammaproteobacteria","Burkholderiales","Methylophilaceae","Methylophilaceae_uncl","Methylophilaceae_uncl",0.0445871232388086,NA,NA
+"466","2014","Dec","Gammaproteobacteria","Burkholderiales","Oxalobacteraceae","Massilia","Massilia_uncl",0.160513643659711,NA,NA
+"467","2014","Dec","Gammaproteobacteria","Cellvibrionales","Cellvibrionaceae","Aestuariicella","Aestuariicella_uncl",0.0267522739432852,NA,NA
+"468","2014","Dec","Gammaproteobacteria","Cellvibrionales","Cellvibrionaceae","Cellvibrio","Cellvibrio_uncl",0.0356696985910469,0.125822686798297,NA
+"469","2014","Dec","Gammaproteobacteria","Enterobacterales","Pectobacteriaceae","Pectobacterium","carotovorum",0.138220082040307,NA,NA
+"470","2014","Dec","Gammaproteobacteria","Methylococcales","Methylomonadaceae","Methylomonadaceae_uncl","Methylomonadaceae_uncl",0.0936329588014981,NA,NA
+"471","2014","Dec","Gammaproteobacteria","Nitrosococcales","Methylophagaceae","Methylophaga","Methylophaga_uncl",0.0713393971820938,NA,NA
+"472","2014","Dec","Gammaproteobacteria","Oceanospirillales","Marinomonadaceae","Marinomonas","Marinomonas_uncl",0.285357588728375,NA,NA
+"473","2014","Dec","Gammaproteobacteria","Oceanospirillales","Marinomonadaceae","Marinomonas","pontica",0.120385232744783,NA,NA
+"474","2014","Dec","Gammaproteobacteria","Pseudomonadales","Moraxellaceae","Psychrobacter","Psychrobacter_uncl",0.0535045478865704,NA,NA
+"475","2014","Dec","Gammaproteobacteria","Salinisphaerales","Solimonadaceae","Panacagrimonas","Panacagrimonas_uncl",0.0668806848582129,NA,NA
+"476","2014","Dec","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl",0.0445871232388086,NA,NA
+"477","2014","Dec","Verrucomicrobiae","Verrucomicrobiales","Verrucomicrobiaceae","Verrucomicrobiaceae_uncl","Verrucomicrobiaceae_uncl",0.0802568218298555,NA,NA
+"478","2013","Jan","Actinobacteria","Micrococcales","Microbacteriaceae","Aurantimicrobium","Aurantimicrobium_uncl",NA,NA,0.783445456867921
+"479","2013","Jan","Alphaproteobacteria","Paracaedibacterales","Paracaedibacteraceae","Paracaedibacteraceae_uncl","Paracaedibacteraceae_uncl",NA,NA,0.021289278719237
+"480","2013","Jan","Alphaproteobacteria","Rhizobiales","Rhizobiaceae","Rhizobiaceae_uncl","Rhizobiaceae_uncl",NA,NA,0.161798518266201
+"481","2013","Jan","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Novosphingobium","Novosphingobium_uncl",NA,NA,0.183087796985438
+"482","2013","Jan","Bacteroidia","Bacteroidales","Paludibacteraceae","Paludibacter","Paludibacter_uncl",NA,NA,0.0510942689261688
+"483","2013","Jan","Bacteroidia","Chitinophagales","Chitinophagaceae","Rurimicrobium","Rurimicrobium_uncl",NA,NA,0.0298049902069318
+"484","2013","Jan","Bacteroidia","Chitinophagales","Chitinophagaceae","UTBCD1","UTBCD1_uncl",NA,NA,0.0340628459507792
+"485","2013","Jan","Bacteroidia","Cytophagales","Spirosomaceae","Arcicella","Arcicella_uncl",NA,NA,0.0468364131823214
+"486","2013","Jan","Bacteroidia","Cytophagales","Spirosomaceae","Flectobacillus","Flectobacillus_uncl",NA,NA,0.0510942689261688
+"487","2013","Jan","Bacteroidia","Cytophagales","Spirosomaceae","Lacihabitans","Lacihabitans_uncl",NA,NA,0.085157114876948
+"488","2013","Jan","Bacteroidia","Cytophagales","Spirosomaceae","Pseudarcicella","Pseudarcicella_uncl",NA,NA,0.642936217320957
+"489","2013","Jan","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Flavobacteriaceae_uncl","Flavobacteriaceae_uncl",NA,NA,0.0723835476454058
+"490","2013","Jan","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Flavobacterium","Flavobacterium_uncl",NA,0.567174760723148,0.583326236907094
+"491","2013","Jan","Bacteroidia","Flavobacteriales","Flavobacteriales_uncl","Flavobacteriales_uncl","Flavobacteriales_uncl",NA,NA,0.0255471344630844
+"492","2013","Jan","Campylobacteria","Campylobacterales","Arcobacteraceae","Pseudarcobacter","Pseudarcobacter_uncl",NA,NA,0.259729200374691
+"493","2013","Jan","Clostridia","Clostridia UCG-014","Clostridia UCG-014_uncl","Clostridia UCG-014_uncl","Clostridia UCG-014_uncl",NA,NA,0.0255471344630844
+"494","2013","Jan","Clostridia","Clostridiales","Clostridiaceae","Clostridium sensu stricto 1","Clostridium sensu stricto 1_uncl",NA,NA,0.0596099804138636
+"495","2013","Jan","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Leptothrix","Leptothrix_uncl",NA,NA,0.0340628459507792
+"496","2013","Jan","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Rhodoferax","Rhodoferax_uncl",NA,1.45844938471667,0.0383207016946266
+"497","2013","Jan","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Rubrivivax","Rubrivivax_uncl",NA,NA,0.085157114876948
+"498","2013","Jan","Gammaproteobacteria","Burkholderiales","Methylophilaceae","Methylophilaceae_uncl","Methylophilaceae_uncl",NA,0.0101281207271991,0.0170314229753896
+"499","2013","Jan","Gammaproteobacteria","Burkholderiales","Methylophilaceae","Methylotenera","mobilis",NA,NA,0.0808992591331006
+"500","2013","Jan","Gammaproteobacteria","Burkholderiales","Methylophilaceae","OM43 clade","OM43 clade_uncl",NA,NA,0.0255471344630844
+"501","2013","Jan","Gammaproteobacteria","Burkholderiales","Oxalobacteraceae","Duganella","Duganella_uncl",NA,NA,0.234182065911607
+"502","2013","Jan","Gammaproteobacteria","Burkholderiales","Oxalobacteraceae","Janthinobacterium","Janthinobacterium_uncl",NA,NA,0.383207016946266
+"503","2013","Jan","Gammaproteobacteria","Burkholderiales","Oxalobacteraceae","Oxalicibacterium","Oxalicibacterium_uncl",NA,NA,0.0340628459507792
+"504","2013","Jan","Gammaproteobacteria","Burkholderiales","Oxalobacteraceae","Oxalobacteraceae_uncl","Oxalobacteraceae_uncl",NA,NA,1.50728093332198
+"505","2013","Jan","Gammaproteobacteria","Cellvibrionales","Cellvibrionaceae","Cellvibrio","Cellvibrio_uncl",NA,NA,0.391722728433961
+"506","2013","Jan","Gammaproteobacteria","Oceanospirillales","Pseudohongiellaceae","Pseudohongiella","Pseudohongiella_uncl",NA,0.410188889451562,0.0894149706207954
+"507","2013","Jan","Gammaproteobacteria","Pseudomonadales","Moraxellaceae","Acinetobacter","Acinetobacter_uncl",NA,NA,0.0894149706207954
+"508","2013","Jan","Gammaproteobacteria","Pseudomonadales","Moraxellaceae","Cavicella","Cavicella_uncl",NA,NA,0.0596099804138636
+"509","2013","Jan","Gammaproteobacteria","Xanthomonadales","Xanthomonadaceae","Thermomonas","Thermomonas_uncl",NA,NA,0.0510942689261688
+"510","2013","Jan","Parcubacteria","Candidatus Kaiserbacteria","Candidatus Kaiserbacteria_uncl","Candidatus Kaiserbacteria_uncl","Candidatus Kaiserbacteria_uncl",NA,NA,0.178829941241591
+"511","2013","Jan","Parcubacteria","Parcubacteria_uncl","Parcubacteria_uncl","Parcubacteria_uncl","Parcubacteria_uncl",NA,NA,0.021289278719237
+"512","2013","Jan","Verrucomicrobiae","Verrucomicrobiales","Rubritaleaceae","Luteolibacter","Luteolibacter_uncl",NA,0.167113991998785,0.140509239546964
+"513","2013","Feb","Actinobacteria","Corynebacteriales","Mycobacteriaceae","Mycobacterium","Mycobacterium_uncl",NA,NA,0.164513143914727
+"514","2013","Feb","Actinobacteria","Frankiales","Sporichthyaceae","hgcI clade","hgcI clade_uncl",NA,NA,0.483257360249512
+"515","2013","Feb","Actinobacteria","Micrococcales","Microbacteriaceae","Aurantimicrobium","Aurantimicrobium_uncl",NA,NA,0.21592350138808
+"516","2013","Feb","Actinobacteria","Micrococcales","Microbacteriaceae","Candidatus Aquiluna","Candidatus Aquiluna_uncl",NA,NA,0.579223360866436
+"517","2013","Feb","Actinobacteria","Micrococcales","Microbacteriaceae","Candidatus Planktoluna","Candidatus Planktoluna_uncl",NA,NA,0.634061075504678
+"518","2013","Feb","Actinobacteria","Micrococcales","Microbacteriaceae","Rhodoluna","Rhodoluna_uncl",NA,NA,0.390718716797477
+"519","2013","Feb","Alphaproteobacteria","Micavibrionales","Micavibrionaceae","Micavibrionaceae_uncl","Micavibrionaceae_uncl",NA,NA,0.0137094286595606
+"520","2013","Feb","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Pseudorhodobacter","Pseudorhodobacter_uncl",NA,NA,0.0616924289680228
+"521","2013","Feb","Alphaproteobacteria","Rhodospirillales","Rhodospirillaceae","Insolitispirillum","peregrinum",NA,NA,0.0239915001542311
+"522","2013","Feb","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Novosphingobium","Novosphingobium_uncl",NA,0.352174678640606,0.198786715563629
+"523","2013","Feb","Bacilli","Paenibacillales","Paenibacillaceae","Paenibacillaceae_uncl","Paenibacillaceae_uncl",NA,NA,0.322171573499674
+"524","2013","Feb","Bacteroidia","Chitinophagales","Chitinophagaceae","Dinghuibacter","Dinghuibacter_uncl",NA,NA,1.79250779723755
+"525","2013","Feb","Bacteroidia","Cytophagales","Cytophagaceae","Cytophaga","Cytophaga_uncl",NA,NA,0.0102820714946705
+"526","2013","Feb","Bacteroidia","Cytophagales","Spirosomaceae","Pseudarcicella","Pseudarcicella_uncl",NA,NA,1.69311443945574
+"527","2013","Feb","Bacteroidia","Flavobacteriales","Weeksellaceae","Weeksellaceae_uncl","Weeksellaceae_uncl",NA,NA,0.0205641429893409
+"528","2013","Feb","Bacteroidia","Sphingobacteriales","AKYH767","AKYH767_uncl","AKYH767_uncl",NA,0.0440218348300757,0.0377009288137917
+"529","2013","Feb","Bacteroidia","Sphingobacteriales","Sphingobacteriaceae","Pedobacter","Pedobacter_uncl",NA,0.237717908082409,0.66490728998869
+"530","2013","Feb","Bacteroidia","Sphingobacteriales","Sphingobacteriaceae","Solitalea","Solitalea_uncl",NA,NA,0.0788292147924735
+"531","2013","Feb","Gammaproteobacteria","Burkholderiales","Burkholderiaceae","Polynucleobacter","Polynucleobacter_uncl",NA,NA,0.0102820714946705
+"532","2013","Feb","Gammaproteobacteria","Burkholderiales","Burkholderiales_uncl","Burkholderiales_uncl","Burkholderiales_uncl",NA,0.092445853143159,0.277615930356102
+"533","2013","Feb","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Curvibacter","Curvibacter_uncl",NA,NA,0.0274188573191212
+"534","2013","Feb","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Leptothrix","Leptothrix_uncl",NA,0.158478605388273,0.106248072111595
+"535","2013","Feb","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Ramlibacter","Ramlibacter_uncl",NA,NA,0.0102820714946705
+"536","2013","Feb","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Simplicispira","Simplicispira_uncl",NA,NA,0.0205641429893409
+"537","2013","Feb","Gammaproteobacteria","Burkholderiales","Oxalobacteraceae","Oxalobacteraceae_uncl","Oxalobacteraceae_uncl",NA,0.0220109174150379,0.106248072111595
+"538","2013","Feb","Gammaproteobacteria","KF-JG30-C25","KF-JG30-C25_uncl","KF-JG30-C25_uncl","KF-JG30-C25_uncl",NA,NA,0.0137094286595606
+"539","2013","Feb","Gammaproteobacteria","Oceanospirillales","Oceanospirillales_uncl","Oceanospirillales_uncl","Oceanospirillales_uncl",NA,NA,0.0377009288137917
+"540","2013","Feb","Gammaproteobacteria","Pseudomonadales","Moraxellaceae","Alkanindiges","Alkanindiges_uncl",NA,NA,0.0239915001542311
+"541","2013","Feb","Oligoflexia","Oligoflexales","Oligoflexus","Oligoflexus_uncl","Oligoflexus_uncl",NA,NA,0.0274188573191212
+"542","2013","Mar","Acidimicrobiia","Microtrichales","Microtrichales_uncl","Microtrichales_uncl","Microtrichales_uncl",NA,NA,0.393586005830904
+"543","2013","Mar","Actinobacteria","PeM15","PeM15_uncl","PeM15_uncl","PeM15_uncl",NA,0.324563220772046,0.685131195335277
+"544","2013","Mar","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Rhodobacteraceae_uncl","Rhodobacteraceae_uncl",NA,NA,0.597667638483965
+"545","2013","Mar","Bacteroidia","Chitinophagales","Chitinophagaceae","Terrimonas","Terrimonas_uncl",NA,NA,0.189504373177843
+"546","2013","Mar","Bacteroidia","Chitinophagales","Saprospiraceae","Saprospiraceae_uncl","Saprospiraceae_uncl",NA,NA,0.0728862973760933
+"547","2013","Mar","Bacteroidia","Flavobacteriales","Crocinitomicaceae","Fluviicola","Fluviicola_uncl",NA,NA,0.160349854227405
+"548","2013","Mar","Gammaproteobacteria","Burkholderiales","Burkholderiales_uncl","Burkholderiales_uncl","Burkholderiales_uncl",NA,NA,0.0583090379008746
+"549","2013","Mar","Gammaproteobacteria","Burkholderiales","Nitrosomonadaceae","Ellin6067","Ellin6067_uncl",NA,NA,0.116618075801749
+"550","2013","Mar","Gammaproteobacteria","Cellvibrionales","Spongiibacteraceae","BD1-7 clade","BD1-7 clade_uncl",NA,0.096678406187418,0.699708454810496
+"551","2013","Mar","Gammaproteobacteria","Steroidobacterales","Steroidobacteraceae","Steroidobacteraceae_uncl","Steroidobacteraceae_uncl",NA,0.151923209723085,1.39941690962099
+"552","2013","Mar","Gracilibacteria","JGI 0000069-P22","JGI 0000069-P22_uncl","JGI 0000069-P22_uncl","JGI 0000069-P22_uncl",NA,NA,0.0728862973760933
+"553","2013","Mar","Oligoflexia","Oligoflexales","Oligoflexus","Oligoflexus_uncl","Oligoflexus_uncl",NA,NA,0.189504373177843
+"554","2013","Mar","Verrucomicrobiae","Opitutales","Opitutaceae","Opitutus","Opitutus_uncl",NA,NA,0.204081632653061
+"555","2013","Apr","Alphaproteobacteria","Caulobacterales","Caulobacteraceae","Brevundimonas","Brevundimonas_uncl",NA,NA,0.0523168908819133
+"556","2013","Apr","Alphaproteobacteria","Paracaedibacterales","Paracaedibacteraceae","Paracaedibacteraceae_uncl","Paracaedibacteraceae_uncl",NA,NA,0.373692077727952
+"557","2013","Apr","Alphaproteobacteria","Rickettsiales","SM2D12","SM2D12_uncl","SM2D12_uncl",NA,0.030458089668616,0.112107623318386
+"558","2013","Apr","Bacteroidia","Cytophagales","Cyclobacteriaceae","Algoriphagus","Algoriphagus_uncl",NA,NA,0.149476831091181
+"559","2013","Apr","Bacteroidia","Cytophagales","Microscillaceae","Microscillaceae_uncl","Microscillaceae_uncl",NA,NA,0.0373692077727952
+"560","2013","Apr","Bdellovibrionia","Bacteriovoracales","Bacteriovoracaceae","Bacteriovorax","Bacteriovorax_uncl",NA,NA,0.0448430493273543
+"561","2013","Apr","Bdellovibrionia","Bacteriovoracales","Bacteriovoracaceae","Peredibacter","Peredibacter_uncl",NA,0.389863547758285,0.261584454409567
+"562","2013","Apr","Gammaproteobacteria","Alteromonadales","Alteromonadaceae","Rheinheimera","Rheinheimera_uncl",NA,NA,0.15695067264574
+"563","2013","Apr","Gammaproteobacteria","Alteromonadales","Shewanellaceae","Shewanella","Shewanella_uncl",NA,NA,0.291479820627803
+"564","2013","Apr","Gammaproteobacteria","Burkholderiales","Burkholderiaceae","Lautropia","Lautropia_uncl",NA,0.060916179337232,0.0822122571001495
+"565","2013","Apr","Gammaproteobacteria","Burkholderiales","Burkholderiales_uncl","Burkholderiales_uncl","Burkholderiales_uncl",NA,0.030458089668616,0.179372197309417
+"566","2013","Apr","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Comamonadaceae_uncl","Comamonadaceae_uncl",NA,0.0730994152046784,0.0597907324364723
+"567","2013","Apr","Gammaproteobacteria","Burkholderiales","Nitrosomonadaceae","oc32","oc32_uncl",NA,NA,0.396113602391629
+"568","2013","Apr","Gammaproteobacteria","KI89A clade","KI89A clade_uncl","KI89A clade_uncl","KI89A clade_uncl",NA,NA,0.142002989536622
+"569","2013","Apr","Gammaproteobacteria","Pseudomonadales","Pseudomonadaceae","Pseudomonas","Pseudomonas_uncl",NA,NA,0.411061285500747
+"570","2013","Apr","Oligoflexia","0319-6G20","0319-6G20_uncl","0319-6G20_uncl","0319-6G20_uncl",NA,NA,0.0896860986547085
+"571","2013","Apr","Thermodesulfovibrionia","Thermodesulfovibrionia_uncl","Thermodesulfovibrionia_uncl","Thermodesulfovibrionia_uncl","Thermodesulfovibrionia_uncl",NA,NA,0.0747384155455904
+"572","2013","May","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Rhodobacter","Rhodobacter_uncl",NA,NA,0.224197293618384
+"573","2013","May","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Rhodobacteraceae_uncl","Rhodobacteraceae_uncl",NA,0.0713215890450039,0.268236047721995
+"574","2013","May","Alphaproteobacteria","Rickettsiales","Rickettsiaceae","Rickettsiaceae_uncl","Rickettsiaceae_uncl",NA,NA,0.0440387541036112
+"575","2013","May","Alphaproteobacteria","Rickettsiales","SM2D12","SM2D12_uncl","SM2D12_uncl",NA,NA,0.0440387541036112
+"576","2013","May","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Sandarakinorhabdus","Sandarakinorhabdus_uncl",NA,NA,0.46841220273841
+"577","2013","May","Bacteroidia","Bacteroidales","Bacteroidaceae","Bacteroides","graminisolvens",NA,NA,0.0880775082072224
+"578","2013","May","Bacteroidia","Chitinophagales","Saprospiraceae","Saprospiraceae_uncl","Saprospiraceae_uncl",NA,NA,0.248218432220354
+"579","2013","May","Bacteroidia","Cytophagales","Cyclobacteriaceae","Algoriphagus","Algoriphagus_uncl",NA,NA,0.532468572343662
+"580","2013","May","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Flavobacterium","Flavobacterium_uncl",NA,0.149775336994508,0.836736327968612
+"581","2013","May","Bacteroidia","Flavobacteriales","Weeksellaceae","Cloacibacterium","Cloacibacterium_uncl",NA,NA,0.0160140924013132
+"582","2013","May","Bacteroidia","Sphingobacteriales","LiUU-11-161","LiUU-11-161_uncl","LiUU-11-161_uncl",NA,NA,0.348306509728561
+"583","2013","May","Cyanobacteriia","Oxyphotobacteria Incertae Sedis","Unknown Family","Leptolyngbya ANT.L52.2","Leptolyngbya ANT.L52.2_uncl",NA,NA,0.0120105693009849
+"584","2013","May","Cyanobacteriia","Synechococcales","Cyanobiaceae","Cyanobium PCC-6307","Cyanobium PCC-6307_uncl",NA,NA,3.04668107934983
+"585","2013","May","Cyanobacteriia","Synechococcales","Cyanobiaceae","Cyanobium PCC-6307","gracile",NA,NA,0.244214909120026
+"586","2013","May","Fimbriimonadia","Fimbriimonadales","Fimbriimonadaceae","Fimbriimonadaceae_uncl","Fimbriimonadaceae_uncl",NA,NA,0.104091600608536
+"587","2013","May","Gammaproteobacteria","Aeromonadales","Aeromonadaceae","Aeromonas","Aeromonas_uncl",NA,NA,0.320281848026263
+"588","2013","May","Gammaproteobacteria","Burkholderiales","Aquaspirillaceae","Rivicola","Rivicola_uncl",NA,NA,0.0400352310032829
+"589","2013","May","Gammaproteobacteria","Burkholderiales","Burkholderiaceae","Lautropia","Lautropia_uncl",NA,NA,0.11610216990952
+"590","2013","May","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Rivibacter","Rivibacter_uncl",NA,NA,0.168147970213788
+"591","2013","May","Gammaproteobacteria","Burkholderiales","Oxalobacteraceae","Oxalobacteraceae_uncl","Oxalobacteraceae_uncl",NA,NA,0.028024661702298
+"592","2013","May","Gemmatimonadetes","Gemmatimonadales","Gemmatimonadaceae","Gemmatimonas","Gemmatimonas_uncl",NA,NA,0.152133877812475
+"593","2013","May","Oligoflexia","Oligoflexales","Oligoflexales_uncl","Oligoflexales_uncl","Oligoflexales_uncl",NA,0.106982383567506,0.520458003042678
+"594","2013","May","Proteobacteria_uncl","Proteobacteria_uncl","Proteobacteria_uncl","Proteobacteria_uncl","Proteobacteria_uncl",NA,NA,0.0320281848026263
+"595","2013","May","Saccharimonadia","Saccharimonadales","Saccharimonadales_uncl","Saccharimonadales_uncl","Saccharimonadales_uncl",NA,NA,0.416366402434142
+"596","2013","May","Verrucomicrobiae","Chthoniobacterales","Terrimicrobiaceae","Terrimicrobium","Terrimicrobium_uncl",NA,NA,0.0960845544078789
+"597","2013","Jun","Acidimicrobiia","Microtrichales","Ilumatobacteraceae","CL500-29 marine group","CL500-29 marine group_uncl",NA,NA,2.20459518599562
+"598","2013","Jun","Acidimicrobiia","Microtrichales","Microtrichaceae","Sva0996 marine group","Sva0996 marine group_uncl",NA,NA,0.0328227571115974
+"599","2013","Jun","Actinobacteria","Micrococcales","Microbacteriaceae","Candidatus Aquiluna","Candidatus Aquiluna_uncl",NA,NA,0.0601750547045952
+"600","2013","Jun","Alphaproteobacteria","Alphaproteobacteria_uncl","Alphaproteobacteria_uncl","Alphaproteobacteria_uncl","Alphaproteobacteria_uncl",NA,NA,0.114879649890591
+"601","2013","Jun","Alphaproteobacteria","Rhizobiales","Rhizobiales_uncl","Rhizobiales_uncl","Rhizobiales_uncl",NA,NA,0.0711159737417943
+"602","2013","Jun","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Rubellimicrobium","Rubellimicrobium_uncl",NA,NA,0.273522975929978
+"603","2013","Jun","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Tabrizicola","Tabrizicola_uncl",NA,NA,0.131291028446389
+"604","2013","Jun","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Tropicimonas","Tropicimonas_uncl",NA,NA,0.0711159737417943
+"605","2013","Jun","Bacilli","Erysipelotrichales","Erysipelotrichaceae","ZOR0006","ZOR0006_uncl",NA,NA,0.0929978118161926
+"606","2013","Jun","Bacteria_uncl","Bacteria_uncl","Bacteria_uncl","Bacteria_uncl","Bacteria_uncl",NA,NA,0.0437636761487965
+"607","2013","Jun","Bacteroidia","Chitinophagales","Chitinophagales_uncl","Chitinophagales_uncl","Chitinophagales_uncl",NA,NA,0.0492341356673961
+"608","2013","Jun","Bacteroidia","Chitinophagales","Saprospiraceae","Saprospiraceae_uncl","Saprospiraceae_uncl",NA,NA,0.295404814004376
+"609","2013","Jun","Bacteroidia","Sphingobacteriales","LiUU-11-161","LiUU-11-161_uncl","LiUU-11-161_uncl",NA,NA,0.0820568927789934
+"610","2013","Jun","Bacteroidia","Sphingobacteriales","NS11-12 marine group","NS11-12 marine group_uncl","NS11-12 marine group_uncl",NA,NA,0.202407002188184
+"611","2013","Jun","Bdellovibrionia","Bacteriovoracales","Bacteriovoracaceae","Peredibacter","Peredibacter_uncl",NA,NA,0.722100656455142
+"612","2013","Jun","Bdellovibrionia","Bdellovibrionales","Bdellovibrionaceae","Bdellovibrio","Bdellovibrio_uncl",NA,NA,0.131291028446389
+"613","2013","Jun","Chlamydiae","Chlamydiales","cvE6","cvE6_uncl","cvE6_uncl",NA,NA,0.0164113785557987
+"614","2013","Jun","Clostridia","Hungateiclostridiaceae","Hungateiclostridiaceae_uncl","Hungateiclostridiaceae_uncl","Hungateiclostridiaceae_uncl",NA,NA,0.399343544857768
+"615","2013","Jun","Cyanobacteriia","Synechococcales","Cyanobiaceae","Cyanobium PCC-6307","Cyanobium PCC-6307_uncl",NA,1.36674259681093,6.38402625820569
+"616","2013","Jun","Desulfuromonadia","PB19","PB19_uncl","PB19_uncl","PB19_uncl",NA,NA,0.25164113785558
+"617","2013","Jun","Fimbriimonadia","Fimbriimonadales","Fimbriimonadaceae","Fimbriimonadaceae_uncl","Fimbriimonadaceae_uncl",NA,NA,0.142231947483589
+"618","2013","Jun","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Comamonadaceae_uncl","Comamonadaceae_uncl",NA,NA,0.601750547045952
+"619","2013","Jun","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Rubrivivax","Rubrivivax_uncl",NA,NA,0.454048140043764
+"620","2013","Jun","Gammaproteobacteria","Burkholderiales","MWH-UniP1 aquatic group","MWH-UniP1 aquatic group_uncl","MWH-UniP1 aquatic group_uncl",NA,0.00711845102505695,0.782275711159737
+"621","2013","Jun","Myxococcia","Myxococcales","Myxococcaceae","P3OB-42","P3OB-42_uncl",NA,NA,0.109409190371991
+"622","2013","Jun","Oligoflexia","0319-6G20","0319-6G20_uncl","0319-6G20_uncl","0319-6G20_uncl",NA,NA,0.0929978118161926
+"623","2013","Jun","Oligoflexia","053A03-B-DI-P58","053A03-B-DI-P58_uncl","053A03-B-DI-P58_uncl","053A03-B-DI-P58_uncl",NA,NA,0.689277899343545
+"624","2013","Jun","Oligoflexia","Oligoflexales","Pseudobacteriovorax","Pseudobacteriovorax_uncl","Pseudobacteriovorax_uncl",NA,NA,0.0547045951859956
+"625","2013","Jun","Oligoflexia","Silvanigrellales","Silvanigrellaceae","Silvanigrellaceae_uncl","Silvanigrellaceae_uncl",NA,NA,0.257111597374179
+"626","2013","Jun","Parcubacteria","GWA2-38-13b","GWA2-38-13b_uncl","GWA2-38-13b_uncl","GWA2-38-13b_uncl",NA,NA,0.0492341356673961
+"627","2013","Jun","Planctomycetes","Planctomycetales","Rubinisphaeraceae","Rubinisphaeraceae_uncl","Rubinisphaeraceae_uncl",NA,NA,0.0765864332603939
+"628","2013","Jun","Polyangia","Blfdi19","Blfdi19_uncl","Blfdi19_uncl","Blfdi19_uncl",NA,NA,0.25164113785558
+"629","2013","Jun","Saccharimonadia","Saccharimonadales","Saccharimonadales_uncl","Saccharimonadales_uncl","Saccharimonadales_uncl",NA,NA,0.0984682713347921
+"630","2013","Jun","Verrucomicrobiae","Chthoniobacterales","Terrimicrobiaceae","Terrimicrobium","Terrimicrobium_uncl",NA,NA,0.809628008752735
+"631","2013","Jun","Verrucomicrobiae","Pedosphaerales","Pedosphaeraceae","SH3-11","SH3-11_uncl",NA,NA,0.300875273522976
+"632","2013","Jul","Acidimicrobiia","Microtrichales","Ilumatobacteraceae","Ilumatobacteraceae_uncl","Ilumatobacteraceae_uncl",NA,NA,0.134062444875639
+"633","2013","Jul","Acidobacteriae","Elev-16S-1166","Elev-16S-1166_uncl","Elev-16S-1166_uncl","Elev-16S-1166_uncl",NA,NA,0.613864879167402
+"634","2013","Jul","Alphaproteobacteria","Alphaproteobacteria_uncl","Alphaproteobacteria_uncl","Alphaproteobacteria_uncl","Alphaproteobacteria_uncl",NA,NA,0.155230199329688
+"635","2013","Jul","Alphaproteobacteria","Caulobacterales","Hyphomonadaceae","Hyphomonas","Hyphomonas_uncl",NA,NA,0.0529193861351208
+"636","2013","Jul","Alphaproteobacteria","Rhizobiales","Rhizobiaceae","Rhizobiaceae_uncl","Rhizobiaceae_uncl",NA,NA,0.151702240254013
+"637","2013","Jul","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Rhodobacteraceae_uncl","Rhodobacteraceae_uncl",NA,NA,0.511554065972835
+"638","2013","Jul","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Rubellimicrobium","Rubellimicrobium_uncl",NA,NA,0.151702240254013
+"639","2013","Jul","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Polymorphobacter","Polymorphobacter_uncl",NA,NA,0.0423355089080967
+"640","2013","Jul","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Sandarakinorhabdus","Sandarakinorhabdus_uncl",NA,NA,0.275180807902628
+"641","2013","Jul","Bacteroidia","Chitinophagales","Saprospiraceae","Saprospiraceae_uncl","Saprospiraceae_uncl",NA,NA,0.299876521432351
+"642","2013","Jul","Bacteroidia","Cytophagales","Cyclobacteriaceae","Algoriphagus","Algoriphagus_uncl",NA,NA,0.356323866643147
+"643","2013","Jul","Bacteroidia","Sphingobacteriales","NS11-12 marine group","NS11-12 marine group_uncl","NS11-12 marine group_uncl",NA,NA,0.677368142529547
+"644","2013","Jul","Chitinivibrionia","Chitinivibrionales","Chitinivibrionaceae","possible genus 03","possible genus 03_uncl",NA,0.0158969875208648,0.0141118363026989
+"645","2013","Jul","Clostridia","Hungateiclostridiaceae","Hungateiclostridiaceae_uncl","Hungateiclostridiaceae_uncl","Hungateiclostridiaceae_uncl",NA,NA,0.148174281178338
+"646","2013","Jul","Cyanobacteriia","Synechococcales","Cyanobiaceae","Cyanobium PCC-6307","Cyanobium PCC-6307_uncl",NA,NA,5.71176574351738
+"647","2013","Jul","Deinococci","Deinococcales","Trueperaceae","Truepera","Truepera_uncl",NA,NA,0.0987828541188922
+"648","2013","Jul","Desulfuromonadia","Bradymonadales","Bradymonadales_uncl","Bradymonadales_uncl","Bradymonadales_uncl",NA,NA,0.236373258070206
+"649","2013","Jul","Desulfuromonadia","PB19","PB19_uncl","PB19_uncl","PB19_uncl",NA,NA,0.0529193861351208
+"650","2013","Jul","Gammaproteobacteria","Alteromonadales","Alteromonadaceae","Rheinheimera","Rheinheimera_uncl",NA,0.151021381448216,0.0917269359675428
+"651","2013","Jul","Gammaproteobacteria","Burkholderiales","Burkholderiales_uncl","Burkholderiales_uncl","Burkholderiales_uncl",NA,0.0119227406406486,0.0423355089080967
+"652","2013","Jul","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Rubrivivax","Rubrivivax_uncl",NA,NA,0.246957135297231
+"653","2013","Jul","Gammaproteobacteria","Burkholderiales","MWH-UniP1 aquatic group","MWH-UniP1 aquatic group_uncl","MWH-UniP1 aquatic group_uncl",NA,NA,0.0881989768918681
+"654","2013","Jul","Gammaproteobacteria","Burkholderiales","Rhodocyclaceae","Rhodocyclaceae_uncl","Rhodocyclaceae_uncl",NA,0.16691836896908,0.00705591815134944
+"655","2013","Jul","Gammaproteobacteria","Gammaproteobacteria Incertae Sedis","Unknown Family","Acidibacter","Acidibacter_uncl",NA,NA,0.236373258070206
+"656","2013","Jul","Gammaproteobacteria","Legionellales","Legionellaceae","Legionella","Legionella_uncl",NA,NA,0.0564473452107956
+"657","2013","Jul","Microgenomatia","Candidatus Pacebacteria","Candidatus Pacebacteria_uncl","Candidatus Pacebacteria_uncl","Candidatus Pacebacteria_uncl",NA,NA,0.0282236726053978
+"658","2013","Jul","Myxococcia","Myxococcales","Myxococcaceae","Myxococcaceae_uncl","Myxococcaceae_uncl",NA,NA,0.0881989768918681
+"659","2013","Jul","Myxococcia","Myxococcales","Myxococcaceae","P3OB-42","P3OB-42_uncl",NA,NA,0.0246957135297231
+"660","2013","Jul","Oligoflexia","0319-6G20","0319-6G20_uncl","0319-6G20_uncl","0319-6G20_uncl",NA,NA,0.324572234962074
+"661","2013","Jul","Oligoflexia","Oligoflexales","Oligoflexales_uncl","Oligoflexales_uncl","Oligoflexales_uncl",NA,0.0635879500834592,0.402187334626918
+"662","2013","Jul","Oligoflexia","Silvanigrellales","Silvanigrellaceae","Silvanigrellaceae_uncl","Silvanigrellaceae_uncl",NA,NA,0.455106720762039
+"663","2013","Jul","OM190","OM190_uncl","OM190_uncl","OM190_uncl","OM190_uncl",NA,NA,0.0352795907567472
+"664","2013","Jul","Parcubacteria","Candidatus Kaiserbacteria","Candidatus Kaiserbacteria_uncl","Candidatus Kaiserbacteria_uncl","Candidatus Kaiserbacteria_uncl",NA,NA,0.0458634679837714
+"665","2013","Jul","Parcubacteria","GWA2-38-13b","GWA2-38-13b_uncl","GWA2-38-13b_uncl","GWA2-38-13b_uncl",NA,NA,0.423355089080967
+"666","2013","Jul","Phycisphaerae","Phycisphaerales","Phycisphaeraceae","CL500-3","CL500-3_uncl",NA,NA,0.18698183101076
+"667","2013","Jul","Planctomycetes","Pirellulales","Pirellulaceae","Pirellulaceae_uncl","Pirellulaceae_uncl",NA,NA,0.176397953783736
+"668","2013","Jul","Polyangia","Blfdi19","Blfdi19_uncl","Blfdi19_uncl","Blfdi19_uncl",NA,NA,0.370435702945846
+"669","2013","Jul","Polyangia","Polyangiales","Polyangiales_uncl","Polyangiales_uncl","Polyangiales_uncl",NA,NA,0.229317339918857
+"670","2013","Jul","Polyangia","Polyangiales","Sandaracinaceae","Sandaracinaceae_uncl","Sandaracinaceae_uncl",NA,NA,0.215205503616158
+"671","2013","Jul","Proteobacteria_uncl","Proteobacteria_uncl","Proteobacteria_uncl","Proteobacteria_uncl","Proteobacteria_uncl",NA,NA,0.190509790086435
+"672","2013","Jul","Rhodothermia","Balneolales","Balneolaceae","Balneolaceae_uncl","Balneolaceae_uncl",NA,NA,0.211677544540483
+"673","2013","Jul","Saccharimonadia","Saccharimonadales","Saccharimonadales_uncl","Saccharimonadales_uncl","Saccharimonadales_uncl",NA,NA,0.0811430587405186
+"674","2013","Jul","Sericytochromatia","Sericytochromatia_uncl","Sericytochromatia_uncl","Sericytochromatia_uncl","Sericytochromatia_uncl",NA,NA,0.296348562356677
+"675","2013","Jul","Verrucomicrobiae","Chthoniobacterales","Terrimicrobiaceae","Terrimicrobium","Terrimicrobium_uncl",NA,NA,0.719703651437643
+"676","2013","Jul","Verrucomicrobiae","Verrucomicrobiales","Rubritaleaceae","Luteolibacter","Luteolibacter_uncl",NA,NA,0.141118363026989
+"677","2013","Aug","Acidimicrobiia","Microtrichales","Ilumatobacteraceae","CL500-29 marine group","CL500-29 marine group_uncl",NA,NA,1.26405583559519
+"678","2013","Aug","Actinobacteria","Micrococcales","Microbacteriaceae","ML602J-51","ML602J-51_uncl",NA,NA,0.224893369523071
+"679","2013","Aug","Alphaproteobacteria","Micavibrionales","Micavibrionales_uncl","Micavibrionales_uncl","Micavibrionales_uncl",NA,NA,0.104691740984878
+"680","2013","Aug","Alphaproteobacteria","Paracaedibacterales","Paracaedibacteraceae","Candidatus Captivus","Candidatus Captivus_uncl",NA,NA,0.0310197751066305
+"681","2013","Aug","Alphaproteobacteria","Rhizobiales","A0839","A0839_uncl","A0839_uncl",NA,NA,0.767739433889104
+"682","2013","Aug","Alphaproteobacteria","Rhizobiales","Beijerinckiaceae","Psychroglaciecola","Psychroglaciecola_uncl",NA,NA,0.0348972469949593
+"683","2013","Aug","Alphaproteobacteria","Rhizobiales","Rhizobiales_uncl","Rhizobiales_uncl","Rhizobiales_uncl",NA,NA,0.189996122528112
+"684","2013","Aug","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Rhodobacteraceae_uncl","Rhodobacteraceae_uncl",NA,NA,0.694067468010857
+"685","2013","Aug","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Tabrizicola","Tabrizicola_uncl",NA,NA,0.100814269096549
+"686","2013","Aug","Alphaproteobacteria","Rhodospirillales","Rhodospirillaceae","Roseospirillum","Roseospirillum_uncl",NA,NA,0.0232648313299729
+"687","2013","Aug","Alphaproteobacteria","Rickettsiales","Rickettsiaceae","Rickettsiaceae_uncl","Rickettsiaceae_uncl",NA,NA,0.465296626599457
+"688","2013","Aug","Anaerolineae","Caldilineales","Caldilineaceae","Caldilineaceae_uncl","Caldilineaceae_uncl",NA,NA,0.147343931756495
+"689","2013","Aug","Bacilli","Erysipelotrichales","Erysipelotrichaceae","ZOR0006","ZOR0006_uncl",NA,NA,0.0853043815432338
+"690","2013","Aug","Bacilli","Lactobacillales","Leuconostocaceae","Weissella","Weissella_uncl",NA,NA,0.108569212873207
+"691","2013","Aug","Bacilli","Staphylococcales","Staphylococcaceae","Staphylococcus","Staphylococcus_uncl",NA,NA,0.116324156649864
+"692","2013","Aug","Bacteria_uncl","Bacteria_uncl","Bacteria_uncl","Bacteria_uncl","Bacteria_uncl",NA,NA,0.116324156649864
+"693","2013","Aug","Bacteroidia","Bacteroidales","Bacteroidaceae","Bacteroides","graminisolvens",NA,NA,0.0310197751066305
+"694","2013","Aug","Bacteroidia","Bacteroidales","Paludibacteraceae","Paludibacter","Paludibacter_uncl",NA,NA,0.0697944939899186
+"695","2013","Aug","Bacteroidia","Chitinophagales","Chitinophagaceae","Dinghuibacter","Dinghuibacter_uncl",NA,NA,0.0581620783249321
+"696","2013","Aug","Bacteroidia","Chitinophagales","Chitinophagales_uncl","Chitinophagales_uncl","Chitinophagales_uncl",NA,NA,0.0271423032183017
+"697","2013","Aug","Bacteroidia","Cytophagales","Cyclobacteriaceae","Algoriphagus","Algoriphagus_uncl",NA,NA,0.294687863512989
+"698","2013","Aug","Bacteroidia","Cytophagales","Cyclobacteriaceae","Marinoscillum","Marinoscillum_uncl",NA,NA,0.151221403644824
+"699","2013","Aug","Bacteroidia","Flavobacteriales","Cryomorphaceae","Cryomorphaceae_uncl","Cryomorphaceae_uncl",NA,NA,0.0232648313299729
+"700","2013","Aug","Bacteroidia","Flavobacteriales","Cryomorphaceae","NS10 marine group","NS10 marine group_uncl",NA,NA,0.0426521907716169
+"701","2013","Aug","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Flavobacterium","Flavobacterium_uncl",NA,NA,0.0542846064366033
+"702","2013","Aug","Bacteroidia","Flavobacteriales","NS9 marine group","NS9 marine group_uncl","NS9 marine group_uncl",NA,NA,0.0969367972082202
+"703","2013","Aug","Bacteroidia","Flavobacteriales","Weeksellaceae","Cloacibacterium","normanense",NA,NA,0.0465296626599457
+"704","2013","Aug","Bacteroidia","Sphingobacteriales","env.OPS 17","env.OPS 17_uncl","env.OPS 17_uncl",NA,NA,0.0232648313299729
+"705","2013","Aug","Bacteroidia","Sphingobacteriales","GWF2-29-10","GWF2-29-10_uncl","GWF2-29-10_uncl",NA,NA,0.139588987979837
+"706","2013","Aug","Bacteroidia","Sphingobacteriales","LiUU-11-161","LiUU-11-161_uncl","LiUU-11-161_uncl",NA,NA,0.019387359441644
+"707","2013","Aug","Bacteroidia","Sphingobacteriales","NS11-12 marine group","NS11-12 marine group_uncl","NS11-12 marine group_uncl",NA,NA,0.283055447848003
+"708","2013","Aug","Bdellovibrionia","Bdellovibrionales","Bdellovibrionaceae","OM27 clade","OM27 clade_uncl",NA,NA,0.0930593253198914
+"709","2013","Aug","Campylobacteria","Campylobacterales","Arcobacteraceae","Arcobacter","skirrowii",NA,NA,0.0465296626599457
+"710","2013","Aug","Campylobacteria","Campylobacterales","Arcobacteraceae","Pseudarcobacter","aquimarinus",NA,NA,0.329585110507949
+"711","2013","Aug","Chlamydiae","Chlamydiales","Parachlamydiaceae","Parachlamydiaceae_uncl","Parachlamydiaceae_uncl",NA,NA,0.197751066304769
+"712","2013","Aug","Chloroflexia","Chloroflexales","Roseiflexaceae","Roseiflexaceae_uncl","Roseiflexaceae_uncl",NA,NA,0.158976347421481
+"713","2013","Aug","Cyanobacteriia","Cyanobacteriales","Microcystaceae","Synechocystis CCALA 700","aquatilis",NA,NA,0.0387747188832881
+"714","2013","Aug","Cyanobacteriia","Synechococcales","Cyanobiaceae","Cyanobium PCC-6307","Cyanobium PCC-6307_uncl",NA,NA,9.56184567661884
+"715","2013","Aug","Gammaproteobacteria","Aeromonadales","Aeromonadaceae","Aeromonas","Aeromonas_uncl",NA,NA,0.100814269096549
+"716","2013","Aug","Gammaproteobacteria","Aeromonadales","Aeromonadaceae","Oceanimonas","smirnovii",NA,NA,0.178363706863125
+"717","2013","Aug","Gammaproteobacteria","Alteromonadales","Alteromonadaceae","Rheinheimera","Rheinheimera_uncl",NA,NA,0.224893369523071
+"718","2013","Aug","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Comamonadaceae_uncl","Comamonadaceae_uncl",NA,NA,0.279177975959674
+"719","2013","Aug","Gammaproteobacteria","Burkholderiales","MWH-UniP1 aquatic group","MWH-UniP1 aquatic group_uncl","MWH-UniP1 aquatic group_uncl",NA,NA,0.934470725087243
+"720","2013","Aug","Gammaproteobacteria","Gammaproteobacteria Incertae Sedis","Unknown Family","Acidibacter","Acidibacter_uncl",NA,NA,0.240403257076386
+"721","2013","Aug","Gammaproteobacteria","Oceanospirillales","Nitrincolaceae","Marinobacterium","Marinobacterium_uncl",NA,NA,0.0232648313299729
+"722","2013","Aug","Gammaproteobacteria","Pseudomonadales","Moraxellaceae","Acinetobacter","Acinetobacter_uncl",NA,NA,0.116324156649864
+"723","2013","Aug","Gammaproteobacteria","Vibrionales","Vibrionaceae","Vibrio","Vibrio_uncl",NA,NA,0.2287708414114
+"724","2013","Aug","Gracilibacteria","JGI 0000069-P22","JGI 0000069-P22_uncl","JGI 0000069-P22_uncl","JGI 0000069-P22_uncl",NA,NA,0.0271423032183017
+"725","2013","Aug","Kapabacteria","Kapabacteriales","Kapabacteriales_uncl","Kapabacteriales_uncl","Kapabacteriales_uncl",NA,NA,0.372237301279566
+"726","2013","Aug","Kiritimatiellae","WCHB1-41","WCHB1-41_uncl","WCHB1-41_uncl","WCHB1-41_uncl",NA,NA,0.29468786351299
+"727","2013","Aug","Microgenomatia","Candidatus Pacebacteria","Candidatus Pacebacteria_uncl","Candidatus Pacebacteria_uncl","Candidatus Pacebacteria_uncl",NA,NA,0.019387359441644
+"728","2013","Aug","Oligoflexia","0319-6G20","0319-6G20_uncl","0319-6G20_uncl","0319-6G20_uncl",NA,NA,0.143466459868166
+"729","2013","Aug","Oligoflexia","053A03-B-DI-P58","053A03-B-DI-P58_uncl","053A03-B-DI-P58_uncl","053A03-B-DI-P58_uncl",NA,NA,0.0465296626599457
+"730","2013","Aug","Oligoflexia","Oligoflexales","Oligoflexales_uncl","Oligoflexales_uncl","Oligoflexales_uncl",NA,NA,0.0465296626599457
+"731","2013","Aug","Oligoflexia","Silvanigrellales","Silvanigrellaceae","Silvanigrellaceae_uncl","Silvanigrellaceae_uncl",NA,NA,0.221015897634742
+"732","2013","Aug","Parcubacteria","GWA2-38-13b","GWA2-38-13b_uncl","GWA2-38-13b_uncl","GWA2-38-13b_uncl",NA,NA,0.174486234974796
+"733","2013","Aug","Phycisphaerae","Phycisphaerales","Phycisphaeraceae","CL500-3","CL500-3_uncl",NA,NA,1.29119813881349
+"734","2013","Aug","Planctomycetes","Pirellulales","Pirellulaceae","Pirellulaceae_uncl","Pirellulaceae_uncl",NA,NA,0.0969367972082202
+"735","2013","Aug","Polyangia","Polyangiales","Sandaracinaceae","Sandaracinaceae_uncl","Sandaracinaceae_uncl",NA,NA,0.189996122528112
+"736","2013","Aug","Rhodothermia","Balneolales","Balneolaceae","Balneolaceae_uncl","Balneolaceae_uncl",NA,NA,0.0775494377665762
+"737","2013","Aug","Saccharimonadia","Saccharimonadales","Saccharimonadales_uncl","Saccharimonadales_uncl","Saccharimonadales_uncl",NA,NA,0.0853043815432338
+"738","2013","Aug","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl",NA,NA,0.0426521907716169
+"739","2013","Aug","Verrucomicrobiae","Chthoniobacterales","Terrimicrobiaceae","Terrimicrobium","Terrimicrobium_uncl",NA,NA,0.0853043815432338
+"740","2013","Aug","Verrucomicrobiae","Pedosphaerales","Pedosphaeraceae","SH3-11","SH3-11_uncl",NA,NA,0.0930593253198914
+"741","2013","Sep","Acidimicrobiia","Microtrichales","Ilumatobacteraceae","CL500-29 marine group","CL500-29 marine group_uncl",NA,0.136102208368091,1.16099412881296
+"742","2013","Sep","Acidimicrobiia","Microtrichales","Microtrichales_uncl","Microtrichales_uncl","Microtrichales_uncl",NA,NA,0.06180196883415
+"743","2013","Sep","Acidobacteriae","Bryobacterales","Bryobacteraceae","Bryobacter","Bryobacter_uncl",NA,NA,0.06180196883415
+"744","2013","Sep","Alphaproteobacteria","Caulobacterales","Hyphomonadaceae","Hyphomonas","Hyphomonas_uncl",NA,NA,0.189820332847746
+"745","2013","Sep","Alphaproteobacteria","Paracaedibacterales","Paracaedibacteraceae","Paracaedibacteraceae_uncl","Paracaedibacteraceae_uncl",NA,NA,0.114775084977707
+"746","2013","Sep","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Limibaculum","Limibaculum_uncl",NA,NA,0.2472078753366
+"747","2013","Sep","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Rhodobacteraceae_uncl","Rhodobacteraceae_uncl",NA,NA,0.1236039376683
+"748","2013","Sep","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Rubellimicrobium","Rubellimicrobium_uncl",NA,NA,0.06180196883415
+"749","2013","Sep","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Tabrizicola","Tabrizicola_uncl",NA,NA,0.569460998543239
+"750","2013","Sep","Alphaproteobacteria","Rickettsiales","SM2D12","SM2D12_uncl","SM2D12_uncl",NA,NA,0.0485586897982607
+"751","2013","Sep","Alphaproteobacteria","Thalassobaculales","Thalassobaculaceae","Thalassobaculum","Thalassobaculum_uncl",NA,NA,0.0794596742153357
+"752","2013","Sep","Anaerolineae","Caldilineales","Caldilineaceae","Caldilineaceae_uncl","Caldilineaceae_uncl",NA,NA,0.0971173795965214
+"753","2013","Sep","Bacilli","Erysipelotrichales","Erysipelotrichaceae","ZOR0006","ZOR0006_uncl",NA,NA,0.203063611883636
+"754","2013","Sep","Bacteroidia","Bacteroidales","Bacteroidetes vadinHA17","Bacteroidetes vadinHA17_uncl","Bacteroidetes vadinHA17_uncl",NA,NA,0.0882885269059286
+"755","2013","Sep","Bacteroidia","Bacteroidales","Paludibacteraceae","Paludibacter","Paludibacter_uncl",NA,0.043903938183255,0.0662163951794464
+"756","2013","Sep","Bacteroidia","Chitinophagales","Chitinophagaceae","Chitinophagaceae_uncl","Chitinophagaceae_uncl",NA,NA,0.0220721317264821
+"757","2013","Sep","Bacteroidia","Chitinophagales","Saprospiraceae","Saprospiraceae_uncl","Saprospiraceae_uncl",NA,0.0965886640031611,0.0441442634529643
+"758","2013","Sep","Bacteroidia","Cytophagales","Cyclobacteriaceae","Algoriphagus","Algoriphagus_uncl",NA,NA,0.119189511323004
+"759","2013","Sep","Bacteroidia","Flavobacteriales","Crocinitomicaceae","Fluviicola","Fluviicola_uncl",NA,0.140492602186416,0.0176577053811857
+"760","2013","Sep","Bacteroidia","Flavobacteriales","Cryomorphaceae","Owenweeksia","Owenweeksia_uncl",NA,NA,0.0706308215247429
+"761","2013","Sep","Bacteroidia","Sphingobacteriales","Lentimicrobiaceae","Lentimicrobiaceae_uncl","Lentimicrobiaceae_uncl",NA,NA,0.114775084977707
+"762","2013","Sep","Bacteroidia","Sphingobacteriales","NS11-12 marine group","NS11-12 marine group_uncl","NS11-12 marine group_uncl",NA,0.035123150546604,0.0397298371076679
+"763","2013","Sep","Campylobacteria","Campylobacterales","Arcobacteraceae","Arcobacteraceae_uncl","Arcobacteraceae_uncl",NA,NA,0.0706308215247429
+"764","2013","Sep","Chitinivibrionia","Chitinivibrionales","Chitinivibrionaceae","Chitinivibrionaceae_uncl","Chitinivibrionaceae_uncl",NA,NA,0.0132432790358893
+"765","2013","Sep","Desulfobulbia","Desulfobulbales","Desulfocapsaceae","Desulfopila","Desulfopila_uncl",NA,NA,0.198649185538339
+"766","2013","Sep","Desulfovibrionia","Desulfovibrionales","Desulfomicrobiaceae","Desulfomicrobium","aestuarii",NA,NA,0.0794596742153357
+"767","2013","Sep","Desulfuromonadia","Geothermobacteraceae","Geothermobacter","Geothermobacter_uncl","Geothermobacter_uncl",NA,NA,0.229550169955414
+"768","2013","Sep","Dojkabacteria","Dojkabacteria_uncl","Dojkabacteria_uncl","Dojkabacteria_uncl","Dojkabacteria_uncl",NA,NA,0.030900984417075
+"769","2013","Sep","Fusobacteriia","Fusobacteriales","Fusobacteriaceae","Cetobacterium","Cetobacterium_uncl",NA,NA,0.150090495740079
+"770","2013","Sep","Gammaproteobacteria","Aeromonadales","Aeromonadaceae","Aeromonas","Aeromonas_uncl",NA,0.193177328006322,0.0706308215247429
+"771","2013","Sep","Gammaproteobacteria","Burkholderiales","Burkholderiaceae","Limnobacter","Limnobacter_uncl",NA,NA,0.0838741005606321
+"772","2013","Sep","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Comamonadaceae_uncl","Comamonadaceae_uncl",NA,NA,0.0529731161435571
+"773","2013","Sep","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Rubrivivax","Rubrivivax_uncl",NA,NA,0.609190835650907
+"774","2013","Sep","Gammaproteobacteria","Burkholderiales","Nitrosomonadaceae","oc32","oc32_uncl",NA,0.272204416736181,0.278108859753675
+"775","2013","Sep","Gammaproteobacteria","Burkholderiales","Rhodocyclaceae","Dechlorobacter","Dechlorobacter_uncl",NA,NA,0.0750452478700393
+"776","2013","Sep","Gammaproteobacteria","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl",NA,NA,0.0264865580717786
+"777","2013","Sep","Gammaproteobacteria","Pseudomonadales","Pseudomonadaceae","Pseudomonas","Pseudomonas_uncl",NA,NA,0.0882885269059286
+"778","2013","Sep","Gammaproteobacteria","Steroidobacterales","Steroidobacteraceae","Steroidobacteraceae_uncl","Steroidobacteraceae_uncl",NA,NA,0.18540590650245
+"779","2013","Sep","Gracilibacteria","JGI 0000069-P22","JGI 0000069-P22_uncl","JGI 0000069-P22_uncl","JGI 0000069-P22_uncl",NA,NA,0.0750452478700393
+"780","2013","Sep","Holophagae","Holophagales","Holophagaceae","Holophagaceae_uncl","Holophagaceae_uncl",NA,NA,0.0397298371076679
+"781","2013","Sep","Kapabacteria","Kapabacteriales","Kapabacteriales_uncl","Kapabacteriales_uncl","Kapabacteriales_uncl",NA,NA,0.030900984417075
+"782","2013","Sep","Kiritimatiellae","WCHB1-41","WCHB1-41_uncl","WCHB1-41_uncl","WCHB1-41_uncl",NA,NA,0.547388866816757
+"783","2013","Sep","Oligoflexia","0319-6G20","0319-6G20_uncl","0319-6G20_uncl","0319-6G20_uncl",NA,0.162444571278044,0.0485586897982607
+"784","2013","Sep","Oligoflexia","Oligoflexales","Oligoflexales_uncl","Oligoflexales_uncl","Oligoflexales_uncl",NA,0.272204416736181,0.295766565134861
+"785","2013","Sep","Oligoflexia","Silvanigrellales","Silvanigrellaceae","Silvanigrellaceae_uncl","Silvanigrellaceae_uncl",NA,0.360012293102691,0.0882885269059286
+"786","2013","Sep","Phycisphaerae","Phycisphaerales","Phycisphaeraceae","CL500-3","CL500-3_uncl",NA,NA,0.918200679821657
+"787","2013","Sep","Planctomycetes","Pirellulales","Pirellulaceae","Pirellula","Pirellula_uncl",NA,NA,0.0353154107623714
+"788","2013","Sep","Polyangia","Blfdi19","Blfdi19_uncl","Blfdi19_uncl","Blfdi19_uncl",NA,NA,0.0529731161435571
+"789","2013","Sep","Polyangia","Polyangiales","Polyangiales_uncl","Polyangiales_uncl","Polyangiales_uncl",NA,NA,0.0750452478700393
+"790","2013","Sep","Polyangia","Polyangiales","Sandaracinaceae","Sandaracinaceae_uncl","Sandaracinaceae_uncl",NA,NA,0.0485586897982607
+"791","2013","Sep","Rhodothermia","Balneolales","Balneolaceae","Balneolaceae_uncl","Balneolaceae_uncl",NA,0.184396540369671,0.361982960314307
+"792","2013","Sep","Rhodothermia","Balneolales","Balneolaceae","CK06-06-Mud-MAS4B-21","CK06-06-Mud-MAS4B-21_uncl",NA,NA,0.406127223767271
+"793","2013","Sep","Saccharimonadia","Saccharimonadales","Saccharimonadaceae","TM7a","TM7a_uncl",NA,NA,0.0485586897982607
+"794","2013","Sep","Subgroup 22","Subgroup 22_uncl","Subgroup 22_uncl","Subgroup 22_uncl","Subgroup 22_uncl",NA,NA,0.0132432790358893
+"795","2013","Sep","Verrucomicrobiae","Pedosphaerales","Pedosphaeraceae","SCGC AAA164-E04","SCGC AAA164-E04_uncl",NA,NA,0.0485586897982607
+"796","2013","Sep","Verrucomicrobiae","Verrucomicrobiae_uncl","Verrucomicrobiae_uncl","Verrucomicrobiae_uncl","Verrucomicrobiae_uncl",NA,NA,0.225135743610118
+"797","2014","Mar","Alphaproteobacteria","Rhizobiales","Rhizobiales Incertae Sedis","Rhizobiales Incertae Sedis_uncl","Rhizobiales Incertae Sedis_uncl",NA,NA,0.512204881952781
+"798","2014","Mar","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Gemmobacter","Gemmobacter_uncl",NA,NA,1.42456982793117
+"799","2014","Mar","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Rhodobacter","Rhodobacter_uncl",NA,NA,0.152060824329732
+"800","2014","Mar","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Novosphingobium","Novosphingobium_uncl",NA,NA,0.368147258903561
+"801","2014","Mar","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Porphyrobacter","Porphyrobacter_uncl",NA,NA,0.368147258903561
+"802","2014","Mar","Bacteroidia","Cytophagales","Spirosomaceae","Fluviimonas","Fluviimonas_uncl",NA,NA,0.160064025610244
+"803","2014","Mar","Bacteroidia","Flavobacteriales","Flavobacteriales_uncl","Flavobacteriales_uncl","Flavobacteriales_uncl",NA,NA,0.0320128051220488
+"804","2014","Mar","Bdellovibrionia","Bdellovibrionales","Bdellovibrionaceae","Bdellovibrio","Bdellovibrio_uncl",NA,0.150489089541008,0.0560224089635854
+"805","2014","Mar","Chloroflexia","Chloroflexales","Chloroflexaceae","Chloroflexaceae_uncl","Chloroflexaceae_uncl",NA,NA,0.176070428171269
+"806","2014","Mar","Gammaproteobacteria","211ds20","211ds20_uncl","211ds20_uncl","211ds20_uncl",NA,NA,0.104041616646659
+"807","2014","Mar","Gammaproteobacteria","Burkholderiales","Burkholderiales_uncl","Burkholderiales_uncl","Burkholderiales_uncl",NA,NA,0.0160064025610244
+"808","2014","Mar","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Leptothrix","Leptothrix_uncl",NA,NA,0.112044817927171
+"809","2014","Mar","Gammaproteobacteria","Gammaproteobacteria Incertae Sedis","Unknown Family","Candidatus Berkiella","Candidatus Berkiella_uncl",NA,0.300978179082017,0.192076830732293
+"810","2014","May","Alphaproteobacteria","Acetobacterales","Acetobacteraceae","Roseomonas","Roseomonas_uncl",NA,NA,0.47343503419253
+"811","2014","May","Alphaproteobacteria","Paracaedibacterales","Paracaedibacteraceae","Paracaedibacteraceae_uncl","Paracaedibacteraceae_uncl",NA,NA,1.18734500638762
+"812","2014","May","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Gemmobacter","Gemmobacter_uncl",NA,NA,0.150296836251597
+"813","2014","May","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Rhodobacter","Rhodobacter_uncl",NA,NA,0.849177124821523
+"814","2014","May","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Tabrizicola","aquatica",NA,NA,0.127752310813857
+"815","2014","May","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Tabrizicola","Tabrizicola_uncl",NA,NA,0.533553768693169
+"816","2014","May","Alphaproteobacteria","Rickettsiales","AB1","AB1_uncl","AB1_uncl",NA,NA,0.232960096189975
+"817","2014","May","Alphaproteobacteria","Rickettsiales","Rickettsiaceae","Candidatus Arcanobacter","Candidatus Arcanobacter_uncl",NA,NA,0.225445254377395
+"818","2014","May","Alphaproteobacteria","Rickettsiales","Rickettsiaceae","Rickettsiaceae_uncl","Rickettsiaceae_uncl",NA,NA,0.127752310813857
+"819","2014","May","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Novosphingobium","Novosphingobium_uncl",NA,NA,1.08965206282408
+"820","2014","May","Bacteria_uncl","Bacteria_uncl","Bacteria_uncl","Bacteria_uncl","Bacteria_uncl",NA,NA,0.112722627188698
+"821","2014","May","Bacteroidia","Chitinophagales","Saprospiraceae","Phaeodactylibacter","Phaeodactylibacter_uncl",NA,NA,0.0676335763132186
+"822","2014","May","Bacteroidia","Chitinophagales","Saprospiraceae","Saprospiraceae_uncl","Saprospiraceae_uncl",NA,NA,0.120237469001278
+"823","2014","May","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Flavobacterium","Flavobacterium_uncl",NA,NA,0.105207785376118
+"824","2014","May","Campylobacteria","Campylobacterales","Arcobacteraceae","Pseudarcobacter","Pseudarcobacter_uncl",NA,NA,0.112722627188698
+"825","2014","May","Clostridia","Lachnospirales","Lachnospiraceae","Tyzzerella","Tyzzerella_uncl",NA,NA,0.278049147065454
+"826","2014","May","Cyanobacteriia","Cyanobacteriales","Phormidiaceae","Planktothrix NIVA-CYA 15","Planktothrix NIVA-CYA 15_uncl",NA,NA,0.0150296836251597
+"827","2014","May","Cyanobacteriia","Leptolyngbyales","Leptolyngbyaceae","Scytolyngbya XSP1","Scytolyngbya XSP1_uncl",NA,NA,0.112722627188698
+"828","2014","May","Desulfuromonadia","Geothermobacteraceae","Geothermobacter","Geothermobacter_uncl","Geothermobacter_uncl",NA,NA,0.120237469001278
+"829","2014","May","Gammaproteobacteria","Aeromonadales","Aeromonadaceae","Aeromonas","Aeromonas_uncl",NA,NA,0.0601187345006388
+"830","2014","May","Gammaproteobacteria","Alteromonadales","Alteromonadaceae","Rheinheimera","Rheinheimera_uncl",NA,NA,0.263019463440295
+"831","2014","May","Gammaproteobacteria","Burkholderiales","Burkholderiales_uncl","Burkholderiales_uncl","Burkholderiales_uncl",NA,NA,0.00751484181257984
+"832","2014","May","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Comamonadaceae_uncl","Comamonadaceae_uncl",NA,NA,0.593672503193808
+"833","2014","May","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Rubrivivax","Rubrivivax_uncl",NA,NA,3.86262869166604
+"834","2014","May","Gammaproteobacteria","Burkholderiales","Rhodocyclaceae","C39","C39_uncl",NA,NA,0.135267152626437
+"835","2014","May","Gammaproteobacteria","Burkholderiales","Sutterellaceae","Sutterellaceae_uncl","Sutterellaceae_uncl",NA,NA,0.623731870444127
+"836","2014","Jun","Alphaproteobacteria","Acetobacterales","Acetobacteraceae","Rhodovarius","Rhodovarius_uncl",NA,NA,0.494564937406625
+"837","2014","Jun","Alphaproteobacteria","Acetobacterales","Elioraeaceae","Elioraea","Elioraea_uncl",NA,NA,0.350316830663026
+"838","2014","Jun","Alphaproteobacteria","Caulobacterales","Caulobacteraceae","Phenylobacterium","Phenylobacterium_uncl",NA,NA,1.66915666374736
+"839","2014","Jun","Alphaproteobacteria","Holosporales","Holosporaceae","Holosporaceae_uncl","Holosporaceae_uncl",NA,NA,0.0257585904899284
+"840","2014","Jun","Alphaproteobacteria","Micavibrionales","Micavibrionales_uncl","Micavibrionales_uncl","Micavibrionales_uncl",NA,NA,0.0721240533717995
+"841","2014","Jun","Alphaproteobacteria","Rhizobiales","Rhizobiales Incertae Sedis","Phreatobacter","Phreatobacter_uncl",NA,NA,0.180310133429499
+"842","2014","Jun","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Limibaculum","Limibaculum_uncl",NA,NA,0.113337798155685
+"843","2014","Jun","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Rhodobacter","Rhodobacter_uncl",NA,NA,0.108186080057699
+"844","2014","Jun","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Rubellimicrobium","Rubellimicrobium_uncl",NA,NA,0.443047756426768
+"845","2014","Jun","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Tabrizicola","Tabrizicola_uncl",NA,NA,0.200917005821441
+"846","2014","Jun","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Thioclava","Thioclava_uncl",NA,NA,0.242130750605327
+"847","2014","Jun","Alphaproteobacteria","Rhodospirillales","Rhodospirillales_uncl","Rhodospirillales_uncl","Rhodospirillales_uncl",NA,NA,0.0515171809798568
+"848","2014","Jun","Alphaproteobacteria","Rickettsiales","SM2D12","SM2D12_uncl","SM2D12_uncl",NA,NA,0.0772757714697852
+"849","2014","Jun","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Novosphingobium","Novosphingobium_uncl",NA,NA,0.829426613775694
+"850","2014","Jun","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Sphingomonadaceae_uncl","Sphingomonadaceae_uncl",NA,NA,0.247282468703313
+"851","2014","Jun","Bacilli","Erysipelotrichales","Erysipelotrichaceae","Erysipelothrix","Erysipelothrix_uncl",NA,NA,0.0669723352738138
+"852","2014","Jun","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Flavobacterium","Flavobacterium_uncl",NA,NA,0.118489516253671
+"853","2014","Jun","Bacteroidia","Flavobacteriales","Flavobacteriales_uncl","Flavobacteriales_uncl","Flavobacteriales_uncl",NA,NA,0.0927309257637422
+"854","2014","Jun","Bdellovibrionia","Bdellovibrionales","Bdellovibrionaceae","OM27 clade","OM27 clade_uncl",NA,NA,0.34516511256504
+"855","2014","Jun","Blastocatellia","11-24","11-24_uncl","11-24_uncl","11-24_uncl",NA,NA,1.34459842357426
+"856","2014","Jun","Chlamydiae","Chlamydiales","Simkaniaceae","Simkaniaceae_uncl","Simkaniaceae_uncl",NA,NA,0.0927309257637422
+"857","2014","Jun","Cyanobacteriia","Cyanobacteriales","Microcystaceae","Microcystis PCC-7914","Microcystis PCC-7914_uncl",NA,NA,2.22554221832981
+"858","2014","Jun","Cyanobacteriia","Cyanobacteriales","Nostocaceae","Sphaerospermopsis BCCUSP55","torques-reginae",NA,NA,0.0515171809798568
+"859","2014","Jun","Cyanobacteriia","Synechococcales","Cyanobiaceae","Cyanobium PCC-6307","Cyanobium PCC-6307_uncl",NA,NA,0.623357889856267
+"860","2014","Jun","Fimbriimonadia","Fimbriimonadales","Fimbriimonadaceae","Fimbriimonadaceae_uncl","Fimbriimonadaceae_uncl",NA,NA,0.247282468703313
+"861","2014","Jun","Gammaproteobacteria","Burkholderiales","Alcaligenaceae","Alcaligenaceae_uncl","Alcaligenaceae_uncl",NA,NA,0.0103034361959714
+"862","2014","Jun","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Rhizobacter","Rhizobacter_uncl",NA,NA,0.705785379424038
+"863","2014","Jun","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Rubrivivax","Rubrivivax_uncl",NA,NA,0.752150842305909
+"864","2014","Jun","Gammaproteobacteria","Burkholderiales","Methylophilaceae","MM2","MM2_uncl",NA,NA,0.60790273556231
+"865","2014","Jun","Gammaproteobacteria","Burkholderiales","MWH-UniP1 aquatic group","MWH-UniP1 aquatic group_uncl","MWH-UniP1 aquatic group_uncl",NA,NA,0.211220442017413
+"866","2014","Jun","Gammaproteobacteria","Burkholderiales","Nitrosomonadaceae","966-1","966-1_uncl",NA,NA,0.144248106743599
+"867","2014","Jun","Gammaproteobacteria","Burkholderiales","SC-I-84","SC-I-84_uncl","SC-I-84_uncl",NA,NA,0.00515171809798568
+"868","2014","Jun","Gammaproteobacteria","Burkholderiales","Sutterellaceae","Sutterellaceae_uncl","Sutterellaceae_uncl",NA,0.175117408262358,0.159703261037556
+"869","2014","Jun","Gammaproteobacteria","Xanthomonadales","Xanthomonadaceae","Silanimonas","algicola",NA,NA,0.123641234351656
+"870","2014","Jun","Gemmatimonadetes","Gemmatimonadales","Gemmatimonadaceae","Gemmatimonadaceae_uncl","Gemmatimonadaceae_uncl",NA,NA,0.45335119262274
+"871","2014","Jun","Oligoflexia","Oligoflexales","Oligoflexales_uncl","Oligoflexales_uncl","Oligoflexales_uncl",NA,NA,0.0669723352738138
+"872","2014","Jun","Verrucomicrobiae","Chthoniobacterales","Chthoniobacteraceae","LD29","LD29_uncl",NA,NA,1.23641234351656
+"873","2014","Jun","Verrucomicrobiae","Verrucomicrobiales","Rubritaleaceae","Luteolibacter","Luteolibacter_uncl",NA,NA,1.37550873216218
+"874","2014","Jun","Verrucomicrobiae","Verrucomicrobiales","Verrucomicrobiaceae","Prosthecobacter","Prosthecobacter_uncl",NA,NA,0.0669723352738138
+"875","2014","Oct","Alphaproteobacteria","Caulobacterales","Hyphomonadaceae","Hyphomonas","Hyphomonas_uncl",NA,NA,0.311061341296504
+"876","2014","Oct","Alphaproteobacteria","Paracaedibacterales","Paracaedibacteraceae","Candidatus Finniella","Candidatus Finniella_uncl",NA,NA,0.385716063207665
+"877","2014","Oct","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Rhodobacteraceae_uncl","Rhodobacteraceae_uncl",NA,NA,0.758989672763469
+"878","2014","Oct","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Roseibacterium","Roseibacterium_uncl",NA,NA,0.958068931193231
+"879","2014","Oct","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Tabrizicola","Tabrizicola_uncl",NA,NA,2.53826054497947
+"880","2014","Oct","Bacteroidia","Chitinophagales","Chitinophagaceae","Dinghuibacter","Dinghuibacter_uncl",NA,NA,0.385716063207665
+"881","2014","Oct","Bacteroidia","Cytophagales","Cyclobacteriaceae","Algoriphagus","Algoriphagus_uncl",NA,NA,0.671892497200448
+"882","2014","Oct","Bacteroidia","Cytophagales","Cyclobacteriaceae","Cyclobacteriaceae_uncl","Cyclobacteriaceae_uncl",NA,NA,0.124424536518601
+"883","2014","Oct","Bacteroidia","Flavobacteriales","Crocinitomicaceae","Fluviicola","Fluviicola_uncl",NA,NA,0.186636804777902
+"884","2014","Oct","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Flavobacteriaceae_uncl","Flavobacteriaceae_uncl",NA,NA,0.199079258429762
+"885","2014","Oct","Bacteroidia","Sphingobacteriales","NS11-12 marine group","NS11-12 marine group_uncl","NS11-12 marine group_uncl",NA,NA,0.0622122682593007
+"886","2014","Oct","Chitinivibrionia","Chitinivibrionales","Chitinivibrionaceae","Chitinivibrionaceae_uncl","Chitinivibrionaceae_uncl",NA,NA,0.0373273609555804
+"887","2014","Oct","Desulfuromonadia","Bradymonadales","Bradymonadales_uncl","Bradymonadales_uncl","Bradymonadales_uncl",NA,NA,0.485255692422546
+"888","2014","Oct","Gammaproteobacteria","Burkholderiales","Chitinibacteraceae","Deefgea","Deefgea_uncl",NA,NA,0.0497698146074406
+"889","2014","Oct","Gammaproteobacteria","Burkholderiales","Rhodocyclaceae","Rhodocyclaceae_uncl","Rhodocyclaceae_uncl",NA,NA,0.510140599726266
+"890","2014","Oct","Gammaproteobacteria","Cellvibrionales","Halieaceae","Haliea","Haliea_uncl",NA,NA,0.248849073037203
+"891","2014","Oct","Gammaproteobacteria","Gammaproteobacteria Incertae Sedis","Unknown Family","Acidibacter","Acidibacter_uncl",NA,NA,0.385716063207665
+"892","2014","Oct","Myxococcia","Myxococcales","Myxococcaceae","Myxococcaceae_uncl","Myxococcaceae_uncl",NA,NA,0.211521712081623
+"893","2014","Oct","Proteobacteria_uncl","Proteobacteria_uncl","Proteobacteria_uncl","Proteobacteria_uncl","Proteobacteria_uncl",NA,NA,2.11521712081622
+"894","2014","Oct","Verrucomicrobiae","Verrucomicrobiales","Verrucomicrobiaceae","Prosthecobacter","Prosthecobacter_uncl",NA,NA,0.199079258429762
+"895","2013","Jan","Actinobacteria","Micrococcales","Microbacteriaceae","Candidatus Limnoluna","Candidatus Limnoluna_uncl",NA,0.187370233453183,NA
+"896","2013","Jan","Actinobacteria","Micrococcales","Microbacteriaceae","Rhodoluna","Rhodoluna_uncl",NA,0.0658327847267939,NA
+"897","2013","Jan","Alphaproteobacteria","SAR11 clade","Clade III","Clade III_uncl","Clade III_uncl",NA,0.0151921810907986,NA
+"898","2013","Jan","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Altererythrobacter","Altererythrobacter_uncl",NA,0.0962171469083912,NA
+"899","2013","Jan","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Sphingorhabdus","rigui",NA,0.319035802906771,NA
+"900","2013","Jan","Bacteroidia","Bacteroidales","Dysgonomonadaceae","Proteiniphilum","Proteiniphilum_uncl",NA,0.0354484225451967,NA
+"901","2013","Jan","Bacteroidia","Chitinophagales","Chitinophagaceae","Aurantisolimonas","Aurantisolimonas_uncl",NA,0.075960905453993,NA
+"902","2013","Jan","Bacteroidia","Chitinophagales","Saprospiraceae","Saprospiraceae_uncl","Saprospiraceae_uncl",NA,0.141793690180787,NA
+"903","2013","Jan","Bacteroidia","Cytophagales","Microscillaceae","OLB12","OLB12_uncl",NA,0.0557046639995949,NA
+"904","2013","Jan","Bacteroidia","Flavobacteriales","Crocinitomicaceae","Fluviicola","Fluviicola_uncl",NA,0.0202562414543981,NA
+"905","2013","Jan","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Hoppeia","Hoppeia_uncl",NA,0.101281207271991,NA
+"906","2013","Jan","Bdellovibrionia","Bdellovibrionales","Bdellovibrionaceae","Bdellovibrio","Bdellovibrio_uncl",NA,0.0607687243631944,NA
+"907","2013","Jan","Campylobacteria","Campylobacterales","Arcobacteraceae","Arcobacter","cryaerophilus",NA,0.0303843621815972,NA
+"908","2013","Jan","Clostridia","Oscillospirales","Ruminococcaceae","Incertae Sedis","Incertae Sedis_uncl",NA,0.0101281207271991,NA
+"909","2013","Jan","Cyanobacteriia","Cyanobacteriales","Nostocaceae","Cuspidothrix LMECYA 163","Cuspidothrix LMECYA 163_uncl",NA,0.156985871271586,NA
+"910","2013","Jan","Desulfuromonadia","Geothermobacteraceae","Geothermobacter","Geothermobacter_uncl","Geothermobacter_uncl",NA,0.0911530865447916,NA
+"911","2013","Jan","Gammaproteobacteria","Burkholderiales","Burkholderiales_uncl","Burkholderiales_uncl","Burkholderiales_uncl",NA,0.0253203018179977,NA
+"912","2013","Jan","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Aquabacterium","Aquabacterium_uncl",NA,0.126601509089988,NA
+"913","2013","Jan","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Hydrogenophaga","Hydrogenophaga_uncl",NA,0.0911530865447916,NA
+"914","2013","Jan","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Limnohabitans","Limnohabitans_uncl",NA,0.313971742543171,NA
+"915","2013","Jan","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Malikia","Malikia_uncl",NA,0.43550919126956,NA
+"916","2013","Jan","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Polaromonas","Polaromonas_uncl",NA,0.845698080721122,NA
+"917","2013","Jan","Gammaproteobacteria","Burkholderiales","Methylophilaceae","UBA6140","UBA6140_uncl",NA,0.0658327847267939,NA
+"918","2013","Jan","Gammaproteobacteria","Burkholderiales","Nitrosomonadaceae","Ellin6067","Ellin6067_uncl",NA,0.0810249658175925,NA
+"919","2013","Jan","Gammaproteobacteria","Burkholderiales","Oxalobacteraceae","Massilia","glaciei",NA,0.0506406036359953,NA
+"920","2013","Jan","Gammaproteobacteria","Burkholderiales","Rhodocyclaceae","Rhodocyclaceae_uncl","Rhodocyclaceae_uncl",NA,0.0303843621815972,NA
+"921","2013","Jan","Gammaproteobacteria","Gammaproteobacteria Incertae Sedis","Unknown Family","Unknown Family_uncl","Unknown Family_uncl",NA,0.162049931635185,NA
+"922","2013","Jan","Gammaproteobacteria","Methylococcales","Methylomonadaceae","Crenothrix","Crenothrix_uncl",NA,0.146857750544386,NA
+"923","2013","Jan","Oligoflexia","Oligoflexales","Oligoflexales_uncl","Oligoflexales_uncl","Oligoflexales_uncl",NA,0.0253203018179977,NA
+"924","2013","Jan","Sva0485_uncl","Sva0485_uncl","Sva0485_uncl","Sva0485_uncl","Sva0485_uncl",NA,0.0253203018179977,NA
+"925","2013","Feb","Actinobacteria","Micrococcales","Microbacteriaceae","Candidatus Limnoluna","Candidatus Limnoluna_uncl",NA,0.184891706286318,NA
+"926","2013","Feb","Actinobacteria","PeM15","PeM15_uncl","PeM15_uncl","PeM15_uncl",NA,0.228913541116394,NA
+"927","2013","Feb","Alphaproteobacteria","Caulobacterales","Caulobacteraceae","Caulobacter","Caulobacter_uncl",NA,0.224511357633386,NA
+"928","2013","Feb","Alphaproteobacteria","Rhizobiales","Beijerinckiaceae","Methylocystis","Methylocystis_uncl",NA,0.0704349357281212,NA
+"929","2013","Feb","Alphaproteobacteria","Rhodospirillales","Rhodospirillales_uncl","Rhodospirillales_uncl","Rhodospirillales_uncl",NA,0.110054587075189,NA
+"930","2013","Feb","Alphaproteobacteria","Rickettsiales","AB1","AB1_uncl","AB1_uncl",NA,0.0176087339320303,NA
+"931","2013","Feb","Alphaproteobacteria","Rickettsiales","Rickettsiales_uncl","Rickettsiales_uncl","Rickettsiales_uncl",NA,0.0484240183130833,NA
+"932","2013","Feb","Alphaproteobacteria","Rickettsiales","SM2D12","SM2D12_uncl","SM2D12_uncl",NA,0.184891706286318,NA
+"933","2013","Feb","Anaerolineae","SBR1031","SBR1031_uncl","SBR1031_uncl","SBR1031_uncl",NA,0.0176087339320303,NA
+"934","2013","Feb","Bacteria_uncl","Bacteria_uncl","Bacteria_uncl","Bacteria_uncl","Bacteria_uncl",NA,0.00880436696601514,NA
+"935","2013","Feb","Bacteroidia","Bacteroidetes VC2.1 Bac22","Bacteroidetes VC2.1 Bac22_uncl","Bacteroidetes VC2.1 Bac22_uncl","Bacteroidetes VC2.1 Bac22_uncl",NA,0.030815284381053,NA
+"936","2013","Feb","Bacteroidia","Chitinophagales","Chitinophagaceae","Aurantisolimonas","Aurantisolimonas_uncl",NA,0.184891706286318,NA
+"937","2013","Feb","Bacteroidia","Chitinophagales","Chitinophagaceae","Lacibacter","Lacibacter_uncl",NA,0.061630568762106,NA
+"938","2013","Feb","Bacteroidia","Chitinophagales","Saprospiraceae","Saprospiraceae_uncl","Saprospiraceae_uncl",NA,0.242120091565416,NA
+"939","2013","Feb","Bacteroidia","Cytophagales","Microscillaceae","OLB12","OLB12_uncl",NA,0.0792393026941363,NA
+"940","2013","Feb","Bacteroidia","Flavobacteriales","Crocinitomicaceae","Salinirepens","Salinirepens_uncl",NA,0.0792393026941363,NA
+"941","2013","Feb","Bdellovibrionia","Bacteriovoracales","Bacteriovoracaceae","Peredibacter","Peredibacter_uncl",NA,0.14527205493925,NA
+"942","2013","Feb","Bdellovibrionia","Bdellovibrionales","Bdellovibrionaceae","OM27 clade","OM27 clade_uncl",NA,0.0396196513470681,NA
+"943","2013","Feb","Campylobacteria","Campylobacterales","Arcobacteraceae","Arcobacteraceae_uncl","Arcobacteraceae_uncl",NA,0.030815284381053,NA
+"944","2013","Feb","Gammaproteobacteria","211ds20","211ds20_uncl","211ds20_uncl","211ds20_uncl",NA,0.114456770558197,NA
+"945","2013","Feb","Gammaproteobacteria","Burkholderiales","Alcaligenaceae","GKS98 freshwater group","GKS98 freshwater group_uncl",NA,0.184891706286318,NA
+"946","2013","Feb","Gammaproteobacteria","Burkholderiales","Burkholderiaceae","Limnobacter","Limnobacter_uncl",NA,0.264131008980454,NA
+"947","2013","Feb","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Aquabacterium","Aquabacterium_uncl",NA,0.092445853143159,NA
+"948","2013","Feb","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Hydrogenophaga","Hydrogenophaga_uncl",NA,1.10935023771791,NA
+"949","2013","Feb","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Malikia","Malikia_uncl",NA,0.118858954041204,NA
+"950","2013","Feb","Gammaproteobacteria","Burkholderiales","Gallionellaceae","Gallionellaceae_uncl","Gallionellaceae_uncl",NA,0.00880436696601514,NA
+"951","2013","Feb","Gammaproteobacteria","Burkholderiales","Methylophilaceae","Methylotenera","Methylotenera_uncl",NA,0.00440218348300757,NA
+"952","2013","Feb","Gammaproteobacteria","Burkholderiales","Rhodocyclaceae","Rhodocyclaceae_uncl","Rhodocyclaceae_uncl",NA,0.61630568762106,NA
+"953","2013","Feb","Gammaproteobacteria","Cellvibrionales","Spongiibacteraceae","BD1-7 clade","BD1-7 clade_uncl",NA,0.12766332100722,NA
+"954","2013","Feb","Gammaproteobacteria","Oceanospirillales","Oleiphilaceae","Oleiphilus","Oleiphilus_uncl",NA,0.0660327522451136,NA
+"955","2013","Feb","Gammaproteobacteria","Oceanospirillales","Pseudohongiellaceae","Pseudohongiella","Pseudohongiella_uncl",NA,0.567881669307977,NA
+"956","2013","Feb","Gammaproteobacteria","Pseudomonadales","Moraxellaceae","Acinetobacter","Acinetobacter_uncl",NA,0.092445853143159,NA
+"957","2013","Feb","Gammaproteobacteria","WN-HWB-116","WN-HWB-116_uncl","WN-HWB-116_uncl","WN-HWB-116_uncl",NA,0.030815284381053,NA
+"958","2013","Feb","Gracilibacteria","Candidatus Peregrinibacteria","Candidatus Peregrinibacteria_uncl","Candidatus Peregrinibacteria_uncl","Candidatus Peregrinibacteria_uncl",NA,0.0132065504490227,NA
+"959","2013","Feb","Polyangia","Polyangiales","BIrii41","BIrii41_uncl","BIrii41_uncl",NA,0.0352174678640606,NA
+"960","2013","Feb","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl",NA,0.189293889769326,NA
+"961","2013","Feb","Verrucomicrobiae","Pedosphaerales","Pedosphaeraceae","SH3-11","SH3-11_uncl",NA,0.198098256735341,NA
+"962","2013","Mar","Alphaproteobacteria","Caulobacterales","Caulobacteraceae","Caulobacter","Caulobacter_uncl",NA,0.138112008839169,NA
+"963","2013","Mar","Alphaproteobacteria","Paracaedibacterales","Paracaedibacteraceae","Candidatus Finniella","Candidatus Finniella_uncl",NA,0.317657620330088,NA
+"964","2013","Mar","Alphaproteobacteria","Rickettsiales","Rickettsiaceae","Rickettsiaceae_uncl","Rickettsiaceae_uncl",NA,0.172640011048961,NA
+"965","2013","Mar","Alphaproteobacteria","Rickettsiales","Rickettsiales_uncl","Rickettsiales_uncl","Rickettsiales_uncl",NA,0.0345280022097921,NA
+"966","2013","Mar","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Novosphingobium","Novosphingobium_uncl",NA,0.234790415026587,NA
+"967","2013","Mar","Babeliae","Babeliales","Babeliales_uncl","Babeliales_uncl","Babeliales_uncl",NA,0.0828672053035011,NA
+"968","2013","Mar","Bacteroidia","Chitinophagales","Chitinophagaceae","Aurantisolimonas","Aurantisolimonas_uncl",NA,0.179545611490919,NA
+"969","2013","Mar","Bacteroidia","Cytophagales","Microscillaceae","OLB12","OLB12_uncl",NA,0.0828672053035011,NA
+"970","2013","Mar","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Flavobacterium","Flavobacterium_uncl",NA,0.580070437124508,NA
+"971","2013","Mar","Bacteroidia","Sphingobacteriales","NS11-12 marine group","NS11-12 marine group_uncl","NS11-12 marine group_uncl",NA,0.0621504039776258,NA
+"972","2013","Mar","Cyanobacteriia","Thermosynechococcales","Thermosynechococcaceae","Synechococcus IR11","Synechococcus IR11_uncl",NA,0.0759616048615427,NA
+"973","2013","Mar","Desulfobacteria","Desulfatiglandales","Desulfatiglandaceae","Desulfatiglans","Desulfatiglans_uncl",NA,0.0897728057454596,NA
+"974","2013","Mar","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Comamonadaceae_uncl","Comamonadaceae_uncl",NA,0.462675229611215,NA
+"975","2013","Mar","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Hydrogenophaga","Hydrogenophaga_uncl",NA,0.0828672053035011,NA
+"976","2013","Mar","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Rhodoferax","Rhodoferax_uncl",NA,0.0276224017678337,NA
+"977","2013","Mar","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Rubrivivax","Rubrivivax_uncl",NA,2.56197776396658,NA
+"978","2013","Mar","Gammaproteobacteria","Burkholderiales","Oxalobacteraceae","Oxalobacteraceae_uncl","Oxalobacteraceae_uncl",NA,0.0276224017678337,NA
+"979","2013","Mar","Gammaproteobacteria","Gammaproteobacteria Incertae Sedis","Unknown Family","Acidibacter","Acidibacter_uncl",NA,0.497203231821007,NA
+"980","2013","Mar","Gammaproteobacteria","Pseudomonadales","Pseudomonadaceae","Pseudomonas","sagittaria",NA,0.158828810165044,NA
+"981","2013","Mar","Oligoflexia","Oligoflexales","Oligoflexales_uncl","Oligoflexales_uncl","Oligoflexales_uncl",NA,0.0414336026517506,NA
+"982","2013","Mar","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl",NA,0.165734410607002,NA
+"983","2013","Mar","Verrucomicrobiae","Pedosphaerales","Pedosphaeraceae","SH3-11","SH3-11_uncl",NA,1.16704647469097,NA
+"984","2013","Mar","Vicinamibacteria","Vicinamibacterales","Vicinamibacterales_uncl","Vicinamibacterales_uncl","Vicinamibacterales_uncl",NA,0.0828672053035011,NA
+"985","2013","Apr","Actinobacteria","Frankiales","Sporichthyaceae","hgcI clade","hgcI clade_uncl",NA,0.194931773879142,NA
+"986","2013","Apr","Alphaproteobacteria","Alphaproteobacteria_uncl","Alphaproteobacteria_uncl","Alphaproteobacteria_uncl","Alphaproteobacteria_uncl",NA,0.0243664717348928,NA
+"987","2013","Apr","Alphaproteobacteria","Defluviicoccales","Defluviicoccales_uncl","Defluviicoccales_uncl","Defluviicoccales_uncl",NA,0.060916179337232,NA
+"988","2013","Apr","Alphaproteobacteria","Rhodospirillales","Rhodospirillales_uncl","Rhodospirillales_uncl","Rhodospirillales_uncl",NA,0.030458089668616,NA
+"989","2013","Apr","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Altererythrobacter","buctensis",NA,0.127923976608187,NA
+"990","2013","Apr","Bacteroidia","Flavobacteriales","Cryomorphaceae","Cryomorphaceae_uncl","Cryomorphaceae_uncl",NA,0.060916179337232,NA
+"991","2013","Apr","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Flavobacterium","Flavobacterium_uncl",NA,0.274122807017544,NA
+"992","2013","Apr","Cyanobacteriia","Pseudanabaenales","Pseudanabaenaceae","Pseudanabaena PCC-7429","Pseudanabaena PCC-7429_uncl",NA,0.0913742690058479,NA
+"993","2013","Apr","Desulfobacteria","Desulfobacterales","Desulfosarcinaceae","Sva0081 sediment group","Sva0081 sediment group_uncl",NA,0.127923976608187,NA
+"994","2013","Apr","Elusimicrobia","MVP-88","MVP-88_uncl","MVP-88_uncl","MVP-88_uncl",NA,0.0121832358674464,NA
+"995","2013","Apr","Gammaproteobacteria","Burkholderiales","Chitinibacteraceae","Chitinibacter","Chitinibacter_uncl",NA,0.0426413255360624,NA
+"996","2013","Apr","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Alicycliphilus","Alicycliphilus_uncl",NA,0.158382066276803,NA
+"997","2013","Apr","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Hydrogenophaga","Hydrogenophaga_uncl",NA,0.0243664717348928,NA
+"998","2013","Apr","Gammaproteobacteria","Burkholderiales","Gallionellaceae","Gallionellaceae_uncl","Gallionellaceae_uncl",NA,0.0182748538011696,NA
+"999","2013","Apr","Gammaproteobacteria","Burkholderiales","Methylophilaceae","Methylophilaceae_uncl","Methylophilaceae_uncl",NA,0.0182748538011696,NA
+"1000","2013","Apr","Gammaproteobacteria","Burkholderiales","Methylophilaceae","Methylotenera","Methylotenera_uncl",NA,0.0670077972709552,NA
+"1001","2013","Apr","Gammaproteobacteria","Burkholderiales","Neisseriaceae","Neisseriaceae_uncl","Neisseriaceae_uncl",NA,0.13401559454191,NA
+"1002","2013","Apr","Gammaproteobacteria","Burkholderiales","Nitrosomonadaceae","mle1-7","mle1-7_uncl",NA,0.0243664717348928,NA
+"1003","2013","Apr","Gammaproteobacteria","Burkholderiales","Rhodocyclaceae","Rhodocyclaceae_uncl","Rhodocyclaceae_uncl",NA,0.0121832358674464,NA
+"1004","2013","Apr","Gammaproteobacteria","Burkholderiales","Rhodocyclaceae","Thauera","Thauera_uncl",NA,0.0060916179337232,NA
+"1005","2013","Apr","Gammaproteobacteria","Methylococcales","Methylococcaceae","Methyloparacoccus","Methyloparacoccus_uncl",NA,0.243664717348928,NA
+"1006","2013","Apr","Gammaproteobacteria","Oceanospirillales","Pseudohongiellaceae","Pseudohongiella","Pseudohongiella_uncl",NA,0.243664717348928,NA
+"1007","2013","Apr","Gracilibacteria","Absconditabacteriales (SR1)","Absconditabacteriales (SR1)_uncl","Absconditabacteriales (SR1)_uncl","Absconditabacteriales (SR1)_uncl",NA,0.0121832358674464,NA
+"1008","2013","Apr","Gracilibacteria","JGI 0000069-P22","JGI 0000069-P22_uncl","JGI 0000069-P22_uncl","JGI 0000069-P22_uncl",NA,0.0852826510721248,NA
+"1009","2013","Apr","Oligoflexia","Oligoflexales","Oligoflexales_uncl","Oligoflexales_uncl","Oligoflexales_uncl",NA,0.115740740740741,NA
+"1010","2013","Apr","Parcubacteria","Candidatus Kaiserbacteria","Candidatus Kaiserbacteria_uncl","Candidatus Kaiserbacteria_uncl","Candidatus Kaiserbacteria_uncl",NA,0.0913742690058479,NA
+"1011","2013","Apr","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl",NA,0.0487329434697856,NA
+"1012","2013","May","Alphaproteobacteria","Holosporales","Holosporaceae","Holosporaceae_uncl","Holosporaceae_uncl",NA,0.035660794522502,NA
+"1013","2013","May","Alphaproteobacteria","Rickettsiales","Rickettsiales_uncl","Rickettsiales_uncl","Rickettsiales_uncl",NA,0.156907495899009,NA
+"1014","2013","May","Aminicenantia","Aminicenantales","Aminicenantales_uncl","Aminicenantales_uncl","Aminicenantales_uncl",NA,0.0427929534270024,NA
+"1015","2013","May","Bacteroidia","Bacteroidales","Prolixibacteraceae","WCHB1-32","WCHB1-32_uncl",NA,0.0285286356180016,NA
+"1016","2013","May","Bacteroidia","Chitinophagales","Chitinophagaceae","Terrimonas","Terrimonas_uncl",NA,0.106982383567506,NA
+"1017","2013","May","Bacteroidia","Cytophagales","Cyclobacteriaceae","Cyclobacteriaceae_uncl","Cyclobacteriaceae_uncl",NA,0.135511019185507,NA
+"1018","2013","May","Bacteroidia","Cytophagales","Microscillaceae","OLB12","OLB12_uncl",NA,0.149775336994508,NA
+"1019","2013","May","Clostridia","Hungateiclostridiaceae","Hungateiclostridiaceae_uncl","Hungateiclostridiaceae_uncl","Hungateiclostridiaceae_uncl",NA,0.149775336994508,NA
+"1020","2013","May","Gammaproteobacteria","Aeromonadales","Aeromonadaceae","Aeromonas","popoffii",NA,0.17830397261251,NA
+"1021","2013","May","Gammaproteobacteria","Burkholderiales","Methylophilaceae","Methylophilaceae_uncl","Methylophilaceae_uncl",NA,0.0285286356180016,NA
+"1022","2013","May","Gammaproteobacteria","Burkholderiales","MWH-UniP1 aquatic group","MWH-UniP1 aquatic group_uncl","MWH-UniP1 aquatic group_uncl",NA,0.0784537479495043,NA
+"1023","2013","May","Gammaproteobacteria","Cellvibrionales","Halieaceae","Halieaceae_uncl","Halieaceae_uncl",NA,0.00713215890450039,NA
+"1024","2013","May","Gammaproteobacteria","Cellvibrionales","Spongiibacteraceae","BD1-7 clade","BD1-7 clade_uncl",NA,0.285286356180016,NA
+"1025","2013","May","Gammaproteobacteria","Gammaproteobacteria Incertae Sedis","Unknown Family","Acidibacter","Acidibacter_uncl",NA,0.0855859068540047,NA
+"1026","2013","May","Gammaproteobacteria","Oceanospirillales","Halomonadaceae","HdN1","HdN1_uncl",NA,0.0499251123315027,NA
+"1027","2013","May","Gammaproteobacteria","Pseudomonadales","Pseudomonadaceae","Azotobacter","Azotobacter_uncl",NA,0.18543613151701,NA
+"1028","2013","May","Gammaproteobacteria","Pseudomonadales","Pseudomonadaceae","Pseudomonas","linyingensis",NA,1.31231723842807,NA
+"1029","2013","May","Gammaproteobacteria","Pseudomonadales","Pseudomonadaceae","Pseudomonas","sagittaria",NA,0.470722487697026,NA
+"1030","2013","May","Oligoflexia","0319-6G20","0319-6G20_uncl","0319-6G20_uncl","0319-6G20_uncl",NA,0.0285286356180016,NA
+"1031","2013","May","Oligoflexia","Silvanigrellales","Silvanigrellaceae","Silvanigrellaceae_uncl","Silvanigrellaceae_uncl",NA,0.206832608230511,NA
+"1032","2013","May","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl",NA,0.0499251123315027,NA
+"1033","2013","May","Vicinamibacteria","Vicinamibacterales","Vicinamibacterales_uncl","Vicinamibacterales_uncl","Vicinamibacterales_uncl",NA,0.0641894301405035,NA
+"1034","2013","Jun","Alphaproteobacteria","Rhizobiales","Rhizobiaceae","Pseudorhizobium","Pseudorhizobium_uncl",NA,0.0783029612756264,NA
+"1035","2013","Jun","Alphaproteobacteria","Rickettsiales","Rickettsiales_uncl","Rickettsiales_uncl","Rickettsiales_uncl",NA,1.05353075170843,NA
+"1036","2013","Jun","Bacteroidia","Chitinophagales","Chitinophagaceae","Terrimonas","Terrimonas_uncl",NA,0.142369020501139,NA
+"1037","2013","Jun","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Flavobacterium","Flavobacterium_uncl",NA,0.106776765375854,NA
+"1038","2013","Jun","Bacteroidia","Flavobacteriales","Weeksellaceae","Weeksellaceae_uncl","Weeksellaceae_uncl",NA,0.484054669703872,NA
+"1039","2013","Jun","Bacteroidia","Sphingobacteriales","env.OPS 17","env.OPS 17_uncl","env.OPS 17_uncl",NA,0.405751708428246,NA
+"1040","2013","Jun","Bacteroidia","Sphingobacteriales","Sphingobacteriaceae","Solitalea","Solitalea_uncl",NA,0.0640660592255125,NA
+"1041","2013","Jun","Gammaproteobacteria","Aeromonadales","Aeromonadaceae","Aeromonas","Aeromonas_uncl",NA,0.626423690205011,NA
+"1042","2013","Jun","Gammaproteobacteria","Burkholderiales","Burkholderiales_uncl","Burkholderiales_uncl","Burkholderiales_uncl",NA,0.0284738041002278,NA
+"1043","2013","Jun","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Curvibacter","Curvibacter_uncl",NA,0.0854214123006834,NA
+"1044","2013","Jun","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Hydrogenophaga","Hydrogenophaga_uncl",NA,0.704726651480638,NA
+"1045","2013","Jun","Gammaproteobacteria","Burkholderiales","Oxalobacteraceae","Oxalobacteraceae_uncl","Oxalobacteraceae_uncl",NA,0.0213553530751708,NA
+"1046","2013","Jun","Gracilibacteria","JGI 0000069-P22","JGI 0000069-P22_uncl","JGI 0000069-P22_uncl","JGI 0000069-P22_uncl",NA,0.0925398633257403,NA
+"1047","2013","Jun","Myxococcia","Myxococcales","Anaeromyxobacteraceae","Anaeromyxobacter","Anaeromyxobacter_uncl",NA,0.626423690205011,NA
+"1048","2013","Jun","Polyangia","Polyangiales","Phaselicystidaceae","Phaselicystis","Phaselicystis_uncl",NA,0.0427107061503417,NA
+"1049","2013","Jun","Verrucomicrobiae","Verrucomicrobiae_uncl","Verrucomicrobiae_uncl","Verrucomicrobiae_uncl","Verrucomicrobiae_uncl",NA,0.861332574031891,NA
+"1050","2013","Jul","Alphaproteobacteria","Paracaedibacterales","Paracaedibacteraceae","Paracaedibacteraceae_uncl","Paracaedibacteraceae_uncl",NA,0.0755106907241078,NA
+"1051","2013","Jul","Alphaproteobacteria","Rhodospirillales","Magnetospirillaceae","Magnetospirillaceae_uncl","Magnetospirillaceae_uncl",NA,0.019871234401081,NA
+"1052","2013","Jul","Alphaproteobacteria","Rickettsiales","Candidatus Hepatincola","Candidatus Hepatincola_uncl","Candidatus Hepatincola_uncl",NA,0.0158969875208648,NA
+"1053","2013","Jul","Alphaproteobacteria","Rickettsiales","Rickettsiales_uncl","Rickettsiales_uncl","Rickettsiales_uncl",NA,0.246403306573404,NA
+"1054","2013","Jul","Bacteroidia","Bacteroidales","Bacteroidales_uncl","Bacteroidales_uncl","Bacteroidales_uncl",NA,0.111278912646054,NA
+"1055","2013","Jul","Bacteroidia","Bacteroidales","Bacteroidetes vadinHA17","Bacteroidetes vadinHA17_uncl","Bacteroidetes vadinHA17_uncl",NA,0.0516652094428106,NA
+"1056","2013","Jul","Bacteroidia","Bacteroidales","Marinilabiliaceae","[Cytophaga] xylanolytica group","[Cytophaga] xylanolytica group_uncl",NA,0.0516652094428106,NA
+"1057","2013","Jul","Bacteroidia","Cytophagales","Cyclobacteriaceae","Cyclobacteriaceae_uncl","Cyclobacteriaceae_uncl",NA,0.039742468802162,NA
+"1058","2013","Jul","Bacteroidia","Cytophagales","Microscillaceae","Microscillaceae_uncl","Microscillaceae_uncl",NA,0.0755106907241078,NA
+"1059","2013","Jul","Bacteroidia","Sphingobacteriales","env.OPS 17","env.OPS 17_uncl","env.OPS 17_uncl",NA,0.214609331531675,NA
+"1060","2013","Jul","Bacteroidia","Sphingobacteriales","Lentimicrobiaceae","Lentimicrobiaceae_uncl","Lentimicrobiaceae_uncl",NA,0.0675621969636754,NA
+"1061","2013","Jul","Bdellovibrionia","Bdellovibrionales","Bdellovibrionaceae","Bdellovibrio","Bdellovibrio_uncl",NA,0.0119227406406486,NA
+"1062","2013","Jul","Cyanobacteriia","Cyanobacteriales","Geitlerinemaceae","Geitlerinema PCC-7105","Geitlerinema PCC-7105_uncl",NA,0.154995628328432,NA
+"1063","2013","Jul","Cyanobacteriia","Cyanobacteriales","Oscillatoriaceae","Planktothricoides SR001","Planktothricoides SR001_uncl",NA,0.019871234401081,NA
+"1064","2013","Jul","Gammaproteobacteria","Beggiatoales","Beggiatoaceae","Beggiatoa","Beggiatoa_uncl",NA,0.111278912646054,NA
+"1065","2013","Jul","Gammaproteobacteria","Burkholderiales","Alcaligenaceae","Alcaligenaceae_uncl","Alcaligenaceae_uncl",NA,0.079484937604324,NA
+"1066","2013","Jul","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Limnohabitans","Limnohabitans_uncl",NA,0.135124393927351,NA
+"1067","2013","Jul","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Sphaerotilus","Sphaerotilus_uncl",NA,0.0675621969636754,NA
+"1068","2013","Jul","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Tibeticola","Tibeticola_uncl",NA,0.0437167156823782,NA
+"1069","2013","Jul","Gammaproteobacteria","Run-SP154","Run-SP154_uncl","Run-SP154_uncl","Run-SP154_uncl",NA,0.099356172005405,NA
+"1070","2013","Aug","Actinobacteria","Frankiales","Sporichthyaceae","hgcI clade","hgcI clade_uncl",NA,0.306853051483123,NA
+"1071","2013","Aug","Verrucomicrobiae","Verrucomicrobiae_uncl","Verrucomicrobiae_uncl","Verrucomicrobiae_uncl","Verrucomicrobiae_uncl",NA,1.29560177292874,NA
+"1072","2013","Sep","Acidobacteriae","Paludibaculum","Paludibaculum_uncl","Paludibaculum_uncl","Paludibaculum_uncl",NA,0.114150239276463,NA
+"1073","2013","Sep","Alphaproteobacteria","Caulobacterales","Hyphomonadaceae","SWB02","SWB02_uncl",NA,0.0834174825481846,NA
+"1074","2013","Sep","Alphaproteobacteria","Micavibrionales","Micavibrionales_uncl","Micavibrionales_uncl","Micavibrionales_uncl",NA,0.0834174825481846,NA
+"1075","2013","Sep","Alphaproteobacteria","Puniceispirillales","EF100-94H03","EF100-94H03_uncl","EF100-94H03_uncl",NA,0.035123150546604,NA
+"1076","2013","Sep","Alphaproteobacteria","Rickettsiales","Fokiniaceae","Fokiniaceae_uncl","Fokiniaceae_uncl",NA,0.0219519690916275,NA
+"1077","2013","Sep","Bacteroidia","Chitinophagales","Chitinophagaceae","Dinghuibacter","Dinghuibacter_uncl",NA,0.0790270887298591,NA
+"1078","2013","Sep","Bacteroidia","Flavobacteriales","Cryomorphaceae","Cryomorphaceae_uncl","Cryomorphaceae_uncl",NA,0.0614655134565571,NA
+"1079","2013","Sep","Bacteroidia","Sphingobacteriales","Sphingobacteriaceae","Pedobacter","Pedobacter_uncl",NA,0.12732142073144,NA
+"1080","2013","Sep","Bdellovibrionia","Bacteriovoracales","Bacteriovoracaceae","Peredibacter","Peredibacter_uncl",NA,0.0878078763665101,NA
+"1081","2013","Sep","Chlamydiae","Chlamydiales","Simkaniaceae","Simkaniaceae_uncl","Simkaniaceae_uncl",NA,0.035123150546604,NA
+"1082","2013","Sep","Cyanobacteriia","Phormidesmiales","Nodosilineaceae","Nodosilinea PCC-7104","Nodosilinea PCC-7104_uncl",NA,0.184396540369671,NA
+"1083","2013","Sep","Oligoflexia","Oligoflexales","Oligoflexus","Oligoflexus_uncl","Oligoflexus_uncl",NA,0.100979057821487,NA
+"1084","2013","Sep","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl",NA,0.12732142073144,NA
+"1085","2013","Oct","Acidimicrobiia","Microtrichales","Ilumatobacteraceae","CL500-29 marine group","CL500-29 marine group_uncl",NA,0.202774813233725,NA
+"1086","2013","Oct","Alphaproteobacteria","Micavibrionales","Micavibrionaceae","Micavibrionaceae_uncl","Micavibrionaceae_uncl",NA,0.117395944503735,NA
+"1087","2013","Oct","Alphaproteobacteria","Micavibrionales","Micavibrionales_uncl","Micavibrionales_uncl","Micavibrionales_uncl",NA,0.0747065101387407,NA
+"1088","2013","Oct","Alphaproteobacteria","Rickettsiales","Rickettsiales_uncl","Rickettsiales_uncl","Rickettsiales_uncl",NA,0.298826040554963,NA
+"1089","2013","Oct","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Sphingomonadaceae_uncl","Sphingomonadaceae_uncl",NA,1.06723585912487,NA
+"1090","2013","Oct","Bacteroidia","Bacteroidales","Bacteroidetes vadinHA17","Bacteroidetes vadinHA17_uncl","Bacteroidetes vadinHA17_uncl",NA,0.0213447171824973,NA
+"1091","2013","Oct","Bacteroidia","Chitinophagales","Saprospiraceae","Saprospiraceae_uncl","Saprospiraceae_uncl",NA,0.181430096051227,NA
+"1092","2013","Oct","Chlamydiae","Chlamydiales","Simkaniaceae","Simkaniaceae_uncl","Simkaniaceae_uncl",NA,0.0533617929562433,NA
+"1093","2013","Oct","Gammaproteobacteria","Burkholderiales","MWH-UniP1 aquatic group","MWH-UniP1 aquatic group_uncl","MWH-UniP1 aquatic group_uncl",NA,0.032017075773746,NA
+"1094","2013","Oct","Gammaproteobacteria","Pseudomonadales","Moraxellaceae","Acinetobacter","lwoffii",NA,0.117395944503735,NA
+"1095","2013","Oct","Gammaproteobacteria","Pseudomonadales","Pseudomonadaceae","Pseudomonas","Pseudomonas_uncl",NA,0.458911419423693,NA
+"1096","2013","Oct","Oligoflexia","Oligoflexales","Oligoflexales_uncl","Oligoflexales_uncl","Oligoflexales_uncl",NA,0.096051227321238,NA
+"1097","2013","Oct","Parcubacteria","Parcubacteria_uncl","Parcubacteria_uncl","Parcubacteria_uncl","Parcubacteria_uncl",NA,0.288153681963714,NA
+"1098","2013","Oct","Verrucomicrobiae","Opitutales","Opitutaceae","Opitutus","Opitutus_uncl",NA,0.224119530416222,NA
+"1099","2013","Nov","Acidimicrobiia","Microtrichales","Ilumatobacteraceae","CL500-29 marine group","CL500-29 marine group_uncl",NA,0.590440487347704,NA
+"1100","2013","Nov","Alphaproteobacteria","Rickettsiales","Rickettsiales_uncl","Rickettsiales_uncl","Rickettsiales_uncl",NA,0.318650421743205,NA
+"1101","2013","Nov","Bacteroidia","Cytophagales","Spirosomaceae","Flectobacillus","Flectobacillus_uncl",NA,0.393626991565136,NA
+"1102","2013","Nov","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Robiginitalea","Robiginitalea_uncl",NA,0.168697282099344,NA
+"1103","2013","Nov","Bacteroidia","Flavobacteriales","Weeksellaceae","Weeksellaceae_uncl","Weeksellaceae_uncl",NA,0.0937207122774133,NA
+"1104","2013","Nov","Bacteroidia","Sphingobacteriales","env.OPS 17","env.OPS 17_uncl","env.OPS 17_uncl",NA,0.121836925960637,NA
+"1105","2013","Nov","Bacteroidia","Sphingobacteriales","Sphingobacteriaceae","Pedobacter","Pedobacter_uncl",NA,0.224929709465792,NA
+"1106","2013","Nov","Bdellovibrionia","Bacteriovoracales","Bacteriovoracaceae","Peredibacter","Peredibacter_uncl",NA,0.112464854732896,NA
+"1107","2013","Nov","Bdellovibrionia","Bdellovibrionales","Bdellovibrionaceae","Bdellovibrio","Bdellovibrio_uncl",NA,0.178069353327085,NA
+"1108","2013","Nov","Clostridia","Clostridiales","Clostridiaceae","Clostridium sensu stricto 5","Clostridium sensu stricto 5_uncl",NA,0.243673851921275,NA
+"1109","2013","Nov","Fusobacteriia","Fusobacteriales","Fusobacteriaceae","Cetobacterium","Cetobacterium_uncl",NA,0.431115276476101,NA
+"1110","2013","Nov","Gammaproteobacteria","Alteromonadales","Alteromonadaceae","Rheinheimera","Rheinheimera_uncl",NA,0.28116213683224,NA
+"1111","2013","Nov","Gammaproteobacteria","Burkholderiales","SC-I-84","SC-I-84_uncl","SC-I-84_uncl",NA,0.0656044985941893,NA
+"1112","2013","Nov","Gammaproteobacteria","KI89A clade","KI89A clade_uncl","KI89A clade_uncl","KI89A clade_uncl",NA,0.253045923149016,NA
+"1113","2013","Nov","Kapabacteria","Kapabacteriales","Kapabacteriales_uncl","Kapabacteriales_uncl","Kapabacteriales_uncl",NA,0.056232427366448,NA
+"1114","2013","Nov","Oligoflexia","0319-6G20","0319-6G20_uncl","0319-6G20_uncl","0319-6G20_uncl",NA,0.28116213683224,NA
+"1115","2013","Nov","OM190","OM190_uncl","OM190_uncl","OM190_uncl","OM190_uncl",NA,0.393626991565136,NA
+"1116","2013","Nov","Parcubacteria","Parcubacteria_uncl","Parcubacteria_uncl","Parcubacteria_uncl","Parcubacteria_uncl",NA,0.224929709465792,NA
+"1117","2013","Dec","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Gemmobacter","Gemmobacter_uncl",NA,0.454518623457883,NA
+"1118","2013","Dec","Alphaproteobacteria","Rickettsiales","Rickettsiaceae","Rickettsiaceae_uncl","Rickettsiaceae_uncl",NA,0.159376660173543,NA
+"1119","2013","Dec","Alphaproteobacteria","Rickettsiales","Rickettsiales_uncl","Rickettsiales_uncl","Rickettsiales_uncl",NA,0.236113570627472,NA
+"1120","2013","Dec","Anaerolineae","Anaerolineales","Anaerolineaceae","Anaerolinea","Anaerolinea_uncl",NA,0.159376660173543,NA
+"1121","2013","Dec","Bacteroidia","Chitinophagales","Chitinophagales_uncl","Chitinophagales_uncl","Chitinophagales_uncl",NA,0.0177085177970604,NA
+"1122","2013","Dec","Bacteroidia","Chitinophagales","Saprospiraceae","Saprospiraceae_uncl","Saprospiraceae_uncl",NA,0.448615784192196,NA
+"1123","2013","Dec","Bacteroidia","Cytophagales","Microscillaceae","OLB12","OLB12_uncl",NA,0.129862463845109,NA
+"1124","2013","Dec","Bacteroidia","Flavobacteriales","Crocinitomicaceae","Fluviicola","Fluviicola_uncl",NA,1.19827637093442,NA
+"1125","2013","Dec","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Flavobacterium","Flavobacterium_uncl",NA,0.484032819786317,NA
+"1126","2013","Dec","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Flavobacterium","urocaniciphilum",NA,0.14757098164217,NA
+"1127","2013","Dec","Bacteroidia","Flavobacteriales","Flavobacteriales_uncl","Flavobacteriales_uncl","Flavobacteriales_uncl",NA,0.0531255533911812,NA
+"1128","2013","Dec","Bacteroidia","Flavobacteriales","Weeksellaceae","Chryseobacterium","Chryseobacterium_uncl",NA,0.0354170355941208,NA
+"1129","2013","Dec","Bacteroidia","Sphingobacteriales","Lentimicrobiaceae","Lentimicrobiaceae_uncl","Lentimicrobiaceae_uncl",NA,0.14757098164217,NA
+"1130","2013","Dec","Bacteroidia","Sphingobacteriales","Sphingobacteriaceae","Pedobacter","Pedobacter_uncl",NA,0.118056785313736,NA
+"1131","2013","Dec","Bdellovibrionia","Bdellovibrionales","Bdellovibrionaceae","Bdellovibrio","Bdellovibrio_uncl",NA,0.029514196328434,NA
+"1132","2013","Dec","BRH-c20a","BRH-c20a_uncl","BRH-c20a_uncl","BRH-c20a_uncl","BRH-c20a_uncl",NA,0.0236113570627472,NA
+"1133","2013","Dec","Campylobacteria","Campylobacterales","Sulfurimonadaceae","Sulfuricurvum","Sulfuricurvum_uncl",NA,0.0885425889853019,NA
+"1134","2013","Dec","Deinococci","Deinococcales","Deinococcaceae","Deinococcus","Deinococcus_uncl",NA,0.0236113570627472,NA
+"1135","2013","Dec","Desulfobacteria","Desulfobacterales","Desulfosarcinaceae","Sva0081 sediment group","Sva0081 sediment group_uncl",NA,0.112153946048049,NA
+"1136","2013","Dec","Fusobacteriia","Fusobacteriales","Leptotrichiaceae","Hypnocyclicus","Hypnocyclicus_uncl",NA,0.0826397497196151,NA
+"1137","2013","Dec","Gammaproteobacteria","Aeromonadales","Aeromonadaceae","Aeromonas","popoffii",NA,0.129862463845109,NA
+"1138","2013","Dec","Gammaproteobacteria","Burkholderiales","Burkholderiaceae","Polynucleobacter","cosmopolitanus",NA,0.206599374299038,NA
+"1139","2013","Dec","Gammaproteobacteria","Burkholderiales","Burkholderiales_uncl","Burkholderiales_uncl","Burkholderiales_uncl",NA,0.0177085177970604,NA
+"1140","2013","Dec","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Hydrogenophaga","bisanensis",NA,2.08370226078744,NA
+"1141","2013","Dec","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Hydrogenophaga","Hydrogenophaga_uncl",NA,0.0767369104539283,NA
+"1142","2013","Dec","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Limnohabitans","Limnohabitans_uncl",NA,1.16876217460599,NA
+"1143","2013","Dec","Gammaproteobacteria","Burkholderiales","Hydrogenophilaceae","Thiobacillus","Thiobacillus_uncl",NA,0.123959624579423,NA
+"1144","2013","Dec","Gammaproteobacteria","Burkholderiales","Nitrosomonadaceae","Ellin6067","Ellin6067_uncl",NA,0.0531255533911812,NA
+"1145","2013","Dec","Gammaproteobacteria","Burkholderiales","Rhodocyclaceae","Rhodocyclaceae_uncl","Rhodocyclaceae_uncl",NA,0.0472227141254944,NA
+"1146","2013","Dec","Gammaproteobacteria","Burkholderiales","Rhodocyclaceae","Sulfuritalea","Sulfuritalea_uncl",NA,0.118056785313736,NA
+"1147","2013","Dec","Gammaproteobacteria","Cellvibrionales","Cellvibrionaceae","Cellvibrio","Cellvibrio_uncl",NA,0.301044802550027,NA
+"1148","2013","Dec","Gammaproteobacteria","Cellvibrionales","Halieaceae","OM60(NOR5) clade","OM60(NOR5) clade_uncl",NA,0.112153946048049,NA
+"1149","2013","Dec","Parcubacteria","Candidatus Moranbacteria","Candidatus Moranbacteria_uncl","Candidatus Moranbacteria_uncl","Candidatus Moranbacteria_uncl",NA,0.0177085177970604,NA
+"1150","2013","Dec","Saccharimonadia","Saccharimonadales","Saccharimonadales_uncl","Saccharimonadales_uncl","Saccharimonadales_uncl",NA,0.0236113570627472,NA
+"1151","2013","Dec","Vicinamibacteria","Vicinamibacterales","Vicinamibacterales_uncl","Vicinamibacterales_uncl","Vicinamibacterales_uncl",NA,0.153473820907857,NA
+"1152","2014","Jan","Acidimicrobiia","Microtrichales","Ilumatobacteraceae","CL500-29 marine group","CL500-29 marine group_uncl",NA,0.624205294185643,NA
+"1153","2014","Jan","Bacteroidia","Cytophagales","Spirosomaceae","Flectobacillus","Flectobacillus_uncl",NA,0.288983932493353,NA
+"1154","2014","Jan","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Flavobacterium","Flavobacterium_uncl",NA,0.0231187145994683,NA
+"1155","2014","Jan","Bacteroidia","Sphingobacteriales","Sphingobacteriaceae","Pedobacter","Pedobacter_uncl",NA,0.658883366084846,NA
+"1156","2014","Jan","Bdellovibrionia","Bacteriovoracales","Bacteriovoracaceae","Peredibacter","Peredibacter_uncl",NA,0.0462374291989365,NA
+"1157","2014","Jan","Campylobacteria","Campylobacterales","Rs-M59 termite group","Rs-M59 termite group_uncl","Rs-M59 termite group_uncl",NA,0.0809155010981389,NA
+"1158","2014","Jan","Desulfobacteria","Desulfatiglandales","Desulfatiglandaceae","Desulfatiglans","Desulfatiglans_uncl",NA,0.231187145994683,NA
+"1159","2014","Jan","Desulfobacteria","Desulfobacterales","Desulfosarcinaceae","Sva0081 sediment group","Sva0081 sediment group_uncl",NA,0.0693561437984048,NA
+"1160","2014","Jan","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Comamonadaceae_uncl","Comamonadaceae_uncl",NA,0.173390359496012,NA
+"1161","2014","Jan","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Leptothrix","Leptothrix_uncl",NA,0.115593572997341,NA
+"1162","2014","Jan","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Limnohabitans","Limnohabitans_uncl",NA,0.693561437984048,NA
+"1163","2014","Jan","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Rhodoferax","Rhodoferax_uncl",NA,1.99976881285401,NA
+"1164","2014","Jan","Gammaproteobacteria","Burkholderiales","Rhodocyclaceae","Rhodocyclaceae_uncl","Rhodocyclaceae_uncl",NA,0.72823950988325,NA
+"1165","2014","Jan","Gammaproteobacteria","Burkholderiales","Rhodocyclaceae","Thauera","Thauera_uncl",NA,0.0115593572997341,NA
+"1166","2014","Jan","Gammaproteobacteria","Cellvibrionales","Cellvibrionaceae","Cellvibrio","fontiphilus",NA,0.219627788694949,NA
+"1167","2014","Jan","Gammaproteobacteria","Cellvibrionales","Halieaceae","Halieaceae_uncl","Halieaceae_uncl",NA,0.0231187145994683,NA
+"1168","2014","Jan","Gammaproteobacteria","Methylococcales","Methylomonadaceae","Crenothrix","Crenothrix_uncl",NA,0.184949716795746,NA
+"1169","2014","Jan","Gammaproteobacteria","Oceanospirillales","Pseudohongiellaceae","Pseudohongiella","Pseudohongiella_uncl",NA,0.635764651485377,NA
+"1170","2014","Jan","Gammaproteobacteria","Pseudomonadales","Moraxellaceae","Acinetobacter","schindleri",NA,0.184949716795746,NA
+"1171","2014","Jan","Gammaproteobacteria","Pseudomonadales","Pseudomonadaceae","Pseudomonas","Pseudomonas_uncl",NA,0.462374291989365,NA
+"1172","2014","Jan","Gammaproteobacteria","Steroidobacterales","Steroidobacteraceae","Steroidobacteraceae_uncl","Steroidobacteraceae_uncl",NA,0.254305860594151,NA
+"1173","2014","Jan","Gammaproteobacteria","Xanthomonadales","Xanthomonadaceae","Arenimonas","Arenimonas_uncl",NA,0.381458790891226,NA
+"1174","2014","Jan","Parcubacteria","Candidatus Kaiserbacteria","Candidatus Kaiserbacteria_uncl","Candidatus Kaiserbacteria_uncl","Candidatus Kaiserbacteria_uncl",NA,0.0924748583978731,NA
+"1175","2014","Jan","Sva0485_uncl","Sva0485_uncl","Sva0485_uncl","Sva0485_uncl","Sva0485_uncl",NA,0.13871228759681,NA
+"1176","2014","Feb","Alphaproteobacteria","Alphaproteobacteria_uncl","Alphaproteobacteria_uncl","Alphaproteobacteria_uncl","Alphaproteobacteria_uncl",NA,0.139416983523447,NA
+"1177","2014","Feb","Alphaproteobacteria","Caulobacterales","Caulobacteraceae","Caulobacter","Caulobacter_uncl",NA,0.494296577946768,NA
+"1178","2014","Feb","Alphaproteobacteria","Rickettsiales","Rickettsiales_uncl","Rickettsiales_uncl","Rickettsiales_uncl",NA,0.164765525982256,NA
+"1179","2014","Feb","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Sphingorhabdus","rigui",NA,0.785804816223067,NA
+"1180","2014","Feb","Babeliae","Babeliales","Babeliales_uncl","Babeliales_uncl","Babeliales_uncl",NA,0.126742712294043,NA
+"1181","2014","Feb","Bacteroidia","Flavobacteriales","Crocinitomicaceae","Fluviicola","Fluviicola_uncl",NA,1.12801013941698,NA
+"1182","2014","Feb","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Flavobacterium","Flavobacterium_uncl",NA,0.0380228136882129,NA
+"1183","2014","Feb","Bacteroidia","Sphingobacteriales","env.OPS 17","env.OPS 17_uncl","env.OPS 17_uncl",NA,0.139416983523447,NA
+"1184","2014","Feb","Bacteroidia","Sphingobacteriales","Sphingobacteriaceae","Pedobacter","Pedobacter_uncl",NA,0.392902408111534,NA
+"1185","2014","Feb","Desulfuromonadia","Geothermobacteraceae","Geothermobacter","Geothermobacter_uncl","Geothermobacter_uncl",NA,0.278833967046895,NA
+"1186","2014","Feb","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Rhodoferax","Rhodoferax_uncl",NA,0.17743979721166,NA
+"1187","2014","Feb","Gammaproteobacteria","Burkholderiales","Gallionellaceae","Gallionellaceae_uncl","Gallionellaceae_uncl",NA,0.0380228136882129,NA
+"1188","2014","Feb","Gammaproteobacteria","Burkholderiales","Rhodocyclaceae","Rhodocyclaceae_uncl","Rhodocyclaceae_uncl",NA,0.0633713561470215,NA
+"1189","2014","Feb","Gammaproteobacteria","Burkholderiales","Sutterellaceae","Sutterellaceae_uncl","Sutterellaceae_uncl",NA,0.152091254752852,NA
+"1190","2014","Feb","Gammaproteobacteria","Gammaproteobacteria Incertae Sedis","Unknown Family","Acidibacter","Acidibacter_uncl",NA,0.17743979721166,NA
+"1191","2014","Feb","Gammaproteobacteria","Gammaproteobacteria Incertae Sedis","Unknown Family","Unknown Family_uncl","Unknown Family_uncl",NA,0.202788339670469,NA
+"1192","2014","Feb","Gammaproteobacteria","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl",NA,0.0253485424588086,NA
+"1193","2014","Mar","Parcubacteria","Parcubacteria_uncl","Parcubacteria_uncl","Parcubacteria_uncl","Parcubacteria_uncl",NA,0.959367945823928,NA
+"1194","2014","Mar","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl","SAR324 clade(Marine group B)_uncl",NA,0.432656132430399,NA
+"1195","2014","Apr","Alphaproteobacteria","Paracaedibacterales","Paracaedibacteraceae","Paracaedibacteraceae_uncl","Paracaedibacteraceae_uncl",NA,0.0787047447717562,NA
+"1196","2014","Apr","Alphaproteobacteria","Rickettsiales","Rickettsiales_uncl","Rickettsiales_uncl","Rickettsiales_uncl",NA,0.393523723858781,NA
+"1197","2014","Apr","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Novosphingobium","Novosphingobium_uncl",NA,0.146165954576119,NA
+"1198","2014","Apr","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Flavobacterium","Flavobacterium_uncl",NA,0.112435349673937,NA
+"1199","2014","Apr","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Polaribacter","Polaribacter_uncl",NA,0.0787047447717562,NA
+"1200","2014","Apr","Clostridia","Hungateiclostridiaceae","Hungateiclostridiaceae_uncl","Hungateiclostridiaceae_uncl","Hungateiclostridiaceae_uncl",NA,0.3597931189566,NA
+"1201","2014","Apr","Cyanobacteriia","Synechococcales","Cyanobiaceae","Cyanobium PCC-6307","Cyanobium PCC-6307_uncl",NA,0.337306049021812,NA
+"1202","2014","Apr","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Comamonadaceae_uncl","Comamonadaceae_uncl",NA,0.202383629413087,NA
+"1203","2014","Apr","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Hydrogenophaga","Hydrogenophaga_uncl",NA,0.427254328760962,NA
+"1204","2014","Apr","Gammaproteobacteria","Burkholderiales","Neisseriaceae","Neisseriaceae_uncl","Neisseriaceae_uncl",NA,0.213627164380481,NA
+"1205","2014","Apr","Gammaproteobacteria","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl","Gammaproteobacteria_uncl",NA,0.0787047447717562,NA
+"1206","2014","Apr","Gammaproteobacteria","Legionellales","Legionellaceae","Legionella","Legionella_uncl",NA,0.0562176748369687,NA
+"1207","2014","Apr","Gammaproteobacteria","Methylococcales","Methylococcaceae","Methyloparacoccus","Methyloparacoccus_uncl",NA,0.1798965594783,NA
+"1208","2014","Apr","Gammaproteobacteria","Oceanospirillales","Pseudohongiellaceae","Pseudohongiella","Pseudohongiella_uncl",NA,0.550933213402294,NA
+"1209","2014","Apr","Gracilibacteria","JGI 0000069-P22","JGI 0000069-P22_uncl","JGI 0000069-P22_uncl","JGI 0000069-P22_uncl",NA,0.26984483921745,NA
+"1210","2014","Apr","Omnitrophia","Omnitrophales","Omnitrophaceae","Candidatus Omnitrophus","Candidatus Omnitrophus_uncl",NA,0.0337306049021812,NA
+"1211","2014","Jun","Alphaproteobacteria","Rickettsiales","Rickettsiaceae","Candidatus Cryptoprodotis","Candidatus Cryptoprodotis_uncl",NA,0.0636790575499483,NA
+"1212","2014","Jun","Alphaproteobacteria","Rickettsiales","Rickettsiales_uncl","Rickettsiales_uncl","Rickettsiales_uncl",NA,0.525352224787073,NA
+"1213","2014","Jun","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Sphingoaurantiacus","Sphingoaurantiacus_uncl",NA,0.103478468518666,NA
+"1214","2014","Jun","Bacteroidia","Bacteroidales","Barnesiellaceae","Barnesiellaceae_uncl","Barnesiellaceae_uncl",NA,0.111438350712409,NA
+"1215","2014","Jun","Bacteroidia","Cytophagales","Microscillaceae","OLB12","OLB12_uncl",NA,0.0875587041311789,NA
+"1216","2014","Jun","Bacteroidia","Sphingobacteriales","env.OPS 17","env.OPS 17_uncl","env.OPS 17_uncl",NA,0.286555758974767,NA
+"1217","2014","Jun","Bacteroidia","Sphingobacteriales","Sphingobacteriaceae","Solitalea","Solitalea_uncl",NA,0.167157526068614,NA
+"1218","2014","Jun","Bdellovibrionia","Bdellovibrionales","Bdellovibrionaceae","Bdellovibrio","Bdellovibrio_uncl",NA,0.13531799729364,NA
+"1219","2014","Jun","Desulfobacteria","Desulfobacterales","Desulfosarcinaceae","Sva0081 sediment group","Sva0081 sediment group_uncl",NA,0.262676112393537,NA
+"1220","2014","Jun","Gammaproteobacteria","Burkholderiales","Rhodocyclaceae","Rhodocyclaceae_uncl","Rhodocyclaceae_uncl",NA,0.0318395287749741,NA
+"1221","2014","Jun","Gammaproteobacteria","Gammaproteobacteria Incertae Sedis","Unknown Family","Unknown Family_uncl","Unknown Family_uncl",NA,0.143277879487384,NA
+"1222","2014","Jun","Verrucomicrobiae","Verrucomicrobiae_uncl","Verrucomicrobiae_uncl","Verrucomicrobiae_uncl","Verrucomicrobiae_uncl",NA,0.214916819231075,NA
+"1223","2014","Jul","Alphaproteobacteria","Rhodobacterales","Rhodobacteraceae","Tabrizicola","Tabrizicola_uncl",NA,0.260416666666667,NA
+"1224","2014","Jul","Alphaproteobacteria","Rickettsiales","Fokiniaceae","Fokiniaceae_uncl","Fokiniaceae_uncl",NA,0.0651041666666667,NA
+"1225","2014","Jul","Alphaproteobacteria","Rickettsiales","Rickettsiaceae","Rickettsiaceae_uncl","Rickettsiaceae_uncl",NA,0.0651041666666667,NA
+"1226","2014","Jul","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Flavobacterium","Flavobacterium_uncl",NA,0.130208333333333,NA
+"1227","2014","Jul","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Hoppeia","Hoppeia_uncl",NA,0.1171875,NA
+"1228","2014","Jul","Cyanobacteriia","Cyanobacteriia_uncl","Cyanobacteriia_uncl","Cyanobacteriia_uncl","Cyanobacteriia_uncl",NA,0.520833333333333,NA
+"1229","2014","Jul","Cyanobacteriia","Synechococcales","Cyanobiaceae","Cyanobium PCC-6307","Cyanobium PCC-6307_uncl",NA,0.885416666666667,NA
+"1230","2014","Jul","Gammaproteobacteria","Burkholderiales","Candidatus Protistobacter","Candidatus Protistobacter_uncl","Candidatus Protistobacter_uncl",NA,0.0520833333333333,NA
+"1231","2014","Jul","Gammaproteobacteria","Pseudomonadales","Pseudomonadaceae","Pseudomonas","Pseudomonas_uncl",NA,0.234375,NA
+"1232","2014","Jul","Oligoflexia","Silvanigrellales","Silvanigrellaceae","Silvanigrellaceae_uncl","Silvanigrellaceae_uncl",NA,0.442708333333333,NA
+"1233","2014","Jul","OM190","OM190_uncl","OM190_uncl","OM190_uncl","OM190_uncl",NA,0.559895833333333,NA
+"1234","2014","Jul","Verrucomicrobiae","Verrucomicrobiae_uncl","Verrucomicrobiae_uncl","Verrucomicrobiae_uncl","Verrucomicrobiae_uncl",NA,0.716145833333333,NA
+"1235","2014","Aug","Alphaproteobacteria","Rickettsiales","Rickettsiales_uncl","Rickettsiales_uncl","Rickettsiales_uncl",NA,0.652754425872812,NA
+"1236","2014","Aug","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Sphingoaurantiacus","Sphingoaurantiacus_uncl",NA,0.514291365839185,NA
+"1237","2014","Aug","Clostridia","Hungateiclostridiaceae","Hungateiclostridiaceae_uncl","Hungateiclostridiaceae_uncl","Hungateiclostridiaceae_uncl",NA,0.128572841459796,NA
+"1238","2014","Aug","Cyanobacteriia","Cyanobacteriia_uncl","Cyanobacteriia_uncl","Cyanobacteriia_uncl","Cyanobacteriia_uncl",NA,0.0296706557214914,NA
+"1239","2014","Aug","Cyanobacteriia","Synechococcales","Cyanobiaceae","Cyanobium PCC-6307","Cyanobium PCC-6307_uncl",NA,0.919790327366235,NA
+"1240","2014","Aug","Deinococci","Deinococcales","Deinococcaceae","Deinococcus","Deinococcus_uncl",NA,0.257145682919592,NA
+"1241","2014","Aug","Gammaproteobacteria","Alteromonadales","Alteromonadaceae","Rheinheimera","Rheinheimera_uncl",NA,0.336267431510236,NA
+"1242","2014","Aug","Gammaproteobacteria","Burkholderiales","MWH-UniP1 aquatic group","MWH-UniP1 aquatic group_uncl","MWH-UniP1 aquatic group_uncl",NA,0.168133715755118,NA
+"1243","2014","Aug","Gammaproteobacteria","Gammaproteobacteria Incertae Sedis","Unknown Family","Acidibacter","Acidibacter_uncl",NA,0.514291365839185,NA
+"1244","2014","Aug","Gammaproteobacteria","KI89A clade","KI89A clade_uncl","KI89A clade_uncl","KI89A clade_uncl",NA,0.20769459005044,NA
+"1245","2014","Oct","Alphaproteobacteria","Rickettsiales","Fokiniaceae","Lyticum","Lyticum_uncl",NA,0.0905797101449275,NA
+"1246","2014","Oct","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Novosphingobium","Novosphingobium_uncl",NA,0.372383252818035,NA
+"1247","2014","Oct","Bacteroidia","Chitinophagales","Chitinophagaceae","Chitinophagaceae_uncl","Chitinophagaceae_uncl",NA,0.110708534621578,NA
+"1248","2014","Oct","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Flavobacterium","Flavobacterium_uncl",NA,0.181159420289855,NA
+"1249","2014","Oct","Bacteroidia","Flavobacteriales","Weeksellaceae","Cloacibacterium","normanense",NA,0.0503220611916264,NA
+"1250","2014","Oct","Bdellovibrionia","Bacteriovoracales","Bacteriovoracaceae","Peredibacter","Peredibacter_uncl",NA,0.0905797101449275,NA
+"1251","2014","Oct","Desulfobacteria","Desulfobacterales","Desulfosarcinaceae","Sva0081 sediment group","Sva0081 sediment group_uncl",NA,0.0805152979066023,NA
+"1252","2014","Oct","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Hydrogenophaga","Hydrogenophaga_uncl",NA,1.35869565217391,NA
+"1253","2014","Oct","Gammaproteobacteria","Legionellales","Legionellaceae","Legionella","Legionella_uncl",NA,0.0402576489533011,NA
+"1254","2014","Dec","Alphaproteobacteria","Acetobacterales","Acetobacteraceae","Rhodovastum","Rhodovastum_uncl",NA,0.0967866821525358,NA
+"1255","2014","Dec","Alphaproteobacteria","Rhizobiales","Rhizobiales Incertae Sedis","Rhizobiales Incertae Sedis_uncl","Rhizobiales Incertae Sedis_uncl",NA,0.111304684475416,NA
+"1256","2014","Dec","Alphaproteobacteria","Rickettsiales","Rickettsiaceae","Rickettsiaceae_uncl","Rickettsiaceae_uncl",NA,0.295199380565234,NA
+"1257","2014","Dec","Anaerolineae","Caldilineales","Caldilineaceae","Caldilineaceae_uncl","Caldilineaceae_uncl",NA,0.024196670538134,NA
+"1258","2014","Dec","Babeliae","Babeliales","Babeliales_uncl","Babeliales_uncl","Babeliales_uncl",NA,0.0145180023228804,NA
+"1259","2014","Dec","Bacteroidia","Chitinophagales","Chitinophagaceae","Aurantisolimonas","Aurantisolimonas_uncl",NA,0.130662020905923,NA
+"1260","2014","Dec","Bacteroidia","Chitinophagales","Saprospiraceae","Saprospiraceae_uncl","Saprospiraceae_uncl",NA,0.116144018583043,NA
+"1261","2014","Dec","Bacteroidia","Cytophagales","Spirosomaceae","Lacihabitans","Lacihabitans_uncl",NA,0.0774293457220286,NA
+"1262","2014","Dec","Bacteroidia","Flavobacteriales","Cryomorphaceae","Cryomorphaceae_uncl","Cryomorphaceae_uncl",NA,0.0871080139372822,NA
+"1263","2014","Dec","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Flavobacterium","Flavobacterium_uncl",NA,0.145180023228804,NA
+"1264","2014","Dec","Bacteroidia","Flavobacteriales","Flavobacteriaceae","Siansivirga","Siansivirga_uncl",NA,0.0725900116144019,NA
+"1265","2014","Dec","Bacteroidia","Flavobacteriales","Flavobacteriales_uncl","Flavobacteriales_uncl","Flavobacteriales_uncl",NA,0.0387146728610143,NA
+"1266","2014","Dec","Bacteroidia","Flavobacteriales","Weeksellaceae","Weeksellaceae_uncl","Weeksellaceae_uncl",NA,0.0629113433991483,NA
+"1267","2014","Dec","Bacteroidia","Sphingobacteriales","AKYH767","AKYH767_uncl","AKYH767_uncl",NA,0.111304684475416,NA
+"1268","2014","Dec","Bacteroidia","Sphingobacteriales","env.OPS 17","env.OPS 17_uncl","env.OPS 17_uncl",NA,0.0774293457220286,NA
+"1269","2014","Dec","Bacteroidia","Sphingobacteriales","Sphingobacteriaceae","Pedobacter","Pedobacter_uncl",NA,0.0580720092915215,NA
+"1270","2014","Dec","Bdellovibrionia","Bdellovibrionales","Bdellovibrionaceae","Bdellovibrio","Bdellovibrio_uncl",NA,0.0629113433991483,NA
+"1271","2014","Dec","Clostridia","Lachnospirales","Defluviitaleaceae","Defluviitaleaceae UCG-011","Defluviitaleaceae UCG-011_uncl",NA,0.0145180023228804,NA
+"1272","2014","Dec","Cyanobacteriia","Cyanobacteriales","Chroococcidiopsaceae","Chroococcidiopsaceae_uncl","Chroococcidiopsaceae_uncl",NA,0.116144018583043,NA
+"1273","2014","Dec","Desulfobacteria","Desulfobacterales","Desulfosarcinaceae","Sva0081 sediment group","Sva0081 sediment group_uncl",NA,0.116144018583043,NA
+"1274","2014","Dec","Fimbriimonadia","Fimbriimonadales","Fimbriimonadaceae","Fimbriimonadaceae_uncl","Fimbriimonadaceae_uncl",NA,0.0290360046457607,NA
+"1275","2014","Dec","Fusobacteriia","Fusobacteriales","Fusobacteriaceae","Cetobacterium","Cetobacterium_uncl",NA,0.101626016260163,NA
+"1276","2014","Dec","Gammaproteobacteria","Burkholderiales","Burkholderiaceae","Limnobacter","Limnobacter_uncl",NA,0.362950058072009,NA
+"1277","2014","Dec","Gammaproteobacteria","Burkholderiales","Burkholderiaceae","Polynucleobacter","cosmopolitanus",NA,0.101626016260163,NA
+"1278","2014","Dec","Gammaproteobacteria","Burkholderiales","Burkholderiales_uncl","Burkholderiales_uncl","Burkholderiales_uncl",NA,0.0774293457220286,NA
+"1279","2014","Dec","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Comamonadaceae_uncl","Comamonadaceae_uncl",NA,0.0822686798296554,NA
+"1280","2014","Dec","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Hydrogenophaga","Hydrogenophaga_uncl",NA,0.0435540069686411,NA
+"1281","2014","Dec","Gammaproteobacteria","Burkholderiales","Comamonadaceae","Rhodoferax","Rhodoferax_uncl",NA,0.00483933410762679,NA
+"1282","2014","Dec","Gammaproteobacteria","Burkholderiales","Oxalobacteraceae","Oxalobacteraceae_uncl","Oxalobacteraceae_uncl",NA,0.00967866821525358,NA
+"1283","2014","Dec","Gammaproteobacteria","Burkholderiales","Rhodocyclaceae","Rhodocyclaceae_uncl","Rhodocyclaceae_uncl",NA,0.00483933410762679,NA
+"1284","2014","Dec","Gammaproteobacteria","Gammaproteobacteria Incertae Sedis","Unknown Family","Unknown Family_uncl","Unknown Family_uncl",NA,0.145180023228804,NA
+"1285","2014","Dec","Gammaproteobacteria","Pseudomonadales","Pseudomonadaceae","Pseudomonas","Pseudomonas_uncl",NA,0.275842044134727,NA
+"1286","2014","Dec","Gammaproteobacteria","Steroidobacterales","Steroidobacteraceae","Steroidobacteraceae_uncl","Steroidobacteraceae_uncl",NA,0.329074719318622,NA
+"1287","2014","Dec","Lentisphaeria","P.palmC41","P.palmC41_uncl","P.palmC41_uncl","P.palmC41_uncl",NA,0.024196670538134,NA
+"1288","2014","Dec","Omnitrophia","Omnitrophales","Omnitrophaceae","Candidatus Omnitrophus","Candidatus Omnitrophus_uncl",NA,0.00967866821525358,NA
+"1289","2014","Dec","Parcubacteria","Candidatus Kaiserbacteria","Candidatus Kaiserbacteria_uncl","Candidatus Kaiserbacteria_uncl","Candidatus Kaiserbacteria_uncl",NA,0.0338753387533875,NA
+"1290","2014","Dec","Sva0485_uncl","Sva0485_uncl","Sva0485_uncl","Sva0485_uncl","Sva0485_uncl",NA,0.0435540069686411,NA

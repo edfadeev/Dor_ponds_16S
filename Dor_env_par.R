@@ -260,3 +260,10 @@ ggsave("./figures/RDA_aqua.png",
        width = 30, height = 30, 
        #scale = 1,
        dpi = 300)
+
+#####################################
+#get session info and remove all objects and libraries
+#####################################
+sessionInfo()
+
+rm(list = ls(all = TRUE))
