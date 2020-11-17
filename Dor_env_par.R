@@ -200,17 +200,16 @@ ggsave("./figures/RDA_step_pigments.png",
 #####################################
 #Effect of aquaculture
 #####################################
+Dor_ps.prev.fishponds<- subset_samples(Dor_ps.prev.no.na, location %in% c("D1.","V2."))
+
 #subset phys. parameters
 Fish_par.scaled<-metadata.scaled %>% 
   select(Food_Kg_pond, Fish_biomass_g_pond)
 
 
 #RDA analysis
-Dor_ps.pr
-ev.rda.all <- rda(t(otu_table(Dor_ps.prev.no.na)) ~ ., Fish_par.scaled) # model including all variables 
-
-Dor_ps.prev.rda.0 <- rda(t(otu_table(Dor_ps.prev.no.na)) ~ Food_Kg_pond+Fish_biomass_g_pond,
-                         data = data.frame(sample_data(Dor_ps.prev.no.na)) %>% 
+Dor_ps.prev.rda.0 <- rda(t(otu_table(Dor_ps.prev.fishponds)) ~ Food_Kg_pond+Fish_biomass_g_pond,
+                         data = data.frame(sample_data(Dor_ps.prev.fishponds)) %>% 
                            mutate_at(all_of(env.par),as.numeric)) # model containing only species matrix and intercept
 
 
@@ -218,10 +217,10 @@ Dor_ps.prev.rda.0 <- rda(t(otu_table(Dor_ps.prev.no.na)) ~ Food_Kg_pond+Fish_bio
 Dor_ps.rda.scores <- vegan::scores(Dor_ps.prev.rda.0,display=c("sp","wa","lc","bp","cn"))
 Dor_ps.rda.sites <- data.frame(Dor_ps.rda.scores$sites)
 Dor_ps.rda.sites$Sample.ID <- as.character(rownames(Dor_ps.rda.sites))
-sample_data(Dor_ps.prev.no.na)$Sample.ID <- as.character(rownames(sample_data(Dor_ps.prev.no.na)))
-sample_data(Dor_ps.prev.no.na)$Season <- as.character(sample_data(Dor_ps.prev.no.na)$Season )
+sample_data(Dor_ps.prev.fishponds)$Sample.ID <- as.character(rownames(sample_data(Dor_ps.prev.fishponds)))
+sample_data(Dor_ps.prev.fishponds)$Season <- as.character(sample_data(Dor_ps.prev.fishponds)$Season )
 Dor_ps.rda.sites <- Dor_ps.rda.sites %>%
-  left_join(sample_data(Dor_ps.prev.no.na)) %>% 
+  left_join(sample_data(Dor_ps.prev.fishponds)) %>% 
   mutate(Season = factor(Season, levels= c("Winter","Spring",
                                            "Summer","Autumn")))
 
@@ -230,10 +229,10 @@ Dor_ps.rda.sites <- Dor_ps.rda.sites %>%
 Dor_ps.rda.arrows<- Dor_ps.rda.scores$biplot
 colnames(Dor_ps.rda.arrows)<-c("x","y")
 Dor_ps.rda.arrows <- as.data.frame(Dor_ps.rda.arrows)
-Dor_ps.rda.evals <- 100 * (Dor_ps.prev.rda.0$CCA$eig / sum(Dor_ps.prev.rda.all$CCA$eig))
+Dor_ps.rda.evals <- 100 * (Dor_ps.prev.rda.0$CCA$eig / sum(Dor_ps.prev.rda.0$CCA$eig))
 
 #Plot 
-Dor_ps.rda.plot <- ggplot() +
+Dor_ps.rda.p <- ggplot() +
   geom_point(data = Dor_ps.rda.sites, aes(x = RDA1, y = RDA2, shape = Year), 
              fill = "black", size = 5) +
   geom_point(data = Dor_ps.rda.sites, aes(x = RDA1, y = RDA2, colour = Season, shape = Year), 
@@ -255,3 +254,9 @@ Dor_ps.rda.plot <- ggplot() +
 
 
 
+ggsave("./figures/RDA_aqua.png", 
+       plot = Dor_ps.rda.plot,
+       units = "cm",
+       width = 30, height = 30, 
+       #scale = 1,
+       dpi = 300)
