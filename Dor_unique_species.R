@@ -49,7 +49,7 @@ V2_unique_ASV <- ASV_overlaps %>% filter(D1 == 0, V2 == 1, Res == 0)
 Res_unique_ASV <- ASV_overlaps %>% filter(D1 == 0, V2 == 0, Res == 1)
 
 #extract ASVs that are present in both fishpond
-fishponds_ASV<- ASV_overlaps %>% filter(D1 == 1, V2 == 1, Res == 0)
+fishponds_ASV<- ASV_overlaps %>% filter(Res == 0)
 
 ####################################
 #Explore taxonomy of the unique ASVs
@@ -117,7 +117,7 @@ Fishpond_unique_ASV_abund<- Dor_ps.ra.long %>% filter(OTU %in% fishponds_ASV$ASV
   dplyr::summarise(Abund.total= sum(Abundance)) %>% 
   filter(Abund.total>0)%>% spread(location, Abund.total)
 
-write.csv(Fishpond_unique_ASV_abund, "tables/Fishpond_species_by_pool.csv")
+write.csv(Fishpond_unique_ASV_abund, "tables/Fishpond_species.csv")
 
 #####################################
 #get session info and remove all objects and libraries
