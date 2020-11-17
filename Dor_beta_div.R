@@ -384,7 +384,7 @@ ggsave("./figures/Dor_enrichment.png",
 
 
 
-#Aggregate on Genus level 
+#Aggregate on Family level 
 enriched_winter.Fam <-as.data.frame(as.list(aggregate(log2FoldChange~merging+Phylum+Class+Order+Family,
                                                       enriched_shallow, 
                                                       FUN = function(x) c(mean = mean(x), se = sd(x)/sqrt(length(x)), count=length(x)))))
