@@ -28,10 +28,14 @@ ENV<- ENV %>%
                             month %in% c("3", "4", "5") ~ "Spring",
                             month %in% c("6", "7", "8") ~ "Summer",
                             month %in% c("9", "10", "11") ~ "Autumn"),
+         Mic.Season = case_when(month %in% c("11","12", "1", "2","3","4") ~ "Wet",
+                            month %in% c("5","6", "7", "8","9", "10") ~ "Dry"),
          Month = case_when(month == 1 ~ "Jan",month == 2 ~ "Feb",month == 3 ~ "Mar",
                            month == 4 ~ "Apr",month == 5 ~ "May",month == 6 ~ "Jun",
                            month == 7 ~ "Jul",month == 8 ~ "Aug",month == 9 ~ "Sep",
-                           month == 10 ~ "Oct",month == 11 ~ "Nov",month == 12 ~ "Dec")) %>% 
+                           month == 10 ~ "Oct",month == 11 ~ "Nov",month == 12 ~ "Dec"),
+         Type = case_when(location%in% c("Res.") ~ "Reservoir",
+                          location %in% c("D1.","V2.") ~ "Fishpond")) %>% 
   mutate(Season = factor(Season, levels = c("Winter","Spring","Summer","Autumn")),
          Year = factor(year, levels = c("2013","2014","2015")),
          Month = ifelse(cod == "Res.5Jul.", "Jul", Month),#<<<---verify that with Ashraf and Sofi!!!
