@@ -38,15 +38,16 @@ Dor_comm.char<- data.frame(  Sample = sample_names(Dor_ps.prev),
 
 write.csv(Dor_comm.char, "./tables/Dor_alpha_table.csv")
 
-#plot alpha diversity
 # subset only 2013-2014
 Dor_ps.prev_run1<- subset_samples(Dor_ps.prev, Run == "1")
+
+#plot alpha diversity
 Dor_alpha <- estimate_richness(Dor_ps.prev_run1, measures = c("Observed", "Chao1","Shannon", "InvSimpson"))
 Dor_alpha <- merge_phyloseq(Dor_ps.prev_run1, sample_data(Dor_alpha))
 
 Dor_alpha.m <- as(sample_data(Dor_alpha), "data.frame")%>%
-  select(location, Year, Month, Season, Observed, Chao1, Shannon, InvSimpson)%>%
-  melt(id.vars = c("location", "Year","Month", "Season"))
+  select(location, Year, Month, Mic.Season, Observed, Chao1, Shannon, InvSimpson)%>%
+  melt(id.vars = c("location", "Year","Month", "Mic.Season"))
 
 alpha.p<- ggplot(Dor_alpha.m, aes(x = Month, y = value, group = variable)) +
   labs(x = "Year", y = "Alpha diversity")+
@@ -85,7 +86,7 @@ ggsave("./figures/alpha_pools.png",
        #scale = 1,
        dpi = 300)
 
-alpha_seasons.p<- ggplot(Dor_alpha.m, aes (x = Season, y = value, group = Season, colour = Year))+
+alpha_seasons.p<- ggplot(Dor_alpha.m, aes (x = Mic.Season, y = value, group = Mic.Season, colour = Year))+
   geom_boxplot(outlier.color = NULL, notch = FALSE)+
   geom_jitter(size = 3)+
   facet_wrap(variable~., scales = "free", ncol = 2)+
@@ -111,10 +112,10 @@ shapiro.test(sample_data(Dor_alpha)$Chao1)
 
 kruskal.test(Chao1 ~ location, data = data.frame(sample_data(Dor_alpha)))
 
-kruskal.test(Chao1 ~ Season, data = data.frame(sample_data(Dor_alpha)))
+kruskal.test(Chao1 ~ Mic.Season, data = data.frame(sample_data(Dor_alpha)))
 
 Chao1_Wilcox_Season <- as(sample_data(Dor_alpha),"data.frame")   %>%
-  rstatix::wilcox_test(Chao1 ~ Season, p.adjust.method = "BH") %>%
+  rstatix::wilcox_test(Chao1 ~ Mic.Season, p.adjust.method = "BH") %>%
   add_significance()
 
 kruskal.test(Chao1 ~ Year, data = data.frame(sample_data(Dor_alpha)))
