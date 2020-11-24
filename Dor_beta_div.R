@@ -147,8 +147,6 @@ ggarrange(Res_par.p, Res_bar.p, heights = c(2,1.2),
           ncol = 1, nrow = 2, align = "v", legend = "bottom",
           legend.grob = do.call(rbind, c(list(get_legend(Res_bar.p),get_legend(Res_par.p)), size="first")))
 
-
-
 ggsave("./figures/Res_overview.png", 
        plot = last_plot(),
        units = "cm",
@@ -217,14 +215,12 @@ Dor.ord.df <- plot_ordination(Dor_ps.gm_mean, Dor_ps.gm_mean.ord, axes = c(1,2,3
 Dor.ord.p <- ggplot()+
   geom_point(data = Dor.ord.df, aes(x = NMDS1, y = NMDS2, shape = Year), 
              fill = "black", size = 5) +
-  geom_point(data = Dor.ord.df, aes(x = NMDS1, y = NMDS2, colour = Season, shape = Year), 
+  geom_point(data = Dor.ord.df, aes(x = NMDS1, y = NMDS2, colour = Mic.Season, shape = Year), 
              size = 4) +
   geom_text(data = Dor.ord.df,aes(x = NMDS1, y = NMDS2,label = location), 
             nudge_y= -8,size=3)+
-  scale_colour_manual(values = c("Winter"="darkblue",
-                                 "Spring"="lightblue",
-                                 "Summer"="orange",
-                                 "Autumn"="darkred")) + 
+  scale_colour_manual(values = c("Wet"="darkblue",
+                                 "Dry"="orange")) + 
   annotate(geom="text", x=-110, y=110, label= paste0("Stress = ", round(Dor_ps.gm_mean.ord$stress,2)),
            color="red", size = 5)+
   theme_bw()+
@@ -242,11 +238,11 @@ ggsave("./figures/NMDS_2013_2014.png",
 #test grouping of samples
 df <- as(sample_data(Dor_ps.gm_mean), "data.frame")
 d <- phyloseq::distance(Dor_ps.gm_mean, "euclidean")
-adonis_all <- adonis2(d ~ Year + Season + location , df)
+adonis_all <- adonis2(d ~ Year + Mic.Season + location , df)
 adonis_all
 
 #posthoc to check which seasons are different
-groups <- df[["Season"]]
+groups <- df[["Mic.Season"]]
 mod <- betadisper(d, groups)
 permutest(mod)
 
