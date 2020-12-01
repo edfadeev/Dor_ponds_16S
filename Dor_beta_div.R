@@ -354,8 +354,8 @@ Dor_daASV.p <- ggplot(data=enriched_agg_top,
         axis.title.x = element_blank())
 
 
-
-
+#export list of enriched ASVs
+write.csv(rbind(enriched_Dry,enriched_Wet), "tables/enriched_ASVs.csv")
 
 
 #Aggregate on Family level 
@@ -447,9 +447,6 @@ Dor_Wet.genus <- Dor_ps.ra.long %>%
   group_by(Mic.Season, location, Year,Month,Class,Genus) %>%
   dplyr::summarise(Abund.total= sum(Abundance)) 
 
-
-mean(Dor_Dry.genus$Abund.total[Dor_Dry.genus$Genus =="Microcystis PCC-7914"])
-se(Dor_Dry.genus$Abund.total[Dor_Dry.genus$Genus =="Microcystis PCC-7914"])
 
 
 
