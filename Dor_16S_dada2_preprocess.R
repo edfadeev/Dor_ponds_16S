@@ -123,15 +123,20 @@ rare.p <- ggplot(rare, aes(x=x, y=y, colour = site))+
   geom_line(aes(linetype = method), lwd = 0.5, data= rare.line)+
   #geom_ribbon(aes(ymin=y.lwr, ymax= y.upr, colour = NULL), alpha = 0.2)+
   geom_point(size =3, data= rare.point)+
-  geom_text(aes(label=label), size =2, data= rare.point, colour = "black",  nudge_x = 10000)+
+  geom_text(aes(label=label), size =4, data= rare.point, colour = "black",  nudge_y = 10, nudge_x = 1000)+
   scale_colour_discrete(guide = FALSE)+
   labs(x = "Sample size", y = "Species richness")+
   facet_grid(~Loc)+
-  #xlim(0,1e5)+
+  xlim(0,1e5)+
   #ylim(0,5000)+
-  theme_classic(base_size = 12)+theme(legend.position="bottom")
+  theme_bw()+
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
+        axis.line = element_line(colour = "black"),
+        text=element_text(size=14),legend.position = "bottom", 
+        axis.title.x = element_blank())
 
-ggsave("./figures/rarefactions.png", 
+
+ggsave("./figures/rarefactions.pdf", 
        plot = rare.p,
        units = "cm",
        width = 30, height = 30, 

@@ -2,8 +2,12 @@
 library(phyloseq); packageVersion("phyloseq")
 library(vegan); packageVersion("vegan")
 library(dplyr); packageVersion("dplyr")
-library(tidyr); packageVersion("tidyr")
 library(ggplot2); packageVersion("ggplot2")
+library(reshape2); packageVersion("reshape2")
+library(ggpubr); packageVersion("ggpubr")
+
+library(tidyr); packageVersion("tidyr")
+
 
 #load colours
 source("scripts/color_palletes.R")
@@ -120,10 +124,10 @@ Res_bar_class<- Dor_ps.class.agg %>% filter(location =="Res.")
 
 #plot
 Res_par.p<- ggplot()+
-  geom_line(data = filter(Res_par_merged, variable %in% c("Pigments")), aes(x= Month, y = value, colour = Family, group = Family),size = 1)+
-  geom_point(data = filter(Res_par_merged, variable %in% c("Pigments")), aes(x= Month, y = value, colour = Family, group = Family),size = 2)+
-  geom_line(data = filter(Res_par_merged, variable %in% c("Chlorophyll")), aes(x= Month, y = value, colour = Family, group = Family),size = 1)+
-  geom_point(data = filter(Res_par_merged, variable %in% c("Chlorophyll")), aes(x= Month, y = value, colour = Family, group = Family),size = 2)+
+  geom_line(data = filter(Res_par_merged, variable =="Pigments"), aes(x= Month, y = value, colour = Family, group = Family),size = 1)+
+  geom_point(data = filter(Res_par_merged, variable =="Pigments"), aes(x= Month, y = value, colour = Family, group = Family),size = 2)+
+  geom_line(data = filter(Res_par_merged, variable =="Chlorophyll"), aes(x= Month, y = value, colour = Family, group = Family),size = 1)+
+  geom_point(data = filter(Res_par_merged, variable =="Chlorophyll"), aes(x= Month, y = value, colour = Family, group = Family),size = 2)+
   geom_line(data = filter(Res_par_merged, Family =="Parameters"), aes(x= Month, y = value, group = variable),size = 1)+
   geom_point(data = filter(Res_par_merged, Family =="Parameters"), aes(x= Month, y = value, group = variable), size = 2)+
   scale_fill_manual(values = cbPalette)+
@@ -131,7 +135,10 @@ Res_par.p<- ggplot()+
   guides(colour=guide_legend(title="Pigments"))+
   facet_grid(variable~Year, scales = "free_y")+
   theme_bw()+
-  theme(legend.position="bottom", axis.text.x = element_blank(),axis.title.x = element_blank())
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(), 
+        axis.line = element_line(colour = "black"),axis.text.x = element_blank(),
+        text=element_text(size=14),legend.position = "bottom", 
+        axis.title.x = element_blank())
 
 Res_bar.p <- ggplot(Res_bar_class, aes(x = Month, y = value, fill = Class)) + 
   facet_grid(variable~Year, space= "fixed") +
@@ -140,7 +147,10 @@ Res_bar.p <- ggplot(Res_bar_class, aes(x = Month, y = value, fill = Class)) +
   guides(fill = guide_legend(reverse = FALSE, keywidth = 1, keyheight = 1)) +
   ylab("Sequence proportions (%) \n")+
   theme_bw()+
-  theme(legend.position="bottom",strip.text.x = element_blank())
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
+        axis.line = element_line(colour = "black"),
+        text=element_text(size=14),legend.position = "bottom", 
+        axis.title.x = element_blank())
 
 
 ggarrange(Res_par.p, Res_bar.p, heights = c(2,1.2),
@@ -175,7 +185,10 @@ Pond_par.p<- ggplot()+
   guides(colour=guide_legend(title="Pigments"), shape=guide_legend(title="Pool") )+
   facet_grid(variable~Year, scales = "free_y")+
   theme_bw()+
-  theme(legend.position="none", axis.text.x = element_blank(),axis.title.x = element_blank())
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
+        axis.line = element_line(colour = "black"),
+        text=element_text(size=14),legend.position = "bottom", 
+        axis.title.x = element_blank())
 
 Pond_bar.p <- ggplot(Pond_bar_class, aes(x = Month, y = value, fill = Class)) + 
   facet_grid(location~Year, space= "fixed") +
@@ -184,7 +197,10 @@ Pond_bar.p <- ggplot(Pond_bar_class, aes(x = Month, y = value, fill = Class)) +
   guides(fill = guide_legend(reverse = FALSE, keywidth = 1, keyheight = 1)) +
   ylab("Sequence proportions (%) \n")+
   theme_bw()+
-  theme(legend.position="bottom",strip.text.x = element_blank())
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
+        axis.line = element_line(colour = "black"),
+        text=element_text(size=14),legend.position = "bottom", 
+        axis.title.x = element_blank())
 
 
 ggarrange(Pond_par.p, Pond_bar.p, heights = c(2,1.2),
@@ -212,22 +228,34 @@ Dor_ps.gm_mean <- phyloseq_gm_mean_trans(Dor_ps.prev_run1)
 Dor_ps.gm_mean.ord <- ordinate(Dor_ps.gm_mean, method = "NMDS", distance = "euclidean")
 Dor.ord.df <- plot_ordination(Dor_ps.gm_mean, Dor_ps.gm_mean.ord, axes = c(1,2,3),justDF = TRUE)
 
+Dor.ord.df <- Dor.ord.df %>%  mutate(Temp_degC = as.numeric(Temp_degC))
+
+
+fun_color_range <- colorRampPalette(c("blue", "red"))
+my_colors <- fun_color_range(10) 
+
 Dor.ord.p <- ggplot()+
-  geom_point(data = Dor.ord.df, aes(x = NMDS1, y = NMDS2, shape = Year), 
-             fill = "black", size = 5) +
-  geom_point(data = Dor.ord.df, aes(x = NMDS1, y = NMDS2, colour = Mic.Season, shape = Year), 
-             size = 4) +
-  geom_text(data = Dor.ord.df,aes(x = NMDS1, y = NMDS2,label = location), 
-            nudge_y= -8,size=3)+
-  scale_colour_manual(values = c("Wet"="darkblue",
-                                 "Dry"="orange")) + 
-  annotate(geom="text", x=-110, y=110, label= paste0("Stress = ", round(Dor_ps.gm_mean.ord$stress,2)),
-           color="red", size = 5)+
+  geom_point(data = Dor.ord.df, aes(x = NMDS1, y = NMDS2, shape = location), 
+             fill = "black", size = 9) +
+  #geom_point(data = Dor.ord.df, aes(x = NMDS1, y = NMDS2, colour = Mic.Season, shape = Year), 
+  #           size = 7) +
+  geom_point(data = Dor.ord.df, aes(x = NMDS1, y = NMDS2, colour = Temp_degC, shape = location), 
+             size = 7) +
+  #geom_text(data = Dor.ord.df,aes(x = NMDS1, y = NMDS2,label = location), 
+  #          nudge_y= -5,size=8)+
+  #scale_colour_manual(values = c("Wet"="darkblue",
+  #                               "Dry"="orange")) + 
+  scale_colour_gradient(low = "blue", high = "yellow")+
+  annotate(geom="text", x=-110, y=100, label= paste0("Stress = ", round(Dor_ps.gm_mean.ord$stress,2)),
+           color="red", size = 8)+
   theme_bw()+
-  theme(legend.position = "bottom")
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
+        axis.line = element_line(colour = "black"),
+        text=element_text(size=14),legend.position = "bottom", 
+        axis.title.x = element_blank())
 
 
-ggsave("./figures/NMDS_2013_2014.png", 
+ggsave("./figures/NMDS_2013_2014.pdf", 
        plot = Dor.ord.p,
        units = "cm",
        width = 30, height = 30, 
@@ -238,22 +266,11 @@ ggsave("./figures/NMDS_2013_2014.png",
 #test grouping of samples
 df <- as(sample_data(Dor_ps.gm_mean), "data.frame")
 d <- phyloseq::distance(Dor_ps.gm_mean, "euclidean")
-adonis_all <- adonis2(d ~ Year + Mic.Season + location , df)
+adonis_all <- adonis2(d ~ Year +Mic.Season + location , df)
 adonis_all
 
-#posthoc to check which seasons are different
-groups <- df[["Mic.Season"]]
-mod <- betadisper(d, groups)
-permutest(mod)
 
-#dispersion is different between groups
-plot(mod)
-boxplot(mod)
-mod.HSD <- TukeyHSD(mod)
-mod.HSD
-plot(mod.HSD)
-
-#posthoc to check which seasons are different
+#posthoc to check which ponds are different
 groups <- df[["location"]]
 mod <- betadisper(d, groups)
 permutest(mod)
@@ -267,74 +284,45 @@ plot(mod.HSD)
 
 
 #####################################
-#ASVs enrichment test
+#ASVs enrichment test between the seasons
 #####################################
-#split dataset
-Dor_winter_spring <- subset_samples(Dor_ps.prev, Season %in% c("Winter","Spring"))
-Dor_winter_spring <- prune_taxa(taxa_sums(Dor_winter_spring)>0,Dor_winter_spring)
-
-
-Dor_spring_summer <- subset_samples(Dor_ps.prev, Season %in% c("Spring","Summer"))
-Dor_spring_summer <- prune_taxa(taxa_sums(Dor_spring_summer)>0,Dor_spring_summer)
-
-
-Dor_summer_autumn <- subset_samples(Dor_ps.prev, Season %in% c("Summer","Autumn"))
-Dor_summer_autumn <- prune_taxa(taxa_sums(Dor_summer_autumn)>0,Dor_summer_autumn)
-
-
-Dor_autumn_winter <- subset_samples(Dor_ps.prev, Season %in% c("Winter","Autumn"))
-Dor_autumn_winter <- prune_taxa(taxa_sums(Dor_autumn_winter)>0,Dor_autumn_winter)
-
-
-Dor_winter_summer <- subset_samples(Dor_ps.prev, Season %in% c("Winter","Summer"))
-Dor_winter_summer <- prune_taxa(taxa_sums(Dor_winter_summer)>0,Dor_winter_summer)
-
-#####################################
+sample_data(Dor_ps.prev_run1)$Mic.Season<- factor(sample_data(Dor_ps.prev_run1)$Mic.Season,
+                                                   levels = c("Dry","Wet"))
 #run DEseq2
-#####################################
-type <- c("Dor_winter_spring","Dor_spring_summer","Dor_summer_autumn","Dor_autumn_winter", "Dor_winter_summer")
-deseq_res_all <- data.frame()
-enriched_agg_all <- data.frame()
+Dor.ddsMat <- phyloseq_to_deseq2(Dor_ps.prev_run1, ~Mic.Season)
+geoMeans = apply(counts(Dor.ddsMat), 1, gm_mean)
+Dor.ddsMat = estimateSizeFactors(Dor.ddsMat, geoMeans = geoMeans)
+Dor.ddsMat <- estimateDispersions(Dor.ddsMat)
+Dor.DEseq <- DESeq(Dor.ddsMat, fitType="local")
+Dor.DEseq.res <- results(Dor.DEseq)
 
-for (i in 1:5){
-  #run DEseq
-  BAC_sed.ddsMat <- phyloseq_to_deseq2(get(type[i]), ~Season)
-  geoMeans = apply(counts(BAC_sed.ddsMat), 1, gm_mean)
-  BAC_sed.ddsMat = estimateSizeFactors(BAC_sed.ddsMat, geoMeans = geoMeans)
-  BAC_sed.ddsMat <- estimateDispersions(BAC_sed.ddsMat)
-  BAC_sed.DEseq <- DESeq(BAC_sed.ddsMat, fitType="local")
-  BAC_sed.DEseq.res <- results(BAC_sed.DEseq)
-  
-  #extract only significant OTU
-  BAC_sed.DEseq.res.sig <- BAC_sed.DEseq.res[which(BAC_sed.DEseq.res$padj < 0.1), ]
-  BAC_sed.DEseq.res.sig <- cbind(as(BAC_sed.DEseq.res.sig, "data.frame"),
-                                 as(tax_table(get(type[i]))[rownames(BAC_sed.DEseq.res.sig), ], "matrix"))
-  BAC_sed.DEseq.res.sig.sub <- BAC_sed.DEseq.res.sig[abs(BAC_sed.DEseq.res.sig$log2FoldChange)>1,]
-  BAC_sed.DEseq.res.sig.sub$merging <- type[i]
-  BAC_sed.DEseq.res.sig.sub$ASV <- rownames(BAC_sed.DEseq.res.sig.sub)
-  rownames(BAC_sed.DEseq.res.sig.sub) <- c()
-  deseq_res_all <- rbind(deseq_res_all,BAC_sed.DEseq.res.sig.sub, make.row.names = TRUE)
-}
+Dor.DEseq.res <- cbind(as(Dor.DEseq.res, "data.frame"),
+                           as(tax_table(Dor_ps.prev_run1)[rownames(Dor.DEseq.res), ], "matrix"))
+Dor.DEseq.res$ASV <- rownames(Dor.DEseq.res)
+
+#extract only significant ASVs
+Dor.DEseq.res.sig <- Dor.DEseq.res %>%
+                      filter(padj< 0.1,
+                             abs(log2FoldChange)>1)
 
 #####################################
-#Explore the enriched ASVs between winter and summer
+#Explore the enriched ASVs between the seasons
 #####################################
-deseq_res_all<- deseq_res_all %>% filter(merging =="Dor_winter_summer")
-
 #separate the results by enrichment towards surface and to depth
-enriched_shallow <- deseq_res_all[deseq_res_all[, "log2FoldChange"] < 0,c("baseMean", "log2FoldChange", "lfcSE", "padj", "Phylum", "Class", "Order", "Family", "Genus","ASV","merging") ]
-enriched_deep  <- deseq_res_all[deseq_res_all[, "log2FoldChange"] > 0,c("baseMean", "log2FoldChange", "lfcSE", "padj", "Phylum", "Class", "Order", "Family", "Genus","ASV","merging")]
+enriched_Dry <- Dor.DEseq.res.sig[Dor.DEseq.res.sig[, "log2FoldChange"] < 0,c("baseMean", "log2FoldChange", "lfcSE", "padj", "Phylum", "Class", "Order", "Family", "Genus","ASV") ]
+enriched_Wet  <- Dor.DEseq.res.sig[Dor.DEseq.res.sig[, "log2FoldChange"] > 0,c("baseMean", "log2FoldChange", "lfcSE", "padj", "Phylum", "Class", "Order", "Family", "Genus","ASV")]
 
 #Aggregate on Genus level 
-enriched_shallow.agg <-as.data.frame(as.list(aggregate(log2FoldChange~merging+Phylum+Class+Order+Family+Genus,
-                                                       enriched_shallow, 
+enriched_Dry.agg <-as.data.frame(as.list(aggregate(log2FoldChange~Phylum+Class+Order+Family+Genus,
+                                                   enriched_Dry, 
                                                        FUN = function(x) c(mean = mean(x), se = sd(x)/sqrt(length(x)), count=length(x)))))
-enriched_deep.agg <-as.data.frame(as.list(aggregate(log2FoldChange~merging+Phylum+Class+Order+Family+Genus,
-                                                    enriched_deep, 
+
+enriched_Wet.agg <-as.data.frame(as.list(aggregate(log2FoldChange~Phylum+Class+Order+Family+Genus,
+                                                   enriched_Wet, 
                                                     FUN = function(x) c(mean = mean(x), se = sd(x)/sqrt(length(x)), count=length(x)))))
 
 #merge data for ploting
-enriched_agg <- rbind(enriched_shallow.agg,enriched_deep.agg)
+enriched_agg <- rbind(enriched_Dry.agg,enriched_Wet.agg)
 
 #exclude taxa with less than 3 ASV
 enriched_agg_top <- enriched_agg[enriched_agg$log2FoldChange.count>2,]
@@ -344,49 +332,126 @@ enriched_agg_top$Class <- factor(enriched_agg_top$Class, ordered = TRUE,
                                  levels= sort(unique(as.character(enriched_agg_top$Class)),decreasing=FALSE))
 enriched_agg_top$Genus <- factor(enriched_agg_top$Genus, ordered = TRUE,
                                  levels= unique(enriched_agg_top$Genus[order(enriched_agg_top$Class)]))
-enriched_agg_top$merging <- factor(enriched_agg_top$merging,
-                                   levels= c("Dor_winter_spring","Dor_spring_summer","Dor_summer_autumn", "Dor_autumn_winter",  "Dor_winter_summer"))
-
-
-
-
-enriched_agg_top<- enriched_agg_top[enriched_agg_top$merging %in% c("Dor_winter_summer"),]
-
 
 #plot
-Dor_daOTU.p <- ggplot(data=enriched_agg_top,
+Dor_daASV.p <- ggplot(data=enriched_agg_top,
                        aes(y=log2FoldChange.mean , x=Genus, fill = Class, label = log2FoldChange.count))+ 
-  geom_text(data=enriched_agg_top,aes(y=log2FoldChange.mean , x=Genus), nudge_y= 0, nudge_x= -0.3)+
+  geom_text(data=enriched_agg_top,aes(y=log2FoldChange.mean , x=Genus), size = 8, nudge_y= 0, nudge_x= -0.3)+
   geom_errorbar(data=enriched_agg_top,aes(ymin = log2FoldChange.mean-log2FoldChange.se, ymax = log2FoldChange.mean +log2FoldChange.se), width = 0.2) +   
   ylab("log2foldchange")+
   #scale_y_reverse()+
-  geom_point(data=enriched_agg_top, aes(y=log2FoldChange.mean , x=Genus, fill = Class, label = log2FoldChange.count), size = 5, shape = 21)+
-  #geom_point(data=enriched_agg_top[enriched_agg_top$log2FoldChange.mean>0,], aes(y=log2FoldChange.mean , x=Genus, fill = Class, label = log2FoldChange.count), size = 5, shape = 25)+
+  geom_point(data=enriched_agg_top, aes(y=log2FoldChange.mean , x=Genus, label = log2FoldChange.count), size = 9, shape = 21, fill = "black")+
+  geom_point(data=enriched_agg_top, aes(y=log2FoldChange.mean , x=Genus, fill = Class, label = log2FoldChange.count), size = 7, shape = 21)+
   geom_hline(aes(yintercept=0), linetype="dashed")+
   scale_fill_manual(values = class_col)+
   guides(shape = 22)+
-  facet_grid(.~merging)+
+  #facet_grid(.~merging)+
   coord_flip()+
   theme_bw()+
-  theme(legend.position = "bottom", axis.text.x = element_text(angle =90))
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
+        axis.line = element_line(colour = "black"),
+        text=element_text(size=14),legend.position = "none", 
+        axis.title.x = element_blank())
 
 
-ggsave("./figures/Dor_enrichment.png", 
-       plot = Dor_daOTU.p,
+
+
+
+
+#Aggregate on Family level 
+enriched_Dry.Fam <-as.data.frame(as.list(aggregate(log2FoldChange~Phylum+Class+Order+Family,
+                                                      enriched_Dry, 
+                                                      FUN = function(x) c(mean = mean(x), se = sd(x)/sqrt(length(x)), count=length(x)))))
+enriched_Wet.Fam <-as.data.frame(as.list(aggregate(log2FoldChange~Phylum+Class+Order+Family,
+                                                      enriched_Wet, 
+                                                      FUN = function(x) c(mean = mean(x), se = sd(x)/sqrt(length(x)), count=length(x)))))
+
+#####################################
+#Estimate abundance of the enriched ASVs
+#####################################
+#Plot barplots of communities
+#calculate proportions
+Dor_ps.ra <- transform_sample_counts(Dor_ps.prev_run1, function(x) x / sum(x))
+
+#melt phyloseq object
+Dor_ps.ra.long <- psmelt(Dor_ps.ra)
+Dor_ps.ra.long$Abundance <- Dor_ps.ra.long$Abundance*100
+
+#fix unclassified lineages 
+Dor_ps.ra.long$Class <- as.character(Dor_ps.ra.long$Class)
+Dor_ps.ra.long$Class[is.na(Dor_ps.ra.long$Class)] <- paste(Dor_ps.ra.long$Phylum[is.na(Dor_ps.ra.long$Class)],"uc", sep = "_")
+
+#calculate abundance for each Class
+Dor_Dry.agg <- Dor_ps.ra.long %>% 
+  select(location,Mic.Season,Month,Year,OTU,Class,Abundance)%>%
+  filter(Abundance>0, 
+    Mic.Season == "Dry",
+          OTU %in% enriched_Dry$ASV) %>% 
+  group_by(Mic.Season, location, Year,Month,Class) %>%
+  dplyr::summarise(Abund.total= sum(Abundance)) 
+
+Dor_Wet.agg <- Dor_ps.ra.long %>% 
+    select(location,Mic.Season,Month,Year,OTU,Class,Abundance)%>%
+    filter(Abundance>0, 
+              Mic.Season == "Wet",
+              OTU %in% enriched_Wet$ASV) %>% 
+  group_by(Mic.Season, location, Year,Month,Class) %>%
+    dplyr::summarise(Abund.total= sum(Abundance)) 
+  
+Dor_ps.class.agg <- rbind(Dor_Dry.agg,Dor_Wet.agg) %>% 
+  select(location, Mic.Season, Year, Month,Class, Abund.total) %>% 
+  melt(id=c("Mic.Season","location", "Year", "Month","Class"), measure.vars = "Abund.total") %>% 
+  mutate(#Month = factor(Month, levels = c("Jan","Feb","Mar","Apr",
+          #                                "May","Jun","Jul","Aug",
+          #                                "Sep","Oct","Nov","Dec")),
+         Year = factor(Year, levels = c("2013","2014","2015")),
+         location = factor(location,levels=c("Res.","V2.","D1.")))
+
+
+Enriched_bar.p <- ggplot(Dor_ps.class.agg, aes(x = interaction(Month,Year), y = value, fill = Class)) + 
+  facet_grid(scale= "free_x", cols = vars(Mic.Season), rows =vars(location)) +
+  geom_col()+
+  scale_fill_manual(values = class_col) + 
+  guides(fill = guide_legend(reverse = FALSE, keywidth = 1, keyheight = 1)) +
+  ylab("Sequence proportions (%) \n")+
+  theme_bw()+
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
+        axis.line = element_line(colour = "black"),
+        text=element_text(size=14),legend.position = "bottom", 
+        axis.title.x = element_blank())
+
+ggarrange(Dor_daASV.p, Enriched_bar.p, widths = c(1,1),
+          ncol = 2, nrow = 1, align = "h", legend = "bottom")
+
+ggsave("./figures/Dor_enrichment_bars.png", 
+       plot = last_plot(),
        units = "cm",
        width = 30, height = 30, 
        #scale = 1,
        dpi = 300)
 
+#explore abundance of ASVs
+Dor_Dry.genus <- Dor_ps.ra.long %>% 
+  select(location,Mic.Season,Month,Year,OTU,Class,Genus,Abundance)%>%
+  filter(Abundance>0, 
+         Mic.Season == "Dry",
+         OTU %in% enriched_Dry$ASV) %>% 
+  group_by(Mic.Season, location, Year,Month,Class,Genus) %>%
+  dplyr::summarise(Abund.total= sum(Abundance)) 
+
+Dor_Wet.genus <- Dor_ps.ra.long %>% 
+  select(location,Mic.Season,Month,Year,OTU,Class,Genus,Abundance)%>%
+  filter(Abundance>0, 
+         Mic.Season == "Wet",
+         OTU %in% enriched_Wet$ASV) %>% 
+  group_by(Mic.Season, location, Year,Month,Class,Genus) %>%
+  dplyr::summarise(Abund.total= sum(Abundance)) 
 
 
-#Aggregate on Family level 
-enriched_winter.Fam <-as.data.frame(as.list(aggregate(log2FoldChange~merging+Phylum+Class+Order+Family,
-                                                      enriched_shallow, 
-                                                      FUN = function(x) c(mean = mean(x), se = sd(x)/sqrt(length(x)), count=length(x)))))
-enriched_summer.Fam <-as.data.frame(as.list(aggregate(log2FoldChange~merging+Phylum+Class+Order+Family,
-                                                      enriched_deep, 
-                                                      FUN = function(x) c(mean = mean(x), se = sd(x)/sqrt(length(x)), count=length(x)))))
+mean(Dor_Dry.genus$Abund.total[Dor_Dry.genus$Genus =="Microcystis PCC-7914"])
+se(Dor_Dry.genus$Abund.total[Dor_Dry.genus$Genus =="Microcystis PCC-7914"])
+
+
 
 #####################################
 #get session info and remove all objects and libraries
