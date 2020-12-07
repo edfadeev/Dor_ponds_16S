@@ -41,13 +41,14 @@ Dor_ps.prev.no.na<-Dor_ps.prev_gm %>%
 #####################################
 #Check correlations between environmental parameters
 ####################################
-env.par<- c("Temp_degC", "Chl_a_mg_L", "Chl_b_mg_L",
+env.par<- c("Temp_degC", "Chl_a_mg_L", "Chl_b_mg_L", "N:P",
             "Ammonia_ug_L", "NO3_NO2_N_L", "TP_ug_L",
             "Diatoxanthin_mg_L","Dinoxanthin_mg_L","Fucoxanthin_mg_L","Fish_biomass_g_pond",
             "b_caroten_mg_L","MC_ug_L","Lutein_mg_L","Zeaxanthin_mg_L","Food_Kg_pond")
 
 #scale parameters
 metadata.scaled <- data.frame(sample_data(Dor_ps.prev.no.na)) %>% 
+  mutate("N:P"=(as.numeric(NO3_NO2_N_L)/as.numeric(TP_ug_L))) %>% 
   mutate_at(all_of(env.par),as.numeric) %>%
   mutate_if(is.numeric, scale_par)
 
@@ -72,8 +73,10 @@ dev.off()
 
 #subset phys. parameters
 phys_par.scaled<-metadata.scaled %>% 
-  select(Temp_degC, #Chl_a_mg_L,
-         Ammonia_ug_L, NO3_NO2_N_L,TP_ug_L)
+  select(Temp_degC, "N:P",#Chl_a_mg_L,
+         Ammonia_ug_L,
+         NO3_NO2_N_L,
+         TP_ug_L)
 
 #subset pigments and mycrocysteins
 pig_par.scaled<-metadata.scaled %>% 

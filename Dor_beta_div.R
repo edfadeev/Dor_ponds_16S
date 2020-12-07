@@ -20,11 +20,15 @@ Dor_ps.prev <-readRDS("data/Dor_ps_prev.rds")
 #generate seasonal dynamics combined with bar plots
 #####################################
 Parameters_long<- as(sample_data(Dor_ps.prev),"data.frame") %>% 
-  select(location, Season, Year, Month, Temp_degC,
-         #Food_Kg_pond, Fish_biomass_g_pond, O2_mg_L, pH, Ammonia_ug_L,
+  select(location, Mic.Season, Year, Month, Temp_degC,
+         Food_Kg_pond, Fish_biomass_g_pond,
+         #O2_mg_L, 
+         #pH, 
+         Ammonia_ug_L,
          NO3_NO2_N_L, TP_ug_L, MC_ug_L) %>% 
   #filter(location =="Res.") %>% 
-  melt(id=c("location","Season", "Year", "Month")) %>% 
+  mutate("N:P" = (as.numeric(NO3_NO2_N_L)/as.numeric(TP_ug_L))) %>% 
+  melt(id=c("location","Mic.Season", "Year", "Month")) %>% 
   mutate(value =as.numeric(value),
          Family = "Parameters",
          Month = factor(Month, levels = c("Jan","Feb","Mar","Apr",
@@ -35,11 +39,11 @@ Parameters_long<- as(sample_data(Dor_ps.prev),"data.frame") %>%
 
 
 pigments_long<- as(sample_data(Dor_ps.prev),"data.frame") %>% 
-  select(location, Season, Year, Month,#Chl_a_mg_L, Chl_b_mg_L,
+  select(location, Mic.Season, Year, Month,#Chl_a_mg_L, Chl_b_mg_L,
          Diatoxanthin_mg_L,Dinoxanthin_mg_L,Fucoxanthin_mg_L,
          b_caroten_mg_L,Lutein_mg_L,Zeaxanthin_mg_L) %>% 
   #filter(location =="Res.") %>% 
-  melt(id=c("location","Season", "Year", "Month")) %>% 
+  melt(id=c("location","Mic.Season", "Year", "Month")) %>% 
   mutate(value =as.numeric(value),
          Family = factor(variable),
          variable ="Pigments",
@@ -50,9 +54,9 @@ pigments_long<- as(sample_data(Dor_ps.prev),"data.frame") %>%
          location = factor(location,levels=c("Res.","V2.","D1.")))
 
 chl_long <- as(sample_data(Dor_ps.prev),"data.frame") %>% 
-  select(location, Season, Year, Month,Chl_a_mg_L, Chl_b_mg_L) %>% 
+  select(location, Mic.Season, Year, Month,Chl_a_mg_L, Chl_b_mg_L) %>% 
   #filter(location =="Res.") %>% 
-  melt(id=c("location","Season", "Year", "Month")) %>% 
+  melt(id=c("location","Mic.Season", "Year", "Month")) %>% 
   mutate(value =as.numeric(value),
          Family = factor(variable),
          variable ="Chlorophyll",
@@ -64,10 +68,10 @@ chl_long <- as(sample_data(Dor_ps.prev),"data.frame") %>%
 
 #merge together
 Parameters_merged_df<- bind_rows(Parameters_long, pigments_long, chl_long) %>% 
-  mutate(variable = factor(variable, levels = c("Temp_degC","NO3_NO2_N_L","Ammonia_ug_L","TP_ug_L",
-                                                "Pigments","Chlorophyll","MC_ug_L"),
-                           labels = c("Temp_degC","NO3_NO2_N_L","Ammonia_ug_L","TP_ug_L",
-                                      "Pigments","Chlorophyll","MC_ug_L")),
+  mutate(variable = factor(variable, levels = c("Temp_degC","NO3_NO2_N_L","Ammonia_ug_L","TP_ug_L","N:P","Chlorophyll","Pigments","MC_ug_L","O2_mg_L", 
+                                                "pH", "Food_Kg_pond", "Fish_biomass_g_pond"),
+                           labels = c("Temp_degC","NO3_NO2_N_L","Ammonia_ug_L","TP_ug_L","N:P","Chlorophyll","Pigments","MC_ug_L","O2_mg_L", 
+                                      "pH", "Food_Kg_pond", "Fish_biomass_g_pond")),
          Family = factor(Family, levels = c(levels(pigments_long$Family),levels(chl_long$Family),"Parameters"),
                          labels = c(levels(pigments_long$Family),levels(chl_long$Family),"Parameters")))
 
@@ -92,8 +96,8 @@ Dor_ps.ra.long$Species[is.na(Dor_ps.ra.long$Species)] <- paste(Dor_ps.ra.long$Cl
 
 #calculate abundance for each Class
 Dor_ps.ra.long.agg <- Dor_ps.ra.long %>% 
-  select(location,Month,Year,OTU,Class,Abundance)%>%
-  group_by(location, Year,Month,Class) %>%
+  select(Mic.Season, location,Month,Year,OTU,Class,Abundance)%>%
+  group_by(Mic.Season, location, Year,Month,Class) %>%
   dplyr::summarise(Abund.total= sum(Abundance)) 
 
 #remove below 2% ra
@@ -104,8 +108,8 @@ Dor_ps.ra.long.agg$Class <- factor(Dor_ps.ra.long.agg$Class,
 Dor_ps.ra.long.agg$Class<- droplevels(Dor_ps.ra.long.agg$Class)
 
 Dor_ps.class.agg <- Dor_ps.ra.long.agg %>% 
-  select(location, Year, Month,Class, Abund.total) %>% 
-  melt(id=c("location", "Year", "Month","Class"), measure.vars = "Abund.total") %>% 
+  select(Mic.Season, location, Year, Month,Class, Abund.total) %>% 
+  melt(id=c("Mic.Season", "location", "Year", "Month","Class"), measure.vars = "Abund.total") %>% 
   mutate(Month = factor(Month, levels = c("Jan","Feb","Mar","Apr",
                                           "May","Jun","Jul","Aug",
                                           "Sep","Oct","Nov","Dec")),
@@ -119,7 +123,8 @@ Dor_ps.class.agg <- Dor_ps.ra.long.agg %>%
 #Generate merged plot for the reservoir
 #####################################
 #subset reservoir
-Res_par_merged <- Parameters_merged_df %>% filter(location =="Res.")
+Res_par_merged <- Parameters_merged_df %>% filter(location =="Res.", variable %in% c("Temp_degC","NO3_NO2_N_L","Ammonia_ug_L","TP_ug_L",
+                                                                                     "N:P","Pigments","Chlorophyll","MC_ug_L"))
 Res_bar_class<- Dor_ps.class.agg %>% filter(location =="Res.")
 
 #plot
@@ -169,7 +174,8 @@ ggsave("./figures/Res_overview.png",
 #Generate merged plot for D1 and V2
 #####################################
 #subset reservoir
-Pond_par_merged <- Parameters_merged_df %>% filter(location  %in% c("D1.","V2."))
+Pond_par_merged <- Parameters_merged_df %>% filter(location  %in% c("D1.","V2."), variable %in% c("Temp_degC","NO3_NO2_N_L","Ammonia_ug_L","TP_ug_L",
+                                                                                                 "N:P","Pigments","Chlorophyll","MC_ug_L","Food_Kg_pond", "Fish_biomass_g_pond"))
 Pond_bar_class<- Dor_ps.class.agg %>% filter(location %in% c("D1.","V2."))
 
 #plot

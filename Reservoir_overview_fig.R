@@ -7,6 +7,7 @@ library(ggplot2); packageVersion("ggplot2")
 library(rstatix); packageVersion("rstatix")
 library(PerformanceAnalytics); packageVersion("PerformanceAnalytics")
 library(ggpubr); packageVersion("ggpubr")
+library(reshape2); packageVersion("reshape2")
 
 #load colors and functions
 source("scripts/color_palletes.R")
@@ -21,15 +22,16 @@ Dor_ps.prev <-readRDS("data/Dor_ps_prev.rds")
 #generate plot for physicochemical parameters
 Res_parameters_long<- as(sample_data(Dor_ps.prev),"data.frame") %>% 
   select(location, Season, Year, Month, Temp_degC,
-         #Food_Kg_pond, Fish_biomass_g_pond, O2_mg_L, pH, Ammonia_ug_L, # at the moment excluded from the plot
-         NO3_NO2_N_L, TP_ug_L, MC_ug_L) %>% 
+         #Food_Kg_pond, Fish_biomass_g_pond, O2_mg_L, pH, MC_ug_L, # at the moment excluded from the plot
+         NO3_NO2_N_L, TP_ug_L, Ammonia_ug_L) %>% 
   filter(location =="Res.") %>% 
   melt(id=c("location","Season", "Year", "Month")) %>% 
   mutate(value =as.numeric(value),
          Month = factor(Month, levels = c("Jan","Feb","Mar","Apr",
                                           "May","Jun","Jul","Aug",
                                           "Sep","Oct","Nov","Dec")),
-         Year = factor(Year, levels = c("2013","2014","2015")))
+         Year = factor(Year, levels = c("2013","2014","2015")),
+         variable = factor(variable, levels = c("Temp_degC","NO3_NO2_N_L","Ammonia_ug_L","TP_ug_L")))
 
 # plot
 Res_parameters.p<- ggplot(data = Res_parameters_long, aes(x= Month, y = value, group = variable))+
@@ -45,16 +47,39 @@ Res_parameters.p<- ggplot(data = Res_parameters_long, aes(x= Month, y = value, g
 #generate plot for pigments
 Res_pigmets_long<- data.frame(sample_data(Dor_ps.prev)) %>% 
   select(location, Season, Year, Month,
-         Diatoxanthin_mg_L,Dinoxanthin_mg_L,Fucoxanthin_mg_L,
-         b_caroten_mg_L,Lutein_mg_L,Zeaxanthin_mg_L) %>% 
+         Diatoxanthin_mg_L,Dinoxanthin_mg_L,
+         b_caroten_mg_L,Lutein_mg_L) %>% 
   filter(location =="Res.") %>% 
   melt(id=c("location","Season", "Year", "Month")) %>% 
   mutate(value =as.numeric(value),
-         Type ="Pigments",
+         Type ="Other pigments",
          Month = factor(Month, levels = c("Jan","Feb","Mar","Apr",
                                           "May","Jun","Jul","Aug",
                                           "Sep","Oct","Nov","Dec")),
          Year = factor(Year, levels = c("2013","2014","2015")))
+
+Fuc_pigmets_long<- data.frame(sample_data(Dor_ps.prev)) %>% 
+  select(location, Season, Year, Month,Fucoxanthin_mg_L) %>% 
+  filter(location =="Res.") %>% 
+  melt(id=c("location","Season", "Year", "Month")) %>% 
+  mutate(value =as.numeric(value),
+         Type ="Fucoxanthin",
+         Month = factor(Month, levels = c("Jan","Feb","Mar","Apr",
+                                          "May","Jun","Jul","Aug",
+                                          "Sep","Oct","Nov","Dec")),
+         Year = factor(Year, levels = c("2013","2014","2015")))
+
+Zea_pigmets_long<- data.frame(sample_data(Dor_ps.prev)) %>% 
+  select(location, Season, Year, Month,Zeaxanthin_mg_L) %>% 
+  filter(location =="Res.") %>% 
+  melt(id=c("location","Season", "Year", "Month")) %>% 
+  mutate(value =as.numeric(value),
+         Type ="Zeaxanthin",
+         Month = factor(Month, levels = c("Jan","Feb","Mar","Apr",
+                                          "May","Jun","Jul","Aug",
+                                          "Sep","Oct","Nov","Dec")),
+         Year = factor(Year, levels = c("2013","2014","2015")))
+
 
 Res_chl_long <- data.frame(sample_data(Dor_ps.prev)) %>% 
   select(location, Season, Year, Month,Chl_a_mg_L, Chl_b_mg_L) %>% 
@@ -67,7 +92,7 @@ Res_chl_long <- data.frame(sample_data(Dor_ps.prev)) %>%
                                           "Sep","Oct","Nov","Dec")),
          Year = factor(Year, levels = c("2013","2014","2015")))
 
-Res_pig_chl <- bind_rows(Res_pigmets_long,Res_chl_long)
+Res_pig_chl <- bind_rows(Res_pigmets_long,Res_chl_long,Zea_pigmets_long, Fuc_pigmets_long)
 
 # plot
 Res_pig_chl.p<- ggplot(data = Res_pig_chl, aes(x= Month, y = value, colour = variable, group = variable))+
@@ -137,7 +162,8 @@ ggarrange(Res_parameters.p, Res_pig_chl.p, Res_class_barplot, heights = c(2,1,2)
           ncol = 1, nrow = 3, align = "v")
 
 
-
+ggarrange(Res_par.p, Res_bac.p, heights = c(2,1),
+          ncol = 1, nrow = 2, align = "v")
 
 
 
@@ -161,7 +187,10 @@ merged_df<- bind_rows(Res_metadata_long,Res_pigmets, Dor_ps.class.agg, Res_chl) 
                                       "Pigments","Chl","Food_Kg_pond", "Fish_biomass_g_pond", "O2_mg_L", "pH")),
          Family = factor(Family, levels = c(levels(Dor_ps.class.agg$Family),levels(Res_pigmets$Family),levels(Res_chl$Family),"none"),
                          labels = c(levels(Dor_ps.class.agg$Family),levels(Res_pigmets$Family),levels(Res_chl$Family),"none"))) %>% 
-  filter(location %in% c("Res.","V2.","D1."))
+  filter(location %in% c("Res."#,
+                         #"V2.",
+                         #"D1."
+                         ))
 
 
 merged_df.p<- ggplot()+

@@ -42,8 +42,8 @@ ENV<- ENV %>%
          Month = factor(Month, levels = c("Jan","Feb","Mar","Apr",
                                           "May","Jun","Jul","Aug",
                                           "Sep","Oct","Nov","Dec")),
-         Day = day) %>% 
-          select(-month,year,day)
+         Day = day)# %>% 
+         # select(-month,year,day)
 
 rownames(ENV)<- paste0("X",ENV$Sample_number_dada2)
 
