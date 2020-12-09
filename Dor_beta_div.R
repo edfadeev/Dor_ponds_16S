@@ -5,8 +5,7 @@ library(dplyr); packageVersion("dplyr")
 library(ggplot2); packageVersion("ggplot2")
 library(reshape2); packageVersion("reshape2")
 library(ggpubr); packageVersion("ggpubr")
-
-library(tidyr); packageVersion("tidyr")
+#library(tidyr); packageVersion("tidyr")
 
 
 #load colours
@@ -236,33 +235,61 @@ Dor.ord.df <- plot_ordination(Dor_ps.gm_mean, Dor_ps.gm_mean.ord, axes = c(1,2,3
 
 Dor.ord.df <- Dor.ord.df %>%  mutate(Temp_degC = as.numeric(Temp_degC))
 
-
-fun_color_range <- colorRampPalette(c("blue", "red"))
-my_colors <- fun_color_range(10) 
-
 Dor.ord.p <- ggplot()+
-  geom_point(data = Dor.ord.df, aes(x = NMDS1, y = NMDS2, shape = location), 
+  geom_point(data = Dor.ord.df, aes(x = NMDS1, y = NMDS2, shape = Mic.Season), 
              fill = "black", size = 9) +
   #geom_point(data = Dor.ord.df, aes(x = NMDS1, y = NMDS2, colour = Mic.Season, shape = Year), 
   #           size = 7) +
-  geom_point(data = Dor.ord.df, aes(x = NMDS1, y = NMDS2, colour = Temp_degC, shape = location), 
+  geom_point(data = Dor.ord.df, aes(x = NMDS1, y = NMDS2, colour = Temp_degC, shape = Mic.Season), 
              size = 7) +
-  #geom_text(data = Dor.ord.df,aes(x = NMDS1, y = NMDS2,label = location), 
-  #          nudge_y= -5,size=8)+
-  #scale_colour_manual(values = c("Wet"="darkblue",
-  #                               "Dry"="orange")) + 
+  geom_text(data = Dor.ord.df,aes(x = NMDS1, y = NMDS2,label = location), 
+            nudge_y= -5,size=8)+
   scale_colour_gradient(low = "blue", high = "yellow")+
-  annotate(geom="text", x=-110, y=100, label= paste0("Stress = ", round(Dor_ps.gm_mean.ord$stress,2)),
+  annotate(geom="text", x=-100, y=100, label= paste0("Stress = ", round(Dor_ps.gm_mean.ord$stress,2)),
            color="red", size = 8)+
   theme_bw()+
   theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
         axis.line = element_line(colour = "black"),
-        text=element_text(size=14),legend.position = "bottom", 
-        axis.title.x = element_blank())
+        text=element_text(size=14),legend.position = "bottom")
+
+
+#plot NMDS1 vs Temperature
+Dor.ord.temp.p <- ggplot()+
+  geom_point(data = Dor.ord.df, aes(x = NMDS1, y = Temp_degC, shape = Mic.Season), 
+             fill = "black", size = 9) +
+  geom_point(data = Dor.ord.df, aes(x = NMDS1, y = Temp_degC, colour = Temp_degC, shape = Mic.Season), 
+             size = 7) +
+  geom_text(data = Dor.ord.df,aes(x = NMDS1, y = Temp_degC,label = location), 
+            nudge_y= -0.5,size=8)+
+  geom_hline(yintercept = 20, linetype = 2)+
+  scale_colour_gradient(low = "blue", high = "yellow")+
+  theme_bw()+
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
+        axis.line = element_line(colour = "black"),
+        text=element_text(size=14),legend.position = "bottom")
+
+#plot NMDS2 vs Temperature
+Dor.ord.temp1.p <- ggplot()+
+  geom_point(data = Dor.ord.df, aes(x = NMDS2, y = Temp_degC, shape = Mic.Season), 
+             fill = "black", size = 9) +
+  geom_point(data = Dor.ord.df, aes(x = NMDS2, y = Temp_degC, colour = Temp_degC, shape = Mic.Season), 
+             size = 7) +
+  geom_text(data = Dor.ord.df,aes(x = NMDS2, y = Temp_degC,label = location), 
+            nudge_y= -0.5,size=8)+
+  geom_hline(yintercept = 20, linetype = 2)+
+  scale_colour_gradient(low = "blue", high = "yellow")+
+  theme_bw()+
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
+        axis.line = element_line(colour = "black"),
+        text=element_text(size=14),legend.position = "bottom")
+
+
+ggarrange(Dor.ord.p, Dor.ord.temp.p, Dor.ord.temp1.p, widths = 1,heights = 1,
+          ncol = 3, nrow = 1, align = "hv", legend = "bottom",common.legend = TRUE)
 
 
 ggsave("./figures/NMDS_2013_2014.pdf", 
-       plot = Dor.ord.p,
+       plot = last_plot(),
        units = "cm",
        width = 30, height = 30, 
        #scale = 1,
