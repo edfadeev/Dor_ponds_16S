@@ -71,18 +71,18 @@ envpar_corr %>%
 dev.off()
 
 
-#subset phys. parameters
+#subset phys. parameters and mycrocysteins
 phys_par.scaled<-metadata.scaled %>% 
   select(Temp_degC, "N:P",#Chl_a_mg_L,
-         Ammonia_ug_L,
+         Ammonia_ug_L,MC_ug_L, 
          NO3_NO2_N_L,
          TP_ug_L)
 
-#subset pigments and mycrocysteins
+#subset pigments 
 pig_par.scaled<-metadata.scaled %>% 
   select(Chl_a_mg_L, Chl_b_mg_L,
          Fucoxanthin_mg_L,
-         b_caroten_mg_L,Lutein_mg_L,#MC_ug_L,Dinoxanthin_mg_L,
+         b_caroten_mg_L,#Lutein_mg_L,Dinoxanthin_mg_L,
          Diatoxanthin_mg_L,Zeaxanthin_mg_L)
 
 #####################################
@@ -96,8 +96,8 @@ Dor_ps.prev.rda.all <- rda(t(otu_table(Dor_ps.prev.no.na)) ~ ., data = phys_par.
 #Dor_ps.prev.rda.sel.os <- ordistep(Dor_ps.prev.rda.0, scope = formula(Dor_ps.prev.rda.all), direction = 'both',
 #                                   permutations = how(nperm = 999), steps = 100) #stepwise selection
 
-#summary of RDA
-summary(Dor_ps.prev.rda.all, display = NULL)
+R2.phys<-RsquareAdj(Dor_ps.prev.rda.all)
+P2.phys<-anova(Dor_ps.prev.rda.all)
 
 #generate an RDA plot 
 Dor_ps.rda.scores <- vegan::scores(Dor_ps.prev.rda.all,display=c("sp","wa","lc","bp","cn"))
@@ -113,7 +113,7 @@ Dor_ps.rda.sites <- Dor_ps.rda.sites %>%
 Dor_ps.rda.arrows<- Dor_ps.rda.scores$biplot*5
 colnames(Dor_ps.rda.arrows)<-c("x","y")
 Dor_ps.rda.arrows <- as.data.frame(Dor_ps.rda.arrows)
-Dor_ps.rda.evals <- 100 * (Dor_ps.prev.rda.all$CCA$eig / sum(Dor_ps.prev.rda.all$CCA$eig))
+Dor_ps.rda.evals <- 100 * summary(Dor_ps.prev.rda.all)$cont$importance[2, c("RDA1","RDA2")]
 
 #Plot 
 Dor_ps.rda.plot <- ggplot() +
@@ -121,16 +121,16 @@ Dor_ps.rda.plot <- ggplot() +
              fill = "black", size = 9) +
   geom_point(data = Dor_ps.rda.sites, aes(x = RDA1, y = RDA2, colour = Mic.Season, shape = location), 
              size = 7) +
-  geom_text(data = Dor_ps.rda.sites,aes(x = RDA1, y = RDA2,,label = paste(Year,Month)), 
-          nudge_y= -0.5,size=7)+
+  geom_text(data = Dor_ps.rda.sites,aes(x = RDA1, y = RDA2,label = paste(Month,gsub("20","",Year))), 
+          nudge_y= -0.6,size=5)+
   scale_colour_manual(values = c("Wet"="darkblue",
                                  "Dry"="orange")) + 
-  labs(x = sprintf("RDA1 [%s%% of explained variance]", round(Dor_ps.rda.evals[1], 2)), 
-       y = sprintf("RDA2 [%s%% of explained variance]", round(Dor_ps.rda.evals[2], 2))) +
+  labs(x = sprintf("RDA1 [%s%%]", round(Dor_ps.rda.evals[1], 2)), 
+       y = sprintf("RDA2 [%s%%]", round(Dor_ps.rda.evals[2], 2))) +
   geom_segment(data=Dor_ps.rda.arrows, aes(x = 0, y = 0, xend = x, yend = y),
-               arrow = arrow(length = unit(0.2, "cm")),color="gray")+
+               arrow = arrow(length = unit(0.2, "cm")),color="gray50")+
   geom_text(data=as.data.frame(Dor_ps.rda.arrows*1.1),
-            aes(x, y, label = rownames(Dor_ps.rda.arrows)),color="gray", size=4)+
+            aes(x, y, label = rownames(Dor_ps.rda.arrows)),color="gray50", size=4)+
   theme_bw()+
   theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
         axis.line = element_line(colour = "black"),
@@ -148,6 +148,9 @@ Dor_ps.prev.rda.pig.all <- rda(t(otu_table(Dor_ps.prev.no.na)) ~ ., data = pig_p
 #summary of RDA
 summary(Dor_ps.prev.rda.pig.all, display = NULL)
 
+R2.pig<-RsquareAdj(Dor_ps.prev.rda.pig.all)
+P2.pig<-anova(Dor_ps.prev.rda.pig.all)
+
 #generate an RDA plot 
 Dor_ps.rda.pig.scores <- vegan::scores(Dor_ps.prev.rda.pig.all,display=c("sp","wa","lc","bp","cn"))
 Dor_ps.rda.pig.sites <- data.frame(Dor_ps.rda.pig.scores$sites)
@@ -162,8 +165,7 @@ Dor_ps.rda.pig.sites <- Dor_ps.rda.pig.sites %>%
 Dor_ps.rda.pig.arrows<- Dor_ps.rda.pig.scores$biplot*5
 colnames(Dor_ps.rda.pig.arrows)<-c("x","y")
 Dor_ps.rda.pig.arrows <- as.data.frame(Dor_ps.rda.pig.arrows)
-Dor_ps.rda.pig.evals <- 100 * (Dor_ps.prev.rda.pig.all$CCA$eig / sum(Dor_ps.prev.rda.pig.all$CCA$eig))
-
+Dor_ps.rda.pig.evals <- 100 * summary(Dor_ps.prev.rda.pig.all)$cont$importance[2, c("RDA1","RDA2")]
 
 #Plot 
 Dor_ps.rda.pig.plot <- ggplot() +
@@ -171,16 +173,16 @@ Dor_ps.rda.pig.plot <- ggplot() +
              fill = "black", size = 9) +
   geom_point(data = Dor_ps.rda.pig.sites, aes(x = RDA1, y = RDA2, colour = Mic.Season, shape = location), 
              size = 7) +
-  geom_text(data = Dor_ps.rda.pig.sites,aes(x = RDA1, y = RDA2,label = paste(Year,Month)), 
-            nudge_y= -0.5,size=7)+
+  geom_text(data = Dor_ps.rda.pig.sites,aes(x = RDA1, y = RDA2,label = paste(Month,gsub("20","",Year))), 
+            nudge_y= -0.6,size=5)+
   scale_colour_manual(values = c("Wet"="darkblue",
                                  "Dry"="orange")) + 
-  labs(x = sprintf("RDA1 [%s%% of explained variance]", round(Dor_ps.rda.pig.evals[1], 2)), 
-       y = sprintf("RDA2 [%s%% of explained variance]", round(Dor_ps.rda.pig.evals[2], 2))) +
+  labs(x = sprintf("RDA1 [%s%%]", round(Dor_ps.rda.pig.evals[1], 2)), 
+       y = sprintf("RDA2 [%s%%]", round(Dor_ps.rda.pig.evals[2], 2))) +
   geom_segment(data=Dor_ps.rda.pig.arrows, aes(x = 0, y = 0, xend = x, yend = y),
-               arrow = arrow(length = unit(0.2, "cm")),color="gray")+
+               arrow = arrow(length = unit(0.2, "cm")),color="gray50")+
   geom_text(data=as.data.frame(Dor_ps.rda.pig.arrows*1.1),
-            aes(x, y, label = rownames(Dor_ps.rda.pig.arrows)),color="gray", size=4)+
+            aes(x, y, label = rownames(Dor_ps.rda.pig.arrows)),color="gray50", size=4)+
   theme_bw()+
   theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
         axis.line = element_line(colour = "black"),
@@ -189,7 +191,7 @@ Dor_ps.rda.pig.plot <- ggplot() +
 
 
 ggarrange(Dor_ps.rda.plot, Dor_ps.rda.pig.plot, widths = c(1,1),
-          ncol = 2, nrow = 1, align = "h", legend = "bottom")
+          ncol = 2, nrow = 1, align = "hv", legend = "bottom", common.legend = TRUE)
 
 ggsave("./figures/Env_par.pdf", 
        plot = last_plot(),
@@ -197,6 +199,7 @@ ggsave("./figures/Env_par.pdf",
        width = 30, height = 30, 
        #scale = 1,
        dpi = 300)
+
 
 #####################################
 #RDA analysis of ASVs
@@ -233,25 +236,25 @@ Dor_ps.rda.species.sub <- Dor_ps.rda.species %>% mutate(Class =  ifelse(Class %i
 Dor_ps.rda.arrows<- Dor_ps.rda.scores$biplot
 colnames(Dor_ps.rda.arrows)<-c("x","y")
 Dor_ps.rda.arrows <- as.data.frame(Dor_ps.rda.arrows)
-Dor_ps.rda.evals <- 100 * (Dor_ps.prev.rda.all$CCA$eig / sum(Dor_ps.prev.rda.all$CCA$eig))
+Dor_ps.rda.evals <- 100 * summary(Dor_ps.prev.rda.all)$cont$importance[2, c("RDA1","RDA2")]
 
 #Plot 
 Dor_ps.rda.species.plot <- ggplot() +
-  geom_point(data = subset(Dor_ps.rda.species.sub,Alpha == 0.5), aes(x = RDA1, y = RDA2, alpha = Alpha), 
-             fill = "gray", size = 3) +
-  geom_point(data = subset(Dor_ps.rda.species.sub, Alpha == 1), aes(x = RDA1, y = RDA2, alpha = Alpha), 
+  geom_point(data = subset(Dor_ps.rda.species.sub,Alpha == 0.5), aes(x = RDA1, y = RDA2), alpha = 0.2,
+             fill = "gray", size = 1) +
+  geom_point(data = subset(Dor_ps.rda.species.sub, Alpha == 1), aes(x = RDA1, y = RDA2), alpha = 1,
              fill = "black", size = 5) +
-  geom_point(data = subset(Dor_ps.rda.species.sub, Alpha == 1), aes(x = RDA1, y = RDA2, alpha = Alpha, colour = Class), 
+  geom_point(data = subset(Dor_ps.rda.species.sub, Alpha == 1), aes(x = RDA1, y = RDA2, colour = Class), alpha = 1,
              size = 4) +
-  geom_text(data = subset(Dor_ps.rda.species.sub, Alpha == 1),aes(x = RDA1, y = RDA2,label = Genus), 
-            nudge_y= -0.01,size=3)+
+  #geom_text(data = subset(Dor_ps.rda.species.sub, Alpha == 1),aes(x = RDA1, y = RDA2,label = Genus), 
+  #          nudge_y= -0.01,size=3)+
   scale_colour_manual(values = class_col) + 
-  labs(x = sprintf("RDA1 [%s%% of explained variance]", round(Dor_ps.rda.evals[1], 2)), 
-       y = sprintf("RDA2 [%s%% of explained variance]", round(Dor_ps.rda.evals[2], 2))) +
+  labs(x = sprintf("RDA1 [%s%%]", round(Dor_ps.rda.evals[1], 2)), 
+       y = sprintf("RDA2 [%s%%]", round(Dor_ps.rda.evals[2], 2))) +
   geom_segment(data=Dor_ps.rda.arrows, aes(x = 0, y = 0, xend = x, yend = y),
-               arrow = arrow(length = unit(0.2, "cm")),color="black",alpha=0.5)+
+               arrow = arrow(length = unit(0.2, "cm")),color="gray50",alpha=0.5)+
   geom_text(data=as.data.frame(Dor_ps.rda.arrows*1.1),
-            aes(x, y, label = rownames(Dor_ps.rda.arrows)),color="black",alpha=0.5)+
+            aes(x, y, label = rownames(Dor_ps.rda.arrows)),color="gray50",alpha=0.5)+
   theme_bw()+
   theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
         axis.line = element_line(colour = "black"),
@@ -274,25 +277,25 @@ Dor_ps.rda.pig.species.sub <- Dor_ps.rda.pig.species %>% mutate(Class =  ifelse(
 Dor_ps.rda.pig.arrows<- Dor_ps.rda.pig.scores$biplot
 colnames(Dor_ps.rda.pig.arrows)<-c("x","y")
 Dor_ps.rda.pig.arrows <- as.data.frame(Dor_ps.rda.pig.arrows)
-Dor_ps.rda.pig.evals <- 100 * (Dor_ps.prev.rda.pig.all$CCA$eig / sum(Dor_ps.prev.rda.pig.all$CCA$eig))
+Dor_ps.rda.pig.evals <- 100 * summary(Dor_ps.prev.rda.pig.all)$cont$importance[2, c("RDA1","RDA2")]
 
 #Plot 
 Dor_ps.rda.pig.plot <- ggplot() +
-  geom_point(data = subset(Dor_ps.rda.pig.species.sub,Alpha == 0.5), aes(x = RDA1, y = RDA2, alpha = Alpha), 
-             fill = "gray", size = 3) +
-  geom_point(data = subset(Dor_ps.rda.pig.species.sub, Alpha == 1), aes(x = RDA1, y = RDA2, alpha = Alpha), 
+  geom_point(data = subset(Dor_ps.rda.pig.species.sub,Alpha == 0.5), aes(x = RDA1, y = RDA2), alpha = 0.2,
+             fill = "gray", size = 1) +
+  geom_point(data = subset(Dor_ps.rda.pig.species.sub, Alpha == 1), aes(x = RDA1, y = RDA2), alpha = 1,
              fill = "black", size = 5) +
-  geom_point(data = subset(Dor_ps.rda.pig.species.sub, Alpha == 1), aes(x = RDA1, y = RDA2, alpha = Alpha, colour = Class), 
+  geom_point(data = subset(Dor_ps.rda.pig.species.sub, Alpha == 1), aes(x = RDA1, y = RDA2, colour = Class), alpha = 1,
              size = 4) +
-  geom_text(data = subset(Dor_ps.rda.pig.species.sub, Alpha == 1),aes(x = RDA1, y = RDA2,label = Genus), 
-            nudge_y= -0.01,size=3)+
+  #geom_text(data = subset(Dor_ps.rda.pig.species.sub, Alpha == 1),aes(x = RDA1, y = RDA2,label = Genus), 
+   #         nudge_y= -0.01,size=3)+
   scale_colour_manual(values = class_col) + 
-  labs(x = sprintf("RDA1 [%s%% of explained variance]", round(Dor_ps.rda.pig.evals[1], 2)), 
-       y = sprintf("RDA2 [%s%% of explained variance]", round(Dor_ps.rda.pig.evals[2], 2))) +
+  labs(x = sprintf("RDA1 [%s%%]", round(Dor_ps.rda.pig.evals[1], 2)), 
+       y = sprintf("RDA2 [%s%%]", round(Dor_ps.rda.pig.evals[2], 2))) +
   geom_segment(data=Dor_ps.rda.pig.arrows, aes(x = 0, y = 0, xend = x, yend = y),
-               arrow = arrow(length = unit(0.2, "cm")),color="gray")+
+               arrow = arrow(length = unit(0.2, "cm")),color="gray50")+
   geom_text(data=as.data.frame(Dor_ps.rda.pig.arrows*1.1),
-            aes(x, y, label = rownames(Dor_ps.rda.pig.arrows)),color="gray", size=4)+
+            aes(x, y, label = rownames(Dor_ps.rda.pig.arrows)),color="gray50", size=4)+
   theme_bw()+
   theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
         axis.line = element_line(colour = "black"),
@@ -300,9 +303,9 @@ Dor_ps.rda.pig.plot <- ggplot() +
 
 
 ggarrange(Dor_ps.rda.species.plot, Dor_ps.rda.pig.plot, #heights = c(2,1.2),
-          ncol = 2, nrow = 1, align = "hv", legend = "bottom")
+          ncol = 2, nrow = 1, align = "hv", legend = "bottom", common.legend = TRUE)
 
-ggsave("./figures/RDA_species_labeld.png", 
+ggsave("./figures/RDA_species.pdf", 
        plot = last_plot(),
        units = "cm",
        width = 30, height = 30, 
@@ -313,99 +316,107 @@ ggsave("./figures/RDA_species_labeld.png",
 #####################################
 #Effect of aquaculture
 #####################################
-Dor_ps.prev.fishponds<- subset_samples(Dor_ps.prev.no.na, location %in% c("D1.","V2."))
+Dor_ps.prev.fishponds<-Dor_ps.prev_gm %>% 
+  subset_samples(
+    Fish_biomass_g_pond>0 & 
+      !is.na(Food_Kg_pond)& 
+        location %in% c("D1.","V2."))
 
-#subset phys. parameters
-Fish_par.scaled<-metadata.scaled %>% 
-  select(Food_Kg_pond, Fish_biomass_g_pond)
-
+#subset and scale parameters
+#scale parameters
+Fish_par.scaled <- data.frame(sample_data(Dor_ps.prev.fishponds)) %>% 
+  select(Food_Kg_pond,Fish_biomass_g_pond) %>% 
+  mutate_all(as.numeric) %>%
+  mutate_if(is.numeric, scale_par)
 
 #RDA analysis
-Dor_ps.prev.rda.0 <- rda(t(otu_table(Dor_ps.prev.fishponds)) ~ Food_Kg_pond+Fish_biomass_g_pond,
-                         data = data.frame(sample_data(Dor_ps.prev.fishponds)) %>% 
-                           mutate_at(all_of(env.par),as.numeric)) # model containing only species matrix and intercept
+Dor_ps.fish.rda.0 <- rda(t(otu_table(Dor_ps.prev.fishponds)) ~ ., data = Fish_par.scaled)
 
+R2.fish<-RsquareAdj(Dor_ps.fish.rda.0)
+P2.fish<-anova(Dor_ps.fish.rda.0)
 
 #generate an RDA plot 
-Dor_ps.rda.scores <- vegan::scores(Dor_ps.prev.rda.0,display=c("sp","wa","lc","bp","cn"))
-Dor_ps.rda.sites <- data.frame(Dor_ps.rda.scores$sites)
-Dor_ps.rda.sites$Sample.ID <- as.character(rownames(Dor_ps.rda.sites))
+Dor_ps.fish.rda.scores <- vegan::scores(Dor_ps.fish.rda.0,display=c("sp","wa","lc","bp","cn"))
+Dor_ps.fish.rda.sites <- data.frame(Dor_ps.fish.rda.scores$sites)
+Dor_ps.fish.rda.sites$Sample.ID <- as.character(rownames(Dor_ps.fish.rda.sites))
 sample_data(Dor_ps.prev.fishponds)$Sample.ID <- as.character(rownames(sample_data(Dor_ps.prev.fishponds)))
 sample_data(Dor_ps.prev.fishponds)$Mic.Season <- as.character(sample_data(Dor_ps.prev.fishponds)$Mic.Season )
-Dor_ps.rda.sites <- Dor_ps.rda.sites %>%
+Dor_ps.fish.rda.sites <- Dor_ps.fish.rda.sites %>%
   left_join(sample_data(Dor_ps.prev.fishponds)) %>% 
   mutate(Mic.Season = factor(Mic.Season, levels= c("Wet","Dry")))
 
 
 #Draw biplots
-Dor_ps.rda.arrows<- Dor_ps.rda.scores$biplot
-colnames(Dor_ps.rda.arrows)<-c("x","y")
-Dor_ps.rda.arrows <- as.data.frame(Dor_ps.rda.arrows)
-Dor_ps.rda.evals <- 100 * (Dor_ps.prev.rda.0$CCA$eig / sum(Dor_ps.prev.rda.0$CCA$eig))
+Dor_ps.fish.rda.arrows<- Dor_ps.fish.rda.scores$biplot*5
+colnames(Dor_ps.fish.rda.arrows)<-c("x","y")
+Dor_ps.fish.rda.arrows <- as.data.frame(Dor_ps.fish.rda.arrows)
+Dor_ps.fish.rda.evals <- 100 * summary(Dor_ps.fish.rda.0)$cont$importance[2, c("RDA1","RDA2")]
 
 #Plot 
 Dor_ps.rda.fish.plot <- ggplot() +
-  geom_point(data = Dor_ps.rda.sites, aes(x = RDA1, y = RDA2, shape = Year), 
-             fill = "black", size = 5) +
-  geom_point(data = Dor_ps.rda.sites, aes(x = RDA1, y = RDA2, colour = Mic.Season, shape = Year), 
-             size = 4) +
-  geom_text(data = Dor_ps.rda.sites,aes(x = RDA1, y = RDA2,label = location), 
-            nudge_y= -0.3,size=3)+
+  geom_point(data = Dor_ps.fish.rda.sites, aes(x = RDA1, y = RDA2, shape = Year), 
+             fill = "black", size = 9) +
+  geom_point(data = Dor_ps.fish.rda.sites, aes(x = RDA1, y = RDA2, colour = Mic.Season, shape = Year), 
+             size = 7) +
+  geom_text(data = Dor_ps.fish.rda.sites,aes(x = RDA1, y = RDA2,label = location), 
+            nudge_y= -0.3,size=5)+
   scale_colour_manual(values = c("Wet"="darkblue",
                                  "Dry"="orange")) + 
-  labs(x = sprintf("RDA1 [%s%%]", round(Dor_ps.rda.evals[1], 2)), 
-       y = sprintf("RDA2 [%s%%]", round(Dor_ps.rda.evals[2], 2))) +
-  geom_segment(data=Dor_ps.rda.arrows, aes(x = 0, y = 0, xend = x, yend = y),
-               arrow = arrow(length = unit(0.2, "cm")),color="black",alpha=0.5)+
-  geom_text(data=as.data.frame(Dor_ps.rda.arrows*2),
-            aes(x, y, label = rownames(Dor_ps.rda.arrows)),color="black",alpha=0.5)+
+  labs(x = sprintf("RDA1 [%s%%]", round(Dor_ps.fish.rda.evals[1], 2)), 
+       y = sprintf("RDA2 [%s%%]", round(Dor_ps.fish.rda.evals[2], 2))) +
+  geom_segment(data=Dor_ps.fish.rda.arrows, aes(x = 0, y = 0, xend = x, yend = y),
+               arrow = arrow(length = unit(0.2, "cm")),color="gray50")+
+  geom_text(data=as.data.frame(Dor_ps.fish.rda.arrows*2),
+            aes(x, y, label = rownames(Dor_ps.fish.rda.arrows)),color="gray50", size = 4)+
   theme_bw()+
-  theme(legend.position = "bottom")
-
-
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
+        axis.line = element_line(colour = "black"),
+        text=element_text(size=14),legend.position = "bottom")
 
 #generate an RDA plot of species
-Dor_ps.rda.fish.scores <- vegan::scores(Dor_ps.prev.rda.0,display=c("sp","wa","lc","bp","cn"))
-Dor_ps.rda.fish.species <- data.frame(Dor_ps.rda.fish.scores$species)
-Dor_ps.rda.fish.species$ASV <- as.character(rownames(Dor_ps.rda.fish.species))
-Dor_tax <- data.frame(as(tax_table(Dor_ps.prev.no.na), "matrix"), ASV = rownames(tax_table(Dor_ps.prev.no.na)))
-Dor_ps.rda.fish.species <- Dor_ps.rda.fish.species %>%
+Dor_ps.fish.rda.species <- data.frame(Dor_ps.fish.rda.scores$species)
+Dor_ps.fish.rda.species$ASV <- as.character(rownames(Dor_ps.fish.rda.species))
+Dor_tax <- data.frame(as(tax_table(Dor_ps.prev.fishponds), "matrix"), ASV = rownames(tax_table(Dor_ps.prev.fishponds)))
+Dor_ps.fish.rda.species <- Dor_ps.fish.rda.species %>%
   left_join(Dor_tax, by= "ASV") 
 
-#calculate sequence proportions of each class and reduce the colouring of the plot only to the abundant classes
-Dor_ps.rda.fish.species.sub <- Dor_ps.rda.fish.species %>% mutate(Class =  ifelse(Class %in% Dor_ps.ra.long.agg$Class, Class, "Other taxa")) %>% 
-  mutate(Class = factor(Class,levels=c(taxa_classes,"Other taxa")))
+Dor_ps.fish.rda.species.sub <- Dor_ps.fish.rda.species %>% mutate(Class =  ifelse(Class %in% Dor_ps.ra.long.agg$Class, Class, "Other taxa")) %>% 
+  mutate(Class = factor(Class,levels=c(taxa_classes,"Other taxa")),
+         Alpha = case_when(ASV %in% enriched_ASV$ASV ~ 1, 
+                           TRUE ~ 0.5))
 
 #Draw biplots
-Dor_ps.rda.arrows<- Dor_ps.rda.fish.scores$biplot
-colnames(Dor_ps.rda.arrows)<-c("x","y")
-Dor_ps.rda.arrows <- as.data.frame(Dor_ps.rda.arrows)
-Dor_ps.rda.evals <- 100 * (Dor_ps.prev.rda.fish.sel.os$CCA$eig / sum(Dor_ps.prev.rda.fish.all$CCA$eig))
+Dor_ps.fish.rda.arrows<- Dor_ps.fish.rda.scores$biplot
+colnames(Dor_ps.fish.rda.arrows)<-c("x","y")
+Dor_ps.fish.rda.arrows <- as.data.frame(Dor_ps.fish.rda.arrows)
+Dor_ps.fish.rda.evals <- 100 * summary(Dor_ps.fish.rda.0)$cont$importance[2, c("RDA1","RDA2")]
 
 #Plot 
 Dor_ps.rda.fish.species.plot <- ggplot() +
-  geom_point(data = Dor_ps.rda.species.sub, aes(x = RDA1, y = RDA2), 
+  geom_point(data = subset(Dor_ps.fish.rda.species.sub,Alpha == 0.5), aes(x = RDA1, y = RDA2), alpha = 0.2,
+             fill = "gray", size = 1) +
+  geom_point(data = subset(Dor_ps.fish.rda.species.sub, Alpha == 1), aes(x = RDA1, y = RDA2), alpha = 1,
              fill = "black", size = 5) +
-  geom_point(data = Dor_ps.rda.species.sub, aes(x = RDA1, y = RDA2, colour = Class), 
+  geom_point(data = subset(Dor_ps.fish.rda.species.sub, Alpha == 1), aes(x = RDA1, y = RDA2, colour = Class), alpha = 1,
              size = 4) +
-  #geom_text(data = Dor_ps.rda.species,aes(x = RDA1, y = RDA2,label = Genus), 
-  #         nudge_y= -0.05,size=3)+
+  #geom_text(data = subset(Dor_ps.fish.rda.species.sub, Alpha == 1),aes(x = RDA1, y = RDA2,label = Genus), 
+  #          nudge_y= -0.01,size=3)+
   scale_colour_manual(values = class_col) + 
-  labs(x = sprintf("RDA1 [%s%% of explained variance]", round(Dor_ps.rda.evals[1], 2)), 
-       y = sprintf("RDA2 [%s%% of explained variance]", round(Dor_ps.rda.evals[2], 2))) +
-  geom_segment(data=Dor_ps.rda.arrows, aes(x = 0, y = 0, xend = x, yend = y),
-               arrow = arrow(length = unit(0.2, "cm")),color="black",alpha=0.5)+
-  geom_text(data=as.data.frame(Dor_ps.rda.arrows*1.1),
-            aes(x, y, label = rownames(Dor_ps.rda.arrows)),color="black",alpha=0.5)+
+  labs(x = sprintf("RDA1 [%s%%]", round(Dor_ps.fish.rda.evals[1], 2)), 
+       y = sprintf("RDA2 [%s%%]", round(Dor_ps.fish.rda.evals[2], 2))) +
+  geom_segment(data=Dor_ps.fish.rda.arrows, aes(x = 0, y = 0, xend = x, yend = y),
+               arrow = arrow(length = unit(0.2, "cm")),color="gray50",alpha=0.5)+
+  geom_text(data=as.data.frame(Dor_ps.fish.rda.arrows*1.1),
+            aes(x, y, label = rownames(Dor_ps.fish.rda.arrows)),color="gray50",alpha=0.5)+
   theme_bw()+
-  theme(legend.position = "bottom")
-
-
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
+        axis.line = element_line(colour = "black"),
+        text=element_text(size=14),legend.position = "bottom")
 
 ggarrange(Dor_ps.rda.fish.plot, Dor_ps.rda.fish.species.plot, #heights = c(2,1.2),
           ncol = 2, nrow = 1, align = "hv", legend = "bottom")
 
-ggsave("./figures/RDA_aqua.png", 
+ggsave("./figures/RDA_aqua.pdf", 
        plot = last_plot(),
        units = "cm",
        width = 30, height = 30, 
