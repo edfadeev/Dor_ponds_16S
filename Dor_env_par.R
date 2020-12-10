@@ -75,7 +75,7 @@ dev.off()
 phys_par.scaled<-metadata.scaled %>% 
   select(Temp_degC, "N:P",#Chl_a_mg_L,
          Ammonia_ug_L,MC_ug_L, 
-         NO3_NO2_N_L,
+         NO3_NO2_N_L,#Fish_biomass_g_pond, Food_Kg_pond,
          TP_ug_L)
 
 #subset pigments 
@@ -322,9 +322,9 @@ ggsave("./figures/RDA_species.pdf",
 #####################################
 Dor_ps.prev.fishponds<-Dor_ps.prev_gm %>% 
   subset_samples(
-    Fish_biomass_g_pond>0 & 
-      !is.na(Food_Kg_pond)& 
-        location %in% c("D1.","V2."))
+    !is.na(Fish_biomass_g_pond) & 
+      !is.na(Food_Kg_pond))
+
 
 #subset and scale parameters
 #scale parameters
@@ -358,12 +358,12 @@ Dor_ps.fish.rda.evals <- 100 * summary(Dor_ps.fish.rda.0)$cont$importance[2, c("
 
 #Plot 
 Dor_ps.rda.fish.plot <- ggplot() +
-  geom_point(data = Dor_ps.fish.rda.sites, aes(x = RDA1, y = RDA2, shape = Year), 
-             fill = "black", size = 9) +
-  geom_point(data = Dor_ps.fish.rda.sites, aes(x = RDA1, y = RDA2, colour = Mic.Season, shape = Year), 
-             size = 7) +
-  geom_text(data = Dor_ps.fish.rda.sites,aes(x = RDA1, y = RDA2,label = location), 
-            nudge_y= -0.3,size=5)+
+  geom_point(data = Dor_ps.fish.rda.sites, aes(x = RDA1, y = RDA2, shape = location), 
+             fill = "black", size = 5) +
+  geom_point(data = Dor_ps.fish.rda.sites, aes(x = RDA1, y = RDA2, colour = Mic.Season, shape = location), 
+             size = 3) +
+  geom_text(data = Dor_ps.fish.rda.sites,aes(x = RDA1, y = RDA2,label = paste(Month,gsub("20","",Year))), 
+            nudge_y= -0.8,size=5)+
   scale_colour_manual(values = c("Wet"="darkblue",
                                  "Dry"="orange")) + 
   labs(x = sprintf("RDA1 [%s%%]", round(Dor_ps.fish.rda.evals[1], 2)), 
@@ -372,6 +372,7 @@ Dor_ps.rda.fish.plot <- ggplot() +
                arrow = arrow(length = unit(0.2, "cm")),color="gray50")+
   geom_text(data=as.data.frame(Dor_ps.fish.rda.arrows*2),
             aes(x, y, label = rownames(Dor_ps.fish.rda.arrows)),color="gray50", size = 4)+
+  coord_fixed()+
   theme_bw()+
   theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
         axis.line = element_line(colour = "black"),
@@ -402,7 +403,7 @@ Dor_ps.rda.fish.species.plot <- ggplot() +
   geom_point(data = subset(Dor_ps.fish.rda.species.sub, Alpha == 1), aes(x = RDA1, y = RDA2), alpha = 1,
              fill = "black", size = 5) +
   geom_point(data = subset(Dor_ps.fish.rda.species.sub, Alpha == 1), aes(x = RDA1, y = RDA2, colour = Class), alpha = 1,
-             size = 4) +
+             size = 3) +
   #geom_text(data = subset(Dor_ps.fish.rda.species.sub, Alpha == 1),aes(x = RDA1, y = RDA2,label = Genus), 
   #          nudge_y= -0.01,size=3)+
   scale_colour_manual(values = class_col) + 
@@ -412,13 +413,14 @@ Dor_ps.rda.fish.species.plot <- ggplot() +
                arrow = arrow(length = unit(0.2, "cm")),color="gray50",alpha=0.5)+
   geom_text(data=as.data.frame(Dor_ps.fish.rda.arrows*1.1),
             aes(x, y, label = rownames(Dor_ps.fish.rda.arrows)),color="gray50",alpha=0.5)+
+  coord_fixed()+
   theme_bw()+
   theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
         axis.line = element_line(colour = "black"),
         text=element_text(size=14),legend.position = "bottom")
 
 ggarrange(Dor_ps.rda.fish.plot, Dor_ps.rda.fish.species.plot, #heights = c(2,1.2),
-          ncol = 2, nrow = 1, align = "hv", legend = "bottom")
+          ncol = 2, nrow = 1, align = "h", legend = "bottom", labels ="AUTO")
 
 ggsave("./figures/RDA_aqua.pdf", 
        plot = last_plot(),

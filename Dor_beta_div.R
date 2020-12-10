@@ -173,8 +173,8 @@ ggsave("./figures/Res_overview.png",
 #Generate merged plot for D1 and V2
 #####################################
 #subset reservoir
-Pond_par_merged <- Parameters_merged_df %>% filter(location  %in% c("D1.","V2."), variable %in% c("Temp_degC","NO3_NO2_N_L","Ammonia_ug_L","TP_ug_L",
-                                                                                                 "N:P","Pigments","Chlorophyll","MC_ug_L","Food_Kg_pond", "Fish_biomass_g_pond"))
+Pond_par_merged <- Parameters_merged_df %>% filter(location  %in% c("D1.","V2."), variable %in% c("Temp_degC","NO3_NO2_N_L","TP_ug_L",#"Ammonia_ug_L","N:P","MC_ug_L",
+                                                                                                 "Pigments","Chlorophyll","Food_Kg_pond", "Fish_biomass_g_pond"))
 Pond_bar_class<- Dor_ps.class.agg %>% filter(location %in% c("D1.","V2."))
 
 #plot
@@ -211,7 +211,7 @@ Pond_bar.p <- ggplot(Pond_bar_class, aes(x = Month, y = value, fill = Class)) +
 ggarrange(Pond_par.p, Pond_bar.p, heights = c(2,1.2),
           ncol = 1, nrow = 2, align = "v")
 
-ggsave("./figures/Fishponds_overview.png", 
+ggsave("./figures/Fishponds_overview.pdf", 
        plot = last_plot(),
        units = "cm",
        width = 30, height = 30, 
