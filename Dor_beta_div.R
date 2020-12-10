@@ -237,16 +237,17 @@ Dor.ord.df <- Dor.ord.df %>%  mutate(Temp_degC = as.numeric(Temp_degC))
 
 Dor.ord.p <- ggplot()+
   geom_point(data = Dor.ord.df, aes(x = NMDS1, y = NMDS2, shape = Mic.Season), 
-             fill = "black", size = 9) +
+             fill = "black", size = 5) +
   #geom_point(data = Dor.ord.df, aes(x = NMDS1, y = NMDS2, colour = Mic.Season, shape = Year), 
   #           size = 7) +
   geom_point(data = Dor.ord.df, aes(x = NMDS1, y = NMDS2, colour = Temp_degC, shape = Mic.Season), 
-             size = 7) +
-  geom_text(data = Dor.ord.df,aes(x = NMDS1, y = NMDS2,label = location), 
-            nudge_y= -5,size=8)+
+             size = 3) +
+  geom_text(data = Dor.ord.df,aes(x = NMDS1, y = NMDS2,label = substr(location, 1, 1)), 
+            nudge_y= -8,size=5)+
   scale_colour_gradient(low = "blue", high = "yellow")+
   annotate(geom="text", x=-100, y=100, label= paste0("Stress = ", round(Dor_ps.gm_mean.ord$stress,2)),
-           color="red", size = 8)+
+           color="red", size = 5)+
+  coord_fixed()+
   theme_bw()+
   theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
         axis.line = element_line(colour = "black"),
@@ -256,13 +257,14 @@ Dor.ord.p <- ggplot()+
 #plot NMDS1 vs Temperature
 Dor.ord.temp.p <- ggplot()+
   geom_point(data = Dor.ord.df, aes(x = NMDS1, y = Temp_degC, shape = Mic.Season), 
-             fill = "black", size = 9) +
+             fill = "black", size = 5) +
   geom_point(data = Dor.ord.df, aes(x = NMDS1, y = Temp_degC, colour = Temp_degC, shape = Mic.Season), 
-             size = 7) +
-  geom_text(data = Dor.ord.df,aes(x = NMDS1, y = Temp_degC,label = location), 
-            nudge_y= -0.5,size=8)+
+             size = 3) +
+  geom_text(data = Dor.ord.df,aes(x = NMDS1, y = Temp_degC,label = substr(location, 1, 1)), 
+            nudge_y= -0.8,size=5)+
   geom_hline(yintercept = 20, linetype = 2)+
   scale_colour_gradient(low = "blue", high = "yellow")+
+  coord_fixed()+
   theme_bw()+
   theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
         axis.line = element_line(colour = "black"),
@@ -271,21 +273,23 @@ Dor.ord.temp.p <- ggplot()+
 #plot NMDS2 vs Temperature
 Dor.ord.temp1.p <- ggplot()+
   geom_point(data = Dor.ord.df, aes(x = NMDS2, y = Temp_degC, shape = Mic.Season), 
-             fill = "black", size = 9) +
+             fill = "black", size = 5) +
   geom_point(data = Dor.ord.df, aes(x = NMDS2, y = Temp_degC, colour = Temp_degC, shape = Mic.Season), 
-             size = 7) +
-  geom_text(data = Dor.ord.df,aes(x = NMDS2, y = Temp_degC,label = location), 
-            nudge_y= -0.5,size=8)+
+             size = 3) +
+  geom_text(data = Dor.ord.df,aes(x = NMDS2, y = Temp_degC, label = substr(location, 1, 1)), 
+            nudge_y= -0.8,size=5)+
   geom_hline(yintercept = 20, linetype = 2)+
   scale_colour_gradient(low = "blue", high = "yellow")+
+  coord_fixed()+
   theme_bw()+
   theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
         axis.line = element_line(colour = "black"),
         text=element_text(size=14),legend.position = "bottom")
 
 
-ggarrange(Dor.ord.p, Dor.ord.temp.p, Dor.ord.temp1.p, widths = 1,heights = 1,
-          ncol = 3, nrow = 1, align = "hv", legend = "bottom",common.legend = TRUE)
+ggarrange(Dor.ord.p, Dor.ord.temp.p, Dor.ord.temp1.p, widths = 3,heights = 3,labels="AUTO",
+          #ncol = 3, nrow = 1, 
+          align = "hv", legend = "bottom",common.legend = TRUE)
 
 
 ggsave("./figures/NMDS_2013_2014.pdf", 
@@ -295,13 +299,11 @@ ggsave("./figures/NMDS_2013_2014.pdf",
        #scale = 1,
        dpi = 300)
 
-
 #test grouping of samples
 df <- as(sample_data(Dor_ps.gm_mean), "data.frame")
 d <- phyloseq::distance(Dor_ps.gm_mean, "euclidean")
 adonis_all <- adonis2(d ~ Year +Mic.Season + location  , df)
 adonis_all
-
 
 #posthoc to check which ponds are different
 groups <- df[["location"]]
