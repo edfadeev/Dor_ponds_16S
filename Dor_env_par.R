@@ -118,11 +118,11 @@ Dor_ps.rda.evals <- 100 * summary(Dor_ps.prev.rda.all)$cont$importance[2, c("RDA
 #Plot 
 Dor_ps.rda.plot <- ggplot() +
   geom_point(data = Dor_ps.rda.sites, aes(x = RDA1, y = RDA2, shape = location), 
-             fill = "black", size = 9) +
+             fill = "black", size = 5) +
   geom_point(data = Dor_ps.rda.sites, aes(x = RDA1, y = RDA2, colour = Mic.Season, shape = location), 
-             size = 7) +
+             size = 3) +
   geom_text(data = Dor_ps.rda.sites,aes(x = RDA1, y = RDA2,label = paste(Month,gsub("20","",Year))), 
-          nudge_y= -0.6,size=5)+
+          nudge_y= -0.8,size=5)+
   scale_colour_manual(values = c("Wet"="darkblue",
                                  "Dry"="orange")) + 
   labs(x = sprintf("RDA1 [%s%%]", round(Dor_ps.rda.evals[1], 2)), 
@@ -130,7 +130,8 @@ Dor_ps.rda.plot <- ggplot() +
   geom_segment(data=Dor_ps.rda.arrows, aes(x = 0, y = 0, xend = x, yend = y),
                arrow = arrow(length = unit(0.2, "cm")),color="gray50")+
   geom_text(data=as.data.frame(Dor_ps.rda.arrows*1.1),
-            aes(x, y, label = rownames(Dor_ps.rda.arrows)),color="gray50", size=4)+
+            aes(x, y, label = substr(rownames(Dor_ps.rda.arrows), 1, 1)),color="gray50", size=4)+
+  coord_fixed()+
   theme_bw()+
   theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
         axis.line = element_line(colour = "black"),
@@ -170,11 +171,11 @@ Dor_ps.rda.pig.evals <- 100 * summary(Dor_ps.prev.rda.pig.all)$cont$importance[2
 #Plot 
 Dor_ps.rda.pig.plot <- ggplot() +
   geom_point(data = Dor_ps.rda.pig.sites, aes(x = RDA1, y = RDA2, shape = location), 
-             fill = "black", size = 9) +
+             fill = "black", size = 5) +
   geom_point(data = Dor_ps.rda.pig.sites, aes(x = RDA1, y = RDA2, colour = Mic.Season, shape = location), 
-             size = 7) +
+             size = 3) +
   geom_text(data = Dor_ps.rda.pig.sites,aes(x = RDA1, y = RDA2,label = paste(Month,gsub("20","",Year))), 
-            nudge_y= -0.6,size=5)+
+            nudge_y= -0.8,size=5)+
   scale_colour_manual(values = c("Wet"="darkblue",
                                  "Dry"="orange")) + 
   labs(x = sprintf("RDA1 [%s%%]", round(Dor_ps.rda.pig.evals[1], 2)), 
@@ -182,7 +183,8 @@ Dor_ps.rda.pig.plot <- ggplot() +
   geom_segment(data=Dor_ps.rda.pig.arrows, aes(x = 0, y = 0, xend = x, yend = y),
                arrow = arrow(length = unit(0.2, "cm")),color="gray50")+
   geom_text(data=as.data.frame(Dor_ps.rda.pig.arrows*1.1),
-            aes(x, y, label = rownames(Dor_ps.rda.pig.arrows)),color="gray50", size=4)+
+            aes(x, y, label = substr(rownames(Dor_ps.rda.pig.arrows), 1, 1)),color="gray50", size=4)+
+  coord_fixed()+
   theme_bw()+
   theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
         axis.line = element_line(colour = "black"),
@@ -254,7 +256,8 @@ Dor_ps.rda.species.plot <- ggplot() +
   geom_segment(data=Dor_ps.rda.arrows, aes(x = 0, y = 0, xend = x, yend = y),
                arrow = arrow(length = unit(0.2, "cm")),color="gray50",alpha=0.5)+
   geom_text(data=as.data.frame(Dor_ps.rda.arrows*1.1),
-            aes(x, y, label = rownames(Dor_ps.rda.arrows)),color="gray50",alpha=0.5)+
+            aes(x, y, label = substr(rownames(Dor_ps.rda.arrows), 1, 1)),color="gray50",alpha=0.5)+
+  coord_fixed()+
   theme_bw()+
   theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
         axis.line = element_line(colour = "black"),
@@ -295,14 +298,15 @@ Dor_ps.rda.pig.plot <- ggplot() +
   geom_segment(data=Dor_ps.rda.pig.arrows, aes(x = 0, y = 0, xend = x, yend = y),
                arrow = arrow(length = unit(0.2, "cm")),color="gray50")+
   geom_text(data=as.data.frame(Dor_ps.rda.pig.arrows*1.1),
-            aes(x, y, label = rownames(Dor_ps.rda.pig.arrows)),color="gray50", size=4)+
+            aes(x, y, label = substr(rownames(Dor_ps.rda.pig.arrows), 1, 1)),color="gray50", size=4)+
+  coord_fixed()+
   theme_bw()+
   theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
         axis.line = element_line(colour = "black"),
         text=element_text(size=14),legend.position = "bottom")
 
 
-ggarrange(Dor_ps.rda.species.plot, Dor_ps.rda.pig.plot, #heights = c(2,1.2),
+ggarrange(Dor_ps.rda.species.plot, Dor_ps.rda.pig.plot, labels ="AUTO",
           ncol = 2, nrow = 1, align = "hv", legend = "bottom", common.legend = TRUE)
 
 ggsave("./figures/RDA_species.pdf", 
@@ -422,6 +426,17 @@ ggsave("./figures/RDA_aqua.pdf",
        width = 30, height = 30, 
        #scale = 1,
        dpi = 300)
+
+
+#####################################
+#export cyanobacterial ASVs sequences and coordinates in RDA
+#####################################
+writeXStringSet(refseq(subset_taxa(Dor_ps.prev, Class == "Cyanobacteriia")),"data/Cyano_ASVs.fa")
+
+Dor_ps.rda.species.cyano <- Dor_ps.rda.species %>% filter(Class == "Cyanobacteriia") %>% 
+  mutate(Enriched = case_when(ASV %in% enriched_ASV$ASV ~ "Yes", TRUE ~ "No"))
+
+write.table(Dor_ps.rda.species.cyano, "tables/cyanos_ASVs_rda_and_enrichment.csv")
 
 #####################################
 #get session info and remove all objects and libraries
