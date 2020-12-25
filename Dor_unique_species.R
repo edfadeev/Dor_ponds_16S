@@ -47,7 +47,7 @@ ASV_overlaps$ASV <- rownames(ASV_overlaps)
 D1_unique_ASV <- ASV_overlaps %>% filter(D1 == 1, V2 == 0, Res == 0)
 V2_unique_ASV <- ASV_overlaps %>% filter(D1 == 0, V2 == 1, Res == 0)
 Res_unique_ASV <- ASV_overlaps %>% filter(D1 == 0, V2 == 0, Res == 1)
-
+shared_ASV <- ASV_overlaps %>% filter(D1 == 1, V2 == 1, Res == 1)
 #extract ASVs that are present in both fishpond
 fishponds_ASV<- ASV_overlaps %>% filter(Res == 0)
 
@@ -104,6 +104,21 @@ unique_bar.p <- ggplot(unique_ASV_abund, aes(x = Month, y = Abund.total, fill = 
   theme_bw()+
   theme(legend.position="bottom")
 
+shared_ASV_abund<- Dor_ps.ra.long %>% filter(OTU %in% shared_ASV$ASV) %>% 
+  select(location, Month,Year,OTU,Class,Order, Family, Genus, Species, Abundance)%>%
+  group_by(location, Year,Month,Class,Order, Family, Genus, Species) %>%
+  dplyr::summarise(Abund.total= sum(Abundance)) %>% 
+  filter(Abund.total>0)
+
+#plot
+shared_bar.p <- ggplot(shared_ASV_abund, aes(x = Month, y = Abund.total, fill = Class)) + 
+  facet_grid(location~Year, space= "fixed") +
+  geom_col()+
+  #scale_fill_manual(values = tol24rainbow) + 
+  guides(fill = guide_legend(reverse = FALSE, keywidth = 1, keyheight = 1)) +
+  ylab("Sequence proportions (> 0.5 %) \n")+
+  theme_bw()+
+  theme(legend.position="bottom")
 
 #export table
 unique_species_by_pool <- rbind(D1_unique_ASV_abund, V2_unique_ASV_abund, Res_unique_ASV_abund) %>% spread(location, Abund.total)
