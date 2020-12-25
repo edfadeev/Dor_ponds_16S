@@ -23,10 +23,11 @@ Dor_ps.prev <-readRDS("data/Dor_ps_prev.rds")
 Dor_ps.alpha.div <- estimate_richness(Dor_ps.prev, split = TRUE, measures = NULL)
 
 #generate data set with all bacterial community characteristics
-Dor_comm.char<- data.frame(  Sample = sample_names(Dor_ps.prev),
-                             Year = sample_data(Dor_ps.prev)$Year,
+Dor_comm.char<- data.frame(Sample_number_dada2 = sample_data(Dor_ps.prev)$Sample_number_dada2,
+                             Pool = gsub("\\.","",sample_data(Dor_ps.prev)$location),
+                           Year = sample_data(Dor_ps.prev)$Year,
                              Month = sample_data(Dor_ps.prev)$Month,
-                             Season = sample_data(Dor_ps.prev)$Season,
+                             Mic.Season = sample_data(Dor_ps.prev)$Mic.Season,
                              #Chl.sequences = sample_sums(Dor_ps.chl),
                              Sequences= sample_sums(Dor_ps.prev),
                              Observed = Dor_ps.alpha.div$Observed,
@@ -36,7 +37,17 @@ Dor_comm.char<- data.frame(  Sample = sample_names(Dor_ps.prev),
                              InvSimpson = round(Dor_ps.alpha.div$InvSimpson,digits=2),
                              Evenness = round(Dor_ps.alpha.div$Shannon/log(Dor_ps.alpha.div$Observed),digits=2))
 
-write.csv(Dor_comm.char, "./tables/Dor_alpha_table.csv")
+#merge with env. par.
+env.par<- c("Temp_degC",  
+            "Ammonia_ug_L", "NO3_NO2_N_L", "TP_ug_L","Food_Kg_pond","Fish_biomass_g_pond","Chl_a_mg_L", "Chl_b_mg_L",
+            "Diatoxanthin_mg_L","Dinoxanthin_mg_L","Fucoxanthin_mg_L",
+            "b_caroten_mg_L","MC_ug_L","Lutein_mg_L","Zeaxanthin_mg_L")
+
+Dor_metadata<- left_join(Dor_comm.char, sample_data(Dor_ps.prev), by = c("Sample_number_dada2","Year","Month","Mic.Season")) %>% 
+  dplyr::select(c(names(Dor_comm.char),env.par)) %>% 
+  mutate("N:P" = as.numeric(NO3_NO2_N_L/TP_ug_L)) %>%   arrange(Pool,Year,Month)
+
+write.csv(Dor_metadata, "./tables/Dor_alpha_table.csv")
 
 # subset only 2013-2014
 Dor_ps.prev_run1<- subset_samples(Dor_ps.prev, Run == "1")
