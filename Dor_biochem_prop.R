@@ -26,6 +26,33 @@ Dor_biochem.summary<-Dor_biochem %>%
             n= length(value[!is.na(value)]))
 
 
-Dor_fish_sum<- Dor_biochem %>%   melt(id = c("location","Year"), measure.vars =c("Fish_biomass_g_pond","Food_Kg_pond")) %>% 
-  group_by(location, Year, variable) %>% 
-  summarise(sum = sum(as.numeric(value), na.rm = T), n= length(value[!is.na(value)]))
+Dor_fish_sum<- Dor_biochem %>%   #melt(id = c("location","Year"), measure.vars =c("Fish_biomass_g_pond","Food_Kg_pond")) %>% 
+  group_by(location, Year) %>% 
+  summarise(Food.sum = sum(as.numeric(Food_Kg_pond), na.rm = T), Biomass = max(as.numeric(Fish_biomass_g_pond), na.rm = T), n= length(Food_Kg_pond[!is.na(Food_Kg_pond)]))
+
+
+#####################################
+#model food and fish biomass
+#####################################
+Fish_metadata<- read.csv2("tables/Fish_biomass_data.csv")
+
+
+#build linear model
+fit1 <- lm(Total.biomass..kg. ~ Day, data = subset(Fish_metadata, location == "D1."))
+
+
+ggplot(Fish_metadata, aes(x = Day, y = Total.biomass..kg., group = location))+
+  geom_point()+
+  facet_wrap(location~., scales = "free_y")+
+  stat_smooth(method = "lm", col = "blue") +
+  labs(title = paste("Adj R2 = ",signif(summary(fit1)$adj.r.squared, 2),
+                     "Intercept =",signif(fit1$coef[[1]],2),
+                     " Slope =",signif(fit1$coef[[2]], 2),
+                     " P =",signif(summary(fit1)$coef[2,4], 2)))
+
+
+
+
+
+
+
