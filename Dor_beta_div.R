@@ -408,7 +408,7 @@ ggsave("./figures/NMDS_2015.pdf",
 #test grouping of samples
 df <- as(sample_data(Dor_ps.gm_mean), "data.frame")
 d <- phyloseq::distance(Dor_ps.gm_mean, "euclidean")
-adonis_all <- adonis2(d ~ Year +Mic.Season + location  , df)
+adonis_all <- adonis2(d ~ Mic.Season*location  , df)
 adonis_all
 
 #####################################
