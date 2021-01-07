@@ -20,12 +20,11 @@ Dor_ps.prev <-readRDS("data/Dor_ps_prev.rds")
 #####################################
 Parameters_long<- as(sample_data(Dor_ps.prev),"data.frame") %>% 
   select(location, Mic.Season, Year, Month, Temp_degC,
-         Food_Kg_pond, Fish_biomass_g_pond,
-         #O2_mg_L, 
+         Food_Kg_pond, Fish_biomass_Kg_pond,
+         O2_mg_L, 
          #pH, 
          Ammonia_ug_L,
          NO3_NO2_N_L, TP_ug_L, MC_ug_L) %>% 
-  #filter(location =="Res.") %>% 
   mutate("N:P" = (as.numeric(NO3_NO2_N_L)/as.numeric(TP_ug_L))) %>% 
   melt(id=c("location","Mic.Season", "Year", "Month")) %>% 
   mutate(value =as.numeric(value),
@@ -68,9 +67,9 @@ chl_long <- as(sample_data(Dor_ps.prev),"data.frame") %>%
 #merge together
 Parameters_merged_df<- bind_rows(Parameters_long, pigments_long, chl_long) %>% 
   mutate(variable = factor(variable, levels = c("Temp_degC","NO3_NO2_N_L","Ammonia_ug_L","TP_ug_L","N:P","Chlorophyll","Pigments","MC_ug_L","O2_mg_L", 
-                                                "pH", "Food_Kg_pond", "Fish_biomass_g_pond"),
+                                                "pH", "Food_Kg_pond", "Fish_biomass_Kg_pond"),
                            labels = c("Temp_degC","NO3_NO2_N_L","Ammonia_ug_L","TP_ug_L","N:P","Chlorophyll","Pigments","MC_ug_L","O2_mg_L", 
-                                      "pH", "Food_Kg_pond", "Fish_biomass_g_pond")),
+                                      "pH", "Food_Kg_pond", "Fish_biomass_Kg_pond")),
          Family = factor(Family, levels = c(levels(pigments_long$Family),levels(chl_long$Family),"Parameters"),
                          labels = c(levels(pigments_long$Family),levels(chl_long$Family),"Parameters")))
 
@@ -122,7 +121,7 @@ Dor_ps.class.agg <- Dor_ps.ra.long.agg %>%
 #Generate merged plot for the reservoir
 #####################################
 #subset reservoir
-Res_par_merged <- Parameters_merged_df %>% filter(location =="Res.", variable %in% c("Temp_degC","NO3_NO2_N_L","Ammonia_ug_L","TP_ug_L",
+Res_par_merged <- Parameters_merged_df %>% filter(location =="Res.", variable %in% c("Temp_degC","NO3_NO2_N_L","Ammonia_ug_L","TP_ug_L","O2_mg_L",
                                                                                      "N:P","Pigments","Chlorophyll","MC_ug_L"))
 Res_bar_class<- Dor_ps.class.agg %>% filter(location =="Res.")
 
@@ -173,17 +172,17 @@ ggsave("./figures/Res_overview.png",
 #Generate merged plot for D1 and V2
 #####################################
 #subset reservoir
-Pond_par_merged <- Parameters_merged_df %>% filter(location  %in% c("D1.","V2."), variable %in% c("Temp_degC","NO3_NO2_N_L","TP_ug_L",#"Ammonia_ug_L","N:P","MC_ug_L",
-                                                                                                 "Pigments","Chlorophyll","Food_Kg_pond", "Fish_biomass_g_pond"))
+Pond_par_merged <- Parameters_merged_df %>% filter(location  %in% c("D1.","V2."), variable %in% c("Temp_degC","NO3_NO2_N_L","TP_ug_L",#"Ammonia_ug_L","N:P","MC_ug_L","O2_mg_L",
+                                                                                                 "Pigments","Chlorophyll","Food_Kg_pond", "Fish_biomass_Kg_pond"))
 Pond_bar_class<- Dor_ps.class.agg %>% filter(location %in% c("D1.","V2."))
 
 #plot
 Pond_par.p<- ggplot()+
-  geom_line(data = filter(Pond_par_merged, variable %in% c("Pigments")), aes(x= Month, y = value, colour = Family, group = interaction(Family,location)),size = 1)+
+  geom_line(data = filter(Pond_par_merged, variable %in% c("Pigments")), aes(x= Month, y = value, colour = Family, group = interaction(Family,location), linetype = location),size = 1)+
   geom_point(data = filter(Pond_par_merged, variable %in% c("Pigments")), aes(x= Month, y = value, colour = Family, group = interaction(Family,location), shape = location),size = 3)+
-  geom_line(data = filter(Pond_par_merged, variable %in% c("Chlorophyll")), aes(x= Month, y = value, colour = Family, group = interaction(Family,location)),size = 1)+
+  geom_line(data = filter(Pond_par_merged, variable %in% c("Chlorophyll")), aes(x= Month, y = value, colour = Family, group = interaction(Family,location), linetype = location),size = 1)+
   geom_point(data = filter(Pond_par_merged, variable %in% c("Chlorophyll")), aes(x= Month, y = value, colour = Family, group = interaction(Family,location), shape = location),size = 3)+
-  geom_line(data = filter(Pond_par_merged, Family =="Parameters"), aes(x= Month, y = value, group = interaction(location,variable)),size = 1)+
+  geom_line(data = filter(Pond_par_merged, Family =="Parameters"), aes(x= Month, y = value, group = interaction(location,variable), linetype = location),size = 1)+
   geom_point(data = filter(Pond_par_merged, Family =="Parameters"), aes(x= Month, y = value, group = interaction(location,variable), shape = location), size = 3)+
   scale_fill_manual(values = cbPalette)+
   scale_colour_manual(values = cbPalette)+
@@ -220,7 +219,7 @@ ggsave("./figures/Fishponds_overview.pdf",
 
 
 #####################################
-#Community dissimilarities
+#Community dissimilarities 2013-2014
 #####################################
 # subset only 2013-2014
 Dor_ps.prev_run1<- subset_samples(Dor_ps.prev, Run == "1")
@@ -233,16 +232,21 @@ Dor_ps.gm_mean <- phyloseq_gm_mean_trans(Dor_ps.prev_run1)
 Dor_ps.gm_mean.ord <- ordinate(Dor_ps.gm_mean, method = "NMDS", distance = "euclidean")
 Dor.ord.df <- plot_ordination(Dor_ps.gm_mean, Dor_ps.gm_mean.ord, axes = c(1,2,3),justDF = TRUE)
 
-Dor.ord.df <- Dor.ord.df %>%  mutate(Temp_degC = as.numeric(Temp_degC))
+Dor.ord.df <- Dor.ord.df %>%  mutate(Temp_degC = as.numeric(Temp_degC),
+                                     Mic.Season = factor(Mic.Season, levels =c("Dry","Wet")))
 
-Dor.ord.p <- ggplot()+
-  geom_point(data = Dor.ord.df, aes(x = NMDS1, y = NMDS2, shape = Mic.Season), 
-             fill = "black", size = 5) +
+#add centroids
+Dor.ord.df <- merge(Dor.ord.df,aggregate(cbind(mean.x=NMDS1,mean.y=NMDS2)~location,Dor.ord.df,mean),by="location")
+
+
+Dor.ord.p <- ggplot(data = Dor.ord.df)+
+  geom_point(aes(x = NMDS1, y = NMDS2, shape = location), 
+             fill = "black", size = 5,alpha = 0.8) +
   #geom_point(data = Dor.ord.df, aes(x = NMDS1, y = NMDS2, colour = Mic.Season, shape = Year), 
   #           size = 7) +
-  geom_point(data = Dor.ord.df, aes(x = NMDS1, y = NMDS2, colour = Temp_degC, shape = Mic.Season), 
-             size = 3) +
-  geom_text(data = Dor.ord.df,aes(x = NMDS1, y = NMDS2,label = substr(location, 1, 1)), 
+  geom_point(aes(x = NMDS1, y = NMDS2, colour = Temp_degC, shape = location), 
+             size = 3,alpha = 0.8) +
+  geom_text(aes(x = NMDS1, y = NMDS2,label = Comment), 
             nudge_y= -8,size=5)+
   scale_colour_gradient(low = "blue", high = "yellow")+
   annotate(geom="text", x=-100, y=100, label= paste0("Stress = ", round(Dor_ps.gm_mean.ord$stress,2)),
@@ -256,11 +260,11 @@ Dor.ord.p <- ggplot()+
 
 #plot NMDS1 vs Temperature
 Dor.ord.temp.p <- ggplot()+
-  geom_point(data = Dor.ord.df, aes(x = NMDS1, y = Temp_degC, shape = Mic.Season), 
+  geom_point(data = Dor.ord.df, aes(x = NMDS1, y = Temp_degC, shape = location), 
              fill = "black", size = 5) +
-  geom_point(data = Dor.ord.df, aes(x = NMDS1, y = Temp_degC, colour = Temp_degC, shape = Mic.Season), 
+  geom_point(data = Dor.ord.df, aes(x = NMDS1, y = Temp_degC, colour = Temp_degC, shape = location), 
              size = 3) +
-  geom_text(data = Dor.ord.df,aes(x = NMDS1, y = Temp_degC,label = substr(location, 1, 1)), 
+  geom_text(data = Dor.ord.df,aes(x = NMDS1, y = Temp_degC,label = substr(Mic.Season, 1, 1)), 
             nudge_y= -0.8,size=5)+
   geom_hline(yintercept = 20, linetype = 2)+
   scale_colour_gradient(low = "blue", high = "yellow")+
@@ -272,11 +276,11 @@ Dor.ord.temp.p <- ggplot()+
 
 #plot NMDS2 vs Temperature
 Dor.ord.temp1.p <- ggplot()+
-  geom_point(data = Dor.ord.df, aes(x = NMDS2, y = Temp_degC, shape = Mic.Season), 
+  geom_point(data = Dor.ord.df, aes(x = NMDS2, y = Temp_degC, shape = location), 
              fill = "black", size = 5) +
-  geom_point(data = Dor.ord.df, aes(x = NMDS2, y = Temp_degC, colour = Temp_degC, shape = Mic.Season), 
+  geom_point(data = Dor.ord.df, aes(x = NMDS2, y = Temp_degC, colour = Temp_degC, shape = location), 
              size = 3) +
-  geom_text(data = Dor.ord.df,aes(x = NMDS2, y = Temp_degC, label = substr(location, 1, 1)), 
+  geom_text(data = Dor.ord.df,aes(x = NMDS2, y = Temp_degC, label = substr(Mic.Season, 1, 1)), 
             nudge_y= -0.8,size=5)+
   geom_hline(yintercept = 20, linetype = 2)+
   scale_colour_gradient(low = "blue", high = "yellow")+
@@ -317,6 +321,95 @@ mod.HSD <- TukeyHSD(mod)
 mod.HSD
 plot(mod.HSD)
 
+#####################################
+#Community dissimilarities 2015
+#####################################
+# subset only 2015
+Dor_ps.prev_run2<- subset_samples(Dor_ps.prev, Run == "2")
+
+#transform counts using geometric mean
+Dor_ps.gm_mean <- phyloseq_gm_mean_trans(Dor_ps.prev_run2)
+
+#NMDS plot
+Dor_ps.gm_mean.ord <- ordinate(Dor_ps.gm_mean, method = "NMDS", distance = "euclidean")
+Dor.ord.df <- plot_ordination(Dor_ps.gm_mean, Dor_ps.gm_mean.ord, axes = c(1,2,3),justDF = TRUE)
+
+Dor.ord.df <- Dor.ord.df %>%  mutate(Temp_degC = as.numeric(Temp_degC),
+                                     Mic.Season = factor(Mic.Season, levels =c("Dry","Wet")))
+
+#add centroids
+Dor.ord.df <- merge(Dor.ord.df,aggregate(cbind(mean.x=NMDS1,mean.y=NMDS2)~location,Dor.ord.df,mean),by="location")
+
+
+Dor.ord.p <- ggplot(data = Dor.ord.df)+
+  geom_point(aes(x = NMDS1, y = NMDS2, shape = location), 
+             fill = "black", size = 5,alpha = 0.8) +
+  #geom_point(data = Dor.ord.df, aes(x = NMDS1, y = NMDS2, colour = Mic.Season, shape = Year), 
+  #           size = 7) +
+  geom_point(aes(x = NMDS1, y = NMDS2, colour = Temp_degC, shape = location), 
+             size = 3,alpha = 0.8) +
+  geom_text(aes(x = NMDS1, y = NMDS2,label = Comment), 
+            nudge_y= -8,size=5)+
+  scale_colour_gradient(low = "blue", high = "yellow")+
+  annotate(geom="text", x=-100, y=100, label= paste0("Stress = ", round(Dor_ps.gm_mean.ord$stress,2)),
+           color="red", size = 5)+
+  coord_fixed()+
+  theme_bw()+
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
+        axis.line = element_line(colour = "black"),
+        text=element_text(size=14),legend.position = "bottom")
+
+
+#plot NMDS1 vs Temperature
+Dor.ord.temp.p <- ggplot()+
+  geom_point(data = Dor.ord.df, aes(x = NMDS1, y = Temp_degC, shape = location), 
+             fill = "black", size = 5) +
+  geom_point(data = Dor.ord.df, aes(x = NMDS1, y = Temp_degC, colour = Temp_degC, shape = location), 
+             size = 3) +
+  geom_text(data = Dor.ord.df,aes(x = NMDS1, y = Temp_degC,label = substr(Mic.Season, 1, 1)), 
+            nudge_y= -0.8,size=5)+
+  geom_hline(yintercept = 20, linetype = 2)+
+  scale_colour_gradient(low = "blue", high = "yellow")+
+  coord_fixed()+
+  theme_bw()+
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
+        axis.line = element_line(colour = "black"),
+        text=element_text(size=14),legend.position = "bottom")
+
+#plot NMDS2 vs Temperature
+Dor.ord.temp1.p <- ggplot()+
+  geom_point(data = Dor.ord.df, aes(x = NMDS2, y = Temp_degC, shape = location), 
+             fill = "black", size = 5) +
+  geom_point(data = Dor.ord.df, aes(x = NMDS2, y = Temp_degC, colour = Temp_degC, shape = location), 
+             size = 3) +
+  geom_text(data = Dor.ord.df,aes(x = NMDS2, y = Temp_degC, label = substr(Mic.Season, 1, 1)), 
+            nudge_y= -0.8,size=5)+
+  geom_hline(yintercept = 20, linetype = 2)+
+  scale_colour_gradient(low = "blue", high = "yellow")+
+  coord_fixed()+
+  theme_bw()+
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
+        axis.line = element_line(colour = "black"),
+        text=element_text(size=14),legend.position = "bottom")
+
+
+ggarrange(Dor.ord.p, Dor.ord.temp.p, Dor.ord.temp1.p, widths = 3,heights = 3,labels="AUTO",
+          #ncol = 3, nrow = 1, 
+          align = "hv", legend = "bottom",common.legend = TRUE)
+
+
+ggsave("./figures/NMDS_2015.pdf", 
+       plot = last_plot(),
+       units = "cm",
+       width = 30, height = 30, 
+       #scale = 1,
+       dpi = 300)
+
+#test grouping of samples
+df <- as(sample_data(Dor_ps.gm_mean), "data.frame")
+d <- phyloseq::distance(Dor_ps.gm_mean, "euclidean")
+adonis_all <- adonis2(d ~ Year +Mic.Season + location  , df)
+adonis_all
 
 #####################################
 #ASVs enrichment test between the seasons
@@ -481,7 +574,6 @@ Dor_Wet.genus <- Dor_ps.ra.long %>%
          OTU %in% enriched_Wet$ASV) %>% 
   group_by(Mic.Season, location, Year,Month,Class,Genus) %>%
   dplyr::summarise(Abund.total= sum(Abundance)) 
-
 
 
 

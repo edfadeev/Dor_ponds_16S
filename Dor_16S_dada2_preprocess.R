@@ -10,19 +10,16 @@ library(iNEXT); packageVersion("iNEXT")
 #####################################
 #Parse for Phyloseq
 #####################################
-ASVs_tab<- read.csv("./dada2/dada2_seqtab_nochim2.txt", h=T, sep="\t")
-#simplify sample names to match the metadata
-colnames(ASVs_tab)<- gsub("_F_filt.fastq.gz","",colnames(ASVs_tab))
+ASVs_tab<- read.csv("./dada2/otu_tab.csv", h=T, row.names = 1)
 
-TAX_tab<- as.matrix(read.csv("./dada2/dada2_taxonomy_table.txt", h=T,sep = "\t"))
+TAX_tab<- as.matrix(read.csv("./dada2/tax_tab.csv", h=T, row.names = 1))
 
-ENV <- read.csv("./tables/metadata.csv", sep = "," , h = T, row.names = 1)
+ENV <- read.csv("./dada2/meta_table.csv", h = T, row.names = 1)
 
 ENV<- ENV %>% mutate(Mic.Season = factor(Mic.Season, levels = c("Wet","Dry")),
                      Month = factor(Month, levels = c("Jan","Feb","Mar","Apr",
                                                       "May","Jun","Jul","Aug",
                                                       "Sep","Oct","Nov","Dec")))
-                     
 rownames(ENV)<- paste0("X",ENV$Sample_number_dada2)
   
 # Check order of samples
@@ -39,11 +36,6 @@ dna <- Biostrings::DNAStringSet(taxa_names(Dor_ps0))
 names(dna) <- taxa_names(Dor_ps0)
 Dor_ps0 <- merge_phyloseq(Dor_ps0, dna)
 taxa_names(Dor_ps0) <- paste0("ASV", seq(ntaxa(Dor_ps0)))
-
-#Remove controls and etc
-Dor_ps0<- subset_samples(Dor_ps0, location %in% c("Res.","V2.","D1.") & 
-                          !comment %in% c("control.SP01","control.SP02","control.SP03", "duplicate batch 2","Ashraf did the PCR")&
-                          !Sample_number_dada2 %in% c("95"))
 
 #remove chloroplast and mitochondria reads
 Dor_ps0.chl<- subset_taxa(Dor_ps0, Order == "Chloroplast")

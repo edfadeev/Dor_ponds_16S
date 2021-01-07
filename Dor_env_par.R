@@ -43,8 +43,8 @@ Dor_ps.prev.no.na<-Dor_ps.prev_gm %>%
 ####################################
 env.par<- c("Temp_degC", "Chl_a_mg_L", "Chl_b_mg_L", "N:P",
             "Ammonia_ug_L", "NO3_NO2_N_L", "TP_ug_L",
-            "Diatoxanthin_mg_L","Dinoxanthin_mg_L","Fucoxanthin_mg_L","Fish_biomass_g_pond",
-            "b_caroten_mg_L","MC_ug_L","Lutein_mg_L","Zeaxanthin_mg_L","Food_Kg_pond")
+            "Diatoxanthin_mg_L","Dinoxanthin_mg_L","Fucoxanthin_mg_L",
+            "b_caroten_mg_L","MC_ug_L","Lutein_mg_L","Zeaxanthin_mg_L")
 
 #scale parameters
 metadata.scaled <- data.frame(sample_data(Dor_ps.prev.no.na)) %>% 
@@ -62,8 +62,7 @@ envpar_corr <- metadata.scaled %>%
 envpar_corr.pvalues<- envpar_corr %>% cor_get_pval()
 
 #plot and save
-png(file="figures/par_corr.pdf",
-    width=1024, height=1024)
+pdf(file="figures/par_corr.pdf")
 envpar_corr %>%
   cor_reorder() %>%
   pull_lower_triangle() %>%
@@ -73,9 +72,9 @@ dev.off()
 
 #subset phys. parameters and mycrocysteins
 phys_par.scaled<-metadata.scaled %>% 
-  select(Temp_degC, "N:P",#Chl_a_mg_L,
+  select(Temp_degC, "N:P",
          Ammonia_ug_L,MC_ug_L, 
-         NO3_NO2_N_L,#Fish_biomass_g_pond, Food_Kg_pond,
+         NO3_NO2_N_L,
          TP_ug_L)
 
 #subset pigments 
@@ -320,16 +319,20 @@ ggsave("./figures/RDA_species.pdf",
 #####################################
 #Effect of aquaculture
 #####################################
+sample_data(Dor_ps.prev_gm)$Fish_biomass_Kg_pond[is.na(sample_data(Dor_ps.prev_gm)$Fish_biomass_Kg_pond)]<- 0
+sample_data(Dor_ps.prev_gm)$Food_Kg_pond[is.na(sample_data(Dor_ps.prev_gm)$Food_Kg_pond)]<- 0
+
+
 Dor_ps.prev.fishponds<-Dor_ps.prev_gm %>% 
   subset_samples(
-    !is.na(Fish_biomass_g_pond) & 
+    !is.na(Fish_biomass_Kg_pond) & 
       !is.na(Food_Kg_pond))
 
 
 #subset and scale parameters
 #scale parameters
 Fish_par.scaled <- data.frame(sample_data(Dor_ps.prev.fishponds)) %>% 
-  select(Food_Kg_pond,Fish_biomass_g_pond) %>% 
+  select(Food_Kg_pond,Fish_biomass_Kg_pond) %>% 
   mutate_all(as.numeric) %>%
   mutate_if(is.numeric, scale_par)
 
@@ -362,8 +365,8 @@ Dor_ps.rda.fish.plot <- ggplot() +
              fill = "black", size = 5) +
   geom_point(data = Dor_ps.fish.rda.sites, aes(x = RDA1, y = RDA2, colour = Mic.Season, shape = location), 
              size = 3) +
-  geom_text(data = Dor_ps.fish.rda.sites,aes(x = RDA1, y = RDA2,label = paste(Month,gsub("20","",Year))), 
-            nudge_y= -0.8,size=5)+
+  #geom_text(data = Dor_ps.fish.rda.sites,aes(x = RDA1, y = RDA2,label = paste(Month,gsub("20","",Year))), 
+  #          nudge_y= -0.8,size=5)+
   scale_colour_manual(values = c("Wet"="darkblue",
                                  "Dry"="orange")) + 
   labs(x = sprintf("RDA1 [%s%%]", round(Dor_ps.fish.rda.evals[1], 2)), 
@@ -428,17 +431,6 @@ ggsave("./figures/RDA_aqua.pdf",
        width = 30, height = 30, 
        #scale = 1,
        dpi = 300)
-
-
-#####################################
-#export cyanobacterial ASVs sequences and coordinates in RDA
-#####################################
-writeXStringSet(refseq(subset_taxa(Dor_ps.prev, Class == "Cyanobacteriia")),"data/Cyano_ASVs.fa")
-
-Dor_ps.rda.species.cyano <- Dor_ps.rda.species %>% filter(Class == "Cyanobacteriia") %>% 
-  mutate(Enriched = case_when(ASV %in% enriched_ASV$ASV ~ "Yes", TRUE ~ "No"))
-
-write.table(Dor_ps.rda.species.cyano, "tables/cyanos_ASVs_rda_and_enrichment.csv")
 
 #####################################
 #get session info and remove all objects and libraries
