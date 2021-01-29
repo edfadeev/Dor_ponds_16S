@@ -4,6 +4,7 @@ library(vegan); packageVersion("vegan")
 library(dplyr); packageVersion("dplyr")
 library(tidyr); packageVersion("tidyr")
 library(ggplot2); packageVersion("ggplot2")
+library(ggpubr); packageVersion("ggpubr")
 library(rstatix); packageVersion("rstatix")
 library(PerformanceAnalytics); packageVersion("PerformanceAnalytics")
 

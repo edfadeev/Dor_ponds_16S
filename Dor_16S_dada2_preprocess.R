@@ -10,7 +10,7 @@ library(iNEXT); packageVersion("iNEXT")
 #####################################
 #Parse for Phyloseq
 #####################################
-ASVs_tab<- read.csv("./dada2/otu_tab.csv", h=T, row.names = 1)
+ASVs_tab<- read.csv("./dada2/ASV_tab.csv", h=T, row.names = 1)
 
 TAX_tab<- as.matrix(read.csv("./dada2/tax_tab.csv", h=T, row.names = 1))
 

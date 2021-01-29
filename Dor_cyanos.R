@@ -41,9 +41,12 @@ barplots_cyanos<- ggplot(Dor_ps.ra.long_Cyanos, aes(x = Month, y = Abund.total, 
   #ylim(0,100)+
   facet_grid(location~Year, space= "fixed")+
   scale_fill_manual(values = tol21rainbow)+
-  ylab("Sequence proportions (%) \n")+
+  ylab("Relative sequence abundance (%) \n")+
   theme_bw()+
-  theme(legend.position="bottom")
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
+        axis.line = element_line(colour = "black"),
+        text=element_text(size=14),legend.position = "bottom", 
+        axis.title.x = element_blank())
 
 ggsave("./figures/barplots_cyanos.pdf", 
        plot = barplots_cyanos,
