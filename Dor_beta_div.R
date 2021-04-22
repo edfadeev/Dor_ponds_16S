@@ -16,7 +16,7 @@ source("scripts/extra_functions.R")
 Dor_ps.prev <-readRDS("data/Dor_ps_prev.rds")
 
 #####################################
-#generate seasonal dynamics combined with bar plots
+#generate dataframe of all env. parameters for ploting
 #####################################
 Parameters_long<- as(sample_data(Dor_ps.prev),"data.frame") %>% 
   select(location, Mic.Season, Year, Month, Temp_degC,
@@ -25,7 +25,8 @@ Parameters_long<- as(sample_data(Dor_ps.prev),"data.frame") %>%
          #pH, 
          Ammonia_ug_L,
          NO3_NO2_N_L, TP_ug_L, MC_ug_L) %>% 
-  mutate("N:P" = (as.numeric(NO3_NO2_N_L)/as.numeric(TP_ug_L))) %>% 
+  mutate(TN =as.numeric(NO3_NO2_N_L)+as.numeric(Ammonia_ug_L), 
+        "N:P" = TN/as.numeric(TP_ug_L)) %>% 
   melt(id=c("location","Mic.Season", "Year", "Month")) %>% 
   mutate(value =as.numeric(value),
          Family = "Parameters",
@@ -66,15 +67,17 @@ chl_long <- as(sample_data(Dor_ps.prev),"data.frame") %>%
 
 #merge together
 Parameters_merged_df<- bind_rows(Parameters_long, pigments_long, chl_long) %>% 
-  mutate(variable = factor(variable, levels = c("Temp_degC","NO3_NO2_N_L","Ammonia_ug_L","TP_ug_L","N:P","Chlorophyll","Pigments","MC_ug_L","O2_mg_L", 
+  mutate(variable = factor(variable, levels = c("Temp_degC","TN","TP_ug_L","Chlorophyll","Pigments","MC_ug_L","O2_mg_L", 
                                                 "pH", "Food_Kg_pond", "Fish_biomass_Kg_pond"),
-                           labels = c("Temp_degC","NO3_NO2_N_L","Ammonia_ug_L","TP_ug_L","N:P","Chlorophyll","Pigments","MC_ug_L","O2_mg_L", 
+                           labels = c("Temp_degC","TN","TP_ug_L","Chlorophyll","Pigments","MC_ug_L","O2_mg_L", 
                                       "pH", "Food_Kg_pond", "Fish_biomass_Kg_pond")),
          Family = factor(Family, levels = c(levels(pigments_long$Family),levels(chl_long$Family),"Parameters"),
                          labels = c(levels(pigments_long$Family),levels(chl_long$Family),"Parameters")))
 
 
-#Plot barplots of communities
+#####################################
+#generate dataframe of community compositions for plotting
+#####################################
 #calculate proportions
 Dor_ps.ra <- transform_sample_counts(Dor_ps.prev, function(x) x / sum(x))
 
@@ -121,8 +124,8 @@ Dor_ps.class.agg <- Dor_ps.ra.long.agg %>%
 #Generate merged plot for the reservoir
 #####################################
 #subset reservoir
-Res_par_merged <- Parameters_merged_df %>% filter(location =="Res.", variable %in% c("Temp_degC","NO3_NO2_N_L","Ammonia_ug_L","TP_ug_L","O2_mg_L",
-                                                                                     "N:P","Pigments","Chlorophyll","MC_ug_L"))
+Res_par_merged <- Parameters_merged_df %>% filter(location =="Res.", variable %in% c("Temp_degC","TN","TP_ug_L","O2_mg_L",
+                                                                                     "Pigments","Chlorophyll","MC_ug_L"))
 Res_bar_class<- Dor_ps.class.agg %>% filter(location =="Res.")
 
 #plot
@@ -160,7 +163,7 @@ ggarrange(Res_par.p, Res_bar.p, heights = c(2,1.2),
           ncol = 1, nrow = 2, align = "v", legend = "bottom",
           legend.grob = do.call(rbind, c(list(get_legend(Res_bar.p),get_legend(Res_par.p)), size="first")))
 
-ggsave("./figures/Res_overview.png", 
+ggsave("./figures/Res_overview.pdf", 
        plot = last_plot(),
        units = "cm",
        width = 30, height = 30, 
@@ -172,7 +175,7 @@ ggsave("./figures/Res_overview.png",
 #Generate merged plot for D1 and V2
 #####################################
 #subset reservoir
-Pond_par_merged <- Parameters_merged_df %>% filter(location  %in% c("D1.","V2."), variable %in% c("Temp_degC","NO3_NO2_N_L","TP_ug_L",#"Ammonia_ug_L","N:P","MC_ug_L","O2_mg_L",
+Pond_par_merged <- Parameters_merged_df %>% filter(location  %in% c("D1.","V2."), variable %in% c("Temp_degC","TN","TP_ug_L",#"Ammonia_ug_L","N:P","MC_ug_L","O2_mg_L",
                                                                                                  "Pigments","Chlorophyll","Food_Kg_pond", "Fish_biomass_Kg_pond"))
 Pond_bar_class<- Dor_ps.class.agg %>% filter(location %in% c("D1.","V2."))
 
@@ -207,8 +210,8 @@ Pond_bar.p <- ggplot(Pond_bar_class, aes(x = Month, y = value, fill = Class)) +
         axis.title.x = element_blank())
 
 
-ggarrange(Pond_par.p, Pond_bar.p, heights = c(2,1.2),
-          ncol = 1, nrow = 2, align = "v")
+ggarrange(Pond_par.p, Pond_bar.p, Res_bar.p, heights = c(2,1.2,1.2),
+          ncol = 1, nrow = 3, align = "v", legend = "none")
 
 ggsave("./figures/Fishponds_overview.pdf", 
        plot = last_plot(),
