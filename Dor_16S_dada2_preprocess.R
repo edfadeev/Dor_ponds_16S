@@ -10,11 +10,11 @@ library(iNEXT); packageVersion("iNEXT")
 #####################################
 #Parse for Phyloseq
 #####################################
-ASVs_tab<- read.csv("./dada2/ASV_tab.csv", h=T, row.names = 1)
+ASVs_tab<- read.csv("./data/ASV_tab.csv", h=T, row.names = 1)
 
-TAX_tab<- as.matrix(read.csv("./dada2/tax_tab.csv", h=T, row.names = 1))
+TAX_tab<- as.matrix(read.csv("./data/tax_tab.csv", h=T, row.names = 1))
 
-ENV <- read.csv("./dada2/meta_table.csv", h = T, row.names = 1)
+ENV <- read.csv("./data/meta_table.csv", h = T, row.names = 1)
 
 ENV<- ENV %>% mutate(Mic.Season = factor(Mic.Season, levels = c("Wet","Dry")),
                      Month = factor(Month, levels = c("Jan","Feb","Mar","Apr",
@@ -42,9 +42,6 @@ Dor_ps0.chl<- subset_taxa(Dor_ps0, Order == "Chloroplast")
 Dor_ps0.mit<- subset_taxa(Dor_ps0, Family == "Mitochondria")
 
 Dor_ps0<- subset_taxa(Dor_ps0, !Order == "Chloroplast" & !Family =="Mitochondria")
-
-#remove samples with less than 2000 sequences
-Dor_ps0<-  prune_samples(sample_sums(Dor_ps0)>2000, Dor_ps0)
 
 Dor_ps.prev<- prune_taxa(taxa_sums(Dor_ps0)>0,Dor_ps0)
 
