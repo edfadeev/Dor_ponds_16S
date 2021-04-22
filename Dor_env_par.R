@@ -43,13 +43,15 @@ Dor_ps.prev.no.na<-Dor_ps.prev_gm %>%
 #Check correlations between environmental parameters
 ####################################
 env.par<- c("Temp_degC", "Chl_a_mg_L", "Chl_b_mg_L", "N:P",
-            "Ammonia_ug_L", "NO3_NO2_N_L", "TP_ug_L",
+            "Ammonia_ug_L",
+            "TN", "TP_ug_L",
             "Diatoxanthin_mg_L","Dinoxanthin_mg_L","Fucoxanthin_mg_L",
             "b_caroten_mg_L","MC_ug_L","Lutein_mg_L","Zeaxanthin_mg_L")
 
 #scale parameters
 metadata.scaled <- data.frame(sample_data(Dor_ps.prev.no.na)) %>% 
-  mutate("N:P"=(as.numeric(NO3_NO2_N_L)/as.numeric(TP_ug_L))) %>% 
+  mutate(TN = as.numeric(NO3_NO2_N_L)+as.numeric(Ammonia_ug_L),
+        "N:P"=TN/as.numeric(TP_ug_L)) %>% 
   mutate_at(all_of(env.par),as.numeric) %>%
   mutate_if(is.numeric, scale_par)
 
@@ -74,8 +76,9 @@ dev.off()
 #subset phys. parameters and mycrocysteins
 phys_par.scaled<-metadata.scaled %>% 
   select(Temp_degC, "N:P",
-         Ammonia_ug_L,MC_ug_L, 
-         NO3_NO2_N_L,
+         #Ammonia_ug_L,
+         MC_ug_L, 
+         TN,
          TP_ug_L)
 
 #subset pigments 
@@ -110,7 +113,7 @@ Dor_ps.rda.sites <- Dor_ps.rda.sites %>%
   mutate(Season = factor(Mic.Season, levels= c("Wet","Dry")))
 
 #Draw biplots
-Dor_ps.rda.arrows<- Dor_ps.rda.scores$biplot*5
+Dor_ps.rda.arrows<- Dor_ps.rda.scores$biplot*3
 colnames(Dor_ps.rda.arrows)<-c("x","y")
 Dor_ps.rda.arrows <- as.data.frame(Dor_ps.rda.arrows)
 Dor_ps.rda.evals <- 100 * summary(Dor_ps.prev.rda.all)$cont$importance[2, c("RDA1","RDA2")]
@@ -130,7 +133,7 @@ Dor_ps.rda.plot <- ggplot() +
   geom_segment(data=Dor_ps.rda.arrows, aes(x = 0, y = 0, xend = x, yend = y),
                arrow = arrow(length = unit(0.2, "cm")),color="gray50")+
   geom_text(data=as.data.frame(Dor_ps.rda.arrows*1.1),
-            aes(x, y, label = substr(rownames(Dor_ps.rda.arrows), 1, 1)),color="gray50", size=4)+
+            aes(x, y, label = substr(rownames(Dor_ps.rda.arrows), 1, 2)),color="gray50", size=4)+
   coord_fixed()+
   theme_bw()+
   theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
@@ -256,7 +259,7 @@ Dor_ps.rda.species.plot <- ggplot() +
   geom_segment(data=Dor_ps.rda.arrows, aes(x = 0, y = 0, xend = x, yend = y),
                arrow = arrow(length = unit(0.2, "cm")),color="gray50",alpha=0.5)+
   geom_text(data=as.data.frame(Dor_ps.rda.arrows*1.1),
-            aes(x, y, label = substr(rownames(Dor_ps.rda.arrows), 1, 1)),color="gray50",alpha=0.5)+
+            aes(x, y, label = substr(rownames(Dor_ps.rda.arrows), 1, 2)),color="gray50",alpha=0.5)+
   coord_fixed()+
   theme_bw()+
   theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
@@ -320,20 +323,20 @@ ggsave("./figures/RDA_species.pdf",
 #####################################
 #Effect of aquaculture
 #####################################
-sample_data(Dor_ps.prev_gm)$Fish_biomass_Kg_pond[is.na(sample_data(Dor_ps.prev_gm)$Fish_biomass_Kg_pond)]<- 0
-sample_data(Dor_ps.prev_gm)$Food_Kg_pond[is.na(sample_data(Dor_ps.prev_gm)$Food_Kg_pond)]<- 0
+sample_data(Dor_ps.prev_gm)$Biomass..kg.[is.na(sample_data(Dor_ps.prev_gm)$Biomass..kg.)]<- 0
+sample_data(Dor_ps.prev_gm)$Food..Kg.[is.na(sample_data(Dor_ps.prev_gm)$Food..Kg.)]<- 0
 
 
 Dor_ps.prev.fishponds<-Dor_ps.prev_gm %>% 
   subset_samples(
-    !is.na(Fish_biomass_Kg_pond) & 
-      !is.na(Food_Kg_pond))
+    !is.na(Biomass..kg.) & 
+      !is.na(Food..Kg.))
 
 
 #subset and scale parameters
 #scale parameters
 Fish_par.scaled <- data.frame(sample_data(Dor_ps.prev.fishponds)) %>% 
-  select(Food_Kg_pond,Fish_biomass_Kg_pond) %>% 
+  select(Biomass..kg.,Food..Kg.) %>% 
   mutate_all(as.numeric) %>%
   mutate_if(is.numeric, scale_par)
 
@@ -355,7 +358,7 @@ Dor_ps.fish.rda.sites <- Dor_ps.fish.rda.sites %>%
 
 
 #Draw biplots
-Dor_ps.fish.rda.arrows<- Dor_ps.fish.rda.scores$biplot*5
+Dor_ps.fish.rda.arrows<- Dor_ps.fish.rda.scores$biplot
 colnames(Dor_ps.fish.rda.arrows)<-c("x","y")
 Dor_ps.fish.rda.arrows <- as.data.frame(Dor_ps.fish.rda.arrows)
 Dor_ps.fish.rda.evals <- 100 * summary(Dor_ps.fish.rda.0)$cont$importance[2, c("RDA1","RDA2")]
@@ -366,15 +369,15 @@ Dor_ps.rda.fish.plot <- ggplot() +
              fill = "black", size = 5) +
   geom_point(data = Dor_ps.fish.rda.sites, aes(x = RDA1, y = RDA2, colour = Mic.Season, shape = location), 
              size = 3) +
-  #geom_text(data = Dor_ps.fish.rda.sites,aes(x = RDA1, y = RDA2,label = paste(Month,gsub("20","",Year))), 
-  #          nudge_y= -0.8,size=5)+
+  geom_text(data = Dor_ps.fish.rda.sites,aes(x = RDA1, y = RDA2,label = paste(Month,gsub("20","",Year))), 
+            nudge_y= -0.8,size=5)+
   scale_colour_manual(values = c("Wet"="darkblue",
                                  "Dry"="orange")) + 
   labs(x = sprintf("RDA1 [%s%%]", round(Dor_ps.fish.rda.evals[1], 2)), 
        y = sprintf("RDA2 [%s%%]", round(Dor_ps.fish.rda.evals[2], 2))) +
   geom_segment(data=Dor_ps.fish.rda.arrows, aes(x = 0, y = 0, xend = x, yend = y),
                arrow = arrow(length = unit(0.2, "cm")),color="gray50")+
-  geom_text(data=as.data.frame(Dor_ps.fish.rda.arrows*2),
+  geom_text(data=as.data.frame(Dor_ps.fish.rda.arrows*1.1),
             aes(x, y, label = rownames(Dor_ps.fish.rda.arrows)),color="gray50", size = 4)+
   coord_fixed()+
   theme_bw()+
