@@ -39,7 +39,7 @@ Dor_comm.char<- data.frame(Sample_number_dada2 = sample_data(Dor_ps.prev)$Sample
 
 #merge with env. par.
 env.par<- c("Temp_degC",  
-            "Ammonia_ug_L", "NO3_NO2_N_L", "TP_ug_L","Food_Kg_pond","Fish_biomass_g_pond","Chl_a_mg_L", "Chl_b_mg_L",
+            "Ammonia_ug_L", "NO3_NO2_N_L", "TP_ug_L","Food..Kg.","Biomass..kg.","Chl_a_mg_L", "Chl_b_mg_L",
             "Diatoxanthin_mg_L","Dinoxanthin_mg_L","Fucoxanthin_mg_L",
             "b_caroten_mg_L","MC_ug_L","Lutein_mg_L","Zeaxanthin_mg_L")
 
@@ -53,11 +53,13 @@ write.csv(Dor_metadata, "./tables/Dor_alpha_table.csv")
 Dor_ps.prev_run1<- subset_samples(Dor_ps.prev, Run == "1")
 
 #plot alpha diversity
-Dor_alpha <- estimate_richness(Dor_ps.prev_run1, measures = c("Observed", "Chao1","Shannon", "InvSimpson"))
+Dor_alpha <- estimate_richness(Dor_ps.prev_run1, measures = c("Observed", "Chao1","Shannon", "Evenness"))
+Dor_alpha$Evenness <- Dor_alpha$Shannon/log(Dor_alpha$Observed)
+
 Dor_alpha <- merge_phyloseq(Dor_ps.prev_run1, sample_data(Dor_alpha))
 
 Dor_alpha.m <- as(sample_data(Dor_alpha), "data.frame")%>%
-  select(location, Year, Month, Mic.Season, Observed, Chao1, Shannon, InvSimpson)%>%
+  select(location, Year, Month, Mic.Season, Observed, Chao1, Shannon, Evenness)%>%
   melt(id.vars = c("location", "Year","Month", "Mic.Season"))
 
 alpha.p<- ggplot(Dor_alpha.m, aes(x = Month, y = value, group = variable)) +
@@ -97,16 +99,20 @@ ggsave("./figures/alpha_pools.png",
        #scale = 1,
        dpi = 300)
 
-alpha_seasons.p<- ggplot(Dor_alpha.m, aes (x = Mic.Season, y = value, group = Mic.Season, colour = Year))+
-  geom_boxplot(outlier.color = NULL, notch = FALSE)+
+alpha_seasons.p<- ggplot(Dor_alpha.m, aes (x = location, y = value, group = interaction(location,Mic.Season), 
+                                           colour = Mic.Season, shape = as.factor(Year)))+
+  geom_boxplot(outlier.color = NA, notch = FALSE)+
   geom_jitter(size = 3)+
   facet_wrap(variable~., scales = "free", ncol = 2)+
-  theme_classic(base_size = 12)+
-  #geom_signif(comparisons = list(c("Winter", "Spring"),c("Spring","Summer"),c("Summer","Autumn"),c("Winter","Autumn")),
-   #           map_signif_level=TRUE, test = "wilcox.test", color = "black")+
-  theme(legend.position = "bottom")
+  scale_colour_manual(values = c("Wet"="darkblue",
+                                 "Dry"="orange")) + 
+  #coord_fixed()+
+  theme_bw()+
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
+        axis.line = element_line(colour = "black"),
+        text=element_text(size=14),legend.position = "bottom")
 
-ggsave("./figures/alpha_seasons.png", 
+ggsave("./figures/alpha_seasons.pdf", 
        plot = alpha_seasons.p,
        units = "cm",
        width = 30, height = 30, 
@@ -126,12 +132,13 @@ kruskal.test(Chao1 ~ location, data = data.frame(sample_data(Dor_alpha)))
 kruskal.test(Chao1 ~ Mic.Season, data = data.frame(sample_data(Dor_alpha)))
 
 Chao1_Wilcox_Season <- as(sample_data(Dor_alpha),"data.frame")   %>%
+  group_by(location) %>% 
   rstatix::wilcox_test(Chao1 ~ Mic.Season, p.adjust.method = "BH") %>%
   add_significance()
 
-kruskal.test(Chao1 ~ Year, data = data.frame(sample_data(Dor_alpha)))
-Chao1_Wilcox_Year <- as(sample_data(Dor_alpha),"data.frame")   %>%
-  rstatix::wilcox_test(Chao1 ~ Year, p.adjust.method = "BH") %>%
+Chao1_Wilcox_Season <- as(sample_data(Dor_alpha),"data.frame")   %>%
+  #group_by(Mic.Season) %>% 
+  rstatix::wilcox_test(Chao1 ~ location, p.adjust.method = "BH") %>%
   add_significance()
 
 

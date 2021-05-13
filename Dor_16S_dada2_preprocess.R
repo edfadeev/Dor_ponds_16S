@@ -19,7 +19,10 @@ ENV <- read.csv("./data/meta_table.csv", h = T, row.names = 1)
 ENV<- ENV %>% mutate(Mic.Season = factor(Mic.Season, levels = c("Wet","Dry")),
                      Month = factor(Month, levels = c("Jan","Feb","Mar","Apr",
                                                       "May","Jun","Jul","Aug",
-                                                      "Sep","Oct","Nov","Dec")))
+                                                      "Sep","Oct","Nov","Dec")),
+                     TN =as.numeric(NO3_NO2_N_L)+as.numeric(Ammonia_ug_L), 
+                      "N:P" = TN/as.numeric(TP_ug_L))
+
 rownames(ENV)<- paste0("X",ENV$Sample_number_dada2)
   
 # Check order of samples

@@ -20,13 +20,11 @@ Dor_ps.prev <-readRDS("data/Dor_ps_prev.rds")
 #####################################
 Parameters_long<- as(sample_data(Dor_ps.prev),"data.frame") %>% 
   select(location, Mic.Season, Year, Month, Temp_degC,
-         Food_Kg_pond, Fish_biomass_Kg_pond,
+         Biomass..kg., Food..Kg.,
          O2_mg_L, 
          #pH, 
          Ammonia_ug_L,
          NO3_NO2_N_L, TP_ug_L, MC_ug_L) %>% 
-  mutate(TN =as.numeric(NO3_NO2_N_L)+as.numeric(Ammonia_ug_L), 
-        "N:P" = TN/as.numeric(TP_ug_L)) %>% 
   melt(id=c("location","Mic.Season", "Year", "Month")) %>% 
   mutate(value =as.numeric(value),
          Family = "Parameters",
@@ -68,9 +66,9 @@ chl_long <- as(sample_data(Dor_ps.prev),"data.frame") %>%
 #merge together
 Parameters_merged_df<- bind_rows(Parameters_long, pigments_long, chl_long) %>% 
   mutate(variable = factor(variable, levels = c("Temp_degC","TN","TP_ug_L","Chlorophyll","Pigments","MC_ug_L","O2_mg_L", 
-                                                "pH", "Food_Kg_pond", "Fish_biomass_Kg_pond"),
+                                                "pH", "Biomass..kg.", "Food..Kg."),
                            labels = c("Temp_degC","TN","TP_ug_L","Chlorophyll","Pigments","MC_ug_L","O2_mg_L", 
-                                      "pH", "Food_Kg_pond", "Fish_biomass_Kg_pond")),
+                                      "pH", "Biomass..kg.", "Food..Kg.")),
          Family = factor(Family, levels = c(levels(pigments_long$Family),levels(chl_long$Family),"Parameters"),
                          labels = c(levels(pigments_long$Family),levels(chl_long$Family),"Parameters")))
 
@@ -175,8 +173,10 @@ ggsave("./figures/Res_overview.pdf",
 #Generate merged plot for D1 and V2
 #####################################
 #subset reservoir
-Pond_par_merged <- Parameters_merged_df %>% filter(location  %in% c("D1.","V2."), variable %in% c("Temp_degC","TN","TP_ug_L",#"Ammonia_ug_L","N:P","MC_ug_L","O2_mg_L",
-                                                                                                 "Pigments","Chlorophyll","Food_Kg_pond", "Fish_biomass_Kg_pond"))
+Pond_par_merged <- Parameters_merged_df %>% 
+  filter(location  %in% c("D1.","V2."), variable %in% c("Temp_degC","TN","TP_ug_L","Pigments","Chlorophyll","Food..Kg.",
+                                                        "Biomass..kg."))
+
 Pond_bar_class<- Dor_ps.class.agg %>% filter(location %in% c("D1.","V2."))
 
 #plot
@@ -210,7 +210,7 @@ Pond_bar.p <- ggplot(Pond_bar_class, aes(x = Month, y = value, fill = Class)) +
         axis.title.x = element_blank())
 
 
-ggarrange(Pond_par.p, Pond_bar.p, Res_bar.p, heights = c(2,1.2,1.2),
+ggarrange(Pond_par.p, Pond_bar.p, heights = c(2,1.2,1.2),
           ncol = 1, nrow = 3, align = "v", legend = "none")
 
 ggsave("./figures/Fishponds_overview.pdf", 
@@ -219,6 +219,38 @@ ggsave("./figures/Fishponds_overview.pdf",
        width = 30, height = 30, 
        #scale = 1,
        dpi = 300)
+
+#####################################
+#test env. differences
+#####################################
+#total nitrogen
+Parameters_long %>% spread(variable, value) %>% 
+filter(TN != "NA") %>% 
+kruskal_test(TN ~ location)
+
+Parameters_long %>% spread(variable, value)  %>%
+  filter(TN != "NA") %>% 
+  rstatix::wilcox_test(TN ~ location, p.adjust.method = "BH") %>%
+  add_significance()
+
+Parameters_long %>% spread(variable, value) %>% group_by(location) %>% 
+  filter(TN != "NA") %>% 
+  dplyr::summarize(min = min(TN), max = max(TN), mean = mean(TN), se= se(TN), n= length(TN))
+
+
+#total phosphate
+Parameters_long %>% spread(variable, value) %>% 
+  filter(TP_ug_L != "NA") %>% 
+  kruskal_test(TP_ug_L ~ location)
+
+Parameters_long %>% spread(variable, value)  %>%
+  filter(TP_ug_L != "NA") %>% 
+  rstatix::wilcox_test(TP_ug_L ~ location, p.adjust.method = "BH") %>%
+  add_significance()
+
+Parameters_long %>% spread(variable, value) %>% group_by(location) %>% 
+  filter(TP_ug_L != "NA") %>% 
+  dplyr::summarize(min = min(TP_ug_L), max = max(TP_ug_L), mean = mean(TP_ug_L), se= se(TP_ug_L), n= length(TP_ug_L))
 
 
 #####################################

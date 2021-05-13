@@ -6,7 +6,7 @@ library(tidyr); packageVersion("tidyr")
 library(ggplot2); packageVersion("ggplot2")
 library(ggpubr); packageVersion("ggpubr")
 library(rstatix); packageVersion("rstatix")
-library(PerformanceAnalytics); packageVersion("PerformanceAnalytics")
+#library(PerformanceAnalytics); packageVersion("PerformanceAnalytics")
 
 #load colors and functions
 source("scripts/color_palletes.R")
@@ -42,16 +42,13 @@ Dor_ps.prev.no.na<-Dor_ps.prev_gm %>%
 #####################################
 #Check correlations between environmental parameters
 ####################################
-env.par<- c("Temp_degC", "Chl_a_mg_L", "Chl_b_mg_L", "N:P",
-            "Ammonia_ug_L",
+env.par<- c("Temp_degC", "Chl_a_mg_L", "Chl_b_mg_L", "N.P",
             "TN", "TP_ug_L",
             "Diatoxanthin_mg_L","Dinoxanthin_mg_L","Fucoxanthin_mg_L",
             "b_caroten_mg_L","MC_ug_L","Lutein_mg_L","Zeaxanthin_mg_L")
 
 #scale parameters
 metadata.scaled <- data.frame(sample_data(Dor_ps.prev.no.na)) %>% 
-  mutate(TN = as.numeric(NO3_NO2_N_L)+as.numeric(Ammonia_ug_L),
-        "N:P"=TN/as.numeric(TP_ug_L)) %>% 
   mutate_at(all_of(env.par),as.numeric) %>%
   mutate_if(is.numeric, scale_par)
 
@@ -91,26 +88,51 @@ pig_par.scaled<-metadata.scaled %>%
 #####################################
 #RDA analysis of communities
 #####################################
+Dor_ps.prev.no.na.phys<-Dor_ps.prev_gm %>% 
+  subset_samples(
+    !is.na(MC_ug_L) & 
+      !is.na(TN) &
+      !is.na(TP_ug_L) &
+      !is.na(Temp_degC))
+
+#scale parameters
+phys_par.scaled <- data.frame(sample_data(Dor_ps.prev.no.na.phys)) %>% 
+  mutate_at(all_of(env.par),as.numeric) %>%
+  mutate_if(is.numeric, scale_par) %>% 
+  select(Temp_degC, "N.P",
+         MC_ug_L, 
+         TN,
+         TP_ug_L)
+
 #stepwise RDA analysis
-Dor_ps.prev.rda.all <- rda(t(otu_table(Dor_ps.prev.no.na)) ~ ., data = phys_par.scaled) # model including all variables 
+Dor_ps.prev.rda.0 <- rda(t(otu_table(Dor_ps.prev.no.na.phys)) ~ 1,
+                         data = phys_par.scaled) # model containing only species matrix and intercept
 
-#Dor_ps.prev.rda.0 <- rda(t(otu_table(Dor_ps.prev.no.na)) ~ 1,
-#                         data = phys_par.scaled) # model containing only species matrix and intercept
-#Dor_ps.prev.rda.sel.os <- ordistep(Dor_ps.prev.rda.0, scope = formula(Dor_ps.prev.rda.all), direction = 'both',
-#                                   permutations = how(nperm = 999), steps = 100) #stepwise selection
+Dor_ps.prev.rda.all <- rda(t(otu_table(Dor_ps.prev.no.na.phys)) ~ ., 
+                           data = phys_par.scaled) # model including all variables 
 
-R2.phys<-RsquareAdj(Dor_ps.prev.rda.all)
-P2.phys<-anova(Dor_ps.prev.rda.all)
+Dor_ps.prev.rda.sel.os <- ordistep(Dor_ps.prev.rda.0, scope = formula(Dor_ps.prev.rda.all), direction = 'both',
+                                   permutations = how(nperm = 999), steps = 100) #stepwise selection
+
+#summary of RDA
+summary(Dor_ps.prev.rda.sel.os, display = NULL)
+vif.cca(Dor_ps.prev.rda.sel.os)
+
+R2.phys<-RsquareAdj(Dor_ps.prev.rda.sel.os)
+P2.phys<-anova(Dor_ps.prev.rda.sel.os)
+anova(Dor_ps.prev.rda.sel.os,by="terms")
+anova(Dor_ps.prev.rda.sel.os,by="axis")
 
 #generate an RDA plot 
-Dor_ps.rda.scores <- vegan::scores(Dor_ps.prev.rda.all,display=c("sp","wa","lc","bp","cn"))
+Dor_ps.rda.scores <- vegan::scores(Dor_ps.prev.rda.sel.os,display=c("sp","wa","lc","bp","cn"))
 Dor_ps.rda.sites <- data.frame(Dor_ps.rda.scores$sites)
 Dor_ps.rda.sites$Sample.ID <- as.character(rownames(Dor_ps.rda.sites))
-sample_data(Dor_ps.prev.no.na)$Sample.ID <- as.character(rownames(sample_data(Dor_ps.prev.no.na)))
-sample_data(Dor_ps.prev.no.na)$Mic.Season <- as.character(sample_data(Dor_ps.prev.no.na)$Mic.Season )
+sample_data(Dor_ps.prev.no.na.phys)$Sample.ID <- as.character(rownames(sample_data(Dor_ps.prev.no.na.phys)))
+sample_data(Dor_ps.prev.no.na.phys)$Mic.Season <- as.character(sample_data(Dor_ps.prev.no.na.phys)$Mic.Season)
 Dor_ps.rda.sites <- Dor_ps.rda.sites %>%
-  left_join(sample_data(Dor_ps.prev.no.na)) %>% 
-  mutate(Season = factor(Mic.Season, levels= c("Wet","Dry")))
+  left_join(sample_data(Dor_ps.prev.no.na.phys)) %>% 
+  mutate(Season = factor(Mic.Season, levels= c("Wet","Dry")),
+         Special = ifelse(Comment == "", "", "*"))
 
 #Draw biplots
 Dor_ps.rda.arrows<- Dor_ps.rda.scores$biplot*3
@@ -124,7 +146,7 @@ Dor_ps.rda.plot <- ggplot() +
              fill = "black", size = 5) +
   geom_point(data = Dor_ps.rda.sites, aes(x = RDA1, y = RDA2, colour = Mic.Season, shape = location), 
              size = 3) +
-  geom_text(data = Dor_ps.rda.sites,aes(x = RDA1, y = RDA2,label = paste(Month,gsub("20","",Year))), 
+  geom_text(data = Dor_ps.rda.sites,aes(x = RDA1, y = RDA2,label = paste(Month,gsub("20","",Year),Special)), 
           nudge_y= -0.8,size=5)+
   scale_colour_manual(values = c("Wet"="darkblue",
                                  "Dry"="orange")) + 
@@ -142,28 +164,53 @@ Dor_ps.rda.plot <- ggplot() +
 
 
 #RDA analysis of pigments
-Dor_ps.prev.rda.pig.all <- rda(t(otu_table(Dor_ps.prev.no.na)) ~ ., data = pig_par.scaled) # model including all variables 
+Dor_ps.prev.no.na.pig<-Dor_ps.prev_gm %>% 
+  subset_samples(
+      !is.na(Fucoxanthin_mg_L) &
+      !is.na(Dinoxanthin_mg_L) &
+      !is.na(Lutein_mg_L) &
+      !is.na(Zeaxanthin_mg_L) &
+      !is.na(Chl_b_mg_L) &
+      !is.na(Diatoxanthin_mg_L) &
+      !is.na(b_caroten_mg_L))
 
-#Dor_ps.prev.rda.pig.0 <- rda(t(otu_table(Dor_ps.prev.no.na)) ~ 1,
-#                             data = pig_par.scaled) # model containing only species matrix and intercept
-#Dor_ps.prev.rda.pig.sel.os <- ordistep(Dor_ps.prev.rda.pig.0, scope = formula(Dor_ps.prev.rda.pig.all), direction = 'both',
-#                                       permutations = how(nperm = 999), steps = 100) #stepwise selection
+#scale parameters
+pig_par.scaled <- data.frame(sample_data(Dor_ps.prev.no.na.pig)) %>% 
+  mutate_at(all_of(env.par),as.numeric) %>%
+  mutate_if(is.numeric, scale_par) %>% 
+  select(Fucoxanthin_mg_L, Dinoxanthin_mg_L,
+         Lutein_mg_L, Zeaxanthin_mg_L,
+         Chl_b_mg_L,Diatoxanthin_mg_L,
+         b_caroten_mg_L)
+
+Dor_ps.prev.rda.pig.all <- rda(t(otu_table(Dor_ps.prev.no.na.pig)) ~ ., data = pig_par.scaled) # model including all variables 
+
+Dor_ps.prev.rda.pig.0 <- rda(t(otu_table(Dor_ps.prev.no.na.pig)) ~ 1,
+                             data = pig_par.scaled) # model containing only species matrix and intercept
+
+Dor_ps.prev.rda.pig.sel.os <- ordistep(Dor_ps.prev.rda.pig.0, scope = formula(Dor_ps.prev.rda.pig.all), direction = 'both',
+                                       permutations = how(nperm = 999), steps = 100) #stepwise selection
 
 #summary of RDA
-summary(Dor_ps.prev.rda.pig.all, display = NULL)
+summary(Dor_ps.prev.rda.pig.sel.os, display = NULL)
+vif.cca(Dor_ps.prev.rda.pig.sel.os)
 
-R2.pig<-RsquareAdj(Dor_ps.prev.rda.pig.all)
-P2.pig<-anova(Dor_ps.prev.rda.pig.all)
+R2.pig<-RsquareAdj(Dor_ps.prev.rda.pig.sel.os)
+P2.pig<-anova(Dor_ps.prev.rda.pig.sel.os)
+anova(Dor_ps.prev.rda.pig.sel.os,by="terms")
+anova(Dor_ps.prev.rda.pig.sel.os,by="axis")
 
 #generate an RDA plot 
-Dor_ps.rda.pig.scores <- vegan::scores(Dor_ps.prev.rda.pig.all,display=c("sp","wa","lc","bp","cn"))
+Dor_ps.rda.pig.scores <- vegan::scores(Dor_ps.prev.rda.pig.sel.os,display=c("sp","wa","lc","bp","cn"))
 Dor_ps.rda.pig.sites <- data.frame(Dor_ps.rda.pig.scores$sites)
 Dor_ps.rda.pig.sites$Sample.ID <- as.character(rownames(Dor_ps.rda.pig.sites))
-sample_data(Dor_ps.prev.no.na)$Sample.ID <- as.character(rownames(sample_data(Dor_ps.prev.no.na)))
-sample_data(Dor_ps.prev.no.na)$Mic.Season <- as.character(sample_data(Dor_ps.prev.no.na)$Mic.Season)
+sample_data(Dor_ps.prev.no.na.pig)$Sample.ID <- as.character(rownames(sample_data(Dor_ps.prev.no.na.pig)))
+sample_data(Dor_ps.prev.no.na.pig)$Mic.Season <- as.character(sample_data(Dor_ps.prev.no.na.pig)$Mic.Season)
 Dor_ps.rda.pig.sites <- Dor_ps.rda.pig.sites %>%
-  left_join(sample_data(Dor_ps.prev.no.na), by = "Sample.ID") %>% 
-  mutate(Season = factor(Mic.Season, levels= c("Wet","Dry")))
+  left_join(sample_data(Dor_ps.prev.no.na.pig), by = "Sample.ID") %>% 
+  mutate(Season = factor(Mic.Season, levels= c("Wet","Dry")),
+  Special = ifelse(Comment == "", "", "*"))
+
 
 #Draw biplots
 Dor_ps.rda.pig.arrows<- Dor_ps.rda.pig.scores$biplot*5
@@ -177,7 +224,7 @@ Dor_ps.rda.pig.plot <- ggplot() +
              fill = "black", size = 5) +
   geom_point(data = Dor_ps.rda.pig.sites, aes(x = RDA1, y = RDA2, colour = Mic.Season, shape = location), 
              size = 3) +
-  geom_text(data = Dor_ps.rda.pig.sites,aes(x = RDA1, y = RDA2,label = paste(Month,gsub("20","",Year))), 
+  geom_text(data = Dor_ps.rda.pig.sites,aes(x = RDA1, y = RDA2,label = paste(Month,gsub("20","",Year),Special)), 
             nudge_y= -0.8,size=5)+
   scale_colour_manual(values = c("Wet"="darkblue",
                                  "Dry"="orange")) + 
@@ -194,18 +241,6 @@ Dor_ps.rda.pig.plot <- ggplot() +
         text=element_text(size=14),legend.position = "bottom")
 
 
-
-ggarrange(Dor_ps.rda.plot, Dor_ps.rda.pig.plot, widths = c(1,1),
-          ncol = 2, nrow = 1, align = "hv", legend = "bottom", common.legend = TRUE)
-
-ggsave("./figures/Env_par.pdf", 
-       plot = last_plot(),
-       units = "cm",
-       width = 30, height = 30, 
-       #scale = 1,
-       dpi = 300)
-
-
 #####################################
 #RDA analysis of ASVs
 #####################################
@@ -215,7 +250,7 @@ enriched_ASV<- read.csv("tables/enriched_ASVs.csv")
 #generate an RDA plot of species
 Dor_ps.rda.species <- data.frame(Dor_ps.rda.scores$species)
 Dor_ps.rda.species$ASV <- as.character(rownames(Dor_ps.rda.species))
-Dor_tax <- data.frame(as(tax_table(Dor_ps.prev.no.na), "matrix"), ASV = rownames(tax_table(Dor_ps.prev.no.na)))
+Dor_tax <- data.frame(as(tax_table(Dor_ps.prev), "matrix"), ASV = rownames(tax_table(Dor_ps.prev)))
 Dor_ps.rda.species <- Dor_ps.rda.species %>%
   left_join(Dor_tax, by= "ASV") 
 
@@ -286,7 +321,7 @@ Dor_ps.rda.pig.arrows <- as.data.frame(Dor_ps.rda.pig.arrows)
 Dor_ps.rda.pig.evals <- 100 * summary(Dor_ps.prev.rda.pig.all)$cont$importance[2, c("RDA1","RDA2")]
 
 #Plot 
-Dor_ps.rda.pig.plot <- ggplot() +
+Dor_ps.rda.species.pig.plot <- ggplot() +
   geom_point(data = subset(Dor_ps.rda.pig.species.sub,Alpha == 0.5), aes(x = RDA1, y = RDA2), alpha = 0.2,
              fill = "gray", size = 1) +
   geom_point(data = subset(Dor_ps.rda.pig.species.sub, Alpha == 1), aes(x = RDA1, y = RDA2), alpha = 1,
@@ -309,10 +344,14 @@ Dor_ps.rda.pig.plot <- ggplot() +
         text=element_text(size=14),legend.position = "bottom")
 
 
-ggarrange(Dor_ps.rda.species.plot, Dor_ps.rda.pig.plot, labels ="AUTO",
-          ncol = 2, nrow = 1, align = "hv", legend = "bottom", common.legend = TRUE)
 
-ggsave("./figures/RDA_species.pdf", 
+
+ggarrange(Dor_ps.rda.plot, Dor_ps.rda.pig.plot, 
+          Dor_ps.rda.species.plot, Dor_ps.rda.species.pig.plot,
+          widths = c(1,1),labels ="AUTO",
+          ncol = 2, nrow = 2, align = "hv", legend = "bottom", common.legend = TRUE)
+
+ggsave("./figures/RDA_combined.pdf", 
        plot = last_plot(),
        units = "cm",
        width = 30, height = 30, 
@@ -343,8 +382,14 @@ Fish_par.scaled <- data.frame(sample_data(Dor_ps.prev.fishponds)) %>%
 #RDA analysis
 Dor_ps.fish.rda.0 <- rda(t(otu_table(Dor_ps.prev.fishponds)) ~ ., data = Fish_par.scaled)
 
+summary(Dor_ps.fish.rda.0, display = NULL)
+vif.cca(Dor_ps.fish.rda.0)
+
 R2.fish<-RsquareAdj(Dor_ps.fish.rda.0)
 P2.fish<-anova(Dor_ps.fish.rda.0)
+anova(Dor_ps.fish.rda.0,by="terms")
+anova(Dor_ps.fish.rda.0,by="axis")
+
 
 #generate an RDA plot 
 Dor_ps.fish.rda.scores <- vegan::scores(Dor_ps.fish.rda.0,display=c("sp","wa","lc","bp","cn"))

@@ -29,7 +29,7 @@ Dor_ps.ra.long_Cyanos <- Dor_ps.ra.long %>%
   filter(Class == "Cyanobacteriia") %>% 
   group_by(location,Year,Season,Month,Family, Genus) %>%
   dplyr::summarise(Abund.total= sum(Abundance)) %>% 
-  filter(Abund.total>0)
+  filter(Abund.total>0) %>% mutate(Abund.total =Abund.total*100) #turn into percentage
 
 #reorder location
 Dor_ps.ra.long_Cyanos$location <- factor(Dor_ps.ra.long_Cyanos$location,
