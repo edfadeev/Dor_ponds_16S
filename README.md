@@ -1,4 +1,5 @@
-This repository contains the analysis code and the data of the paper "Seasonal dynamics are the major driver of microbial diversity and composition in intensive freshwater aquaculture"
+This repository contains the analysis code and metadata of the paper
+**"Seasonal dynamics are the major driver of microbial diversity and composition in intensive freshwater aquaculture"**
 doi: 
 
 ### Data: 
